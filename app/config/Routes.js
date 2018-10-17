@@ -1,14 +1,29 @@
-import React, {Component} from 'react';
-import {StyleSheet,View,Text} from 'react-native';
-import {Colors} from '../helpers/Helpers';
-import {SwitchNavigator, createDrawerNavigator, TabNavigator, StackNavigator, createBottomTabNavigator,navigationOptions  } from 'react-navigation';
+import React, {
+    Component
+} from 'react';
+import {
+    StyleSheet,
+    View,
+    Text
+} from 'react-native';
+import {
+    Colors
+} from '../helpers/Helpers';
+import {
+    SwitchNavigator,
+    createDrawerNavigator,
+    TabNavigator,
+    StackNavigator,
+    createBottomTabNavigator,
+    navigationOptions
+} from 'react-navigation';
 
 import Login from '../screens/Login';
 import Home from '../screens/Home';
 import Store from '../screens/Store';
 import TabProducts from '../screens/TabProducts';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import SideMenu from '../components/SideMenu.js';
 
 
 
@@ -21,7 +36,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 //     newProducts:{screen:Store}, 
 //     myProducts:{screen:Home}, 
-   
+
 
 // })
 
@@ -30,84 +45,110 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
 const HomeTabs = createBottomTabNavigator({
-    storeTab:{screen:TabProducts}, 
-    ordersTab:{screen:Home}, 
-    cartTab:{screen:Home},
-    statementTab:{screen:Home}, 
-    profileTab:{screen:Home}, 
+        storeTab: {
+            screen: TabProducts
+        },
+        ordersTab: {
+            screen: Home
+        },
+        cartTab: {
+            screen: Home
+        },
+        statementTab: {
+            screen: Home
+        },
+        profileTab: {
+            screen: Home
+        },
 
- 
-
-
-
-},
 
 
 
 
-
-{
-    navigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused, horizontal, tintColor }) => {
-        const { routeName } = navigation.state;
-        let iconName;
-        if (routeName === 'storeTab') {
-          iconName = `ios-information-circle${focused ? '' : '-outline'}`;
-        } else if (routeName === 'ordersTab') {
-          iconName = `ios-options${focused ? '' : '-outline'}`;
-        }
-        else if (routeName === 'cartTab') {
-            iconName = `ios-options${focused ? '' : '-outline'}`;
-        }
-        else if (routeName === 'statementTab') {
-            iconName = `ios-options${focused ? '' : '-outline'}`;
-        }
-        else if (routeName === 'profileTab') {
-            iconName = `ios-options${focused ? '' : '-outline'}`;
-        }
-
-        // You can return any component that you like here! We usually use an
-        // icon component from react-native-vector-icons
-        return <Ionicons name={iconName} size={horizontal ? 20 : 25} color={tintColor} />;
-      },
-    }),
-    tabBarOptions: {
-      activeTintColor: '#fdc300',
-      inactiveTintColor: '#5b5959',
     },
-  }
-  
+
+
+
+
+
+    {
+        navigationOptions: ({
+            navigation
+        }) => ({
+            tabBarIcon: ({
+                focused,
+                horizontal,
+                tintColor
+            }) => {
+                const { routeName } = navigation.state;
+                let iconName;
+                if (routeName === 'storeTab') {
+                    iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+                } else if (routeName === 'ordersTab') {
+                    iconName = `ios-options${focused ? '' : '-outline'}`;
+                } else if (routeName === 'cartTab') {
+                    iconName = `ios-options${focused ? '' : '-outline'}`;
+                } else if (routeName === 'statementTab') {
+                    iconName = `ios-options${focused ? '' : '-outline'}`;
+                } else if (routeName === 'profileTab') {
+                    iconName = `ios-options${focused ? '' : '-outline'}`;
+                }
+
+                // You can return any component that you like here! We usually use an
+                // icon component from react-native-vector-icons
+                return <Ionicons name = {
+                    iconName
+                }
+                size = {
+                    horizontal ? 20 : 25
+                }
+                color = {
+                    tintColor
+                }
+                />;
+            },
+        }),
+        tabBarOptions: {
+            activeTintColor: '#fdc300',
+            inactiveTintColor: '#5b5959',
+        },
+    }
+
 );
 const navigationDrawer = createDrawerNavigator({
-    storeTabs: {screen: HomeTabs},
-    home: {
-        screen: HomeTabs,
-        
-        },
-    order:{
-        screen: Home,
+        storeTabs: { screen: HomeTabs },
+        home: { screen: HomeTabs,},
+        order: {  screen: Home, }
+    },
 
-
+    {
+        contentComponent: SideMenu,
+        drawerWidth: 300
     }
-        
- });
+
+
+
+
+);
 
 
 
 const AuthenticationStack = StackNavigator({
-    login: Login,
-    // register: Register,
-    // forgotPassword:ForgotPassword,
-}
+        login: Login,
+        // register: Register,
+        // forgotPassword:ForgotPassword,
+    }
 
 
 
 )
 
 const MainStack = SwitchNavigator({
-    navigationDrawer:{screen: navigationDrawer},
-    authenticationStack:AuthenticationStack,            //stack for login,register,forgotpassword
-                                      //stack for tabs when we logged in
+    navigationDrawer: {
+        screen: navigationDrawer
+    },
+    authenticationStack: AuthenticationStack, //stack for login,register,forgotpassword
+    //stack for tabs when we logged in
 })
 
 
@@ -115,8 +156,8 @@ const MainStack = SwitchNavigator({
 
 class Routes extends Component {
     render() {
-        return (
-           <MainStack/>
+        return ( <
+            MainStack / >
         )
     }
 }
@@ -156,8 +197,8 @@ class Routes extends Component {
 //     Home: {screen: HomeScreen}
 // },
 //     {
-        
-  
+
+
 //     // direction:'vertical'
 // });
 
