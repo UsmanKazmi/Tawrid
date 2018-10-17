@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import {StyleSheet,View,Text} from 'react-native';
 import {Colors} from '../helpers/Helpers';
-import {SwitchNavigator, TabNavigator, StackNavigator, createBottomTabNavigator,navigationOptions  } from 'react-navigation';
+import {SwitchNavigator, createDrawerNavigator, TabNavigator, StackNavigator, createBottomTabNavigator,navigationOptions  } from 'react-navigation';
 
 import Login from '../screens/Login';
 import Home from '../screens/Home';
 import Store from '../screens/Store';
 import TabProducts from '../screens/TabProducts';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
 
@@ -24,6 +25,10 @@ import TabProducts from '../screens/TabProducts';
 
 // })
 
+
+
+
+
 const HomeTabs = createBottomTabNavigator({
     storeTab:{screen:TabProducts}, 
     ordersTab:{screen:Home}, 
@@ -38,39 +43,54 @@ const HomeTabs = createBottomTabNavigator({
 },
 
 
+
+
+
+{
+    navigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, horizontal, tintColor }) => {
+        const { routeName } = navigation.state;
+        let iconName;
+        if (routeName === 'storeTab') {
+          iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+        } else if (routeName === 'ordersTab') {
+          iconName = `ios-options${focused ? '' : '-outline'}`;
+        }
+        else if (routeName === 'cartTab') {
+            iconName = `ios-options${focused ? '' : '-outline'}`;
+        }
+        else if (routeName === 'statementTab') {
+            iconName = `ios-options${focused ? '' : '-outline'}`;
+        }
+        else if (routeName === 'profileTab') {
+            iconName = `ios-options${focused ? '' : '-outline'}`;
+        }
+
+        // You can return any component that you like here! We usually use an
+        // icon component from react-native-vector-icons
+        return <Ionicons name={iconName} size={horizontal ? 20 : 25} color={tintColor} />;
+      },
+    }),
+    tabBarOptions: {
+      activeTintColor: '#fdc300',
+      inactiveTintColor: '#5b5959',
+    },
+  }
   
 );
+const navigationDrawer = createDrawerNavigator({
+    storeTabs: {screen: HomeTabs},
+    home: {
+        screen: HomeTabs,
+        
+        },
+    order:{
+        screen: Home,
 
 
-//for showing icons using react-native-ionicons
-
-// {
-
-//     navigationOptions: ({ navigation }) => ({
-//       tabBarIcon: ({ focused, horizontal, tintColor }) => {
-//         const { routeName } = navigation.state;
-//         let iconName;
-
-//         if (routeName === 'camera') {
-//           iconName = `ios-information-circle${focused ? '' : '-outline'}`;
-//         } else if (routeName === 'profile') {
-//           iconName = `ios-add-circle${focused ? '' : '-outline'}`;
-//         } else if (routeName === 'feed') {
-//             iconName = `ios-add-circle${focused ? '' : '-outline'}`;
-//           }
-//          // You can return any component that you like here! We usually use an
-//         // icon component from react-native-vector-icons
-//         return <Ionicons name={iconName} size={horizontal ? 20 : 25} color={tintColor} />;
-//       },
-//     }),
-//     tabBarOptions: {
-//       activeTintColor: 'tomato',
-//       inactiveTintColor: 'grey',
-//     },
-//   }
-
-
-
+    }
+        
+ });
 
 
 
@@ -85,7 +105,7 @@ const AuthenticationStack = StackNavigator({
 )
 
 const MainStack = SwitchNavigator({
-    home:HomeTabs,
+    navigationDrawer:{screen: navigationDrawer},
     authenticationStack:AuthenticationStack,            //stack for login,register,forgotpassword
                                       //stack for tabs when we logged in
 })

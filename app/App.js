@@ -40,7 +40,7 @@ export default class App extends Component {
 
   }
 }
-const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 23 : StatusBar.currentHeight;
+const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 23 : 0;
 const APPBAR_HEIGHT = Platform.OS === 'ios' ? 44 : 56;
 
 const styles = StyleSheet.create({

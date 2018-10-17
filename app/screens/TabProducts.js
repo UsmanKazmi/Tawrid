@@ -6,11 +6,17 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 import Products  from '../components/Products';
 import RouteProducts from '../config/RouteProducts';
+import Route from '../config/RouteProducts';
 
 export default class TabProducts extends Component{
     
     
     
+  openNavigationDrawer = () => {
+    this.props.navigation.toggleDrawer();
+
+  }
+
 
     constructor(Props) {
       super(Props);
@@ -75,8 +81,13 @@ export default class TabProducts extends Component{
               <StatusBar barStyle="light-content"/>
               <View style={styles.navBar}>
 
-                    <TouchableHighlight style = {styles.filterIcon}>
-                        <Icon name="ios-list" size={25} color={Colors.DarkGrey} />
+                    <TouchableHighlight          
+                        onPress={this.openNavigationDrawer}
+                        style = {styles.filterIcon}>
+
+                            <Icon name="md-list" 
+                                size={25} 
+                                color={Colors.DarkGrey} />
                     </TouchableHighlight>
 
                     <TouchableHighlight style = {styles.filterIcon}>

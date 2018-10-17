@@ -6,10 +6,7 @@ import { Image, Text, View, StyleSheet,TouchableOpacity,Dimensions } from 'react
 import Icon from 'react-native-vector-icons/Ionicons';
 import Swiper from 'react-native-swiper';
 
-
-const {height}
-= Dimensions.get('window')
-alert(height);
+const {height} = Dimensions.get('window')
 
 export class CardNewProduct extends Component {
     render(){
@@ -46,7 +43,7 @@ export class CardNewProduct extends Component {
 
 
         <View style={{ 
-                backgroundColor: Colors.Green,
+                backgroundColor: Colors.LightGreen,
             }}>
                     <View style={{flexDirection:"row"}}>
                         <Text 
@@ -64,7 +61,7 @@ export class CardNewProduct extends Component {
           <View
                 style={{
                     borderBottomColor: 'white',
-                    borderBottomWidth: 1,
+                    borderBottomWidth: StyleSheet.hairlineWidth,
                 }}
                 />
                 
