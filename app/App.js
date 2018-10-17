@@ -5,6 +5,8 @@ import {Colors} from './helpers/Helpers';
 import Routes from './config/Routes';
 
 
+
+
 const MyStatusBar = (Props) => (
   <View style={[styles.statusBar, { backgroundColor: Colors.Green }]}>
     <StatusBar backgroundColor={Colors.Green} />

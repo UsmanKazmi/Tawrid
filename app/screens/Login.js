@@ -6,7 +6,6 @@ import {Actions} from 'react-native-router-flux';
 import Loader from '../components/Loader';
 import Toast from '../components/Toasts';
 
-import Overlay from 'react-native-elements';
 import Home from './Home';
 
 

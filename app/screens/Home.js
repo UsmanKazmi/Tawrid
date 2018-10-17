@@ -4,7 +4,6 @@ import {Colors} from '../helpers/Helpers';
 import Api, { TawridApi } from '../utilities/Api';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
-import { ListItem } from 'react-native-elements';
 import Products  from '../components/Products';
 
 const MyProducts = () => (

@@ -5,6 +5,8 @@ import {SwitchNavigator, TabNavigator, StackNavigator, createBottomTabNavigator,
 
 import Login from '../screens/Login';
 import Home from '../screens/Home';
+import Store from '../screens/Store';
+import TabProducts from '../screens/TabProducts';
 
 
 
@@ -14,16 +16,16 @@ import Home from '../screens/Home';
 //stacks for HomePage Tabs Routing
 
 
-const productsTab = TabNavigator({
+// const productsTab = TabNavigator({
 
-    newProducts:{screen:Home}, 
-    myProducts:{screen:Home}, 
+//     newProducts:{screen:Store}, 
+//     myProducts:{screen:Home}, 
    
 
-})
+// })
 
 const HomeTabs = createBottomTabNavigator({
-    storeTab:{screen:productsTab}, 
+    storeTab:{screen:TabProducts}, 
     ordersTab:{screen:Home}, 
     cartTab:{screen:Home},
     statementTab:{screen:Home}, 
