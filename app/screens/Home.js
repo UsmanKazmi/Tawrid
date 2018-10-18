@@ -5,6 +5,7 @@ import Api, { TawridApi } from '../utilities/Api';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 import Products  from '../components/Products';
+import Notification from '../screens/Notification'
 
 const MyProducts = () => (
   
@@ -116,6 +117,7 @@ export default class Home extends Component<Props> {
             
             
             </View>
+            <Notification/>
             
         </View>
       

@@ -26,7 +26,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import SideMenu from '../components/SideMenu.js';
 import { CardGridVew } from '../screens/CardGridVew';
 import { TopHeaderBar } from '../components/TopHeaderBar';
-
+import Notification from '../screens/Notification'
 
 
 
