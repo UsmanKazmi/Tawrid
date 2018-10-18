@@ -7,12 +7,15 @@ import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 import Products  from '../components/Products';
 import RouteProducts from '../config/RouteProducts';
 import Route from '../config/RouteProducts';
-import {CardGridVew} from '../components/CardGridVew'
+import { Search } from '../components/Search';
 
 
 export default class TabProducts extends Component{
     
+  static navigationOptions = {
+    header: null
     
+}
     
   openNavigationDrawer = () => {
     this.props.navigation.toggleDrawer();
@@ -129,22 +132,7 @@ export default class TabProducts extends Component{
   
               <View style={styles.searchBox}>
 
-                <View style={styles.searchField}>
-
-                    <Icon name="ios-search"
-                    style={{
-                      padding: 10,
-                    }}
-                    size={25} color={Colors.DarkGrey} />
-
-                      <TextInput editable={this.state.textEdit} autoCapitalize = "none" maxLength={34} 
-                      autoCorrect={false} returnKeyType="search" underlineColorAndroid="transparent"  
-                      keyboardAppearance="light" placeholder="Search Products..." 
-                      placeholderTextColor={Colors.LightGrey} style={styles.searchField} 
-                      onSubmitEditing={()=>{}} blurOnSubmit={false} 
-                      value={this.state.search} onChangeText={(search) => this.setState({search})} 
-                    />
-                </View>
+            <Search/>
               </View>
               
               <View style={{flex:1,width:100+'%'}}>

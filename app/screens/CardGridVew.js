@@ -9,7 +9,7 @@ import TabProducts from '../screens/TabProducts';
 
 const {height} = Dimensions.get('window')
 
-export class CardGridVew extends Component {
+export default class CardGridVew extends Component {
     static navigationOptions = {
         header: null
         
@@ -20,7 +20,6 @@ export class CardGridVew extends Component {
 
     return (
         <View style={styles.mainView}>
-        <TabProducts/>
 
         <Swiper style={styles.wrapper} showsButtons={false}
         activeDot=

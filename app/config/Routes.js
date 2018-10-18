@@ -24,7 +24,8 @@ import Store from '../screens/Store';
 import TabProducts from '../screens/TabProducts';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SideMenu from '../components/SideMenu.js';
-import { CardGridVew } from '../components/CardGridVew';
+import { CardGridVew } from '../screens/CardGridVew';
+import { TopHeaderBar } from '../components/TopHeaderBar';
 
 
 
@@ -36,10 +37,13 @@ import { CardGridVew } from '../components/CardGridVew';
 const GridView = StackNavigator({
 
     tabproduct:{screen:TabProducts}, 
-    gridview:{screen:CardGridVew}, 
+
+    gridview:{screen:Home}, 
+
+}
 
 
-})
+)
 
 
 
