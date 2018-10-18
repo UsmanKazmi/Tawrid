@@ -25,9 +25,8 @@ export default class App extends Component {
   }
 
   render() {
-
+    console.disableYellowBox = true; 
     return (
-  
       <View style={styles.container}>
         <MyStatusBar barStyle="light-content" animated={true}/>
         

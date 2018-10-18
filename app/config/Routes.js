@@ -24,7 +24,7 @@ import Store from '../screens/Store';
 import TabProducts from '../screens/TabProducts';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SideMenu from '../components/SideMenu.js';
-import { CardGridVew } from '../screens/CardGridVew';
+import  CardGridVew  from '../screens/CardGridVew';
 import { TopHeaderBar } from '../components/TopHeaderBar';
 import Notification from '../screens/Notification'
 
@@ -55,7 +55,7 @@ const HomeTabs = createBottomTabNavigator({
 
         },
         ordersTab: {
-            screen: Home
+            screen: CardGridVew
         },
         cartTab: {
             screen: Home
@@ -150,10 +150,11 @@ const AuthenticationStack = StackNavigator({
 )
 
 const MainStack = SwitchNavigator({
-    authenticationStack: AuthenticationStack, //stack for login,register,forgotpassword
-
     navigationDrawer: {
         screen: navigationDrawer },
+    authenticationStack: AuthenticationStack, //stack for login,register,forgotpassword
+
+  
     //stack for tabs when we logged in
 })
 

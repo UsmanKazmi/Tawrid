@@ -117,7 +117,6 @@ export default class Home extends Component<Props> {
             
             
             </View>
-            <Notification/>
             
         </View>
       

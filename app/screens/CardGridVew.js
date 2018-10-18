@@ -6,6 +6,8 @@ import { Image, Text, View, StyleSheet,TouchableOpacity,Dimensions } from 'react
 import Icon from 'react-native-vector-icons/Ionicons';
 import Swiper from 'react-native-swiper';
 import TabProducts from '../screens/TabProducts';
+import { CardMain } from '../components/CardMain';
+import { SmallProductCard } from '../components/SmallProductCard';
 
 const {height} = Dimensions.get('window')
 
@@ -21,109 +23,36 @@ export default class CardGridVew extends Component {
     return (
         <View style={styles.mainView}>
 
-        <Swiper style={styles.wrapper} showsButtons={false}
-        activeDot=
-        {<View style={{backgroundColor:'#fdc300', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}} />}	
-        
-        >
-                <View style={styles.slide1}>
-                    <Image
-                    style={styles.image}
-                    source={{ uri: 'https://www.dike.lib.ia.us/images/sample-1.jpg/image' }}
-                    />
-                    </View>
+            <CardMain/>
 
-                    <View style={styles.slide1}>
-                    <Image
-                    style={styles.image}
-                    source={{ uri: 'https://www.dike.lib.ia.us/images/sample-1.jpg/image' }}
-                    />
-                    </View>
-        </Swiper>
+            <View style={styles.newProductView}>
+                    <Text style={styles.newProductText}>
+                        New Products
+                    </Text>
 
-
-
-
-
-
-        <View style={{ 
-                backgroundColor: Colors.LightGreen,
-            }}>
-                    <View style={{flexDirection:"row"}}>
-                        <Text 
-                            style={styles.cardTitle}>{'Title'}
-                         </Text>
-
-                         <Icon name="ios-funnel" style={{justifyContent:'center',alignSelf:'center'}} size={20} color={Colors.White} />
-
-                        <Text 
-                            style={styles.cardPrice}>{'Price'}
+                    <TouchableOpacity>
+                        <Text  style={styles.viewAllText}>
+                            View all
                         </Text>
-                    </View>
-          <Text style={styles.cardSubTitle}>{'Subtitle'}</Text>
+                    </TouchableOpacity>
+            
+            </View>
 
-          <View
-                style={{
-                    borderBottomColor: 'white',
-                    borderBottomWidth: StyleSheet.hairlineWidth,
-                }}
-                />
+            <View style={styles.newProductCards}>
+                <SmallProductCard/>
+                <SmallProductCard/>
+                <SmallProductCard/>
                 
-                <View style={{flexDirection:"row", justifyContent:'space-evenly'}}>
 
-                    <TouchableOpacity style={styles.bottomButtons}>
-                            <Icon 
-                                name="ios-funnel" 
-                                style={styles.bottomButtons} 
-                                size={20} 
-                                color={Colors.White} />
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.bottomButtons}>
-                            <Icon 
-                                name="ios-funnel" 
-                                style={styles.bottomButtons} 
-                                size={20} 
-                                color={Colors.White} />
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.bottomButtons}>
-                            <Icon 
-                                name="ios-funnel" 
-                                style={styles.bottomButtons} 
-                                size={20} 
-                                color={Colors.White} />
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.bottomButtons}>
-                            <Icon 
-                                name="ios-funnel" 
-                                style={styles.bottomButtons} 
-                                size={20} 
-                                color={Colors.White} />
-                    </TouchableOpacity>
-
-
-                    <TouchableOpacity style={styles.bottomButtons}>
-                            <Icon 
-                                name="ios-funnel" 
-                                style={styles.bottomButtons} 
-                                size={20} 
-                                color={Colors.White} />
-                    </TouchableOpacity>
+            </View>
 
 
 
+    
 
-                    
-                 
-                
-                </View>
-
-
+            
 
         </View>
-      </View>
 
        
      );
@@ -131,71 +60,46 @@ export default class CardGridVew extends Component {
 }
 
 const styles = StyleSheet.create({
-    mainView: {   
-        flexDirection: 'column', 
+    newProductView: {
+        paddingTop:10,  
+        paddingBottom:10,  
+
+        flexDirection: 'row', 
+    },
+    newProductText: {
+        flex:1,
+        fontWeight:'bold',
+        color:'grey',
+        
+      
+    },
+    myProductView: {
+        paddingTop:10,  
+        paddingBottom:10,  
+
+        flexDirection: 'row', 
+    },
+    myProductText: {
+        flex:1,
+        fontWeight:'bold',
+        color:'grey',
+        
+      
+    },
+    viewAllText:{
+        textAlign:'center',
+        fontSize:12
+      
+
+    },
+    mainView:{
         margin: 15
     },
-    image: 
-        { 
-            width: 100+'%', 
-        height: 200,  
-    },
-    cardTitle:{
-        flex:1,
-        color: 'white', 
-        fontSize: 15, 
-        marginLeft:15,
-        marginBottom:5,
-        marginTop:10,
-        fontWeight:"bold"
-
-    },
-    cardSubTitle:{
-        color: 'white', 
-        fontSize: 10,
-        marginLeft:15,
-        marginBottom:10
-    },
-    cardPrice:{
-        fontWeight:"bold",
-        color: 'white', 
-        fontSize: 15,
-        textAlign:'right',
-        marginRight:15,
-        marginBottom:5,
-        marginTop:10,
-
-    },
-    bottomButtons:{
-        padding:5,
-    },
-    wrapper: {
-        width:100+'%',
-        height:height/3
-    },
-    slide1: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#9DD6EB',
-    },
-    slide2: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#97CAE5',
-    },
-    slide3: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#92BBD9',
-    },
-    text: {
-      color: '#fff',
-      fontSize: 30,
-      fontWeight: 'bold',
+    newProductCards:{
+        justifyContent:'space-evenly',
+        flexDirection:'row',
     }
+   
 
     
    
