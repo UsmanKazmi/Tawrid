@@ -5,18 +5,22 @@ import { Colors } from '../helpers/Helpers';
 import { Image, Text, View, StyleSheet,TouchableOpacity,Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Swiper from 'react-native-swiper';
+import TabProducts from '../screens/TabProducts';
 
 const {height} = Dimensions.get('window')
 
-export class CardNewProduct extends Component {
-    
+export class CardGridVew extends Component {
+    static navigationOptions = {
+        header: null
+        
+    }
     render(){
 
  
 
     return (
-       
         <View style={styles.mainView}>
+        <TabProducts/>
 
         <Swiper style={styles.wrapper} showsButtons={false}
         activeDot=

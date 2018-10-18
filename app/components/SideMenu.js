@@ -68,7 +68,9 @@ class SideMenu extends Component {
              </View>
 
              <View style ={{flexDirection:'row', paddingStart:20}}>    
-                    <TouchableOpacity style={styles.buttonRow}>
+                    <TouchableOpacity style={styles.buttonRow}
+                    
+                    >
                         <Icon name={"ios-settings"}  size={30} color="#01a699" />
                         <Text  style={styles.pageText} >CHATS</Text>
                  </TouchableOpacity>

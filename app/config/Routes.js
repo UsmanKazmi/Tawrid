@@ -24,6 +24,7 @@ import Store from '../screens/Store';
 import TabProducts from '../screens/TabProducts';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SideMenu from '../components/SideMenu.js';
+import { CardGridVew } from '../components/CardGridVew';
 
 
 
@@ -32,13 +33,13 @@ import SideMenu from '../components/SideMenu.js';
 //stacks for HomePage Tabs Routing
 
 
-// const productsTab = TabNavigator({
+const GridView = StackNavigator({
 
-//     newProducts:{screen:Store}, 
-//     myProducts:{screen:Home}, 
+    tabproduct:{screen:TabProducts}, 
+    gridview:{screen:CardGridVew}, 
 
 
-// })
+})
 
 
 
@@ -46,7 +47,8 @@ import SideMenu from '../components/SideMenu.js';
 
 const HomeTabs = createBottomTabNavigator({
         storeTab: {
-            screen: TabProducts
+            screen: GridView
+
         },
         ordersTab: {
             screen: Home
@@ -144,10 +146,10 @@ const AuthenticationStack = StackNavigator({
 )
 
 const MainStack = SwitchNavigator({
-    navigationDrawer: {
-        screen: navigationDrawer
-    },
     authenticationStack: AuthenticationStack, //stack for login,register,forgotpassword
+
+    navigationDrawer: {
+        screen: navigationDrawer },
     //stack for tabs when we logged in
 })
 
@@ -156,8 +158,7 @@ const MainStack = SwitchNavigator({
 
 class Routes extends Component {
     render() {
-        return ( <
-            MainStack / >
+        return ( <MainStack/>
         )
     }
 }

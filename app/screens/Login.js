@@ -140,8 +140,7 @@ export default class Login extends Component {
 
   render() {
 
-    this.state.email="khaled@tawrid.net"
-    this.state.password="12345"
+
 
 
     // Logo Animation
@@ -219,9 +218,9 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
   container: {   
     flex: 1,
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignItems: 'center',
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.Green,
     justifyContent: 'center',
   },
   logo: {

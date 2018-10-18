@@ -8,7 +8,7 @@ import Home from '../screens/Home';
 import Store from '../screens/Store';
 import TabProducts from '../screens/TabProducts';
 import NewProduct from '../screens/NewProduct';
-
+import CardGridView from '../components/CardGridVew';
 
 
 
@@ -21,7 +21,6 @@ const ProductsTab = TabNavigator({
 
     newProducts:{screen:NewProduct},
     myProducts:{screen:Home},
-   
 
 },
 

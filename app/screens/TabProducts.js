@@ -7,6 +7,8 @@ import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 import Products  from '../components/Products';
 import RouteProducts from '../config/RouteProducts';
 import Route from '../config/RouteProducts';
+import {CardGridVew} from '../components/CardGridVew'
+
 
 export default class TabProducts extends Component{
     
@@ -14,6 +16,12 @@ export default class TabProducts extends Component{
     
   openNavigationDrawer = () => {
     this.props.navigation.toggleDrawer();
+
+  }
+
+  openGridView = () => {
+    alert("asd")
+    this.props.navigation.navigate('gridview');
 
   }
 
@@ -90,7 +98,9 @@ export default class TabProducts extends Component{
                                 color={Colors.DarkGrey} />
                     </TouchableHighlight>
 
-                    <TouchableHighlight style = {styles.filterIcon}>
+                    <TouchableHighlight 
+                    onPress={this.openGridView}
+                    style = {styles.filterIcon}>
                         <Icon name="ios-grid-outline" size={25} color={Colors.DarkGrey} />
                     </TouchableHighlight>
               
