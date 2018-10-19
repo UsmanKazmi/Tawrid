@@ -16,80 +16,132 @@ export class SmallProductCard extends Component {
 
     return (
         
-        <View style={{ 
-            width:24 + '%', 
-            height:100 + '%', 
+    //     <View style={{ 
+    //         width:24 + '%', 
+    //         height:100 + '%',
+    //         flexDirection:'column',
     
     
     
-    }}>
-        <View>
-        <Image
-          style={{
+    //             }}>
+    //             <View style={{
 
-                width:100, 
-                borderRadius:3,
-                height: 100 ,
-                position:'absolute'
-        
-        
-        }}
-          source={{ uri: 'https://www.dike.lib.ia.us/images/sample-1.jpg/image' }}
-        />
-        </View>
+         
 
-        <View style = {{flexDirection: "row"}}>
+    //         }}>
+    //                 <Image
+    //                         style={{
 
-            <TouchableOpacity  style={{
+    //                                 width:100, 
+    //                                 borderRadius:3,
+    //                                 height: 100 ,
+    //                                 position:'absolute'
 
-                        backgroundColor:Colors.Green, 
-                        borderRadius:5,
-                        padding:3,
-                        marginStart:40,
-                        marginTop:3
+    //                         }}
+    //                         source={{ uri: 'https://www.dike.lib.ia.us/images/sample-1.jpg/image' }}
+    //                     />
+    //             </View>
+
+    //     <View style = {{flexDirection: "row"}}>
+
+    //         <TouchableOpacity  style={{
+
+    //                     backgroundColor:Colors.Green, 
+    //                     borderRadius:5,
+    //                     padding:3,
+    //                     marginStart:40,
+    //                     marginTop:3
 
                         
-            }}>
+    //         }}>
 
-                <View style={{
-                    flexDirection:'row'
-            }}>
+    //             <View style={{
+    //                 flexDirection:'row'
+    //         }}>
 
-                <Icon name="ios-funnel" style={{justifyContent:'center',alignSelf:'center'}} size={10} color={Colors.White} />
+    //             <Icon name="ios-funnel" style={{justifyContent:'center',alignSelf:'center'}} size={10} color={Colors.White} />
 
 
-                    <Text  style={{ 
-                        fontSize:10,
-                        borderRadius:2,
-                        textAlign:"center", 
-                        backgroundColor: Colors.Green, 
-                        color:Colors.White ,  
-                        fontWeight:'bold', 
-                    }}>
-                        2222.22
-                    </Text>
+    //                 <Text  style={{ 
+    //                     fontSize:10,
+    //                     borderRadius:2,
+    //                     textAlign:"center", 
+    //                     backgroundColor: Colors.Green, 
+    //                     color:Colors.White ,  
+    //                     fontWeight:'bold', 
+    //                 }}>
+    //                     2222.22
+    //                 </Text>
                 
-                </View>
+    //             </View>
                
 
-        </TouchableOpacity>
+    //     </TouchableOpacity>
       
       
 
-        </View>
+    //     </View>
 
-        <Text  style={{ 
-            fontSize:10,
-            borderRadius:2,
-            textAlign:"center", 
-            backgroundColor: Colors.Green, 
-            color:Colors.White ,  
+    //         <View>
+    //             <Text  style={{ 
+    //                 fontSize:10,
+    //                 borderRadius:2,
+    //                 backgroundColor: Colors.Green, 
+    //                 color:Colors.White ,  
+    //                 fontWeight:'bold', 
+    //             }}>
+    //             KRM HEIFHU
+    //             </Text>
+
+    //             </View>
+
+    //   </View>
+    
+      
+
+
+
+    
+       
+    <View style={{ width: 27 + '%', height: 200, flexDirection: 'column' }}>
+    <Image
+      style={{ width: 100 +'%' , 
+      borderRadius:3,
+      height: 100, position: 'relative' }}
+      source={{ uri: 'https://www.dike.lib.ia.us/images/sample-1.jpg/image' }}
+    />
+    < View style = {
+        {
+            
+            flexDirection: "column",
+            alignSelf: 'flex-start',
+            paddingVertical: 5,
+        }
+    } >
+
+
+
+         <Text style={{ 
+                    color: 'lightgrey', 
+                    fontSize: 5,  
+                    fontWeight:'bold', 
+
+            }}>{'HandThrasd dasdown '}
+            </Text>
+
+      <Text style={{ 
+            color: 'grey', 
+            fontSize: 8,  
             fontWeight:'bold', 
-        }}>
-        KRM HEIFHU
-        </Text>
-      </View>
-      
+            flex:3
+
+    }}>{'HandThrasd as dasdown Dipped Ceramic Vase'}
+    </Text>
+
+ 
+
+    </View>
+  </View>
 
        
      );

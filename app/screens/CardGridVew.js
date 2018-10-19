@@ -39,9 +39,15 @@ export default class CardGridVew extends Component {
             </View>
 
             <View style={styles.newProductCards}>
+            
+
                 <SmallProductCard/>
                 <SmallProductCard/>
                 <SmallProductCard/>
+                
+               
+
+        
                 
 
             </View>
