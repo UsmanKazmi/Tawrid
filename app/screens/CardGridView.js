@@ -5,13 +5,13 @@ import { Colors } from '../helpers/Helpers';
 import { Image, Text, View, StyleSheet,TouchableOpacity,Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Swiper from 'react-native-swiper';
-import TabProducts from '../screens/TabProducts';
+import TabProducts from './TabProducts';
 import { CardMain } from '../components/CardMain';
 import { SmallProductCard } from '../components/SmallProductCard';
 
 const {height} = Dimensions.get('window')
 
-export default class CardGridVew extends Component {
+export default class CardGridView extends Component {
     static navigationOptions = {
         header: null
         
@@ -21,7 +21,7 @@ export default class CardGridVew extends Component {
  
 
     return (
-        <View style={styles.mainView}>
+        <ScrollView style={styles.mainView}>
 
             <CardMain/>
 
@@ -40,10 +40,42 @@ export default class CardGridVew extends Component {
 
             <View style={styles.newProductCards}>
             
+            <SmallProductCard imageUrl={'https://www.dike.lib.ia.us/images/sample-2.jpg/image'}/>
 
-                <SmallProductCard/>
-                <SmallProductCard/>
-                <SmallProductCard/>
+            <SmallProductCard imageUrl={'https://www.dike.lib.ia.us/images/sample-1.jpg/image'}/>
+
+
+            <SmallProductCard imageUrl={'https://www.dike.lib.ia.us/images/sample-3.jpg/image'}/>
+                
+               
+
+        
+                
+
+            </View>
+
+            
+            <View style={styles.myProductView}>
+                    <Text style={styles.myProductText}>
+                        My Products
+                    </Text>
+
+                    <TouchableOpacity>
+                        <Text  style={styles.viewAllText}>
+                            View all
+                        </Text>
+                    </TouchableOpacity>
+            
+            </View>
+            
+            <View style={styles.myProductCards}>
+            
+
+                <SmallProductCard imageUrl={'https://www.dike.lib.ia.us/images/sample-1.jpg/image'}/>
+
+                <SmallProductCard imageUrl={'https://www.dike.lib.ia.us/images/sample-2.jpg/image'}/>
+
+                <SmallProductCard imageUrl={'https://www.dike.lib.ia.us/images/sample-3.jpg/image'}/>
                 
                
 
@@ -58,7 +90,7 @@ export default class CardGridVew extends Component {
 
             
 
-        </View>
+        </ScrollView>
 
        
      );
@@ -102,6 +134,10 @@ const styles = StyleSheet.create({
         margin: 15
     },
     newProductCards:{
+        justifyContent:'space-evenly',
+        flexDirection:'row',
+    },
+    myProductCards:{
         justifyContent:'space-evenly',
         flexDirection:'row',
     }

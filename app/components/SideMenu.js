@@ -13,6 +13,10 @@ class SideMenu extends Component {
     this.props.navigation.dispatch(navigateAction);
   }
 
+  openNotification = ()=> {
+    alert('ABs');
+    this.props.navigation.navigate('Notification');
+  }
   render () {
     return (
       <View style={styles.container}>
@@ -26,7 +30,10 @@ class SideMenu extends Component {
           <Text  style={styles.textProfileName} >John Wick</Text>
         
             
-          <TouchableOpacity color="rgba(f, f, f, f)" style={styles.notificationIcon}>
+          <TouchableOpacity color="rgba(f, f, f, f)" 
+            onPress={ this.openNotification}
+          
+            style={styles.notificationIcon}>
                  <Icon name={"ios-notifications-outline"}  size={20} color="#01a699" />
           </TouchableOpacity>
 

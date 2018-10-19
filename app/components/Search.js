@@ -38,7 +38,7 @@ export class Search extends Component {
                                             returnKeyType="search" 
                                             underlineColorAndroid="transparent"  
                                             keyboardAppearance="light"
-                                            placeholder="Search Products..." 
+                                            placeholder={this.props.placeholder} 
                                             placeholderTextColor={Colors.LightGrey} 
                                             style={styles.searchBox} 
                                             onSubmitEditing={()=>{}} 

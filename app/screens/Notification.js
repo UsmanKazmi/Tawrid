@@ -6,9 +6,6 @@ export default class Notification extends Component {
     render () {
         return (
             <View>
-                <View style={{alignItems: 'center', height: 60, borderBottomWidth: 1, justifyContent: 'center'}}>
-                    <Text> Notification </Text>
-                </View>
                 <View>
                     <Text> Today </Text>
                     <View>

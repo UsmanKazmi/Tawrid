@@ -1,12 +1,8 @@
 import React, {Component} from 'react';
 import {StyleSheet,Animated,Dimensions,ScrollView,View,StatusBar,Text,TouchableHighlight,TouchableOpacity,TextInput} from 'react-native';
 import {Colors} from '../helpers/Helpers';
-import Api, { TawridApi } from '../utilities/Api';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
-import Products  from '../components/Products';
 import RouteProducts from '../config/RouteProducts';
-import Route from '../config/RouteProducts';
 import { Search } from '../components/Search';
 
 
@@ -132,13 +128,16 @@ export default class TabProducts extends Component{
   
               <View style={styles.searchBox}>
 
-            <Search/>
+            <Search placeholder={'My Products'}/>
               </View>
               
               <View style={{flex:1,width:100+'%'}}>
                 <RouteProducts/>
               </View>
 
+              {/*<View style={{flex:1,width:100+'%'}}>
+                <HomeTabs />
+      </View>*/}
 
               
           </View>

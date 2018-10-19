@@ -4,7 +4,8 @@ import React, {
 import {
     StyleSheet,
     View,
-    Text
+    Text,
+    TouchableHighlight
 } from 'react-native';
 import {
     Colors
@@ -15,7 +16,8 @@ import {
     TabNavigator,
     StackNavigator,
     createBottomTabNavigator,
-    navigationOptions
+    navigationOptions,
+
 } from 'react-navigation';
 
 import Login from '../screens/Login';
@@ -24,9 +26,12 @@ import Store from '../screens/Store';
 import TabProducts from '../screens/TabProducts';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SideMenu from '../components/SideMenu.js';
-import  CardGridVew  from '../screens/CardGridVew';
-import { TopHeaderBar } from '../components/TopHeaderBar';
+import CardGridView from '../screens/CardGridView';
+import {
+    TopHeaderBar
+} from '../components/TopHeaderBar';
 import Notification from '../screens/Notification'
+import Orders from '../screens/Orders';
 
 
 
@@ -36,11 +41,15 @@ import Notification from '../screens/Notification'
 
 const GridView = StackNavigator({
 
-    tabproduct:{screen:TabProducts}, 
+        tabproduct: {
+            screen: TabProducts
+        },
 
-    gridview:{screen:Home}, 
+        gridview: {
+            screen: Home
+        },
 
-}
+    }
 
 
 )
@@ -48,17 +57,17 @@ const GridView = StackNavigator({
 
 
 
-
-const HomeTabs = createBottomTabNavigator({
+ 
+ const HomeTabs = createBottomTabNavigator({
         storeTab: {
             screen: GridView
 
         },
         ordersTab: {
-            screen: CardGridVew
+            screen: Orders
         },
         cartTab: {
-            screen: Home
+            screen: CardGridView
         },
         statementTab: {
             screen: Home
@@ -68,12 +77,7 @@ const HomeTabs = createBottomTabNavigator({
         },
 
 
-
-
-
     },
-
-
 
 
 
@@ -86,7 +90,9 @@ const HomeTabs = createBottomTabNavigator({
                 horizontal,
                 tintColor
             }) => {
-                const { routeName } = navigation.state;
+                const {
+                    routeName
+                } = navigation.state;
                 let iconName;
                 if (routeName === 'storeTab') {
                     iconName = `ios-information-circle${focused ? '' : '-outline'}`;
@@ -121,10 +127,95 @@ const HomeTabs = createBottomTabNavigator({
     }
 
 );
+
+openDrawer = () => {
+    alert('adssda');
+    this.navigation.navigate('home');
+}
+
+openNavigationDrawer = () => {
+    this.navigation.toggleDrawer();
+
+}
+
+openGridView = () => {
+    alert("asd")
+    this.props.navigation.navigate('gridview');
+
+}
+
+const UserStack = StackNavigator({
+    MyStore: {
+        screen:HomeTabs ,
+        navigationOptions: ({
+            navigation
+        }) => {
+            return{
+            headerTitle: <View style={styles.titleTextView}>
+                            <Text style={styles.titleText}>
+                            {"My Store"}
+                            </Text>
+                        </View>,
+            headerLeft: <View style={{flexDirection: 'row'}}>
+                            <TouchableHighlight          
+                            onPress={this.openNavigationDrawer}
+                            style = {styles.filterIcon}>
+
+                                <Ionicons name="md-list" 
+                                    size={25} 
+                                    color={Colors.DarkGrey} />
+                        </TouchableHighlight>
+
+                        <TouchableHighlight 
+                        // onPress={this.openGridView}
+                        style = {styles.filterIcon}>
+                            <Ionicons name="ios-grid-outline" size={25} color={Colors.DarkGrey} />
+                        </TouchableHighlight>
+                        </View>
+
+        }
+        }
+    },
+    // },
+    // MyOrder: {
+    //     screen: MyOrder
+    // },
+    // MyCart: {
+    //     screen: MyCart
+    // },
+    Notification: {
+        screen: Notification,
+        navigationOptions: ({
+            navigation
+        }) => {
+            return {
+                headerTitle: < View style = {{
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            flex: 1
+                            }}>
+                                <Text > Notification </Text> 
+                            </View>,
+                // headerLeft: <View >
+                //     <Ionicons name = "ios-menu"
+                // size = {
+                //     30
+                // }
+                // // onPress={this.navigate.openDrawer()}
+                // />
+
+                // </View>
+            }
+        }
+    }
+})
+
+
 const navigationDrawer = createDrawerNavigator({
-        storeTabs: { screen: HomeTabs },
-        home: { screen: HomeTabs,},
-        order: {  screen: Home, }
+        storeTabs: {
+            screen: HomeTabs
+        },
+ 
     },
 
     {
@@ -151,10 +242,11 @@ const AuthenticationStack = StackNavigator({
 
 const MainStack = SwitchNavigator({
     navigationDrawer: {
-        screen: navigationDrawer },
+        screen: navigationDrawer
+    },
     authenticationStack: AuthenticationStack, //stack for login,register,forgotpassword
 
-  
+
     //stack for tabs when we logged in
 })
 
@@ -163,68 +255,37 @@ const MainStack = SwitchNavigator({
 
 class Routes extends Component {
     render() {
-        return ( <MainStack/>
-        )
+        return ( < MainStack /> )
     }
 }
 
 
 
-
-
-
-// class HomeScreen extends React.Component {
-//     render() {
-//       return (
-//         <View style={{ flex: 1}}>
-//           <Home></Home>
-//         </View>
-//       );
-//     }
-//   }
-
-
-//   class LoginScreen extends React.Component {
-//     render() {
-//       return (
-//         <View style={{ flex: 1 }}>
-//           <Login></Login>
-//         </View>
-//       );
-//     }
-//   }
-// export default createStackNavigator({
-
-//     Login: {screen: LoginScreen,
-//         navigationOptions: () => ({
-//             header: null,
-//           }),
-//         },
-//     Home: {screen: HomeScreen}
-// },
-//     {
-
-
-//     // direction:'vertical'
-// });
-
-
-
-// const styles = StyleSheet.create({
-//     header: {
-//         paddingTop: 2,
-//         paddingBottom: 2,
-//         backgroundColor: 'white',
-//         borderBottomColor: 'transparent',
-//         borderBottomWidth: 0,
-//     },
-//     text: {
-//         textAlign: 'left',
-//         fontSize: 20,
-//         lineHeight: 24,
-//         fontFamily: 'DIN Next LT Arabic',
-//         fontWeight: 'bold',
-//         color: Colors.DarkGrey
-//     }
-// });
 export default Routes;
+
+
+const styles = StyleSheet.create({
+    titleText: {
+        textAlign: 'center',
+        fontSize: 15,
+        // lineHeight: 24,
+        fontFamily: 'DIN Next LT Arabic',
+        fontWeight: 'bold',
+        color: Colors.DarkGrey,
+
+
+      },
+      titleTextView: {
+        flex:1,
+        fontSize: 15,
+        textAlign: 'center',
+        // lineHeight: 24,
+        fontFamily: 'DIN Next LT Arabic',
+        fontWeight: 'bold',
+        justifyContent: 'center',
+        alignItems: 'center',
+        color: Colors.DarkGrey,
+
+
+      },
+})

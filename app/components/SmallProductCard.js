@@ -103,13 +103,47 @@ export class SmallProductCard extends Component {
 
     
        
-    <View style={{ width: 27 + '%', height: 200, flexDirection: 'column' }}>
+    <View style={{ width: 27 + '%', flexDirection: 'column' }}>
+
+    
     <Image
       style={{ width: 100 +'%' , 
       borderRadius:3,
       height: 100, position: 'relative' }}
-      source={{ uri: 'https://www.dike.lib.ia.us/images/sample-1.jpg/image' }}
+      source={{ uri: this.props.imageUrl }}
     />
+
+            <View 
+            style={{
+                flexDirection:'row',
+                position: 'absolute', 
+                top: 5, 
+                backgroundColor: Colors.Green, 
+                right: 10, 
+                justifyContent: 'flex-end', 
+                alignItems: 'flex-start',
+                padding:3,
+                borderRadius:5
+
+            }}>
+
+
+            <Icon name="ios-funnel" style={{justifyContent:'center',marginTop:2}} size={10} color={Colors.White} />
+
+
+                            <Text  style={{ 
+                                fontSize:10,
+                                borderRadius:2,
+                                textAlign:"center", 
+                                backgroundColor: Colors.Green, 
+                                color:Colors.White ,  
+                                fontWeight:'bold', 
+                            }}>
+                                2222.22
+                            </Text>
+        </View>
+
+
     < View style = {
         {
             
@@ -133,7 +167,6 @@ export class SmallProductCard extends Component {
             color: 'grey', 
             fontSize: 8,  
             fontWeight:'bold', 
-            flex:3
 
     }}>{'HandThrasd as dasdown Dipped Ceramic Vase'}
     </Text>
