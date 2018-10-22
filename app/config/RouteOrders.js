@@ -8,7 +8,9 @@ import Store from '../screens/Store';
 import TabProducts from '../screens/TabProducts';
 import NewProduct from '../screens/NewProduct';
 import CardGridView from '../screens/CardGridView';
-import { CardOrderWithSlider } from '../components/CardOrderWithSlider';
+import { CardOrderWithSlider } from '../components/ImageSlider';
+import { CardActiveOrders } from '../components/CardActiveOrders';
+import ActiveOrders from '../screens/ActiveOrders';
 
 
 
@@ -19,7 +21,7 @@ import { CardOrderWithSlider } from '../components/CardOrderWithSlider';
 
 const OrdersTab = TabNavigator({
 
-    activeOrders:{screen:CardOrderWithSlider,
+    activeOrders:{screen:ActiveOrders,
         
         
         navigationOptions: {
@@ -92,6 +94,7 @@ class RouteOrders extends Component {
     render() {
         return (
            <OrdersTab />
+           
         )
     }
 }
