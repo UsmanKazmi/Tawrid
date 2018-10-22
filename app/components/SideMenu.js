@@ -13,9 +13,23 @@ class SideMenu extends Component {
     this.props.navigation.dispatch(navigateAction);
   }
 
+
+
+
+
+    openStoreTabs = ()=> {
+    alert('open stre Tabs')
+    this.props.navigation.navigate('storeTabs');
+  }
+
+  logout = ()=> {
+    alert('logout')
+    this.props.navigation.navigate('login');
+  }
+
   openNotification = ()=> {
     alert('ABs');
-    this.props.navigation.navigate('Notification');
+    this.props.navigation.navigate('notification');
   }
   render () {
     return (
@@ -43,7 +57,10 @@ class SideMenu extends Component {
 
 
             <View style ={{flexDirection:'row', paddingStart:20}}>    
-                    <TouchableOpacity style={styles.buttonRow}>
+                    <TouchableOpacity style={styles.buttonRow}
+                    onPress={ this.openStoreTabs}
+
+                    >
                         <Icon name={"ios-notifications-outline"}  size={30} color="#01a699" />
                         <Text  style={styles.pageText} >MY STORE</Text>
                         </TouchableOpacity>
@@ -104,7 +121,8 @@ class SideMenu extends Component {
 
         </ScrollView>
         <View style ={{flexDirection:'row', paddingStart:20}}>    
-        <TouchableOpacity style={styles.buttonRow}>
+        <TouchableOpacity style={styles.buttonRow}
+        s>
           <Icon name={"ios-logout"}  size={30} color="#01a699" />
           <Text  style={styles.pageText} >LOGOUT</Text>
           </TouchableOpacity>

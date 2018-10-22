@@ -11,6 +11,8 @@ import CardGridView from '../screens/CardGridView';
 import { CardOrderWithSlider } from '../components/ImageSlider';
 import { CardActiveOrders } from '../components/CardActiveOrders';
 import ActiveOrders from '../screens/ActiveOrders';
+import DeliveredOrder from '../screens/DeliveredOrder';
+import AwaitingOrder from '../screens/AwaitingOrder';
 
 
 
@@ -32,7 +34,7 @@ const OrdersTab = TabNavigator({
     },
 
 
-    awaitingDocuments:{screen:Home,
+    awaitingDocuments:{screen:AwaitingOrder,
         
         
         navigationOptions: {
@@ -44,7 +46,7 @@ const OrdersTab = TabNavigator({
 
 
 
-    deliveredOrders:{screen:Home,
+    deliveredOrders:{screen:DeliveredOrder,
         
         
         navigationOptions: {

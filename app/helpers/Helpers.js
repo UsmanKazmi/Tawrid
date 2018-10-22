@@ -17,7 +17,8 @@ export const Colors =  {
     ProductGreen: '#5baba9',
     LightestGrey: 'rgba(90,88,89,0.08)',
     Yellow: '#ffc200',
-    LightGreen:'#5baba9'
+    LightGreen:'#5baba9',
+    Grey:"#bdb2c9"
 };
 
 // export Home Animation

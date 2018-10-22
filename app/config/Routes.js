@@ -32,6 +32,7 @@ import {
 } from '../components/TopHeaderBar';
 import Notification from '../screens/Notification'
 import Orders from '../screens/Orders';
+import Profile from '../screens/Profile';
 
 
 
@@ -73,7 +74,7 @@ const GridView = StackNavigator({
             screen: Home
         },
         profileTab: {
-            screen: Home
+            screen: Profile
         },
 
 
@@ -215,6 +216,10 @@ const navigationDrawer = createDrawerNavigator({
         storeTabs: {
             screen: HomeTabs
         },
+        notification: {
+            screen: Notification
+        },
+     
  
     },
 
@@ -241,11 +246,13 @@ const AuthenticationStack = StackNavigator({
 )
 
 const MainStack = SwitchNavigator({
+    
     navigationDrawer: {
         screen: navigationDrawer
     },
-    authenticationStack: AuthenticationStack, //stack for login,register,forgotpassword
 
+    authenticationStack: AuthenticationStack, //stack for login,register,forgotpassword
+ 
 
     //stack for tabs when we logged in
 })
