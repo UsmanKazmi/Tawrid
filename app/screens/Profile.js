@@ -77,22 +77,10 @@ export default class Profile extends Component {
                     <Text style={styles.nameText}>
                         Khaled Alawedi
                     </Text>
-                 </View>
-
-              
-
-             
-
-           
+                 </View>  
                 
             </View>
 
-
-        
-         
-
-  
-  
           </View>
   
       )

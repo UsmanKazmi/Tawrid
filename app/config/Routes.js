@@ -4,7 +4,7 @@ import React, {
 import {
     StyleSheet,
     View,
-    Text,
+    Text,Image,
     TouchableHighlight
 } from 'react-native';
 import {
@@ -61,17 +61,54 @@ const GridView = StackNavigator({
  
  const HomeTabs = createBottomTabNavigator({
         storeTab: {
-            screen: GridView
+            screen: GridView,
+            navigationOptions: {
+                showLabel: false,
+                tabBarIcon: ({ focused }) => (
+                    focused
+                    ? <Image  resizeMode={'contain'}  style={{width:25,height:25}} source={require('../../assets/icons/home_active.png')} size={10}  />
+                    : <Image  resizeMode={'contain'} style={{width:25,height:25}} source={require('../../assets/icons/home_inactive.png')} size={10}  /> 
+                )
+                
+            }
+
 
         },
         ordersTab: {
-            screen: Orders
+            screen: Orders,
+            navigationOptions: {
+                showLabel: false,
+                tabBarIcon: ({ focused }) => (
+                    focused
+                    ? <Image  resizeMode={'contain'}  style={{width:25,height:25}} source={require('../../assets/icons/home_active.png')} size={10}  />
+                    : <Image  resizeMode={'contain'} style={{width:25,height:25}} source={require('../../assets/icons/home_inactive.png')} size={10}  /> 
+                )
+                
+            }
         },
         cartTab: {
-            screen: CardGridView
+            screen: CardGridView,
+            navigationOptions: {
+                showLabel: false,
+                tabBarIcon: ({ focused }) => (
+                    focused
+                    ? <Image  resizeMode={'contain'}  style={{width:25,height:25}} source={require('../../assets/icons/home_active.png')} size={10}  />
+                    : <Image  resizeMode={'contain'} style={{width:25,height:25}} source={require('../../assets/icons/home_inactive.png')} size={10}  /> 
+                )
+                
+            }
         },
         statementTab: {
-            screen: Home
+            screen: Home,
+            navigationOptions: {
+                showLabel: false,
+                tabBarIcon: ({ focused }) => (
+                    focused
+                    ? <Image  resizeMode={'contain'}  style={{width:25,height:25}} source={require('../../assets/icons/home_active.png')} size={10}  />
+                    : <Image  resizeMode={'contain'} style={{width:25,height:25}} source={require('../../assets/icons/home_inactive.png')} size={10}  /> 
+                )
+                
+            }
         },
         profileTab: {
             screen: Profile
@@ -79,58 +116,61 @@ const GridView = StackNavigator({
 
 
     },
-
-
-
     {
-        navigationOptions: ({
-            navigation
-        }) => ({
-            tabBarIcon: ({
-                focused,
-                horizontal,
-                tintColor
-            }) => {
-                const {
-                    routeName
-                } = navigation.state;
-                let iconName;
-                if (routeName === 'storeTab') {
-                    iconName = `ios-information-circle${focused ? '' : '-outline'}`;
-                } else if (routeName === 'ordersTab') {
-                    iconName = `ios-options${focused ? '' : '-outline'}`;
-                } else if (routeName === 'cartTab') {
-                    iconName = `ios-options${focused ? '' : '-outline'}`;
-                } else if (routeName === 'statementTab') {
-                    iconName = `ios-options${focused ? '' : '-outline'}`;
-                } else if (routeName === 'profileTab') {
-                    iconName = `ios-options${focused ? '' : '-outline'}`;
-                }
-
-                // You can return any component that you like here! We usually use an
-                // icon component from react-native-vector-icons
-                return <Ionicons name = {
-                    iconName
-                }
-                size = {
-                    horizontal ? 20 : 25
-                }
-                color = {
-                    tintColor
-                }
-                />;
-            },
-        }),
         tabBarOptions: {
-            activeTintColor: '#fdc300',
-            inactiveTintColor: '#5b5959',
-        },
+          showLabel: false
+        }
     }
+
+
+    // {
+    //     navigationOptions: ({
+    //         navigation
+    //     }) => ({
+    //         tabBarIcon: ({
+    //             focused,
+    //             horizontal,
+    //             tintColor
+    //         }) => {
+    //             const {
+    //                 routeName
+    //             } = navigation.state;
+    //             let iconName;
+    //             if (routeName === 'storeTab') {
+    //                 iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+    //             } else if (routeName === 'ordersTab') {
+    //                 iconName = `ios-options${focused ? '' : '-outline'}`;
+    //             } else if (routeName === 'cartTab') {
+    //                 iconName = `ios-options${focused ? '' : '-outline'}`;
+    //             } else if (routeName === 'statementTab') {
+    //                 iconName = `ios-options${focused ? '' : '-outline'}`;
+    //             } else if (routeName === 'profileTab') {
+    //                 iconName = `ios-options${focused ? '' : '-outline'}`;
+    //             }
+
+    //             // You can return any component that you like here! We usually use an
+    //             // icon component from react-native-vector-icons
+    //             return <Ionicons name = {
+    //                 iconName
+    //             }
+    //             size = {
+    //                 horizontal ? 20 : 25
+    //             }
+    //             color = {
+    //                 tintColor
+    //             }
+    //             />;
+    //         },
+    //     }),
+    //     tabBarOptions: {
+    //         activeTintColor: '#fdc300',
+    //         inactiveTintColor: '#5b5959',
+    //     },
+    // }
 
 );
 
 openDrawer = () => {
-    alert('adssda');
     this.navigation.navigate('home');
 }
 
@@ -140,7 +180,6 @@ openNavigationDrawer = () => {
 }
 
 openGridView = () => {
-    alert("asd")
     this.props.navigation.navigate('gridview');
 
 }
@@ -262,7 +301,7 @@ const MainStack = SwitchNavigator({
 
 class Routes extends Component {
     render() {
-        return ( < MainStack /> )
+        return ( <MainStack /> )
     }
 }
 
