@@ -33,7 +33,8 @@ import {
 import Notification from '../screens/Notification'
 import Orders from '../screens/Orders';
 import Profile from '../screens/Profile';
-
+import Cart from '../screens/Cart';
+import MyStatementSheet from '../screens/MyStatementSheet'
 
 
 
@@ -87,7 +88,7 @@ const GridView = StackNavigator({
             }
         },
         cartTab: {
-            screen: CardGridView,
+            screen: Cart,
             navigationOptions: {
                 showLabel: false,
                 tabBarIcon: ({ focused }) => (
@@ -98,8 +99,8 @@ const GridView = StackNavigator({
                 
             }
         },
-        statementTab: {
-            screen: Home,
+        MyStatementSheet: {
+            screen: MyStatementSheet,
             navigationOptions: {
                 showLabel: false,
                 tabBarIcon: ({ focused }) => (
@@ -142,51 +143,6 @@ const GridView = StackNavigator({
         }
     }
 
-
-    // {
-    //     navigationOptions: ({
-    //         navigation
-    //     }) => ({
-    //         tabBarIcon: ({
-    //             focused,
-    //             horizontal,
-    //             tintColor
-    //         }) => {
-    //             const {
-    //                 routeName
-    //             } = navigation.state;
-    //             let iconName;
-    //             if (routeName === 'storeTab') {
-    //                 iconName = `ios-information-circle${focused ? '' : '-outline'}`;
-    //             } else if (routeName === 'ordersTab') {
-    //                 iconName = `ios-options${focused ? '' : '-outline'}`;
-    //             } else if (routeName === 'cartTab') {
-    //                 iconName = `ios-options${focused ? '' : '-outline'}`;
-    //             } else if (routeName === 'statementTab') {
-    //                 iconName = `ios-options${focused ? '' : '-outline'}`;
-    //             } else if (routeName === 'profileTab') {
-    //                 iconName = `ios-options${focused ? '' : '-outline'}`;
-    //             }
-
-    //             // You can return any component that you like here! We usually use an
-    //             // icon component from react-native-vector-icons
-    //             return <Ionicons name = {
-    //                 iconName
-    //             }
-    //             size = {
-    //                 horizontal ? 20 : 25
-    //             }
-    //             color = {
-    //                 tintColor
-    //             }
-    //             />;
-    //         },
-    //     }),
-    //     tabBarOptions: {
-    //         activeTintColor: '#fdc300',
-    //         inactiveTintColor: '#5b5959',
-    //     },
-    // }
 
 );
 

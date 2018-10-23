@@ -20,7 +20,7 @@ import CardGridView from '../screens/CardGridView';
 const ProductsTab = TabNavigator({
 
     newProducts:{screen:NewProduct},
-    myProducts:{screen:Home},
+    myProducts:{screen:CardGridView},
 
 },
 
