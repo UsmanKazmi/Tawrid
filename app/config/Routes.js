@@ -80,8 +80,8 @@ const GridView = StackNavigator({
                 showLabel: false,
                 tabBarIcon: ({ focused }) => (
                     focused
-                    ? <Image  resizeMode={'contain'}  style={{width:25,height:25}} source={require('../../assets/icons/home_active.png')} size={10}  />
-                    : <Image  resizeMode={'contain'} style={{width:25,height:25}} source={require('../../assets/icons/home_inactive.png')} size={10}  /> 
+                    ? <Image  resizeMode={'contain'}  style={{width:25,height:25}} source={require('../../assets/icons/ordersactive.png')} size={10}  />
+                    : <Image  resizeMode={'contain'} style={{width:25,height:25}} source={require('../../assets/icons/ordersinactive.png')} size={10}  /> 
                 )
                 
             }
@@ -92,8 +92,8 @@ const GridView = StackNavigator({
                 showLabel: false,
                 tabBarIcon: ({ focused }) => (
                     focused
-                    ? <Image  resizeMode={'contain'}  style={{width:25,height:25}} source={require('../../assets/icons/home_active.png')} size={10}  />
-                    : <Image  resizeMode={'contain'} style={{width:25,height:25}} source={require('../../assets/icons/home_inactive.png')} size={10}  /> 
+                    ? <Image  resizeMode={'contain'}  style={{width:25,height:25}} source={require('../../assets/icons/addtocardActive.png')} size={10}  />
+                    : <Image  resizeMode={'contain'} style={{width:25,height:25}} source={require('../../assets/icons/addtocardInActive.png')} size={10}  /> 
                 )
                 
             }
@@ -104,21 +104,41 @@ const GridView = StackNavigator({
                 showLabel: false,
                 tabBarIcon: ({ focused }) => (
                     focused
-                    ? <Image  resizeMode={'contain'}  style={{width:25,height:25}} source={require('../../assets/icons/home_active.png')} size={10}  />
-                    : <Image  resizeMode={'contain'} style={{width:25,height:25}} source={require('../../assets/icons/home_inactive.png')} size={10}  /> 
+                    ? <Image  resizeMode={'contain'}  style={{width:25,height:25}} source={require('../../assets/icons/chatactive.png')} size={10}  />
+                    : <Image  resizeMode={'contain'} style={{width:25,height:25}} source={require('../../assets/icons/chatinactive.png')} size={10}  /> 
                 )
                 
             }
         },
         profileTab: {
-            screen: Profile
+            screen: Profile,
+            navigationOptions: {
+                showLabel: false,
+                tabBarIcon: ({ focused }) => (
+                    focused
+                    ? <Image  resizeMode={'contain'}  style={{width:25,height:25}} source={require('../../assets/icons/statementsactive.png')} size={10}  />
+                    : <Image  resizeMode={'contain'} style={{width:25,height:25}} source={require('../../assets/icons/statementsinactive.png')} size={10}  /> 
+                )
+                
+            }
         },
 
 
     },
-    {
+    {       
         tabBarOptions: {
-          showLabel: false
+
+            showLabel: false,
+            activeTintColor: '#fff',
+            inactiveTintColor: '#bdb1cc',
+            style: {
+                backgroundColor: 'rgba(255, 255, 255, 0.7)',
+                position: 'absolute',
+                left: 0,
+                right: 0,
+                bottom: 0,
+            },
+
         }
     }
 

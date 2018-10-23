@@ -10,7 +10,7 @@ export default class AboutComponent extends Component {
           <View style={styles.profileImageView}>
             <View style={styles.profileHeadingViewText}>
                 <Text style={styles.profileHeadingText}>
-                        About
+                        {this.props.Name}
                     </Text>
                 </View>
         
@@ -40,7 +40,6 @@ export default class AboutComponent extends Component {
       },
       profileHeadingViewText:{
             borderColor:Colors.LighterGrey,
-            borderWidth:0.9,
             
      
     },
