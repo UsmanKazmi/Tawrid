@@ -101,7 +101,7 @@ const GridView = StackNavigator({
             }
         },
         MyStatementSheet: {
-            screen: MyStatementSheet,
+            screen: Chat,
             navigationOptions: {
                 showLabel: false,
                 tabBarIcon: ({ focused }) => (

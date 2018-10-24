@@ -21,8 +21,8 @@ export class CardChat extends Component {
        
                 <View style={styles.slide1}>
                     <Image
-                    style={styles.image}
-                    source={require('../../assets/images/product.jpg')}
+                        style={styles.image}
+                        source={require('../../assets/images/product.jpg')}
                     />
                     </View>
 
@@ -55,15 +55,29 @@ export class CardChat extends Component {
                 }}
                 />
                 
-                <View style={{flexDirection:"row", justifyContent:'space-evenly'}}>
+                <View style={{flexDirection:"row",marginHorizontal:10 }}>
 
                 <TouchableOpacity style={styles.bottomButtons}>
-                <View style={{
+                        <View style={{
+                            flexDirection:"row"
 
-                }}>
-                    <Text>
-                            http://portal.tawrid.store/product/9407/shop
-                    </Text>
+                        }}>
+
+                                <Image
+                                            style={{
+                                                resizeMode:'contain',
+                                                height:15,
+                                                widht:15
+                                            }}
+                                            source={require('../../assets/icons/shipping.png')}
+                                />  
+                                <Text style={{
+                                            fontSize:12,
+                                            color:Colors.Grey
+                                            
+                                }}>
+                                        http://portal.tawrid.store/product/9407/shop
+                                </Text>
                 
                 </View>
         </TouchableOpacity>
@@ -78,6 +92,9 @@ export class CardChat extends Component {
 
 
         </View>
+
+       
+
       </View>
 
        
@@ -129,8 +146,8 @@ const styles = StyleSheet.create({
 
     },
     bottomButtons:{
-        alignSelf:'center',
-        padding:5,
+        alignSelf:'stretch',
+        paddingBottom:10,
     },
     wrapper: {
         width:100+'%',

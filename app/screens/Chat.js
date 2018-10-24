@@ -1,19 +1,26 @@
 
 import React, {Component} from 'react';
-import {StyleSheet,Animated,Dimensions,ScrollView,View,StatusBar,Text,TouchableHighlight,TouchableOpacity,TextInput} from 'react-native';
+import {StyleSheet,Animated,Dimensions,ScrollView,View,StatusBar,Text,TouchableHighlight,Image,TouchableOpacity,TextInput} from 'react-native';
 import {Colors} from '../helpers/Helpers';
 import Icon from 'react-native-vector-icons/Ionicons';
 import RouteOrders from '../config/RouteOrders';
 import { Search } from '../components/Search';
 import { CardActiveOrders } from '../components/CardActiveOrders';
 import { CardChat } from '../components/CardChat';
+import { ChatBubble } from '../components/ChatBubble';
 
 export default class Chat extends Component {
+
+
+  openNavigationDrawer = () => {
+
+    this.props.navigation.toggleDrawer();
+
+  }
   render() {
     return (
 
-        <View style={styles.mainView}>
-
+        <View style={{flex:1,paddingBottom:50}}>
 
               <View style={styles.navBar}>
 
@@ -36,20 +43,173 @@ export default class Chat extends Component {
 
                   </View>
                </View>
+               <ScrollView>
 
-                  <View style={{
+
+              <View style={{
                     flex:1,
                     borderWidth:StyleSheet.hairlineWidth,
                     borderColor:Colors.Grey
                   }}>
 
                   
-                  </View>
-                  <View >
-                    <CardChat/>
+                    </View>
+                        <View >
+                          <CardChat/>
+                        </View>
+
+
+
+                  <View style={{
+                        flexDirection:"row",
+                        justifyContent:'space-evenly'
+                    }}>                            
+                          <Text style={{
+                            margin:24,
+
+                            color:Colors.Grey,
+                            alignSelf:'flex-end',
+                            marginBottom:5
+                            }}>   
+                              20:30
+                          </Text>
+
+                          <ChatBubble 
+                          chatText='Dear agent I want to discuss30 CM. Crockery Set'
+                          backgroundColor={Colors.Green}
+                          color={Colors.White}
+                       />
+
+                            
+                             <View style={{
+                               backgroundColor:Colors.LighterGrey,
+                                alignSelf:'flex-end',
+                                borderRadius:20,
+                                marginBottom:2,
+                                margin:24,
+                                marginLeft:5
+
+
+                               }}>
+                                  <Image
+                                      style={{
+                                        padding:10,
+
+                                          resizeMode:'center',
+                                          height:15,
+                                          width:15,
+                                          alignSelf:'flex-end'
+
+                                      }}
+                                      source={require('../../assets/icons/profile.png')}
+                              /> 
+                             </View>
+                      
+  
                   </View>
 
 
+                  <View style={{
+                    marginVertical:30,
+                    flexDirection:"row",
+                    justifyContent:'flex-start'
+                }}>    
+                
+                <View style={{
+                  backgroundColor:Colors.LighterGrey,
+                   alignSelf:'flex-start',
+                   borderRadius:20,
+                   marginBottom:2,
+                   margin:24,
+                   marginRight:5
+
+                  }}>
+                     <Image
+                         style={{
+                           padding:10,
+
+                             resizeMode:'center',
+                             height:15,
+                             width:15,
+                             alignSelf:'flex-end'
+
+                         }}
+                         source={require('../../assets/icons/admin.png')}
+                 /> 
+                </View>
+                     
+
+                      <ChatBubble 
+                      backgroundColor={Colors.White}
+                      color={Colors.Grey}
+                      chatText='Sure'
+                   />
+
+                   <Text style={{
+                    margin:24,
+
+                    color:Colors.Grey,
+                    alignSelf:'flex-end',
+                    marginBottom:5
+                    }}>   
+                      20:40
+                  </Text>
+
+                        
+                         
+                  
+
+              </View>
+
+
+              <View style={{
+                marginHorizontal:10,
+                flexDirection:"row",
+                justifyContent:'flex-start'
+            }}>    
+            
+            <TextInput 
+            underlineColorAndroid="transparent"  
+            keyboardAppearance="light" 
+            placeholder="Message..." 
+            
+            style={{
+              paddingLeft:20,
+              borderWidth:2,
+              borderColor:Colors.LighterGrey,
+           
+              width:80 + '%'
+            }}>
+            
+            </TextInput>
+
+            <TouchableOpacity style={{
+             alignSelf:'center',
+             flex:1
+
+            }} >
+                <Text style={{
+                  textAlign:"center",
+                  fontSize:17,
+                  color:Colors.Grey
+                }
+
+                }>
+                    Send
+                </Text>
+            </TouchableOpacity>
+
+                    
+                     
+              
+
+          </View>
+              
+        
+
+              </ScrollView>
+              
+           
 
         </View>
     )

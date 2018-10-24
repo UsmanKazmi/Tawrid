@@ -7,6 +7,12 @@ import RouteOrders from '../config/RouteOrders';
 import { Search } from '../components/Search';
 
 export default class Orders extends Component {
+
+  openNavigationDrawer = () => {
+
+    this.props.navigation.toggleDrawer();
+
+  }
   render() {
     return (
         <View>
