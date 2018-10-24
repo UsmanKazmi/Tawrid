@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity, Image, ScrollView, TextInput } from 'react-native';
 import { Search } from '../components/Search';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { Colors } from '../helpers/Helpers';
+import {Colors} from '../helpers/Helpers';
 
 export default class Cart extends Component {
     constructor(){
@@ -244,14 +244,17 @@ const styles = StyleSheet.create({
         paddingBottom: 10
     },
     createOrderBtn: {
-        backgroundColor: '#5baba9',
         width: '45%',
+        backgroundColor: Colors.Red,
         height: 40,
         justifyContent: 'center',
-        borderRadius: 5
+        borderRadius: 12
     },
     btnText: {
-        textAlign: 'center'
+        textAlign: 'center',
+        color: Colors.White,
+        fontWeight: 'bold',
+        fontSize: 18,
     },
     imageView: {
         flexDirection: 'row',
