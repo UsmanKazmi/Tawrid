@@ -5,7 +5,7 @@ import {
   View,
 } from 'react-native';
 
-export class StatementItem extends Component<Props> {
+export class StatementItem extends Component {
     render(){
         return (
             <View onPress={this.props.onpress} >

@@ -38,11 +38,16 @@ export class SliderRange extends Component {
 
         
             minimumTrackTintColor='red'
-
               thumbStyle={{
                 backgroundColor:'red',
                 color:'blue'
               }}
+
+              thumbTouchSize={{
+                width: 2, 
+                height: 2
+              }}
+
               onValueChange={value => this.setState({ value })}
 
             />

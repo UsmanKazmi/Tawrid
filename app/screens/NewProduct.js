@@ -17,14 +17,17 @@ export default class NewProduct extends Component {
         render(){
 
             return(
-                <ScrollView>
-            <CardNewProduct/>
+                <ScrollView >
+                <View style={{paddingBottom:30}}>
 
-            <CardNewProduct/>
-            
-            <CardNewProduct/>
-            
-            <CardNewProduct/>
+                    <CardNewProduct/>
+
+                    <CardNewProduct/>
+                    
+                    <CardNewProduct/>
+                    
+                    <CardNewProduct/>
+                    </View>
             </ScrollView>
             )
                 

@@ -26,7 +26,7 @@ export class CardNewProduct extends Component {
                 <View style={styles.slide1}>
                     <Image
                     style={styles.image}
-                    source={{ uri: 'https://www.dike.lib.ia.us/images/sample-1.jpg/image' }}
+                    source={require('../../assets/images/product.jpg')}
                     />
                     </View>
 
@@ -34,6 +34,7 @@ export class CardNewProduct extends Component {
                     <Image
                     style={styles.image}
                     source={{ uri: 'https://www.dike.lib.ia.us/images/sample-1.jpg/image' }}
+
                     />
                     </View>
         </Swiper>
@@ -48,16 +49,19 @@ export class CardNewProduct extends Component {
             }}>
                     <View style={{flexDirection:"row"}}>
                         <Text 
-                            style={styles.cardTitle}>{'Title'}
+                            style={styles.cardTitle}>{'30 CM. Crockery Set '}
                          </Text>
 
-                         <Icon name="ios-funnel" style={{justifyContent:'center',alignSelf:'center'}} size={20} color={Colors.White} />
+                         <Image
+                         style={{height:20,width:20,marginHorizontal:5, alignSelf:'center'}}
+                         source={require('../../assets/icons/loyalitybadge.png')}
+                         />
 
                         <Text 
-                            style={styles.cardPrice}>{'Price'}
+                            style={styles.cardPrice}>{'$62.93'}
                         </Text>
                     </View>
-          <Text style={styles.cardSubTitle}>{'Subtitle'}</Text>
+          <Text style={styles.cardSubTitle}>{'20 PIECES in BOX'}</Text>
 
           <View
                 style={{
@@ -69,44 +73,39 @@ export class CardNewProduct extends Component {
                 <View style={{flexDirection:"row", justifyContent:'space-evenly'}}>
 
                     <TouchableOpacity style={styles.bottomButtons}>
-                            <Icon 
-                                name="ios-funnel" 
-                                style={styles.bottomButtons} 
-                                size={20} 
-                                color={Colors.White} />
+                            <Image
+                                style={{height:20,width:20, }}
+                                source={require('../../assets/icons/addtocart.png')}
+                            />
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.bottomButtons}>
-                            <Icon 
-                                name="ios-funnel" 
-                                style={styles.bottomButtons} 
-                                size={20} 
-                                color={Colors.White} />
+                            <Image
+                                style={{height:20,width:20, }}
+                                source={require('../../assets/icons/fav.png')}
+                            />
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.bottomButtons}>
-                            <Icon 
-                                name="ios-funnel" 
-                                style={styles.bottomButtons} 
-                                size={20} 
-                                color={Colors.White} />
+                            <Image
+                                    style={{height:20,width:20, }}
+                                    source={require('../../assets/icons/comment.png')}
+                            />
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.bottomButtons}>
-                            <Icon 
-                                name="ios-funnel" 
-                                style={styles.bottomButtons} 
-                                size={20} 
-                                color={Colors.White} />
+                            <Image
+                                    style={{height:20,width:20, }}
+                                    source={require('../../assets/icons/share.png')}
+                            />
                     </TouchableOpacity>
 
 
                     <TouchableOpacity style={styles.bottomButtons}>
-                            <Icon 
-                                name="ios-funnel" 
-                                style={styles.bottomButtons} 
-                                size={20} 
-                                color={Colors.White} />
+                            <Image
+                                    style={{height:20,width:20, }}
+                                    source={require('../../assets/icons/info.png')}
+                            />
                     </TouchableOpacity>
 
 
@@ -134,8 +133,8 @@ const styles = StyleSheet.create({
     },
     image: 
         { 
-            width: 100+'%', 
-        height: 200,  
+        width: 100+'%', 
+        height: 100+'%',  
     },
     cardTitle:{
         flex:1,
@@ -164,6 +163,7 @@ const styles = StyleSheet.create({
 
     },
     bottomButtons:{
+        alignSelf:'center',
         padding:5,
     },
     wrapper: {

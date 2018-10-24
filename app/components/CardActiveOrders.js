@@ -29,14 +29,21 @@ export class CardActiveOrders extends Component {
                         $3017.4
                         </Text>
 
-                       <Icon name="ios-funnel" style={{}} size={20} color={Colors.Yellow} />
-
+                        <Image
+                        style={{height:20,width:20, }}
+                        source={require('../../assets/icons/question.png')}
+                    />
                     
                     </View>
 
                     <View style={styles.shippingView}>
-                        <Icon name="ios-funnel" style={{}} size={20}  />
-                        <Text style={styles.shippingText}>
+
+                    <Image
+                        style={{height:15,width:15, }}
+                        source={require('../../assets/icons/shipping.png')}
+                    />
+
+                    <Text style={styles.shippingText}>
                             Shipping:N/A
                         </Text>
 
@@ -52,8 +59,11 @@ export class CardActiveOrders extends Component {
 
 
                         <View style={styles.chatView}>
-                            <Icon name="ios-chat" style={{}} size={15} color={Colors.Green} />
-                            <Text style={styles.chatText}>
+                                <Image
+                                    style={{height:10,width:10,marginHorizontal:5, alignSelf:'center' }}
+                                    source={require('../../assets/icons/chatBlue.png')}
+                            />                           
+                             <Text style={styles.chatText}>
                                 Chat Now
                             </Text>
 
