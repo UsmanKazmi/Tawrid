@@ -35,6 +35,7 @@ import Orders from '../screens/Orders';
 import Profile from '../screens/Profile';
 import Cart from '../screens/Cart';
 import MyStatementSheet from '../screens/MyStatementSheet'
+import Chat from '../screens/Chat';
 
 
 

@@ -15,11 +15,13 @@ export const Colors =  {
     LightGrey: 'rgba(90,88,89,0.6)',
     LighterGrey: '#E4E4E5',
     ProductGreen: '#5baba9',
-    LightestGrey: 'rgba(90,88,89,0.08)',
+    LightestGrey: '#d9d9d9',
     Yellow: '#ffc200',
     LightGreen:'#5baba9',
     Grey:"#bdb2c9",
-    Red: '#ff5560'
+    Red: '#ff5560',
+    
+    
 };
 
 // export Home Animation
