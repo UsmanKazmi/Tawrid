@@ -51,9 +51,9 @@ export default class Chat extends Component {
                     borderWidth:StyleSheet.hairlineWidth,
                     borderColor:Colors.Grey
                   }}>
-
-                  
                     </View>
+
+                    
                         <View >
                           <CardChat/>
                         </View>

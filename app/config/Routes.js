@@ -36,6 +36,7 @@ import Profile from '../screens/Profile';
 import Cart from '../screens/Cart';
 import MyStatementSheet from '../screens/MyStatementSheet'
 import Chat from '../screens/Chat';
+import OrderSelected from '../screens/OrderSelected';
 
 
 
@@ -101,7 +102,7 @@ const GridView = StackNavigator({
             }
         },
         MyStatementSheet: {
-            screen: Chat,
+            screen: OrderSelected,
             navigationOptions: {
                 showLabel: false,
                 tabBarIcon: ({ focused }) => (
