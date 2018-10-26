@@ -12,7 +12,7 @@ export class SliderRange extends Component {
         super(props);
 
         this.state = {
-            sliderValue: 0.2
+            sliderValue: 0.5
 
 
 
@@ -48,7 +48,7 @@ export class SliderRange extends Component {
                 height: 2
               }}
 
-              onValueChange={value => this.setState({ value })}
+              onValueChange={slider => this.setState({ slider })}
 
             />
           

@@ -6,12 +6,14 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import RouteOrders from '../config/RouteOrders';
 import { Search } from '../components/Search';
 import { CardActiveOrders } from '../components/CardActiveOrders';
+import { SliderRange } from '../components/SliderRange';
+import { Card_OrderDetails_Detail } from '../components/Card_OrderDetails_Detail';
 
 export default class OrderDetails_Details extends Component {
   render() {
     return (
 
-        <View style={styles.mainView}>
+        <ScrollView style={styles.mainView}>
 
                 <View style={{
                   
@@ -206,7 +208,66 @@ export default class OrderDetails_Details extends Component {
                                         
                 </View>
 
-        </View>
+
+                <View style={{
+                    borderWidth:1,
+                    borderRadius:5,
+                    borderColor:Colors.Grey,
+                    margin:20,
+                    padding:10
+
+                }}>                               
+                        <View style={styles.shippingView}>
+
+                                <Image
+                                        style={{height:15,width:15, }}
+                                        source={require('../../assets/icons/shipping.png')}
+                                    />
+
+                                <Text style={styles.shippingText}>
+                                        Shipping:N/A
+                                    </Text>
+
+                                                                
+                        </View>
+                        
+
+                        <View style={{ 
+                            flexDirection: 'row'
+                        }}>
+
+                                    <SliderRange/>
+
+                        </View>
+
+                        <View style={styles.chatView}>
+                                                    
+                                <Text style={styles.chatText}>
+                                    Created: 2018‑08‑17 
+                                </Text>
+
+                                <Text style={styles.requiredText}>
+                                    Required Price Offer
+                                </Text>
+
+                            </View> 
+                </View>   
+                
+                
+
+                <View style={{
+                        flexDirection:"row",
+                        justifyContent:'space-evenly'
+                        
+                }}>
+
+                     <Card_OrderDetails_Detail/>
+                     <Card_OrderDetails_Detail/>
+
+
+                </View>
+
+        </ScrollView>
     )
 
 }}
@@ -217,7 +278,38 @@ const styles = StyleSheet.create({
      height:100 +'%',
      width:100 +'%',
      flex:1,
-    flexDirection:'column'
+    flexDirection:'column',
+    marginBottom:40,
+    },
+    
+    shippingText:{
+        marginLeft:5,
+
+        fontSize:11,
+        textAlign:'left'
+    },
+    shippingView:{
+        marginBottom:1,
+        marginRight:10,
+        marginLeft:10,
+        flexDirection:'row',
+    },
+
+    chatView:{
+        marginRight:10,
+        marginLeft:10,
+        flexDirection:'row',
+    },
+    chatText:{
+        fontSize:10,
+        textAlign:'left',
+        color:Colors.DarkGrey
+    },
+    requiredText:{
+        color:'red',
+        fontSize:10,
+        flex:1,
+        textAlign:'right'
     },
 
 
