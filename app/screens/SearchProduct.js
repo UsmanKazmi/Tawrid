@@ -1,37 +1,39 @@
-import React, {Component} from 'react';
-import { View, StyleSheet, Text, TouchableOpacity, Image} from 'react-native';
-import {Colors} from '../helpers/Helpers';
+import React, { Component } from 'react';
+import { View, StyleSheet, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { Colors } from '../helpers/Helpers';
 import Icon from 'react-native-vector-icons/Entypo';
 
 export default class SearchProduct extends Component {
     render() {
-        return(
-            <View style={{flex: 1,}}>
-                <View style={styles.Header}>
-                    <Text style={{fontWeight: 'bold', fontSize: 18, paddingLeft: 20}}> Products </Text>
-                </View>
-                <View style={styles.body}>
-                    <Image source={require('../../assets/images/product.jpg')} style={styles.imageStyle} />
-                    <Text style={styles.bodyText}> 30 CM. Crockery Set </Text>
-                </View>
-                <View style={styles.body}>
-                    <Image source={require('../../assets/images/product.jpg')} style={styles.imageStyle} />
-                    <Text style={styles.bodyText}> 30 CM. Crockery Set </Text>
-                </View>
-                <View style={styles.body}>
-                    <Image source={require('../../assets/images/product.jpg')} style={styles.imageStyle} />
-                    <Text style={styles.bodyText}> 30 CM. Crockery Set </Text>
-                </View>
-                <View style={styles.body}>
-                    <Image source={require('../../assets/images/product.jpg')} style={styles.imageStyle} />
-                    <Text style={styles.bodyText}> 30 CM. Crockery Set </Text>
-                </View> 
-                <View style={styles.viewAllBtnView}>
-                    <TouchableOpacity style={styles.viewAllBtn}>
-                        <Text>View All</Text>
-                        <Icon name="chevron-right" size={20} />
-                    </TouchableOpacity>
-                </View>
+        return (
+            <View style={{flex: 1}}>
+                <ScrollView contentContainerStyle={styles.contentContainer}>
+                    <View style={styles.Header}>
+                        <Text style={{ fontWeight: 'bold', fontSize: 18, paddingLeft: 20 }}> Products </Text>
+                    </View>
+                    <View style={styles.body}>
+                        <Image source={require('../../assets/images/product.jpg')} style={styles.imageStyle} />
+                        <Text style={styles.bodyText}> 30 CM. Crockery Set </Text>
+                    </View>
+                    <View style={styles.body}>
+                        <Image source={require('../../assets/images/product.jpg')} style={styles.imageStyle} />
+                        <Text style={styles.bodyText}> 30 CM. Crockery Set </Text>
+                    </View>
+                    <View style={styles.body}>
+                        <Image source={require('../../assets/images/product.jpg')} style={styles.imageStyle} />
+                        <Text style={styles.bodyText}> 30 CM. Crockery Set </Text>
+                    </View>
+                    <View style={styles.body}>
+                        <Image source={require('../../assets/images/product.jpg')} style={styles.imageStyle} />
+                        <Text style={styles.bodyText}> 30 CM. Crockery Set </Text>
+                    </View>
+                    <View style={styles.viewAllBtnView}>
+                        <TouchableOpacity style={styles.viewAllBtn}>
+                            <Text>View All</Text>
+                            <Icon name="chevron-right" size={20} />
+                        </TouchableOpacity>
+                    </View>
+                </ScrollView>
             </View>
         )
     }
@@ -57,7 +59,7 @@ const styles = StyleSheet.create({
         borderBottomColor: Colors.LightestGrey
     },
     imageStyle: {
-        width: 70, 
+        width: 70,
         height: 70,
         borderRadius: 10,
     },
@@ -72,12 +74,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderBottomWidth: 0.5,
         borderTopWidth: 0.5,
-        marginBottom: 20,
+        marginBottom: 15,
         borderBottomColor: Colors.LightestGrey,
         borderTopColor: Colors.LightestGrey,
     },
     viewAllBtn: {
         flexDirection: 'row',
         backgroundColor: Colors.White,
-    }
+    },
 })

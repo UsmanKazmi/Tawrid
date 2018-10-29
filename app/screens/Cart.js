@@ -52,7 +52,7 @@ export default class Cart extends Component {
                 </View>
                 <View style={{ paddingHorizontal: 15, paddingVertical: 3, borderBottomWidth: 1 }}>
                     <Text style={{ color: 'grey' }}> Subtotal <Text style={styles.SubTotalAmount}> $2039.4 </Text></Text>
-                    <Text style={{ color: 'cyan' }}> CBM <Text style={styles.cbmText}> 0.00 M </Text> </Text>
+                    <Text style={{ color: 'cyan' }}> CBM <Text style={styles.cbmText}> 0.00 M³ </Text> </Text>
                     <View style={styles.buttonView}>
                         <TouchableOpacity style={styles.createOrderBtn}>
                             <Text style={styles.btnText}>create order</Text>
@@ -72,9 +72,11 @@ export default class Cart extends Component {
                                 }}
                                 source={{ uri: 'https://www.dike.lib.ia.us/images/sample-1.jpg/image' }}
                             />
-                            <View style={{position: 'absolute', marginTop: 25, borderRadius: 5, flexDirection: 'row',
+                            <View 
+                            style={{position: 'absolute', marginTop: 25, borderRadius: 5, flexDirection: 'row',
                             marginLeft: 45,  backgroundColor: Colors.Green,padding:1}}>
-                                <Image source={require('../../assets/icons/question.png')} style={{width: 20, height: 20}}/>
+                                <Image source={require('../../assets/icons/question.png')} 
+                                style={{width: 20, height: 20}}/>
                                 <Text style={{color: Colors.White}}> s51.89 </Text>
                             </View>
                             <View>

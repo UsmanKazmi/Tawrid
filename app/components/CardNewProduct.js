@@ -3,7 +3,6 @@ import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 
 import {ScrollView} from 'react-native';
 import { Colors } from '../helpers/Helpers';
 import { Image, Text, View, StyleSheet,TouchableOpacity,Dimensions } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
 import Swiper from 'react-native-swiper';
 
 const {height} = Dimensions.get('window')

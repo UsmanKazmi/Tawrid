@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, TouchableOpacity} from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { Colors } from '../helpers/Helpers';
 import Tags from "react-native-tags";
-import Slider from "react-native-slider";
+import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
 export default class SearchTags extends Component {
 
-    constructor(){
+    constructor() {
         super();
         this.state = {
-            value: 1
+            value: [
+                20, 
+                60
+            ]
         }
     }
+    enableScroll = () => this.setState({ scrollEnabled: true });
 
     render() {
         return (
@@ -45,37 +49,40 @@ export default class SearchTags extends Component {
                         onTagPress={(index, tagLabel, event, deleted) =>
                             console.log(index, tagLabel, event, deleted ? "deleted" : "not deleted")
                         }
-                        maxNumberOfTags = {4}
-                        containerStyle={{ justifyContent: "center", borderBottomWidth: 1, width: '100%'}}
+                        maxNumberOfTags={4}
+                        containerStyle={{ justifyContent: "center", borderBottomWidth: 1, width: '100%' }}
                         inputStyle={{ backgroundColor: "white" }}
-                        tagContainerStyle={{backgroundColor: 'cyan'}}
-                        tagTextStyle={{color: 'white', verticalAlignText: 'center'}}
+                        tagContainerStyle={{ backgroundColor: 'cyan' }}
+                        tagTextStyle={{ color: 'white', verticalAlignText: 'center' }}
 
                     />
                 </View>
                 <View style={styles.MainView}>
-                    <Text>Price Range</Text>
-                    <Text>Value: {this.state.value}</Text>
-                    <Slider
-                        value={this.state.value}
-                        onValueChange={(value) => this.setState({value})} 
-                        minimumValue = {1}
-                        maximumValue={100} 
-                        trackStyle={{
-                            backgroundColor:'white',
-                            color:'green'
-                          }}
-                        thumbStyle={{
-                            backgroundColor:'#5baba9',
-                            color:'blue'
-                          }}/>
+                    <Text>Select Price</Text>
+                    <Text>Price Range: {this.state.value[0]} - {this.state.value[1]}</Text>
+                    <MultiSlider
+                        values={[this.state.value[0], this.state.value[1]]}
+                        onValuesChange={(value) => this.setState({value})}
+                        trackStyle={{ height: 6}}
+                        selectedStyle={{ backgroundColor: Colors.Green }}
+                        containerStyle={{ height: 25, color: Colors.Green}}
+                        sliderLength={350}
+                        customMarker={this.CustomMarker}
+                        min={1}
+                        max={100}
+                        step={2}
+                        allowOverlap
+                        snapped
+                    />
                 </View>
-                <View style={{justifyContent: 'center', alignItems: 'center'}}>
-                    <TouchableOpacity 
-                        style={{width: 150, backgroundColor: '#ffc200', borderRadius: 50, 
-                            height: 50, justifyContent: 'center'}}>
-                        <Text 
-                            style={{ textAlign: 'center', color: 'white', fontWeight: 'bold', fontSize: 14}}>
+                <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                    <TouchableOpacity
+                        style={{
+                            width: 150, backgroundColor: '#ffc200', borderRadius: 50,
+                            height: 50, justifyContent: 'center'
+                        }}>
+                        <Text
+                         style={{ textAlign: 'center', color: 'white', fontWeight: 'bold', fontSize: 14 }}>
                             Search
                         </Text>
                     </TouchableOpacity>

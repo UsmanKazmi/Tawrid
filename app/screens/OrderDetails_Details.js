@@ -15,24 +15,18 @@ export default class OrderDetails_Details extends Component {
 
         <ScrollView style={styles.mainView}>
 
-                <View style={{
-                  
+                <View style={{   
                     borderBottomWidth:1,
                     borderBottomColor:Colors.Grey
-
                 }}>
                         <View style={{
                             marginHorizontal:15,
                             marginVertical:20,
-        
                         }}>
-
                                 <View style={{
                                     width:100 + '%',
                                     flexDirection:'row',
                                     padding:5,
-                                
-                
                                 }}>
                                 
                                         <View style={{
@@ -48,15 +42,9 @@ export default class OrderDetails_Details extends Component {
                                                     }}
                                                     source={require('../../assets/icons/container.png')}
                                                 />                                        
-                                        
-                                        
-                                        
                                         </View>
-                                
                                         <View style={{
                                             alignSelf:'center'
-                                        
-                        
                                         }}>
                                                 <Text style={{
                                                     textAlign:'left',
@@ -71,18 +59,13 @@ export default class OrderDetails_Details extends Component {
                                                     textAlign:'left',
                                                     color:Colors.Grey,
                                                     fontSize:10,
-
-
                                                 }}>
                                                      Container No.
                                                 </Text>
-
                                         </View>  
-                                        
                                         <View style={{
                                             alignSelf:'center',
                                             flex:1,
-                        
                                         }}>
                                                 <Text style={{
                                                     textAlign:'right',
@@ -97,9 +80,6 @@ export default class OrderDetails_Details extends Component {
                                                     textAlign:'right',
                                                     fontSize:10,
                                                     color:Colors.Grey,
-
-
-
                                                 }}>
                                                         Container Count and Type
                                                 </Text>
@@ -122,20 +102,13 @@ export default class OrderDetails_Details extends Component {
                         <View style={{
                             marginHorizontal:15,
                             marginVertical:20,
-        
                         }}>
-
                                 <View style={{
                                     width:100 + '%',
                                     flexDirection:'row',
                                     padding:5,
-                                
-                
                                 }}>
-                                
                                         <View style={{
-                                            
-                        
                                         }}>
                                                 <Image
                                                     style={{
@@ -235,9 +208,7 @@ export default class OrderDetails_Details extends Component {
                         <View style={{ 
                             flexDirection: 'row'
                         }}>
-
                                     <SliderRange/>
-
                         </View>
 
                         <View style={styles.chatView}>
@@ -252,13 +223,9 @@ export default class OrderDetails_Details extends Component {
 
                             </View> 
                 </View>   
-                
-                
-
                 <View style={{
                         flexDirection:"row",
                         justifyContent:'space-evenly'
-                        
                 }}>
 
                      <Card_OrderDetails_Detail/>

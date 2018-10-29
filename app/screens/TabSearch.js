@@ -8,19 +8,16 @@ import {Colors} from '../helpers/Helpers';
 export default class TabSearch extends Component {
     render() {
         return(
+            /* for rendering search tabs*/
             <View>
                 <View style={styles.header}>
-                        <Search />
+                    <Search />
                     <View style={{
                         height: '100%', 
-                        borderBottomColor: Colors.Grey , 
-                        borderBottomWidth: 0.5
+                        elevation: 1
                         }}>
                         <SearchBar />
                     </View>
-                </View>
-                <View>
-                    <SearchProduct />
                 </View>
             </View>
         )
