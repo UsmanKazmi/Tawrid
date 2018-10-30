@@ -90,19 +90,7 @@ export default class Home extends Component<Props> {
     return (
         <View style={styles.container}>
             <StatusBar barStyle="light-content"/>
-            <View style={styles.navBar}>
-                <View style={styles.navBarTitle}>
-                  <Text style={styles.navBarText}>{this.props.title}</Text>
-                </View>
-                <View style={styles.navBarButtons}>
-                  <TouchableHighlight style = {styles.filterIcon}>
-                    <Icon name="ios-funnel" size={25} color={Colors.DarkGrey} />
-                  </TouchableHighlight>
-                  <TouchableHighlight>
-                    <Icon name="ios-settings" size={25} color={Colors.DarkGrey} />
-                  </TouchableHighlight>
-                </View>
-            </View>
+       
 
             <View style={styles.searchBox}>
               <TextInput editable={this.state.textEdit} autoCapitalize = "none" maxLength={34} 

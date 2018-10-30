@@ -166,48 +166,85 @@ openGridView = () => {
 const UserStack = StackNavigator({
     MyStore: {
         screen:HomeTabs ,
-        navigationOptions: ({
-            navigation
-        }) => {
+        navigationOptions:() => {
+            
             return{
+                headerStyle: {
+                    elevation: 0,
+                    shadowOpacity: 0,
+                  },
             headerTitle: <View style={styles.titleTextView}>
                             <Text style={styles.titleText}>
-                            {"My Store"}
+                            {'My Store'}
                             </Text>
                         </View>,
+
             headerLeft: <View style={{flexDirection: 'row'}}>
-                            <TouchableHighlight          
-                            onPress={this.openNavigationDrawer}
+
+                                <TouchableHighlight          
+                                    onPress={() => navigation.toggleDrawer() }
+                                    style = {styles.filterIcon}>
+                                    <Image 
+                                        source={require('../../assets/icons/menu.png')} 
+                                        style={{ marginLeft:10,width: 20, height: 20 }} />
+
+                                </TouchableHighlight>
+
+                                <TouchableHighlight          
+                                    onPress={() => navigation.openGridView() }
+                                    style = {styles.filterIcon}>
+                                    <Image 
+                                        source={require('../../assets/icons/listactive.png')} 
+                                        style={{ marginLeft:10,width: 20, height: 20 }} />
+
+                                </TouchableHighlight>
+
+                                <TouchableHighlight          
+                                        onPress={() => navigation.openGridView() }
+                                        style = {styles.filterIcon}>
+                                        <Image 
+                                            source={require('../../assets/icons/gridinactive.png')} 
+                                            style={{ marginLeft:10,width: 20, height: 20 }} />
+                        
+                                 </TouchableHighlight>
+                        </View>,
+
+                        headerRight: <View style={{flexDirection: 'row'}}>
+
+                        <TouchableHighlight          
+                            onPress={() => navigation.toggleDrawer() }
                             style = {styles.filterIcon}>
+                            <Image 
+                                source={require('../../assets/icons/notification.png')} 
+                                style={{ marginRight:10,width: 20, height: 20 }} />
 
-                                <Ionicons name="md-list" 
-                                    size={25} 
-                                    color={Colors.DarkGrey} />
                         </TouchableHighlight>
 
-                        <TouchableHighlight 
-                        // onPress={this.openGridView}
-                        style = {styles.filterIcon}>
-                            <Ionicons name="ios-grid-outline" size={25} color={Colors.DarkGrey} />
+                        <TouchableHighlight          
+                            onPress={() => navigation.openGridView() }
+                            style = {styles.filterIcon}>
+                            <Image 
+                                source={require('../../assets/icons/filter.png')} 
+                                style={{ marginRight:10,width: 20, height: 20 }} />
+
                         </TouchableHighlight>
-                        </View>
+
+                   
+                        </View>,
+
+
+                        
 
         }
-        }
+        },
+        
     },
-    // },
-    // MyOrder: {
-    //     screen: MyOrder
-    // },
-    // MyCart: {
-    //     screen: MyCart
-    // },
     Notification: {
         screen: Notification,
-        navigationOptions: ({
-            navigation
-        }) => {
+        navigationOptions: () => {
+            
             return {
+             
                 headerTitle: < View style = {{
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -215,6 +252,7 @@ const UserStack = StackNavigator({
                             }}>
                                 <Text > Notification </Text> 
                             </View>,
+                            
                 // headerLeft: <View >
                 //     <Ionicons name = "ios-menu"
                 // size = {
@@ -232,7 +270,7 @@ const UserStack = StackNavigator({
 
 const navigationDrawer = createDrawerNavigator({
         storeTabs: {
-            screen: HomeTabs
+            screen: UserStack
         },
         notification: {
             screen: Notification

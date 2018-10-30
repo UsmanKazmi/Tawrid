@@ -8,12 +8,18 @@ import { Search } from '../components/Search';
 
 export default class Orders extends Component {
 
+  static navigationOptions = ({navigation}) =>({
+    title:'Hello dynamic here'
+});
+
   openNavigationDrawer = () => {
 
     this.props.navigation.toggleDrawer();
 
   }
+
   render() {
+    
     return (
         <View>
 

@@ -86,49 +86,10 @@ export default class TabProducts extends Component{
       return (
           <View style={styles.container}>
               <StatusBar barStyle="light-content"/>
-              <View style={styles.navBar}>
-
-                    <TouchableHighlight          
-                        onPress={this.openNavigationDrawer}
-                        style = {styles.filterIcon}>
-
-                            <Icon name="md-list" 
-                                size={25} 
-                                color={Colors.DarkGrey} />
-                    </TouchableHighlight>
-
-                    <TouchableHighlight 
-                    onPress={this.openGridView}
-                    style = {styles.filterIcon}>
-                        <Icon name="ios-grid-outline" size={25} color={Colors.DarkGrey} />
-                    </TouchableHighlight>
-              
-
-                  <View style={styles.titleTextView}>
-                    <Text style={styles.titleText}>
-
-                    {"My Store"}
-                    
-                    </Text>
-                  </View>
-
-                  <View style={styles.navBarButtons}>
-
-                    <TouchableHighlight style = {styles.filterIcon}>
-                      <Icon name="ios-notifications-outline" size={25} color={Colors.DarkGrey} />
-                    </TouchableHighlight>
-
-                    <TouchableHighlight>
-                      <Icon name="ios-funnel-outline" size={25} color={Colors.DarkGrey} />
-                    </TouchableHighlight>
-
-                  </View>
-
-              </View>
   
               <View style={styles.searchBox}>
 
-            <Search placeholder={'My Products'}/>
+            <Search placeholder={'Search Products...'}/>
               </View>
               
               <View style={{flex:1,width:100+'%'}}>
