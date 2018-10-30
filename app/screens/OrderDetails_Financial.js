@@ -1,25 +1,97 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, Animated, Dimensions, Modal, ScrollView, View, StatusBar, Text, ImageBackground, TouchableOpacity, TextInput } from 'react-native';
+import { StyleSheet, Animated, Dimensions, ScrollView, View, StatusBar, Text, ImageBackground, TouchableOpacity, TextInput } from 'react-native';
 import { Colors } from '../helpers/Helpers';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Card_OrderDetails_Detail } from '../components/Card_OrderDetails_Detail';
+import Modal from "react-native-modal";
 
 export default class OrderDetails_Financial extends Component {
     constructor(){
         super();
         this.state = {
-            visible: false
+            visible: false,
+            isModalVisible: false
+
         }
     }
     
-    setModalVisible(visible) {
-        this.setState({modalVisible: visible});
-      }
+    _toggleModal = () =>
+    this.setState({ isModalVisible: !this.state.isModalVisible });
     render() {
         
         return (
             <ScrollView style={styles.mainView}>
+
+
+
+            <View style={{ 
+
+             }}>
+    
+
+        <Modal
+            style={{
+                backgroundColor:'transparent',
+            }}
+        
+        isVisible={this.state.isModalVisible}
+        transparent={true}
+        >
+        
+
+          <View style={{
+                backgroundColor:'red',
+                borderRadius:7
+
+        
+        }}>
+
+                        <View  style={{
+                            width: 100 +"%",
+                            height: 60 +"%",
+                    }}>
+                                <View style={{
+                                padding:15,
+                                backgroundColor:Colors.Green
+                            }}>
+                                <Text  style={{
+                                color:Colors.White,
+                                fontSize:12,
+                                textAlign:'center'
+
+                            }}>
+                                    Financial Notes
+                                    </Text>
+
+                        </View>
+
+                            <View>
+                                    <Text  style={{
+                                        color:Colors.Grey,
+                                        fontWeight:'bold',
+                                        marginHorizontal:30,
+                                        marginVertical:10,
+                                        borderBottomColor:Colors.Grey,
+                                        borderBottomWidth:2
+
+                                    }}>
+                                    240 tl product you take by hand from Iznik
+                                            300 tl iznik packaging 
+                                    </Text>
+                            
+                            </View>
+
+                                <TouchableOpacity onPress={this._toggleModal}>
+                                <Text>Hide me!</Text>
+                                </TouchableOpacity>
+
+                        </View>
+          </View>
+
+        </Modal>
+
+      </View>
 
                 <View style={{
                     marginHorizontal: 40,
@@ -109,15 +181,21 @@ export default class OrderDetails_Financial extends Component {
                     </View>
                 </View>
                 <View style={{ alignItems: 'center', marginBottom: 20 }}>
-                    <ImageBackground source={require('../../assets/icons/gradient.png')}
-                        style={styles.gradientImage}>
+                    
+                        <ImageBackground source={require('../../assets/icons/gradient.png')}
+                            style={styles.gradientImage}>
 
-                        <Text style={{ fontSize: 34, fontWeight: 'bold', color: Colors.White }}>$40,700</Text>
-                        <Text style={{ color: Colors.White, fontSize: 12 }}>Total Invoice Amount</Text>
-                        <TouchableOpacity style={styles.NotesBtn}>
-                            <Text style={{ color: Colors.White, fontSize: 12 }}>View Financial Notes</Text>
-                        </TouchableOpacity>
-                    </ImageBackground>
+                            <Text style={{ fontSize: 34, fontWeight: 'bold', color: Colors.White }}>$40,700</Text>
+                            <Text style={{ color: Colors.White, fontSize: 12 }}>Total Invoice Amount</Text>
+                            <TouchableOpacity 
+                            style={styles.NotesBtn}
+                            onPress={this._toggleModal}
+                            
+                            >
+                                <Text style={{ color: Colors.White, fontSize: 12 }}>View Financial Notes</Text>
+                            </TouchableOpacity>
+                        </ImageBackground>
+
                 </View>
                 <View style={{
                     flexDirection: "row",

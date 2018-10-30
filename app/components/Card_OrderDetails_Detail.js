@@ -24,7 +24,7 @@ export class Card_OrderDetails_Detail extends Component {
     }
 
     subNumber= (num) => {
-        if(num === this.state.number1)
+        if(num === this.state.number1) 
             this.setState({number1: --num})
         else if(num === this.state.number2)
             this.setState({number2: --num})
