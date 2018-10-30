@@ -251,7 +251,6 @@ const styles = StyleSheet.create({
     
     shippingText:{
         marginLeft:5,
-
         fontSize:11,
         textAlign:'left'
     },

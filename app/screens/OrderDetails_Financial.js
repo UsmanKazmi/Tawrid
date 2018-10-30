@@ -41,7 +41,7 @@ export default class OrderDetails_Financial extends Component {
         
 
           <View style={{
-                backgroundColor:'red',
+                backgroundColor:Colors.White,
                 borderRadius:7
 
         
@@ -49,7 +49,7 @@ export default class OrderDetails_Financial extends Component {
 
                         <View  style={{
                             width: 100 +"%",
-                            height: 60 +"%",
+                            height: 65 +"%",
                     }}>
                                 <View style={{
                                 padding:15,
@@ -57,8 +57,8 @@ export default class OrderDetails_Financial extends Component {
                             }}>
                                 <Text  style={{
                                 color:Colors.White,
-                                fontSize:12,
-                                textAlign:'center'
+                                fontSize:13,
+                                fontWeight:'bold'
 
                             }}>
                                     Financial Notes
@@ -66,24 +66,176 @@ export default class OrderDetails_Financial extends Component {
 
                         </View>
 
-                            <View>
-                                    <Text  style={{
-                                        color:Colors.Grey,
-                                        fontWeight:'bold',
-                                        marginHorizontal:30,
-                                        marginVertical:10,
-                                        borderBottomColor:Colors.Grey,
-                                        borderBottomWidth:2
+                            <View  style={{
+                                color:Colors.Grey,
+                                fontWeight:'bold',
+                                marginHorizontal:20,
+                                marginVertical:10,
+                                borderBottomColor:Colors.Grey,
+                                borderBottomWidth:1,
+                                paddingVertical:10
 
-                                    }}>
-                                    240 tl product you take by hand from Iznik
-                                            300 tl iznik packaging 
+                            }}>
+                                        <Text  style={{
+                                            color:Colors.Grey,
+                                            fontWeight:'bold',
+                                            marginHorizontal:15,
+                                            textAlign:'center'                                       
+
+                                        }}>
+                                              240 tl product you take by hand from Iznik
+                                                    300 tl iznik packaging 
                                     </Text>
                             
                             </View>
 
-                                <TouchableOpacity onPress={this._toggleModal}>
-                                <Text>Hide me!</Text>
+                            <View  style={{
+                            
+                            }}>
+                            
+                                        <View style={
+                                            styles.textInsideView
+                                        }>
+                                                <Text style={{
+                                                    alignSelf:'flex-start',
+                                                    fontSize:11
+
+                                            
+                                            }}>
+                                                    Total 540 tl
+                                                </Text>
+
+                                                <Text style={{
+                                                    alignSelf:'flex-end' ,
+                                                    flex:1, 
+                                                    textAlign:'right',
+                                                    fontSize:11,
+                                                    color:Colors.Green
+                                                }}>
+                                                    $113
+                                                </Text>
+                                        </View>
+
+
+                                        <View style={
+                                            styles.textInsideView
+
+
+                                        }>
+                                                <Text style={{
+                                                    alignSelf:'flex-start',
+                                                    fontSize:11
+
+                                            
+                                            }}>
+                                                    Total products and shipping and services
+                                                </Text>
+
+                                                <Text style={{
+                                                    alignSelf:'flex-end' ,
+                                                    flex:1, 
+                                                    textAlign:'right',
+                                                    fontSize:11,
+                                                    color:Colors.Green
+                                                }}>
+                                                    $5,986
+                                                </Text>
+                                        </View>
+
+                                        <View style={
+                                            styles.textInsideView
+
+
+                                        }>
+                                                <Text style={{
+                                                    alignSelf:'flex-start',
+                                                    fontSize:11
+
+                                            
+                                            }}>
+                                                    Payment
+                                                </Text>
+
+                                                <Text style={{
+                                                    alignSelf:'flex-end' ,
+                                                    flex:1, 
+                                                    textAlign:'right',
+                                                    fontSize:11,
+                                                    color:Colors.Green
+                                                }}>
+                                                    $5,700
+                                                </Text>
+                                        </View>
+
+                                        <View style={
+                                            styles.textInsideView
+                                        }>
+                                                <Text style={{
+                                                    alignSelf:'flex-start',
+                                                    fontSize:11
+
+                                            
+                                            }}>
+                                                  Balance
+                                                </Text>
+
+                                                <Text style={{
+                                                    alignSelf:'flex-end' ,
+                                                    flex:1, 
+                                                    textAlign:'right',
+                                                    fontSize:11,
+                                                    color:Colors.Green
+                                                }}>
+                                                    $278
+                                                </Text>
+                                        </View>
+
+                                        
+                                       
+                        <View  style={{
+                                color:Colors.Grey,
+                                fontWeight:'bold',
+                                marginHorizontal:20,
+                                marginVertical:10,
+                                borderColor:Colors.Grey,
+                                borderTopWidth:1,
+                                paddingVertical:10
+
+                            }}>
+                                       
+                            
+                            </View>
+                            
+                            
+                            </View>
+
+
+                            
+
+
+
+
+                                <TouchableOpacity 
+                                    style={{
+                                        backgroundColor:Colors.Yellow,
+                                        paddingHorizontal:30,
+                                        paddingVertical:7,
+                                        borderRadius:20,
+                                        width:"35%",
+                                        justifyContent:'center',
+                                        alignSelf:'center'
+
+                                    }}
+                                    onPress={this._toggleModal}>
+
+                                            <Text style={{
+                                                color:Colors.White,
+                                                textAlign:"center",
+                                            }}>
+                                            OK
+                                            
+                                            </Text>
+                                        
                                 </TouchableOpacity>
 
                         </View>
@@ -247,7 +399,13 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    textInsideView: {
+        flexDirection:'row',
+        marginHorizontal:20,
+        marginVertical:7
     }
+    
 
 
 

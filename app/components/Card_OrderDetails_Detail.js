@@ -7,30 +7,30 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
 export class Card_OrderDetails_Detail extends Component {
-    constructor(){
+    constructor() {
         super();
         this.state = {
             number1: 0
-        }   
+        }
     }
 
     addNumber = (num) => {
-        if(num === this.state.number1)
-            this.setState({number1: ++num})
-        else if(num === this.state.number2)
-            this.setState({number2: ++num})
+        if (num === this.state.number1)
+            this.setState({ number1: ++num })
+        else if (num === this.state.number2)
+            this.setState({ number2: ++num })
         else
-            this.setState({number3: ++num})
+            this.setState({ number3: ++num })
     }
 
-    subNumber= (num) => {
-        if(num === this.state.number1) 
-            this.setState({number1: --num})
-        else if(num === this.state.number2)
-            this.setState({number2: --num})
+    subNumber = (num) => {
+        if (num === this.state.number1)
+            this.setState({ number1: --num })
+        else if (num === this.state.number2)
+            this.setState({ number2: --num })
         else
-            this.setState({number3: --num})
-    }   
+            this.setState({ number3: --num })
+    }
 
 
     render() {
@@ -48,7 +48,7 @@ export class Card_OrderDetails_Detail extends Component {
                 <View style={{ position: 'absolute', marginLeft: 120 }}>
                     <View style={styles.icons}>
                         <Icon name="heart" size={25} color={'white'}
-                            style={{ textAlign: 'center', textAlignVertical: 'center', padding: 5 }} />
+                            style={styles.iconStyle} />
                     </View>
                     <View style={styles.icons}>
                         <Image source={require('../../assets/icons/comment.png')}
@@ -56,11 +56,11 @@ export class Card_OrderDetails_Detail extends Component {
                     </View>
                     <View style={styles.icons}>
                         <Icon name="cart-plus" size={25} color={'white'}
-                            style={{ textAlign: 'center', textAlignVertical: 'center', padding: 5 }} />
+                            style={styles.iconStyle} />
                     </View>
                 </View>
-                <View 
-                style={{position: 'absolute', flexDirection: 'row', marginTop: 140, }}>
+                <View
+                    style={{ position: 'absolute', flexDirection: 'row', marginTop: 140, }}>
                     <TouchableOpacity onPress={() => this.subNumber(this.state.number1)}
                         style={styles.btnStyle}>
                         <Text style={styles.subtractBtnText} > - </Text>
@@ -73,24 +73,27 @@ export class Card_OrderDetails_Detail extends Component {
                         <Text style={styles.addBtnText}> + </Text>
                     </TouchableOpacity>
                 </View>
-                <View style={{flexDirection: 'row', justifyContent: 'space-between'}}> 
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                     <Text>KRM HEDIYELIK</Text>
-                    <Text> $244</Text>    
+                    <Text> $244</Text>
                 </View>
-                <View>
-                    <Text style={{fontWeight: 'bold', fontSize: 18}}>
+                <View style={{ marginTop: 10 }}>
+                    <Text style={{ fontWeight: 'bold' }}>
                         Kare Tepsi Buyuk
                     </Text>
                 </View>
-                <View style={{flexDirection: 'row'}}>
-                    <Text>12 pieces per Box (Box)</Text>
+                <View style={{ flexDirection: 'row' }}>
+                    <Image source={require('../../assets/icons/statementsinactive.png')}
+                        style={{ width: 20, height: 20 }} />
+                    <Text style={{ fontWeight: 'bold', fontSize: 13 }}>12 pieces per Box</Text>
+                    <Text> (Box) </Text>
                 </View>
                 <View>
                     <Text>
                         Code: 1078
                     </Text>
                 </View>
-                <View style={{marginTop: 10}}>
+                <View style={{ marginTop: 10 }}>
                     <Text>Total Quantity: 24 pieces</Text>
                 </View>
                 <View>
@@ -104,10 +107,7 @@ export class Card_OrderDetails_Detail extends Component {
 class Tag extends Component {
     render() {
         return (
-            <View style={{
-                position: 'absolute', marginTop: 10, marginLeft: 6, borderRadius: 5, flexDirection: 'row',
-                backgroundColor: Colors.Green, padding: 1
-            }}>
+            <View style={styles.imageStyle}>
                 <Image source={require('../../assets/icons/question.png')} style={{ width: 20, height: 20 }} />
                 <Text style={{ color: Colors.White }}> s51.89 </Text>
             </View>
@@ -130,6 +130,11 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         marginTop: 6,
         opacity: 0.8
+    },
+    iconStyle: {
+        textAlign: 'center',
+        textAlignVertical: 'center',
+        padding: 5,
     },
     orderText: {
         fontWeight: 'bold',
@@ -173,34 +178,43 @@ const styles = StyleSheet.create({
         marginTop: 10,
         flex: 1
     },
-    subtractBtnText: { 
-        textAlign: 'center', 
-        fontWeight: 'bold', 
-        color: 'blue', 
-        fontSize: 22 
+    subtractBtnText: {
+        textAlign: 'center',
+        fontWeight: 'bold',
+        color: 'blue',
+        fontSize: 22
     },
     showText: {
-        height: 30, 
-        borderRadius: 50, 
-        backgroundColor: 'white', 
+        height: 30,
+        borderRadius: 50,
+        backgroundColor: 'white',
         width: 60,
-        textAlign: 'center', 
-        fontWeight: 'bold', 
+        textAlign: 'center',
+        fontWeight: 'bold',
         fontSize: 18,
     },
-    addBtnText: { 
-        textAlign: 'center', 
-        fontWeight: 'bold', 
-        color: 'blue', 
-        fontSize: 22 
+    addBtnText: {
+        textAlign: 'center',
+        fontWeight: 'bold',
+        color: 'blue',
+        fontSize: 22
     },
     btnStyle: {
-        height: 30, 
-        borderRadius: 50, 
-        backgroundColor: 'white', 
+        height: 30,
+        borderRadius: 50,
+        backgroundColor: 'white',
         width: 30,
         margin: 10,
         marginTop: 0
-    }
+    },
+    imageStyle: {
+        position: 'absolute',
+        marginTop: 10,
+        marginLeft: 6,
+        borderRadius: 5,
+        flexDirection: 'row',
+        backgroundColor: Colors.Green,
+        padding: 1,
+    },
 });
 
