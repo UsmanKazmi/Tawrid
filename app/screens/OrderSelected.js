@@ -17,58 +17,19 @@ export default class OrderSelected extends Component {
         render(){
 
             return(
-                <View style={{paddingBottom:30}}>
+                <View style={{paddingBottom:30, backgroundColor:Colors.White}}>
+                <View style={styles.searchBox}>
+        
+                <Search placeholder={'Search Orders'}/>
+                  </View >
                 <ScrollView  >
 
-                <View style={styles.navBar}>
-
-                <TouchableHighlight          
-                    onPress={this.openNavigationDrawer}
-                    style = {styles.filterIcon}>
-        
-                        <Icon name="md-list" 
-                            size={25} 
-                            color={Colors.DarkGrey} />
-                </TouchableHighlight>
-        
-                <TouchableHighlight 
-                onPress={this.openGridView}
-                style = {styles.filterIcon}>
-                    <Icon name="ios-grid-outline" size={25} color={Colors.DarkGrey} />
-                </TouchableHighlight>
-          
-        
-              <View style={styles.titleTextView}>
-                <Text style={styles.titleText}>
-        
-                {"My Orders"}
-                
-                </Text>
-              </View>
-        
-              <View style={styles.navBarButtons}>
-        
-                <TouchableHighlight style = {styles.filterIcon}>
-                  <Icon name="ios-notifications-outline" size={25} color={Colors.DarkGrey} />
-                </TouchableHighlight>
-        
-                <TouchableHighlight>
-                  <Icon name="ios-funnel-outline" size={25} color={Colors.DarkGrey} />
-                </TouchableHighlight>
-        
-              </View>
-        
-          </View>
-          
-          <View style={styles.searchBox}>
-        
-          <Search placeholder={'Search Orders'}/>
-            </View >
+       
+       
                 
                 
 
                     <View style={{
-                                paddingVertical:5,
                                 flex:1,
                                 borderWidth:StyleSheet.hairlineWidth,
                                 borderColor:Colors.Grey
@@ -271,7 +232,8 @@ const styles = StyleSheet.create({
       },
       searchBox: {
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
+        marginBottom:10
       },
       searchField: {
         flexDirection:'row',

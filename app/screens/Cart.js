@@ -43,10 +43,8 @@ export default class Cart extends Component {
 
     render() {
         return (
-            <View style={{ flex: 1 }}>
-                <View style={{ alignItems: 'center' }}>
-                    <Text style={{ fontSize: 18, paddingTop: 10 }} > MyCart</Text>
-                </View>
+            <View style={{ flex: 1,backgroundColor:Colors.White }}>
+            
                 <View style={{ alignItems: 'center', paddingVertical: 4, borderBottomWidth: 1, borderColor: 'gray' }}>
                     <Search placeholder={'Search Cart'} />
                 </View>

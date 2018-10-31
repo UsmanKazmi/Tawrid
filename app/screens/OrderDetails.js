@@ -16,47 +16,8 @@ export default class OrdersDetails extends Component {
   }
   render() {
     return (
-        <View>
+        <View style={{backgroundColor:Colors.White}}>
 
-        <View style={styles.navBar}>
-
-        <TouchableHighlight          
-            onPress={this.openNavigationDrawer}
-            style = {styles.filterIcon}>
-
-                <Icon name="md-list" 
-                    size={25} 
-                    color={Colors.DarkGrey} />
-        </TouchableHighlight>
-
-        <TouchableHighlight 
-        onPress={this.openGridView}
-        style = {styles.filterIcon}>
-            <Icon name="ios-grid-outline" size={25} color={Colors.DarkGrey} />
-        </TouchableHighlight>
-  
-
-      <View style={styles.titleTextView}>
-        <Text style={styles.titleText}>
-
-        {"Order 101086"}
-        
-        </Text>
-      </View>
-
-      <View style={styles.navBarButtons}>
-
-        <TouchableHighlight style = {styles.filterIcon}>
-          <Icon name="ios-notifications-outline" size={25} color={Colors.DarkGrey} />
-        </TouchableHighlight>
-
-        <TouchableHighlight>
-          <Icon name="ios-funnel-outline" size={25} color={Colors.DarkGrey} />
-        </TouchableHighlight>
-
-      </View>
-
-  </View>
   
   <View style={styles.searchBox}>
 

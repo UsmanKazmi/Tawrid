@@ -8,9 +8,7 @@ import { Search } from '../components/Search';
 
 export default class Orders extends Component {
 
-  static navigationOptions = ({navigation}) =>({
-    title:'Hello dynamic here'
-});
+
 
   openNavigationDrawer = () => {
 
@@ -21,47 +19,9 @@ export default class Orders extends Component {
   render() {
     
     return (
-        <View>
+        <View style={{backgroundColor:Colors.White}}>
 
-        <View style={styles.navBar}>
-
-        <TouchableHighlight          
-            onPress={this.openNavigationDrawer}
-            style = {styles.filterIcon}>
-
-                <Icon name="md-list" 
-                    size={25} 
-                    color={Colors.DarkGrey} />
-        </TouchableHighlight>
-
-        <TouchableHighlight 
-        onPress={this.openGridView}
-        style = {styles.filterIcon}>
-            <Icon name="ios-grid-outline" size={25} color={Colors.DarkGrey} />
-        </TouchableHighlight>
-  
-
-      <View style={styles.titleTextView}>
-        <Text style={styles.titleText}>
-
-        {"My Orders"}
         
-        </Text>
-      </View>
-
-      <View style={styles.navBarButtons}>
-
-        <TouchableHighlight style = {styles.filterIcon}>
-          <Icon name="ios-notifications-outline" size={25} color={Colors.DarkGrey} />
-        </TouchableHighlight>
-
-        <TouchableHighlight>
-          <Icon name="ios-funnel-outline" size={25} color={Colors.DarkGrey} />
-        </TouchableHighlight>
-
-      </View>
-
-  </View>
   
   <View style={styles.searchBox}>
 
@@ -73,7 +33,7 @@ export default class Orders extends Component {
         <View style={{
 
           width:100 +"%",
-          height:80 +"%"
+          height:85 +"%"
           
           }}>
         <RouteOrders/>
