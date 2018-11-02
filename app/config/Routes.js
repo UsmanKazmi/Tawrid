@@ -64,7 +64,7 @@ const GridView = StackNavigator({
 const MyStoreTabs = StackNavigator({
     FirstTab: {
         screen:GridView ,
-        navigationOptions:() => {
+        navigationOptions:({navigation}) => {
             
             return{
                 headerStyle: {
@@ -145,7 +145,7 @@ const MyStoreTabs = StackNavigator({
 const MyOrdersTab = StackNavigator({
     FirstTab: {
         screen:Orders ,
-        navigationOptions:() => {
+        navigationOptions:({navigation}) => {
             
             return{
                 headerStyle: {
@@ -202,7 +202,7 @@ const MyOrdersTab = StackNavigator({
 const MyCartTab = StackNavigator({
     FirstTab: {
         screen:Cart ,
-        navigationOptions:() => {
+        navigationOptions:({navigation}) => {
             
             return{
                 headerStyle: {
@@ -258,7 +258,7 @@ const MyCartTab = StackNavigator({
 const MyChatTab = StackNavigator({
     FirstTab: {
         screen:OrderSelected ,
-        navigationOptions:() => {
+        navigationOptions:({navigation}) => {
             
             return{
                 headerStyle: {
@@ -315,7 +315,7 @@ const MyChatTab = StackNavigator({
 const MyStatementsTab = StackNavigator({
     FirstTab: {
         screen:OrdersDetails ,
-        navigationOptions:() => {
+        navigationOptions:({navigation}) => {
             
             return{
                 headerStyle: {
@@ -482,7 +482,7 @@ openGridView = () => {
 const UserStack = StackNavigator({
     MyStore: {
         screen:HomeTabs ,
-        navigationOptions:() => {
+        navigationOptions:({navigation}) => {
             
             return{
                 headerStyle: {
@@ -618,12 +618,12 @@ const AuthenticationStack = StackNavigator({
 )
 
 const MainStack = SwitchNavigator({
+    authenticationStack: AuthenticationStack, //stack for login,register,forgotpassword
     
     navigationDrawer: {
         screen: navigationDrawer
     },
 
-    authenticationStack: AuthenticationStack, //stack for login,register,forgotpassword
  
 
     //stack for tabs when we logged in

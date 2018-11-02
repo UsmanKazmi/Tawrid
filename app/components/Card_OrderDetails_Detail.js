@@ -40,7 +40,8 @@ export class Card_OrderDetails_Detail extends Component {
                     style={{
                         height: 175,
                         width: 165,
-                        borderRadius: 10, position: 'relative'
+                        borderRadius: 10, 
+                        position: 'relative'
                     }}
                     source={require('../../assets/images/product.jpg')}
                 />
