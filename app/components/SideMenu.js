@@ -68,7 +68,7 @@ class SideMenu extends Component {
                 </View>
 
             <View style ={{flexDirection:'row', paddingStart:20}}>    
-                <TouchableOpacity style={styles.buttonRow}>
+                <TouchableOpacity style={styles.buttonRow} onPress={() => this.props.navigation.navigate('Orders')}>
                     <Icon name={"ios-notifications-outline"}  size={30} color="#01a699" />
                     <Text  style={styles.pageText} >MY ORDERS</Text>
                     </TouchableOpacity>
@@ -76,7 +76,7 @@ class SideMenu extends Component {
             </View>
 
             <View style ={{flexDirection:'row', paddingStart:20}}>    
-                <TouchableOpacity style={styles.buttonRow}>
+                <TouchableOpacity style={styles.buttonRow} onPress={() => this.props.navigation.navigate('Cart')}>
                     <Icon name={"ios-notifications-outline"}  size={30} color="#01a699" />
                     <Text  style={styles.pageText} >MY CART</Text>
                     </TouchableOpacity>
@@ -84,7 +84,7 @@ class SideMenu extends Component {
             </View>
 
             <View style ={{flexDirection:'row', paddingStart:20}}>    
-                <TouchableOpacity style={styles.buttonRow}>
+                <TouchableOpacity style={styles.buttonRow} onPress={() => this.props.navigation.navigate('Statement')}>
                     <Icon name={"ios-wallet"}  size={30} color="#01a699" />
                     <Text  style={styles.pageText} >MY STATEMENTS</Text>
                     </TouchableOpacity>
@@ -93,7 +93,7 @@ class SideMenu extends Component {
 
              <View style ={{flexDirection:'row', paddingStart:20}}>    
                     <TouchableOpacity style={styles.buttonRow}
-                    
+                      onPress={() => this.props.navigation.navigate('Chat')}
                     >
                         <Icon name={"ios-settings"}  size={30} color="#01a699" />
                         <Text  style={styles.pageText} >CHATS</Text>
@@ -111,7 +111,7 @@ class SideMenu extends Component {
 
 
         <View style ={{flexDirection:'row', paddingStart:20}}>    
-              <TouchableOpacity style={styles.buttonRow}>
+              <TouchableOpacity style={styles.buttonRow} onPress={() => this.props.navigation.navigate('Profile')}>
                 <Icon name={"ios-settings"}  size={30} color="#01a699" />
                 <Text  style={styles.pageText} >PROFILE</Text>
                 </TouchableOpacity>

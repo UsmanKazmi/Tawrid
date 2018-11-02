@@ -4,7 +4,7 @@ import React, {
 import {
     StyleSheet,
     View,
-    Text,Image,
+    Text, Image,
     TouchableHighlight
 } from 'react-native';
 import {
@@ -46,15 +46,15 @@ import OrdersDetails from '../screens/OrderDetails';
 
 const GridView = StackNavigator({
 
-        tabproduct: {
-            screen: TabProducts
-        },
+    tabproduct: {
+        screen: TabProducts
+    },
 
-        gridview: {
-            screen: Home
-        },
+    gridview: {
+        screen: Home
+    },
 
-    }
+}
 
 
 )
@@ -63,79 +63,79 @@ const GridView = StackNavigator({
 
 const MyStoreTabs = StackNavigator({
     FirstTab: {
-        screen:GridView ,
-        navigationOptions:({navigation}) => {
-            
-            return{
+        screen: GridView,
+        navigationOptions: ({ navigation }) => {
+
+            return {
                 headerStyle: {
                     elevation: 0,
                     shadowOpacity: 0,
-                  },
-            headerTitle: <View style={styles.titleTextView}>
-                            <Text style={styles.titleText}>
-                            {'My Store'}
-                            </Text>
-                        </View>,
+                },
+                headerTitle: <View style={styles.titleTextView}>
+                    <Text style={styles.titleText}>
+                        {'My Store'}
+                    </Text>
+                </View>,
 
-            headerLeft: <View style={{flexDirection: 'row'}}>
+                headerLeft: <View style={{ flexDirection: 'row' }}>
 
-                                <TouchableHighlight          
-                                    onPress={() => navigation.toggleDrawer() }
-                                    style = {styles.filterIcon}>
-                                    <Image 
-                                        source={require('../../assets/icons/menu.png')} 
-                                        style={{ marginLeft:10,width: 20, height: 20 }} />
+                    <TouchableHighlight
+                        onPress={() => navigation.toggleDrawer()}
+                        style={styles.filterIcon}>
+                        <Image
+                            source={require('../../assets/icons/menu.png')}
+                            style={{ marginLeft: 10, width: 20, height: 20 }} />
 
-                                </TouchableHighlight>
+                    </TouchableHighlight>
 
-                                <TouchableHighlight          
-                                    onPress={() => navigation.openGridView() }
-                                    style = {styles.filterIcon}>
-                                    <Image 
-                                        source={require('../../assets/icons/listactive.png')} 
-                                        style={{ marginLeft:10,width: 20, height: 20 }} />
+                    <TouchableHighlight
+                        onPress={() => navigation.openGridView()}
+                        style={styles.filterIcon}>
+                        <Image
+                            source={require('../../assets/icons/listactive.png')}
+                            style={{ marginLeft: 10, width: 20, height: 20 }} />
 
-                                </TouchableHighlight>
+                    </TouchableHighlight>
 
-                                <TouchableHighlight          
-                                        onPress={() => navigation.openGridView() }
-                                        style = {styles.filterIcon}>
-                                        <Image 
-                                            source={require('../../assets/icons/gridinactive.png')} 
-                                            style={{ marginLeft:10,width: 20, height: 20 }} />
-                        
-                                 </TouchableHighlight>
-                        </View>,
+                    <TouchableHighlight
+                        onPress={() => navigation.openGridView()}
+                        style={styles.filterIcon}>
+                        <Image
+                            source={require('../../assets/icons/gridinactive.png')}
+                            style={{ marginLeft: 10, width: 20, height: 20 }} />
 
-                        headerRight: <View style={{flexDirection: 'row'}}>
+                    </TouchableHighlight>
+                </View>,
 
-                        <TouchableHighlight          
-                            onPress={() => navigation.toggleDrawer() }
-                            style = {styles.filterIcon}>
-                            <Image 
-                                source={require('../../assets/icons/notification.png')} 
-                                style={{ marginRight:10,width: 20, height: 20 }} />
+                headerRight: <View style={{ flexDirection: 'row' }}>
 
-                        </TouchableHighlight>
+                    <TouchableHighlight
+                        onPress={() => navigation.toggleDrawer()}
+                        style={styles.filterIcon}>
+                        <Image
+                            source={require('../../assets/icons/notification.png')}
+                            style={{ marginRight: 10, width: 20, height: 20 }} />
 
-                        <TouchableHighlight          
-                            onPress={() => navigation.openGridView() }
-                            style = {styles.filterIcon}>
-                            <Image 
-                                source={require('../../assets/icons/filter.png')} 
-                                style={{ marginRight:10,width: 20, height: 20 }} />
+                    </TouchableHighlight>
 
-                        </TouchableHighlight>
+                    <TouchableHighlight
+                        onPress={() => navigation.openGridView()}
+                        style={styles.filterIcon}>
+                        <Image
+                            source={require('../../assets/icons/filter.png')}
+                            style={{ marginRight: 10, width: 20, height: 20 }} />
 
-                   
-                        </View>,
+                    </TouchableHighlight>
 
 
-                        
+                </View>,
 
-        }
+
+
+
+            }
         },
-        
+
     },
 
 })
@@ -144,56 +144,56 @@ const MyStoreTabs = StackNavigator({
 
 const MyOrdersTab = StackNavigator({
     FirstTab: {
-        screen:Orders ,
-        navigationOptions:({navigation}) => {
-            
-            return{
+        screen: Orders,
+        navigationOptions: ({ navigation }) => {
+
+            return {
                 headerStyle: {
                     elevation: 0,
                     shadowOpacity: 0,
-                  },
-            headerTitle: <View style={styles.titleTextView}>
-                            <Text style={styles.titleText}>
-                            {'My Orders'}
-                            </Text>
-                        </View>,
+                },
+                headerTitle: <View style={styles.titleTextView}>
+                    <Text style={styles.titleText}>
+                        {'My Orders'}
+                    </Text>
+                </View>,
 
-            headerLeft: <View style={{flexDirection: 'row'}}>
+                headerLeft: <View style={{ flexDirection: 'row' }}>
 
-                                <TouchableHighlight          
-                                    onPress={() => navigation.toggleDrawer() }
-                                    style = {styles.filterIcon}>
-                                    <Image 
-                                        source={require('../../assets/icons/menu.png')} 
-                                        style={{ marginLeft:10,width: 20, height: 20 }} />
+                    <TouchableHighlight
+                        onPress={() => navigation.toggleDrawer()}
+                        style={styles.filterIcon}>
+                        <Image
+                            source={require('../../assets/icons/menu.png')}
+                            style={{ marginLeft: 10, width: 20, height: 20 }} />
 
-                                </TouchableHighlight>
-
-                                
-                        </View>,
-
-            headerRight: <View style={{flexDirection: 'row'}}>
-
-               
-
-                        <TouchableHighlight          
-                            onPress={() => navigation.openGridView() }
-                            style = {styles.filterIcon}>
-                            <Image 
-                                source={require('../../assets/icons/filter.png')} 
-                                style={{ marginRight:10,width: 20, height: 0 }} />
-
-                        </TouchableHighlight>
-
-                   
-                        </View>,
+                    </TouchableHighlight>
 
 
-                        
+                </View>,
 
-        }
+                headerRight: <View style={{ flexDirection: 'row' }}>
+
+
+
+                    <TouchableHighlight
+                        onPress={() => navigation.openGridView()}
+                        style={styles.filterIcon}>
+                        <Image
+                            source={require('../../assets/icons/filter.png')}
+                            style={{ marginRight: 10, width: 20, height: 0 }} />
+
+                    </TouchableHighlight>
+
+
+                </View>,
+
+
+
+
+            }
         },
-        
+
     },
 
 })
@@ -201,112 +201,108 @@ const MyOrdersTab = StackNavigator({
 
 const MyCartTab = StackNavigator({
     FirstTab: {
-        screen:Cart ,
-        navigationOptions:({navigation}) => {
-            
-            return{
+        screen: Cart,
+        navigationOptions: ({ navigation }) => {
+
+            return {
                 headerStyle: {
                     elevation: 0,
                     shadowOpacity: 0,
-                  },
-            headerTitle: <View style={styles.titleTextView}>
-                            <Text style={styles.titleText}>
-                            {'My Cart'}
-                            </Text>
-                        </View>,
+                },
+                headerTitle: <View style={styles.titleTextView}>
+                    <Text style={styles.titleText}>
+                        {'My Cart'}
+                    </Text>
+                </View>,
 
-            headerLeft: <View style={{flexDirection: 'row'}}>
+                headerLeft: <View style={{ flexDirection: 'row' }}>
 
-                                <TouchableHighlight          
-                                    onPress={() => navigation.toggleDrawer() }
-                                    style = {styles.filterIcon}>
-                                    <Image 
-                                        source={require('../../assets/icons/menu.png')} 
-                                        style={{ marginLeft:10,width: 20, height: 20 }} />
+                    <TouchableHighlight
+                        onPress={() => navigation.toggleDrawer()}
+                        style={styles.filterIcon}>
+                        <Image
+                            source={require('../../assets/icons/menu.png')}
+                            style={{ marginLeft: 10, width: 20, height: 20 }} />
 
-                                </TouchableHighlight>
-
-                               
-                        </View>,
-
-            headerRight: <View style={{flexDirection: 'row'}}>
-
-                        <TouchableHighlight          
-                            onPress={() => navigation.toggleDrawer() }
-                            style = {styles.filterIcon}>
-                            <Image 
-                                source={require('../../assets/icons/print.png')} 
-                                style={{ marginRight:10,width: 20, height: 20 }} />
-
-                        </TouchableHighlight>
-
-                       
-
-                   
-                        </View>,
+                    </TouchableHighlight>
 
 
-                        
+                </View>,
 
-        }
+                headerRight: <View style={{ flexDirection: 'row' }}>
+
+                    <TouchableHighlight
+                        onPress={() => navigation.toggleDrawer()}
+                        style={styles.filterIcon}>
+                        <Image
+                            source={require('../../assets/icons/print.png')}
+                            style={{ marginRight: 10, width: 20, height: 20 }} />
+
+                    </TouchableHighlight>
+
+
+
+
+                </View>,
+
+
+
+
+            }
         },
-        
+
     },
 
 })
 
 const MyChatTab = StackNavigator({
     FirstTab: {
-        screen:OrderSelected ,
-        navigationOptions:({navigation}) => {
-            
-            return{
+        screen: OrderSelected,
+        navigationOptions: ({ navigation }) => {
+
+            return {
                 headerStyle: {
                     elevation: 0,
                     shadowOpacity: 0,
-                  },
-            headerTitle: <View style={styles.titleTextView}>
-                            <Text style={styles.titleText}>
-                            {'My Chats'}
-                            </Text>
-                        </View>,
+                },
+                headerTitle: <View style={styles.titleTextView}>
+                    <Text style={styles.titleText}>
+                        {'My Chats'}
+                    </Text>
+                </View>,
 
-            headerLeft: <View style={{flexDirection: 'row'}}>
+                headerLeft: <View style={{ flexDirection: 'row' }}>
 
-                                <TouchableHighlight          
-                                    onPress={() => navigation.toggleDrawer() }
-                                    style = {styles.filterIcon}>
-                                    <Image 
-                                        source={require('../../assets/icons/menu.png')} 
-                                        style={{ marginLeft:10,width: 20, height: 20 }} />
+                    <TouchableHighlight
+                        onPress={() => navigation.toggleDrawer()}
+                        style={styles.filterIcon}>
+                        <Image
+                            source={require('../../assets/icons/menu.png')}
+                            style={{ marginLeft: 10, width: 20, height: 20 }} />
 
-                                </TouchableHighlight>
-
-                               
-                        </View>,
-
-            headerRight: <View style={{flexDirection: 'row'}}>
-
-                        <TouchableHighlight          
-                            onPress={() => navigation.toggleDrawer() }
-                            style = {styles.filterIcon}>
-                            <Image 
-                                source={require('../../assets/icons/print.png')} 
-                                style={{ marginRight:10,width: 20, height: 0 }} />
-
-                        </TouchableHighlight>
-
-                       
-
-                   
-                        </View>,
+                    </TouchableHighlight>
 
 
-                        
+                </View>,
 
-        }
+                headerRight: <View style={{ flexDirection: 'row' }}>
+
+                    <TouchableHighlight
+                        onPress={() => navigation.toggleDrawer()}
+                        style={styles.filterIcon}>
+                        <Image
+                            source={require('../../assets/icons/print.png')}
+                            style={{ marginRight: 10, width: 20, height: 0 }} />
+
+                    </TouchableHighlight>
+                </View>,
+
+
+
+
+            }
         },
-        
+
     },
 
 })
@@ -314,56 +310,52 @@ const MyChatTab = StackNavigator({
 
 const MyStatementsTab = StackNavigator({
     FirstTab: {
-        screen:OrdersDetails ,
-        navigationOptions:({navigation}) => {
-            
-            return{
+        screen: OrdersDetails,
+        navigationOptions: ({ navigation }) => {
+
+            return {
                 headerStyle: {
                     elevation: 0,
                     shadowOpacity: 0,
-                  },
-            headerTitle: <View style={styles.titleTextView}>
-                            <Text style={styles.titleText}>
-                            {'My Statements'}
-                            </Text>
-                        </View>,
+                },
+                headerTitle: <View style={styles.titleTextView}>
+                    <Text style={styles.titleText}>
+                        {'My Statements'}
+                    </Text>
+                </View>,
 
-            headerLeft: <View style={{flexDirection: 'row'}}>
+                headerLeft: <View style={{ flexDirection: 'row' }}>
 
-                                <TouchableHighlight          
-                                    onPress={() => navigation.toggleDrawer() }
-                                    style = {styles.filterIcon}>
-                                    <Image 
-                                        source={require('../../assets/icons/menu.png')} 
-                                        style={{ marginLeft:10,width: 20, height: 20 }} />
+                    <TouchableHighlight
+                        onPress={() => navigation.toggleDrawer()}
+                        style={styles.filterIcon}>
+                        <Image
+                            source={require('../../assets/icons/menu.png')}
+                            style={{ marginLeft: 10, width: 20, height: 20 }} />
 
-                                </TouchableHighlight>
-
-                               
-                        </View>,
-
-            headerRight: <View style={{flexDirection: 'row'}}>
-
-                        <TouchableHighlight          
-                            onPress={() => navigation.toggleDrawer() }
-                            style = {styles.filterIcon}>
-                            <Image 
-                                source={require('../../assets/icons/print.png')} 
-                                style={{ marginRight:10,width: 20, height: 0 }} />
-
-                        </TouchableHighlight>
-
-                       
-
-                   
-                        </View>,
+                    </TouchableHighlight>
 
 
-                        
+                </View>,
 
-        }
+                headerRight: <View style={{ flexDirection: 'row' }}>
+
+                    <TouchableHighlight
+                        onPress={() => navigation.toggleDrawer()}
+                        style={styles.filterIcon}>
+                        <Image
+                            source={require('../../assets/icons/print.png')}
+                            style={{ marginRight: 10, width: 20, height: 0 }} />
+
+                    </TouchableHighlight>
+                </View>,
+
+
+
+
+            }
         },
-        
+
     },
 
 })
@@ -378,74 +370,74 @@ const MyStatementsTab = StackNavigator({
 
 
 
- 
- const HomeTabs = createBottomTabNavigator({
-        storeTab: {
-            screen: MyStoreTabs,
-            navigationOptions: {
-                showLabel: false,
-                tabBarIcon: ({ focused }) => (
-                    focused
-                    ? <Image  resizeMode={'contain'}  style={{width:25,height:25}} source={require('../../assets/icons/home_active.png')} size={10}  />
-                    : <Image  resizeMode={'contain'} style={{width:25,height:25}} source={require('../../assets/icons/home_inactive.png')} size={10}  /> 
-                )
-                
-            }
 
+const HomeTabs = createBottomTabNavigator({
+    storeTab: {
+        screen: MyStoreTabs,
+        navigationOptions: {
+            showLabel: false,
+            tabBarIcon: ({ focused }) => (
+                focused
+                    ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/home_active.png')} size={10} />
+                    : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/home_inactive.png')} size={10} />
+            )
 
-        },
-        ordersTab: {
-            screen: MyOrdersTab,
-            navigationOptions: {
-                showLabel: false,
-                tabBarIcon: ({ focused }) => (
-                    focused
-                    ? <Image  resizeMode={'contain'}  style={{width:25,height:25}} source={require('../../assets/icons/ordersactive.png')} size={10}  />
-                    : <Image  resizeMode={'contain'} style={{width:25,height:25}} source={require('../../assets/icons/ordersinactive.png')} size={10}  /> 
-                )
-                
-            }
-        },
-        cartTab: {
-            screen: MyCartTab,
-            navigationOptions: {
-                showLabel: false,
-                tabBarIcon: ({ focused }) => (
-                    focused
-                    ? <Image  resizeMode={'contain'}  style={{width:25,height:25}} source={require('../../assets/icons/addtocardActive.png')} size={10}  />
-                    : <Image  resizeMode={'contain'} style={{width:25,height:25}} source={require('../../assets/icons/addtocardInActive.png')} size={10}  /> 
-                )
-                
-            }
-        },
-        MyStatementSheet: {
-            screen: MyChatTab,
-            navigationOptions: {
-                showLabel: false,
-                tabBarIcon: ({ focused }) => (
-                    focused
-                    ? <Image  resizeMode={'contain'}  style={{width:25,height:25}} source={require('../../assets/icons/chatactive.png')} size={10}  />
-                    : <Image  resizeMode={'contain'} style={{width:25,height:25}} source={require('../../assets/icons/chatinactive.png')} size={10}  /> 
-                )
-                
-            }
-        },
-        profileTab: {
-            screen: MyStatementsTab,
-            navigationOptions: {
-                showLabel: false,
-                tabBarIcon: ({ focused }) => (
-                    focused
-                    ? <Image  resizeMode={'contain'}  style={{width:25,height:25}} source={require('../../assets/icons/statementsactive.png')} size={10}  />
-                    : <Image  resizeMode={'contain'} style={{width:25,height:25}} source={require('../../assets/icons/statementsinactive.png')} size={10}  /> 
-                )
-                
-            }
-        },
+        }
 
 
     },
-    {       
+    ordersTab: {
+        screen: MyOrdersTab,
+        navigationOptions: {
+            showLabel: false,
+            tabBarIcon: ({ focused }) => (
+                focused
+                    ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/ordersactive.png')} size={10} />
+                    : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/ordersinactive.png')} size={10} />
+            )
+
+        }
+    },
+    cartTab: {
+        screen: MyCartTab,
+        navigationOptions: {
+            showLabel: false,
+            tabBarIcon: ({ focused }) => (
+                focused
+                    ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/addtocardActive.png')} size={10} />
+                    : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/addtocardInActive.png')} size={10} />
+            )
+
+        }
+    },
+    MyStatementSheet: {
+        screen: MyChatTab,
+        navigationOptions: {
+            showLabel: false,
+            tabBarIcon: ({ focused }) => (
+                focused
+                    ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/chatactive.png')} size={10} />
+                    : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/chatinactive.png')} size={10} />
+            )
+
+        }
+    },
+    profileTab: {
+        screen: MyStatementsTab,
+        navigationOptions: {
+            showLabel: false,
+            tabBarIcon: ({ focused }) => (
+                focused
+                    ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/statementsactive.png')} size={10} />
+                    : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/statementsinactive.png')} size={10} />
+            )
+
+        }
+    },
+
+
+},
+    {
         tabBarOptions: {
 
             showLabel: false,
@@ -481,137 +473,118 @@ openGridView = () => {
 
 const UserStack = StackNavigator({
     MyStore: {
-        screen:HomeTabs ,
-        navigationOptions:({navigation}) => {
-            
-            return{
+        screen: HomeTabs,
+        navigationOptions: ({ navigation }) => {
+
+            return {
                 headerStyle: {
                     elevation: 0,
                     shadowOpacity: 0,
-                  },
-            headerTitle: <View style={styles.titleTextView}>
-                            <Text style={styles.titleText}>
-                            {'My Store'}
-                            </Text>
-                        </View>,
+                },
+                headerTitle: <View style={styles.titleTextView}>
+                    <Text style={styles.titleText}>
+                        {'My Store'}
+                    </Text>
+                </View>,
 
-            headerLeft: <View style={{flexDirection: 'row'}}>
+                headerLeft: <View style={{ flexDirection: 'row' }}>
 
-                                <TouchableHighlight          
-                                    onPress={() => navigation.toggleDrawer() }
-                                    style = {styles.filterIcon}>
-                                    <Image 
-                                        source={require('../../assets/icons/menu.png')} 
-                                        style={{ marginLeft:10,width: 20, height: 20 }} />
+                    <TouchableHighlight
+                        onPress={() => navigation.toggleDrawer()}
+                        style={styles.filterIcon}>
+                        <Image
+                            source={require('../../assets/icons/menu.png')}
+                            style={{ marginLeft: 10, width: 20, height: 20 }} />
 
-                                </TouchableHighlight>
+                    </TouchableHighlight>
 
-                                <TouchableHighlight          
-                                    onPress={() => navigation.openGridView() }
-                                    style = {styles.filterIcon}>
-                                    <Image 
-                                        source={require('../../assets/icons/listactive.png')} 
-                                        style={{ marginLeft:10,width: 20, height: 20 }} />
+                    <TouchableHighlight
+                        onPress={() => navigation.openGridView()}
+                        style={styles.filterIcon}>
+                        <Image
+                            source={require('../../assets/icons/listactive.png')}
+                            style={{ marginLeft: 10, width: 20, height: 20 }} />
 
-                                </TouchableHighlight>
+                    </TouchableHighlight>
 
-                                <TouchableHighlight          
-                                        onPress={() => navigation.openGridView() }
-                                        style = {styles.filterIcon}>
-                                        <Image 
-                                            source={require('../../assets/icons/gridinactive.png')} 
-                                            style={{ marginLeft:10,width: 20, height: 20 }} />
-                        
-                                 </TouchableHighlight>
-                        </View>,
+                    <TouchableHighlight
+                        onPress={() => navigation.openGridView()}
+                        style={styles.filterIcon}>
+                        <Image
+                            source={require('../../assets/icons/gridinactive.png')}
+                            style={{ marginLeft: 10, width: 20, height: 20 }} />
 
-                        headerRight: <View style={{flexDirection: 'row'}}>
+                    </TouchableHighlight>
+                </View>,
 
-                        <TouchableHighlight          
-                            onPress={() => navigation.toggleDrawer() }
-                            style = {styles.filterIcon}>
-                            <Image 
-                                source={require('../../assets/icons/notification.png')} 
-                                style={{ marginRight:10,width: 20, height: 20 }} />
+                headerRight: <View style={{ flexDirection: 'row' }}>
 
-                        </TouchableHighlight>
+                    <TouchableHighlight
+                        onPress={() => navigation.toggleDrawer()}
+                        style={styles.filterIcon}>
+                        <Image
+                            source={require('../../assets/icons/notification.png')}
+                            style={{ marginRight: 10, width: 20, height: 20 }} />
 
-                        <TouchableHighlight          
-                            onPress={() => navigation.openGridView() }
-                            style = {styles.filterIcon}>
-                            <Image 
-                                source={require('../../assets/icons/filter.png')} 
-                                style={{ marginRight:10,width: 20, height: 20 }} />
+                    </TouchableHighlight>
 
-                        </TouchableHighlight>
+                    <TouchableHighlight
+                        onPress={() => navigation.openGridView()}
+                        style={styles.filterIcon}>
+                        <Image
+                            source={require('../../assets/icons/filter.png')}
+                            style={{ marginRight: 10, width: 20, height: 20 }} />
 
-                   
-                        </View>,
+                    </TouchableHighlight>
 
 
-                        
+                </View>,
 
-        }
-        },
-        
-    },
-    Notification: {
-        screen: Notification,
-        navigationOptions: () => {
-            
-            return {
-             
-                headerTitle: < View style = {{
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            flex: 1
-                            }}>
-                                <Text > Notification </Text> 
-                            </View>,
-                            
-                // headerLeft: <View >
-                //     <Ionicons name = "ios-menu"
-                // size = {
-                //     30
-                // }
-                // // onPress={this.navigate.openDrawer()}
-                // />
 
-                // </View>
+
+
             }
-        }
-    }
+        },
+
+    },
 })
 
 
 const navigationDrawer = createDrawerNavigator({
-        storeTabs: {
-            screen: HomeTabs
-        },
-        notification: {
-            screen: Notification
-        },
-     
- 
+    storeTabs: {
+        screen: HomeTabs
     },
+    Orders: {
+        screen: Orders
+    },
+    Cart: {
+        screen: Cart
+    },
+    Statement: {
+        screen: MyStatementSheet
+    },
+    Chat: {
+        screen: Chat
+    },
+    Profile: {
+        screen: Profile
+    }
+},
 
     {
         contentComponent: SideMenu,
         drawerWidth: 300
     }
 
-
-
-
 );
 
 
 
 const AuthenticationStack = StackNavigator({
-        login: Login,
-        // register: Register,
-        // forgotPassword:ForgotPassword,
-    }
+    login: Login,
+    // register: Register,
+    // forgotPassword:ForgotPassword,
+}
 
 
 
@@ -619,12 +592,12 @@ const AuthenticationStack = StackNavigator({
 
 const MainStack = SwitchNavigator({
     authenticationStack: AuthenticationStack, //stack for login,register,forgotpassword
-    
+
     navigationDrawer: {
         screen: navigationDrawer
     },
 
- 
+
 
     //stack for tabs when we logged in
 })
@@ -634,7 +607,7 @@ const MainStack = SwitchNavigator({
 
 class Routes extends Component {
     render() {
-        return ( <MainStack /> )
+        return (<MainStack />)
     }
 }
 
@@ -653,9 +626,9 @@ const styles = StyleSheet.create({
         color: Colors.DarkGrey,
 
 
-      },
-      titleTextView: {
-        flex:1,
+    },
+    titleTextView: {
+        flex: 1,
         fontSize: 15,
         textAlign: 'center',
         // lineHeight: 24,
@@ -666,5 +639,5 @@ const styles = StyleSheet.create({
         color: Colors.DarkGrey,
 
 
-      },
+    },
 })

@@ -19,8 +19,16 @@ import CardGridView from '../screens/CardGridView';
 
 const ProductsTab = TabNavigator({
 
-    newProducts:{screen:NewProduct},
-    myProducts:{screen:CardGridView},
+    newProducts:{screen:NewProduct,
+        navigationOptions: {
+            tabBarLabel: 'New Products'
+        }
+    },
+    myProducts:{screen:CardGridView,
+        navigationOptions: {
+            tabBarLabel: 'My Products'
+        }
+    },
 
 },
 
