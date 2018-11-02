@@ -45,7 +45,7 @@ const OrdersTab = TabNavigator({
     },
 
 
-
+ 
     deliveredOrders:{screen:DeliveredOrder,
         
         

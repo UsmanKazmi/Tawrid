@@ -18,17 +18,14 @@ class SideMenu extends Component {
 
 
     openStoreTabs = ()=> {
-    alert('open stre Tabs')
     this.props.navigation.navigate('storeTabs');
   }
 
   logout = ()=> {
-    alert('logout')
     this.props.navigation.navigate('login');
   }
 
   openNotification = ()=> {
-    alert('ABs');
     this.props.navigation.navigate('notification');
   }
   render () {
@@ -92,8 +89,7 @@ class SideMenu extends Component {
              </View>
 
              <View style ={{flexDirection:'row', paddingStart:20}}>    
-                    <TouchableOpacity style={styles.buttonRow}
-                      onPress={() => this.props.navigation.navigate('Chat')}
+                    <TouchableOpacity style={styles.buttonRow} onPress={() => this.props.navigation.navigate('Chat')}
                     >
                         <Icon name={"ios-settings"}  size={30} color="#01a699" />
                         <Text  style={styles.pageText} >CHATS</Text>
