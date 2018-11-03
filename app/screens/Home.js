@@ -2,10 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet,Animated,Dimensions,ScrollView,View,StatusBar,Text,TouchableHighlight,TouchableOpacity,TextInput} from 'react-native';
 import {Colors} from '../helpers/Helpers';
 import Api, { TawridApi } from '../utilities/Api';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 import Products  from '../components/Products';
-import Notification from '../screens/Notification'
 
 const MyProducts = () => (
   
@@ -26,11 +23,8 @@ const NewProducts = () => (
 
 );
 
-export default class Home extends Component<Props> {
+export default class Home extends Component {
   
-
-    
-
   constructor(Props) {
     super(Props);
     this.state = {

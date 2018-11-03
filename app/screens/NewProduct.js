@@ -1,43 +1,39 @@
-import React,{Component} from 'react'
-import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
-import {ScrollView} from 'react-native';
+import React, { Component } from 'react'
+import { ScrollView } from 'react-native';
 import { Colors } from '../helpers/Helpers';
-import { Image, Text, View, StyleSheet,TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { View } from 'react-native';
 import { CardNewProduct } from '../components/CardNewProduct';
+import { connect } from 'react-redux';
+import Action from '../Store/ActionCenter';
 
+class NewProduct extends Component {
+    render() {
+        return (
+            <ScrollView >
+                <View style={{ paddingBottom: 30 }}>
 
+                    <CardNewProduct />
 
+                    <CardNewProduct />
 
-   const cardTitle = {cardTitle: {
-     
-    }}
+                    <CardNewProduct />
 
-export default class NewProduct extends Component {
-        render(){
-
-            return(
-                <ScrollView >
-                <View style={{paddingBottom:30}}>
-
-                    <CardNewProduct/>
-
-                    <CardNewProduct/>
-                    
-                    <CardNewProduct/>
-                    
-                    <CardNewProduct/>
-                    </View>
+                    <CardNewProduct />
+                </View>
             </ScrollView>
-            )
-                
-                
-                
-        }
-
-
-
-
+        )
+    }
 }
+function mapStateToProps(state) {
+    return {
+
+    }
+}
+function mapDispatchToProps(dispatch) {
+    return {
+
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(NewProduct)
 
 

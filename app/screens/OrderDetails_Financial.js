@@ -208,13 +208,6 @@ export default class OrderDetails_Financial extends Component {
                             
                             
                             </View>
-
-
-                            
-
-
-
-
                                 <TouchableOpacity 
                                     style={{
                                         backgroundColor:Colors.Yellow,

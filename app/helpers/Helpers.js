@@ -7,6 +7,7 @@ class Helpers extends Component {
 
 //export Default Colors
 export const Colors =  {
+    TransparentGreen: 'rgba(0,185,181,0.11)',
     Green: '#00b9b5',
     LineWhite: 'rgba(255,255,255,0.6)',
     White: '#ffffff',

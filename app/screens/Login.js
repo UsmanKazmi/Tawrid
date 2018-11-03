@@ -8,13 +8,6 @@ import Toast from '../components/Toasts';
 
 import Home from './Home';
 
-
-// const DismissKeyboard = ({ children }) => (
-//   <TouchableWithoutFeedback onPress={ () => Keyboard.dismiss() }>
-//     {children}
-//   </TouchableWithoutFeedback>
-// );
-
 export default class Login extends Component {
 
   static navigationOptions = {
@@ -107,13 +100,13 @@ export default class Login extends Component {
             loading: false,
             textEdit: true
         }); 
-        if (this.state.response) {
-          if (this.state.response.status == 'success') {
-            this.onSuccessLogin()
+        if(this.state.response) {
+          if(this.state.response.status == 'success') {
+              this.onSuccessLogin()
             // Actions.home(this.state.response.data); 
 
           } else if (this.state.response.status == 'error') {
-            Alert.alert(this.state.response.message);
+              Alert.alert(this.state.response.message);
           } else {
             Alert.alert('An unknown error occured. Please contact App support team');
           }

@@ -1,5 +1,6 @@
 import React, {Component } from 'react';
 import {Alert} from 'react-native';
+
 class Api extends Component {
   constructor(Props) {
     super(Props);
@@ -23,8 +24,7 @@ export const TawridApi = {
 
     })
     .catch(error => {
-      
-      
+      console.log('Error: ', error);
     });
   }
   

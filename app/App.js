@@ -3,7 +3,8 @@ import {StyleSheet, Platform, View, StatusBar} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 import {Colors} from './helpers/Helpers';
 import Routes from './config/Routes';
-
+import {Provider} from 'react-redux';
+import store from './Store/Index';
 
 
 const MyStatusBar = (Props) => (
@@ -26,11 +27,12 @@ export default class App extends Component {
   render() {
     console.disableYellowBox = true; 
     return (
-      <View style={styles.container}>
-        <MyStatusBar barStyle="light-content" animated={true}/>
-        
-        <Routes/>
-      </View>
+      <Provider store={store}>
+        <View style={styles.container}>
+          <MyStatusBar barStyle="light-content" animated={true}/>    
+          <Routes/>
+        </View>
+      </Provider>
   
           
       

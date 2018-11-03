@@ -20,29 +20,9 @@ export default class Chat extends Component {
   render() {
     return (
 
-        <View style={{flex:1,paddingBottom:50}}>
+        <View style={{flex:1,paddingBottom:50,backgroundColor:Colors.White}}>
 
-              <View style={styles.navBar}>
-
-                    <TouchableHighlight          
-                        onPress={this.openNavigationDrawer}
-                        style = {styles.filterIcon}>
-
-                            <Icon name="md-list" 
-                                size={25} 
-                                color={Colors.DarkGrey} />
-                    </TouchableHighlight>
-
-
-                  <View style={styles.titleTextView}>
-                      <Text style={styles.titleText}>
-
-                        {"Chat"}
-                      
-                      </Text>
-
-                  </View>
-               </View>
+              
                <ScrollView>
 
 

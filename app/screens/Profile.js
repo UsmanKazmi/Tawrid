@@ -8,9 +8,9 @@ import AboutComponent from '../components/ProfileComponents/AboutComponent';
 export default class Profile extends Component {
     render() {
       return (
-        <View style={{ }}>    
+        <View style={{ backgroundColor:Colors.White}}>    
 
-        <ScrollView  style={{height:90 + '%',}}>
+        <ScrollView  style={{height:100 + '%',}}>
 
 
             <View style={styles.profileImageView}>

@@ -5,7 +5,7 @@ import {Colors} from '../helpers/Helpers';
 import Icon from 'react-native-vector-icons/Ionicons';
 import RouteOrders from '../config/RouteOrders';
 import { Search } from '../components/Search';
-import { CardActiveOrders } from '../components/CardActiveOrders';
+import {CardActiveOrders} from '../components/CardActiveOrders';
 
 export default class DeliveredOrder extends Component {
   render() {

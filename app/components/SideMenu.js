@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, {Component} from 'react';
 import {NavigationActions} from 'react-navigation';
-import {ScrollView, Text, View, StyleSheet,TouchableOpacity, TouchableHighlight}   from 'react-native';
+import {ScrollView, Text, View, StyleSheet,TouchableOpacity, TouchableHighlight,Image}   from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Colors } from '../helpers/Helpers';
 
@@ -35,8 +35,11 @@ class SideMenu extends Component {
           <View style ={{flexDirection:'row', paddingStart:20, paddingBottom:50}}>
           
           <TouchableOpacity  style={styles.circleProfileImage}>
+
                  <Icon name={"chevron-right"}  size={30} color="#01a699" />
+                 
           </TouchableOpacity>
+
 
           <Text  style={styles.textProfileName} >John Wick</Text>
         
@@ -52,78 +55,116 @@ class SideMenu extends Component {
        
           </View>
 
+             <TouchableHighlight style={styles.buttonRow} underlayColor={Colors.TransparentGreen}
+               onPress={ this.openStoreTabs}>
+                  <View style ={{flexDirection:'row', paddingStart:20}}>    
 
-            <View style ={{flexDirection:'row', paddingStart:20}}>    
-                    <TouchableOpacity style={styles.buttonRow}
-                    onPress={ this.openStoreTabs}
-
-                    >
-                        <Icon name={"ios-notifications-outline"}  size={30} color="#01a699" />
-                        <Text  style={styles.pageText} >MY STORE</Text>
-                        </TouchableOpacity>
-                        
-                </View>
-
-            <View style ={{flexDirection:'row', paddingStart:20}}>    
-                <TouchableOpacity style={styles.buttonRow} onPress={() => this.props.navigation.navigate('Orders')}>
-                    <Icon name={"ios-notifications-outline"}  size={30} color="#01a699" />
-                    <Text  style={styles.pageText} >MY ORDERS</Text>
-                    </TouchableOpacity>
+                      
+                          <Image
+                                style={{height:20,width:20, }}
+                                source={require('../../assets/icons/menu1.png')}
+                            /> 
                     
-            </View>
+                          <Text  style={styles.pageText} >MY STORE</Text>
+                        
+                  </View>
+                </TouchableHighlight>
 
-            <View style ={{flexDirection:'row', paddingStart:20}}>    
-                <TouchableOpacity style={styles.buttonRow} onPress={() => this.props.navigation.navigate('Cart')}>
-                    <Icon name={"ios-notifications-outline"}  size={30} color="#01a699" />
-                    <Text  style={styles.pageText} >MY CART</Text>
-                    </TouchableOpacity>
+                <TouchableHighlight style={styles.buttonRow} underlayColor={Colors.TransparentGreen} 
+                    onPress={() => this.props.navigation.navigate('Orders')}>
+                <View style ={{flexDirection:'row', paddingStart:20}}>    
+
+                      <Image
+                          style={{height:20,width:20, }}
+                          source={require('../../assets/icons/menu2.png')}
+                      /> 
+                    <Text  style={styles.pageText} >MY ORDERS</Text>
+                    
+               </View>
+            </TouchableHighlight>
+
+
+                <TouchableHighlight style={styles.buttonRow} underlayColor={Colors.TransparentGreen}  
+                onPress={() => this.props.navigation.navigate('Cart')}>
+                <View style ={{flexDirection:'row', paddingStart:20}}>    
+
+                        <Image
+                            style={{height:20,width:20, }}
+                            source={require('../../assets/icons/menu3.png')}
+                        />                     
+                        <Text  style={styles.pageText} >MY CART</Text>
                 
-            </View>
+                </View>
+            </TouchableHighlight>
 
-            <View style ={{flexDirection:'row', paddingStart:20}}>    
-                <TouchableOpacity style={styles.buttonRow} onPress={() => this.props.navigation.navigate('Statement')}>
-                    <Icon name={"ios-wallet"}  size={30} color="#01a699" />
-                    <Text  style={styles.pageText} >MY STATEMENTS</Text>
-                    </TouchableOpacity>
+            <TouchableHighlight style={styles.buttonRow} underlayColor={Colors.TransparentGreen}  
+            onPress={() => this.props.navigation.navigate('Statement')}>
+
+              <View style ={{flexDirection:'row', paddingStart:20}}>    
+                <Image
+                      style={{height:20,width:20, }}
+                      source={require('../../assets/icons/menu4.png')}
+                  />  
+
+                <Text  style={styles.pageText} >MY STATEMENTS</Text>
             
-             </View>
+              </View>
+             </TouchableHighlight>
 
-             <View style ={{flexDirection:'row', paddingStart:20}}>    
-                    <TouchableOpacity style={styles.buttonRow} onPress={() => this.props.navigation.navigate('Chat')}
-                    >
-                        <Icon name={"ios-settings"}  size={30} color="#01a699" />
-                        <Text  style={styles.pageText} >CHATS</Text>
-                 </TouchableOpacity>
-         
-          </View>
+             <TouchableHighlight style={styles.buttonRow} underlayColor={Colors.TransparentGreen}  
+              onPress={() => this.props.navigation.navigate('Chat')}>
+                    <View style ={{flexDirection:'row', paddingStart:20}}>    
+                                <Image
+                                    style={{height:20,width:20, }}
+                                    source={require('../../assets/icons/menu5.png')}
+                              />                         
+                              <Text  style={styles.pageText} >CHATS</Text>
+              
+                    </View>
+          </TouchableHighlight>
 
-          <View style ={{flexDirection:'row', paddingStart:20}}>    
-                    <TouchableOpacity style={styles.buttonRow}>
-                        <Icon name={"ios-settings-outline"}  size={30} color="#01a699" />
-                        <Text  style={styles.pageText} >SETTINGS</Text>
-                    </TouchableOpacity>
+          <TouchableHighlight style={styles.buttonRow} underlayColor={Colors.TransparentGreen}  >
+
+              <View style ={{flexDirection:'row', paddingStart:20}}>    
+                            <Image
+                                  style={{height:20,width:20, }}
+                                  source={require('../../assets/icons/menu6.png')}
+                              />                              
+                              <Text  style={styles.pageText} >SETTINGS</Text>
       
-             </View>
+                  </View>
+             </TouchableHighlight>
 
 
-        <View style ={{flexDirection:'row', paddingStart:20}}>    
-              <TouchableOpacity style={styles.buttonRow} onPress={() => this.props.navigation.navigate('Profile')}>
-                <Icon name={"ios-settings"}  size={30} color="#01a699" />
-                <Text  style={styles.pageText} >PROFILE</Text>
-                </TouchableOpacity>
+             <TouchableHighlight style={styles.buttonRow} underlayColor={Colors.TransparentGreen}   
+             onPress={() => this.props.navigation.navigate('Profile')}>
+                <View style ={{flexDirection:'row', paddingStart:20}}>    
+
+                        <Image
+                            style={{height:20,width:20, }}
+                            source={require('../../assets/icons/menu7.png')}
+                          />                           
+                    <Text  style={styles.pageText} >PROFILE</Text>
    
-         </View>
+                </View>
+         </TouchableHighlight>
 
 
         </ScrollView>
+
+        <TouchableHighlight style={styles.buttonRow} underlayColor={Colors.TransparentGreen}  
+        >
         <View style ={{flexDirection:'row', paddingStart:20}}>    
-        <TouchableOpacity style={styles.buttonRow}
-        s>
-          <Icon name={"ios-logout"}  size={30} color="#01a699" />
-          <Text  style={styles.pageText} >LOGOUT</Text>
-          </TouchableOpacity>
+
+                <Image
+                style={{height:20,width:20, }}
+                source={require('../../assets/icons/menu8.png')}
+              />            
+              <Text  style={styles.pageText} >LOGOUT</Text>
 
    </View>
+   </TouchableHighlight>
+
       </View>
     );
   }
@@ -180,7 +221,8 @@ const styles = StyleSheet.create ({
         paddingEnd:20
       },
       buttonRow:{
-            padding:10,
+            paddingHorizontal:10,
+            paddingVertical:15,
             flexDirection:'row',
             flex:1,
             justifyContent:'flex-start',
