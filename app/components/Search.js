@@ -91,9 +91,6 @@ const styles = StyleSheet.create({
         height: 44,
         width: Dimensions.get('window').width - 40,
         backgroundColor: Colors.LighterGrey,
-        fontFamily: 'DIN Next LT Arabic',
-        fontSize: 17,
-        color: Colors.DarkGrey,
         borderRadius: 10,
         marginHorizontal: 20
     },

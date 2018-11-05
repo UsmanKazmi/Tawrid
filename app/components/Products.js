@@ -24,8 +24,6 @@ export default Products = (props) => {
         'https://imgstaticcontent.lbb.in/lbbnew/wp-content/uploads/sites/1/2016/04/Casa-Pop-Company-Raj-Crockery.jpg'
     ];
     return(
-        //<Image style = {styles.image} source = {require('../../assets/images/product.jpg')} />    
-        //<Image source={{uri: "http://placekitten.com/300/505"}} style={styles.image}>
         <View style={styles.productView}>
             <View style= {styles.product}>
                 <View style={styles.imageView}>

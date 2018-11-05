@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, Alert, View, Dimensions, Image, TouchableWithoutFeedback, Keyboard, TouchableHighlight,Navigator, Animated, StatusBar, TextInput} from 'react-native';
+import {Platform,AsyncStorage , StyleSheet, Text, Alert, View, Dimensions, Image, TouchableWithoutFeedback, Keyboard, TouchableHighlight,Navigator, Animated, StatusBar, TextInput} from 'react-native';
 import {LoginAnimation, Colors} from '../helpers/Helpers';
 import Api, { TawridApi } from '../utilities/Api';
 import {Actions} from 'react-native-router-flux';
@@ -12,7 +12,20 @@ export default class Login extends Component {
 
   static navigationOptions = {
     header: null
-    
+      
+}
+
+_storeData = async (keyForStorage,valueForStorage) => {
+  try {
+    await AsyncStorage.setItem(keyForStorage, valueForStorage);
+
+    console.log('The Key For Storage is: ',keyForStorage)
+    console.log('The Value For Storage is: ',valueForStorage)
+
+  } 
+  catch (error) {
+    alert("Error Saving Token")
+  }
 }
 
   constructor(Props) {
@@ -103,6 +116,7 @@ export default class Login extends Component {
         if(this.state.response) {
           if(this.state.response.status == 'success') {
               this.onSuccessLogin()
+              this.saveTokenInLocalStorage()
             // Actions.home(this.state.response.data); 
 
           } else if (this.state.response.status == 'error') {
@@ -129,6 +143,14 @@ export default class Login extends Component {
     this.props.navigation.navigate("storeTab");
     // this.refs.toast.show('hello world!');
 
+  }
+  saveTokenInLocalStorage(){
+    let token = this.state.response.data.token;
+    console.warn('The TokenVariable is',token)
+
+    this._storeData('Token for Login',this.state.response.data.token)
+
+    console.log('The Token is',this.state.response.data.token)
   }
 
   render() {

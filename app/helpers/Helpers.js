@@ -1,9 +1,23 @@
 import React, { Component } from 'react';
-import { AppRegistry, Animated } from 'react-native';
+import { AppRegistry, Animated,AsyncStorage } from 'react-native';
 
 class Helpers extends Component {
     
 };
+
+export const _retrieveData = async (key) => {
+    try {
+      const value = await AsyncStorage.getItem(key);
+  
+      if (value !== null) {
+        // We have data!!
+        console.log('Data from storage is',value );
+      }
+     } catch (error) {
+        alert('ERROR: Cannot retrieve data from storage')
+    }
+  }
+
 
 //export Default Colors
 export const Colors =  {

@@ -34,75 +34,23 @@ export default class TabProducts extends Component{
       
       }
     };
-  
-  
-    // _renderTabBar = props => {
-    //   const inputRange = props.navigationState.routes.map((x, i) => i);
-  
-    //   return (
-    //     <View style={styles.tabBar}>
-    //       {props.navigationState.routes.map((route, i) => {
-    //         const color = props.position.interpolate({
-    //           inputRange,
-    //           outputRange: inputRange.map(
-    //             inputIndex => (inputIndex === i ? Colors.White : Colors.DarkGrey)
-    //           ),
-    //         });
-    //         const backgroundColor = props.position.interpolate({
-    //           inputRange,
-    //           outputRange: inputRange.map(
-    //             inputIndex => (inputIndex === i ? Colors.Green : Colors.White)
-    //           ),
-    //         });
-    //         return (
-              
-    //             <TouchableOpacity
-    //               style={styles.tabItem}
-    //               onPress={() => this.setState({ index: i })}>
-    //               <Animated.Text  style={[styles.tabFont, { color }, {backgroundColor}]}>{route.title}</Animated.Text>
-    //             </TouchableOpacity>
-              
-    //         );
-    //       })}
-    //       </View>
-    //   );
-    // };
-  
-  
-    
+      
     // before view appear
-    componentWillMount() {}
-      
-      
+    componentWillMount() {}    
     // when view appears
-    componentDidMount() {
-        
-    }
-  
+    componentDidMount() {}
   
     render() {
-      
-      
       return (
           <View style={styles.container}>
               <StatusBar barStyle="light-content"/>
-  
               <View style={styles.searchBox}>
-
-            <Search placeholder={'Search Products...'}/>
+                <Search placeholder={'Search Products...'}/>
               </View>
-              
               <View style={{flex:1,width:100+'%'}}>
                 <RouteProducts/>
               </View>
-
-              {/*<View style={{flex:1,width:100+'%'}}>
-                <HomeTabs />
-      </View>*/}
-
-              
           </View>
-        
       );
     }
   }
@@ -122,7 +70,6 @@ export default class TabProducts extends Component{
     tabFont: {
       fontSize: 15,
       fontFamily: 'DIN Next LT Arabic',
-      // textTransform: 'uppercase',
       width: Dimensions.get('window').width/2,
       paddingTop: 10,
       paddingBottom: 10,
@@ -186,20 +133,17 @@ export default class TabProducts extends Component{
     searchBox: {
       marginBottom: 20,
     },
-    searchField: {
-      flexDirection:'row',
-      height: 44,
-      width: Dimensions.get('window').width -40,
-      paddingLeft: 10,
-      paddingRight: 20,
-      backgroundColor:Colors.LighterGrey,
-      fontFamily: 'DIN Next LT Arabic',
-      fontSize: 17,
-      color: Colors.DarkGrey,
-      borderRadius: 10,
-  
-    }
-  
-  
+    // searchField: {
+    //   flexDirection:'row',
+    //   height: 44,
+    //   width: Dimensions.get('window').width -40,
+    //   paddingLeft: 10,
+    //   paddingRight: 20,
+    //   backgroundColor:Colors.LighterGrey,
+    //   fontFamily: 'DIN Next LT Arabic',
+    //   fontSize: 17,
+    //   color: Colors.DarkGrey,
+    //   borderRadius: 10,
+    // }
   });
   

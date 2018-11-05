@@ -1,149 +1,115 @@
-import React,{Component} from 'react'
+import React, { Component } from 'react'
 import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
-import {ScrollView} from 'react-native';
+import { ScrollView } from 'react-native';
 import { Colors } from '../helpers/Helpers';
-import { Image, Text, View, StyleSheet,TouchableOpacity,Dimensions } from 'react-native';
+import { Image, Text, View, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Swiper from 'react-native-swiper';
 import TabProducts from './TabProducts';
 import { CardMain } from '../components/CardMain';
 import { SmallProductCard } from '../components/SmallProductCard';
 
-const {height} = Dimensions.get('window')
+const { height } = Dimensions.get('window')
 
 export default class CardGridView extends Component {
     static navigationOptions = {
         header: null
-        
+
     }
-    render(){
+    render() {
 
- 
 
-    return (
-        <ScrollView style={styles.mainView}>
 
-            <CardMain/>
+        return (
+            <ScrollView style={styles.mainView}>
 
-            <View style={styles.newProductView}>
+                <CardMain />
+
+                <View style={styles.newProductView}>
                     <Text style={styles.newProductText}>
                         New Products
                     </Text>
 
                     <TouchableOpacity>
-                        <Text  style={styles.viewAllText}>
+                        <Text style={styles.viewAllText}>
                             View all
                         </Text>
                     </TouchableOpacity>
-            
-            </View>
 
-            <View style={styles.newProductCards}>
-            
-            <SmallProductCard imageUrl={'https://www.dike.lib.ia.us/images/sample-2.jpg/image'}/>
+                </View>
 
-            <SmallProductCard imageUrl={'https://www.dike.lib.ia.us/images/sample-1.jpg/image'}/>
-
-
-            <SmallProductCard imageUrl={'https://www.dike.lib.ia.us/images/sample-3.jpg/image'}/>
-                
-               
-
-        
-                
-
-            </View>
-
-            
-            <View style={styles.myProductView}>
+                <View style={styles.newProductCards}>
+                    <SmallProductCard imageUrl={'https://www.dike.lib.ia.us/images/sample-2.jpg/image'} />
+                    <SmallProductCard imageUrl={'https://www.dike.lib.ia.us/images/sample-1.jpg/image'} />
+                    <SmallProductCard imageUrl={'https://www.dike.lib.ia.us/images/sample-3.jpg/image'} />
+                </View>
+                <View style={styles.myProductView}>
                     <Text style={styles.myProductText}>
                         My Products
                     </Text>
-
                     <TouchableOpacity>
-                        <Text  style={styles.viewAllText}>
+                        <Text style={styles.viewAllText}>
                             View all
                         </Text>
                     </TouchableOpacity>
-            
-            </View>
-            
-            <View style={styles.myProductCards}>
-            
-
-                <SmallProductCard imageUrl={'https://www.dike.lib.ia.us/images/sample-1.jpg/image'}/>
-
-                <SmallProductCard imageUrl={'https://www.dike.lib.ia.us/images/sample-2.jpg/image'}/>
-
-                <SmallProductCard imageUrl={'https://www.dike.lib.ia.us/images/sample-3.jpg/image'}/>
-                
-               
-
-        
-                
-
-            </View>
-
-
-
-    
-
-            
-
-        </ScrollView>
-
-       
-     );
-  }
+                </View>
+                <View style={styles.myProductCards}>
+                    <SmallProductCard imageUrl={'https://www.dike.lib.ia.us/images/sample-1.jpg/image'} />
+                    <SmallProductCard imageUrl={'https://www.dike.lib.ia.us/images/sample-2.jpg/image'} />
+                    <SmallProductCard imageUrl={'https://www.dike.lib.ia.us/images/sample-3.jpg/image'} />
+                </View>
+            </ScrollView>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
     newProductView: {
-        paddingTop:10,  
-        paddingBottom:10,  
+        paddingTop: 10,
+        paddingBottom: 10,
 
-        flexDirection: 'row', 
+        flexDirection: 'row',
     },
     newProductText: {
-        flex:1,
-        fontWeight:'bold',
-        color:'grey',
-        
-      
+        flex: 1,
+        fontWeight: 'bold',
+        color: 'grey',
+
+
     },
     myProductView: {
-        paddingTop:10,  
-        paddingBottom:10,  
+        paddingTop: 10,
+        paddingBottom: 10,
 
-        flexDirection: 'row', 
+        flexDirection: 'row',
     },
     myProductText: {
-        flex:1,
-        fontWeight:'bold',
-        color:'grey',
-        
-      
-    },
-    viewAllText:{
-        textAlign:'center',
-        fontSize:12
-      
+        flex: 1,
+        fontWeight: 'bold',
+        color: 'grey',
+
 
     },
-    mainView:{
+    viewAllText: {
+        textAlign: 'center',
+        fontSize: 12
+
+
+    },
+    mainView: {
         margin: 15
     },
-    newProductCards:{
-        justifyContent:'space-evenly',
-        flexDirection:'row',
+    newProductCards: {
+        justifyContent: 'space-evenly',
+        flexDirection: 'row',
     },
-    myProductCards:{
-        justifyContent:'space-evenly',
-        flexDirection:'row',
+    myProductCards: {
+        justifyContent: 'space-evenly',
+        flexDirection: 'row',
     }
-   
 
-    
-   
-  });
-  
+
+
+
+});
+

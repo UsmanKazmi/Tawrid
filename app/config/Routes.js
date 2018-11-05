@@ -1001,13 +1001,13 @@ const AuthenticationStack = StackNavigator({
 )
 
 const MainStack = SwitchNavigator({
-    navigationDrawer: {
-        screen: navigationDrawer
-    },
+ 
 
     authenticationStack: AuthenticationStack, //stack for login,register,forgotpassword
 
-
+    navigationDrawer: {
+        screen: navigationDrawer
+    },
 
 
     //stack for tabs when we logged in

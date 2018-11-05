@@ -6,17 +6,57 @@ import RouteOrders from '../config/RouteOrders';
 import { Search } from '../components/Search';
 import Action from '../Store/ActionCenter';
 import {connect} from 'react-redux';
+import { TawridApi } from '../utilities/Api';
+import { _retrieveData } from '../helpers/Helpers';
 
 class Orders extends Component {
 
+  constructor(Props) {
+    // this.onSuccessLogin = this.onSuccessLogin.bind(this);
+
+    super(Props);
+    this.state = {
+  
+      loading: false,
+      response: [],
+    }
+  }; 
+
+  getProduct_list(){
+    let collection = {
+    
+    }
+    collection.email = 'khaled@tawrid.net';
+    collection.password = '123456';
+
+    TawridApi.getProduct_list(collection).then(value => {
+      this.setState({
+          response: value,
+      }); 
+  })
+
+  .catch(error =>{
+    this.setState({
+      loading: false,
+    });
+    console.error(error);
+  });
+}
+
   componentDidMount(){
-    alert(Error, ' abc')
+    this.getProduct_list();
+    _retrieveData('Token for Login')
+    
+  }
+
+  UNSAFE_componentWillMount(){
     this.props.getOrderData();
   }
 
   openNavigationDrawer = () => {
     this.props.navigation.toggleDrawer();
   }
+  
 
   render() {
 

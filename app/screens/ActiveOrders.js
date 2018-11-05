@@ -24,7 +24,7 @@ class ActiveOrders extends Component {
 function mapStateToProps(state) {
     console.log('abc ', state);
     return {
-        orders: state.OrderReducers
+        orders: state
     }
 }
 function mapDispatchToProps(dispatch) {
