@@ -36,7 +36,7 @@ class SideMenu extends Component {
           
           <TouchableOpacity  style={styles.circleProfileImage}>
 
-                 <Icon name={"chevron-right"}  size={30} color="#01a699" />
+                 <Icon name={"ios-add"}  size={30} color="#01a699" />
                  
           </TouchableOpacity>
 
@@ -93,24 +93,18 @@ class SideMenu extends Component {
                             source={require('../../assets/icons/menu3.png')}
                         />                     
                         <Text  style={styles.pageText} >MY CART</Text>
-                
                 </View>
             </TouchableHighlight>
-
             <TouchableHighlight style={styles.buttonRow} underlayColor={Colors.TransparentGreen}  
             onPress={() => this.props.navigation.navigate('Statement')}>
-
               <View style ={{flexDirection:'row', paddingStart:20}}>    
                 <Image
                       style={{height:20,width:20, }}
                       source={require('../../assets/icons/menu4.png')}
                   />  
-
                 <Text  style={styles.pageText} >MY STATEMENTS</Text>
-            
               </View>
              </TouchableHighlight>
-
              <TouchableHighlight style={styles.buttonRow} underlayColor={Colors.TransparentGreen}  
               onPress={() => this.props.navigation.navigate('Chat')}>
                     <View style ={{flexDirection:'row', paddingStart:20}}>    

@@ -3,6 +3,7 @@ import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { Colors } from '../helpers/Helpers';
 import Tags from "react-native-tags";
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
+import TagInput from 'react-native-tag-input';
 
 export default class SearchTags extends Component {
 
@@ -10,9 +11,11 @@ export default class SearchTags extends Component {
         super();
         this.state = {
             value: [
-                20, 
+                20,
                 60
-            ]
+            ],
+            tags: [],
+            text: ''
         }
     }
     enableScroll = () => this.setState({ scrollEnabled: true });
@@ -62,10 +65,10 @@ export default class SearchTags extends Component {
                     <Text>Price Range: {this.state.value[0]} - {this.state.value[1]}</Text>
                     <MultiSlider
                         values={[this.state.value[0], this.state.value[1]]}
-                        onValuesChange={(value) => this.setState({value})}
-                        trackStyle={{ height: 6}}
+                        onValuesChange={(value) => this.setState({ value })}
+                        trackStyle={{ height: 6 }}
                         selectedStyle={{ backgroundColor: Colors.Green }}
-                        containerStyle={{ height: 25, color: Colors.Green}}
+                        containerStyle={{ height: 25, color: Colors.Green }}
                         sliderLength={350}
                         customMarker={this.CustomMarker}
                         min={1}
@@ -82,7 +85,7 @@ export default class SearchTags extends Component {
                             height: 50, justifyContent: 'center'
                         }}>
                         <Text
-                         style={{ textAlign: 'center', color: 'white', fontWeight: 'bold', fontSize: 14 }}>
+                            style={{ textAlign: 'center', color: 'white', fontWeight: 'bold', fontSize: 14 }}>
                             Search
                         </Text>
                     </TouchableOpacity>

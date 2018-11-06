@@ -5,15 +5,15 @@ class Helpers extends Component {
     
 };
 
-export const _retrieveData = async (key) => {
+export const retrieveData = async (key) => {
     try {
-      const value = await AsyncStorage.getItem(key);
-  
-      if (value !== null) {
-        // We have data!!
-        console.log('Data from storage is',value );
-      }
-     } catch (error) {
+        const value = await AsyncStorage.getItem(key);
+        if (value !== null) {
+            console.log('Data from storage is',value );
+            return value
+        }
+    } 
+    catch (error) {
         alert('ERROR: Cannot retrieve data from storage')
     }
   }

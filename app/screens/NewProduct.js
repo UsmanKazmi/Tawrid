@@ -12,19 +12,23 @@ class NewProduct extends Component {
     constructor(){
         super();
         this.state = {
-            response: []
+            response: [],
+            img: []
         }
     }
     
     UNSAFE_componentWillMount(){
         TawridApi.getNewProduct().then(value => {
-            console.log('as ', value.data)
+            let abc = []
+            let img = []
+            img.push(value.data.image_secondary)
+            abc.push(value.data)
+            console.log('as ', abc)
             this.setState({
-                response: value.data
+                response: value.data,
+                img
             })
         })
-
-        console.log('here')
     }
 
     render() {
@@ -32,7 +36,7 @@ class NewProduct extends Component {
             <ScrollView >
                 <View style={{ paddingBottom: 30 }}>
                     {this.state.response ? 
-                        <CardNewProduct data={this.state.response}/>
+                        <CardNewProduct data={[this.state.response, this.state.img]}/>
                         : null
                     }
                     {/* <CardNewProduct />

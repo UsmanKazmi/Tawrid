@@ -30,22 +30,14 @@ export class CardActiveOrders extends Component {
                 </View>
 
                 <View style={styles.shippingView}>
-
                     <Image
                         style={{ height: 15, width: 15, }}
                         source={require('../../assets/icons/shipping.png')}
                     />
-
                     <Text style={styles.shippingText}>
                         Shipping:N/A
-                        </Text>
-
-
-
-
+                    </Text>
                 </View>
-
-
                 <View style={{ flexDirection: 'row' }}>
                     <SliderRange />
                 </View>
@@ -62,17 +54,9 @@ export class CardActiveOrders extends Component {
 
                     <Text style={styles.requiredText}>
                         Required Price Offer
-                            </Text>
-
-
-
-
+                    </Text>
                 </View>
-
             </View>
-
-
-
         )
     }
 }
@@ -90,33 +74,24 @@ const styles = StyleSheet.create({
         marginEnd: 20,
         marginBottom: 10,
         marginTop: 10
-
-
     },
     textView: {
         marginTop: 20,
         marginRight: 10,
         marginLeft: 10,
-
-
         flexDirection: 'row',
-
     },
     orderText: {
-
         fontWeight: 'bold',
         textAlign: 'left'
     },
     priceText: {
         flex: 1,
         fontWeight: 'bold',
-
         textAlign: 'right'
-
     },
     shippingText: {
         marginLeft: 5,
-
         fontSize: 11,
         textAlign: 'left'
     },
@@ -147,11 +122,5 @@ const styles = StyleSheet.create({
         marginTop: 10,
         flex: 1
     }
-
-
-
-
-
-
 });
 

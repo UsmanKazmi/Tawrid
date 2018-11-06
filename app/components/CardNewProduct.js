@@ -2,48 +2,63 @@ import React, { Component } from 'react';
 import { Colors } from '../helpers/Helpers';
 import { Image, Text, View, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import Swiper from 'react-native-swiper';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 const { height } = Dimensions.get('window')
 
+var images = []
 export class CardNewProduct extends Component {
+    constructor() {
+        super();
+    }
+
+    UNSAFE_componentWillReceiveProps(next) {
+        console.log('abc ', next.data[1])
+        next.data[1].forEach(element => {
+            images.push(element[9394])
+            images.push(element[9395])
+            images.push(element[9396])
+            images.push(element[9397])
+            images.push(element[9398])
+        });
+    }
     render() {
-        console.log('sd ',this.props.data)
+        console.log('sd ', this.props.data[0].name);
         return (
             <View style={styles.mainView}>
                 <Swiper style={styles.wrapper} showsButtons={false}
-                    activeDot= {<View style={styles.slideView} />}
+                    activeDot={<View style={styles.slideView} />}
                 >
-                    <View style={styles.slide1}>
-                        <Image
-                            style={styles.image}
-                            source={{uri: this.props.data.image_primary}}
-                        /> 
-                    </View>
-                    <View style={styles.slide1}>
-                        <Image
-                            style={styles.image}
-                            source={{ uri: 'https://www.dike.lib.ia.us/images/sample-1.jpg/image' }}
-                        />
-                    </View>
+                    {this.props.data ?
+                        images.map((image, index) => {
+                            return (
+                                <View style={styles.slide1} key={index}>
+                                    <Image
+                                        style={styles.image}
+                                        source={{ uri: image }}
+                                    />
+                                </View>
+                            )
+                        }) : null
+                    }
                 </Swiper>
                 <View style={{
                     backgroundColor: Colors.LightGreen,
                 }}>
                     <View style={{ flexDirection: "row" }}>
-                        <Text
-                            style={styles.cardTitle}>{this.props.data.name}
+                        <Text style={styles.cardTitle}>
+                            {this.props.data[0].name}
                         </Text>
-                        <Image
-                            style={styles.tagImage}
+                        <Image style={styles.tagImage}
                             source={require('../../assets/icons/loyalitybadge.png')}
                         />
-                        <Text
-                            style={styles.cardPrice}>{this.props.data.currency}{this.props.data.price}
+                        <Text style={styles.cardPrice}>
+                            {this.props.data[0].currency}{this.props.data[0].price}
                         </Text>
                     </View>
-                    <Text style={styles.cardSubTitle}>{this.props.data.quantity}{this.props.data.unit} in {this.props.data.package}</Text>
-
+                    <Text style={styles.cardSubTitle}>
+                        {this.props.data[0].quantity} {this.props.data[0].unit} in {this.props.data[0].package}
+                    </Text>
                     <View
                         style={{
                             borderBottomColor: 'white',
@@ -89,7 +104,7 @@ export class CardNewProduct extends Component {
 }
 function mapStateToProps(state) {
     return {
-        
+
     }
 }
 function mapDispatchToProps(dispatch) {
@@ -105,15 +120,15 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         margin: 15
     },
-    slideView: { 
-        backgroundColor: Colors.LightGreen,
-        width: 8, 
-        height: 8, 
-        borderRadius: 4, 
-        marginLeft: 3, 
-        marginRight: 3, 
+    slideView: {
+        backgroundColor: Colors.Yellow,
+        width: 8,
+        height: 8,
+        borderRadius: 4,
+        marginLeft: 3,
+        marginRight: 3,
         marginTop: 3,
-        marginBottom: 3, 
+        marginBottom: 3,
     },
     image:
     {
@@ -176,11 +191,11 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: 'bold',
     },
-    tagImage: { 
-        height: 20, 
-        width: 20, 
-        marginHorizontal: 5, 
-        alignSelf: 'center' 
+    tagImage: {
+        height: 20,
+        width: 20,
+        marginHorizontal: 5,
+        alignSelf: 'center'
     }
 });
 

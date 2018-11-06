@@ -22,8 +22,6 @@ export class CardChat extends Component {
                 <View style={{
                     borderBottomLeftRadius: 7,
                     borderBottomRightRadius: 7,
-
-
                 }}>
                     <View style={{ flexDirection: "row" }}>
                         <Text
@@ -33,7 +31,6 @@ export class CardChat extends Component {
 
                     </View>
                     <Text style={styles.cardSubTitle}>{'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua. Utenim ad minim veniam'}</Text>
-
                     <View
                         style={{
                             borderBottomColor: 'white',
@@ -78,8 +75,6 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: Colors.LightestGrey,
         borderRadius: 7
-
-
     },
     image:
     {

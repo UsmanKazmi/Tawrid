@@ -1040,15 +1040,7 @@ const styles = StyleSheet.create({
     },
     titleTextView: {
         flex: 1,
-        fontSize: 15,
-        textAlign: 'center',
-        // lineHeight: 24,
-        fontFamily: 'DIN Next LT Arabic',
-        fontWeight: 'bold',
         justifyContent: 'center',
         alignItems: 'center',
-        color: Colors.DarkGrey,
-
-
     },
 })

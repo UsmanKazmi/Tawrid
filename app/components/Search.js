@@ -94,9 +94,4 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         marginHorizontal: 20
     },
-
-    // searchBox: {
-    //     width: Dimensions.get('window').width - 40,
-
-    // }
 })

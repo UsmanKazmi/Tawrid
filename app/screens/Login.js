@@ -146,7 +146,6 @@ _storeData = async (keyForStorage,valueForStorage) => {
   }
   saveTokenInLocalStorage(){
     let token = this.state.response.data.token;
-    console.warn('The TokenVariable is',token)
 
     this._storeData('Token for Login',this.state.response.data.token)
 

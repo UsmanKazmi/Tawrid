@@ -13,19 +13,6 @@ export default class AboutComponent extends Component {
                         {this.props.Name}
                     </Text>
                 </View>
-        
-
-         
-
-       
-
-
-        
-        
-         
-
-  
-  
           </View>
   
       )

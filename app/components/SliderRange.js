@@ -13,9 +13,6 @@ export class SliderRange extends Component {
 
         this.state = {
             sliderValue: 0.5
-
-
-
         };
     }
 
@@ -24,9 +21,6 @@ export class SliderRange extends Component {
 
 
     render(){
-
-
-
         return (
             <View style={styles.container}>
             <Slider
