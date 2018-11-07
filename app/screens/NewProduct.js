@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 import { ScrollView } from 'react-native';
-import { Colors } from '../helpers/Helpers';
 import { View, alert } from 'react-native';
-import { CardNewProduct } from '../components/CardNewProduct';
-import { connect } from 'react-redux';
-import Action from '../Store/ActionCenter';
+import CardNewProduct from '../components/CardNewProduct';
 import { TawridApi } from  '../utilities/Api';
 import { _retrieveData } from '../helpers/Helpers';
 

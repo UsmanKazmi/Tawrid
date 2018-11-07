@@ -17,27 +17,19 @@ export default class CardGridView extends Component {
 
     }
     render() {
-
-
-
         return (
             <ScrollView style={styles.mainView}>
-
                 <CardMain />
-
                 <View style={styles.newProductView}>
                     <Text style={styles.newProductText}>
                         New Products
                     </Text>
-
                     <TouchableOpacity>
                         <Text style={styles.viewAllText}>
                             View all
                         </Text>
                     </TouchableOpacity>
-
                 </View>
-
                 <View style={styles.newProductCards}>
                     <SmallProductCard imageUrl={'https://www.dike.lib.ia.us/images/sample-2.jpg/image'} />
                     <SmallProductCard imageUrl={'https://www.dike.lib.ia.us/images/sample-1.jpg/image'} />

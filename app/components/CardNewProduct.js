@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 const { height } = Dimensions.get('window')
 
 var images = []
-export class CardNewProduct extends Component {
+class CardNewProduct extends Component {
     constructor() {
         super();
     }

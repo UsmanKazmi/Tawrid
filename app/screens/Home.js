@@ -32,43 +32,7 @@ export default class Home extends Component {
       index: 0,
     
     }
-  };
-
-
-  // _renderTabBar = props => {
-  //   const inputRange = props.navigationState.routes.map((x, i) => i);
-
-  //   return (
-  //     <View style={styles.tabBar}>
-  //       {props.navigationState.routes.map((route, i) => {
-  //         const color = props.position.interpolate({
-  //           inputRange,
-  //           outputRange: inputRange.map(
-  //             inputIndex => (inputIndex === i ? Colors.White : Colors.DarkGrey)
-  //           ),
-  //         });
-  //         const backgroundColor = props.position.interpolate({
-  //           inputRange,
-  //           outputRange: inputRange.map(
-  //             inputIndex => (inputIndex === i ? Colors.Green : Colors.White)
-  //           ),
-  //         });
-  //         return (
-            
-  //             <TouchableOpacity
-  //               style={styles.tabItem}
-  //               onPress={() => this.setState({ index: i })}>
-  //               <Animated.Text  style={[styles.tabFont, { color }, {backgroundColor}]}>{route.title}</Animated.Text>
-  //             </TouchableOpacity>
-            
-  //         );
-  //       })}
-  //       </View>
-  //   );
-  // };
-
-
-  
+  };  
   // before view appear
   componentWillMount() {}
   
@@ -84,8 +48,6 @@ export default class Home extends Component {
     return (
         <View style={styles.container}>
             <StatusBar barStyle="light-content"/>
-       
-
             <View style={styles.searchBox}>
               <TextInput editable={this.state.textEdit} autoCapitalize = "none" maxLength={34} 
               autoCorrect={false} returnKeyType="search" underlineColorAndroid="transparent"  
@@ -94,12 +56,8 @@ export default class Home extends Component {
               onSubmitEditing={()=>{}} blurOnSubmit={false} 
               value={this.state.search} onChangeText={(search) => this.setState({search})} />
             </View>
-
             <View style={{backgroundColor:Colors.LightestGrey, flex:1}}>
-            
-            
             </View>
-            
         </View>
       
     );

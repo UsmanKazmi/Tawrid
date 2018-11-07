@@ -5,7 +5,8 @@ import {
     StyleSheet,
     View,
     Text, Image,
-    TouchableHighlight
+    TouchableHighlight,
+    TouchableOpacity
 } from 'react-native';
 import {
     Colors
@@ -13,18 +14,13 @@ import {
 import {
     SwitchNavigator,
     createDrawerNavigator,
-    TabNavigator,
     StackNavigator,
     createBottomTabNavigator,
-    navigationOptions,
-
 } from 'react-navigation';
 
 import Login from '../screens/Login';
 import Home from '../screens/Home';
-import Store from '../screens/Store';
 import TabProducts from '../screens/TabProducts';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import SideMenu from '../components/SideMenu.js';
 import CardGridView from '../screens/CardGridView';
 import {
@@ -40,22 +36,15 @@ import OrderSelected from '../screens/OrderSelected';
 import OrdersDetails from '../screens/OrderDetails';
 
 
-
 //stacks for HomePage Tabs Routing
-
 const GridView = StackNavigator({
-
-    tabproduct: {
-        screen: TabProducts
-    },
-
-    gridview: {
-        screen: Home
-    },
-
-}
-
-
+        tabproduct: {
+            screen: TabProducts
+        },
+        gridview: {
+            screen: CardGridView
+        },
+    }
 )
 
 
@@ -78,32 +67,31 @@ const MyStoreTabs = StackNavigator({
 
                 headerLeft: <View style={{ flexDirection: 'row' }}>
 
-                    <TouchableHighlight
+                    <TouchableOpacity
                         onPress={() => navigation.toggleDrawer()}
                         style={styles.filterIcon}>
                         <Image
                             source={require('../../assets/icons/menu.png')}
                             style={{ marginLeft: 10, width: 20, height: 20 }} />
 
-                    </TouchableHighlight>
+                    </TouchableOpacity>
 
-                    <TouchableHighlight
-                        onPress={() => navigation.openGridView()}
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('tabproduct')}
                         style={styles.filterIcon}>
                         <Image
                             source={require('../../assets/icons/listactive.png')}
                             style={{ marginLeft: 10, width: 20, height: 20 }} />
 
-                    </TouchableHighlight>
+                    </TouchableOpacity>
 
-                    <TouchableHighlight
-                        onPress={() => navigation.openGridView()}
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('gridview')}
                         style={styles.filterIcon}>
                         <Image
                             source={require('../../assets/icons/gridinactive.png')}
                             style={{ marginLeft: 10, width: 20, height: 20 }} />
-
-                    </TouchableHighlight>
+                    </TouchableOpacity>
                 </View>,
 
                 headerRight: <View style={{ flexDirection: 'row' }}>
@@ -125,27 +113,16 @@ const MyStoreTabs = StackNavigator({
                             style={{ marginRight: 10, width: 20, height: 20 }} />
 
                     </TouchableHighlight>
-
-
                 </View>,
-
-
-
-
             }
         },
-
     },
-
 })
-
-
 
 const MyOrdersTab = StackNavigator({
     FirstTab: {
         screen: Orders,
         navigationOptions: ({ navigation }) => {
-
             return {
                 headerStyle: {
                     elevation: 0,
