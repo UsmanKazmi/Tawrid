@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {Colors} from '../helpers/Helpers';
-import { TabNavigator } from 'react-navigation';
+import { createMaterialTopTabNavigator } from 'react-navigation';
 import NewProduct from '../screens/NewProduct';
 import MyProduct from '../screens/MyProduct';
 
 
 //stacks for HomePage Tabs Routing
-const ProductsTab = TabNavigator({
+const ProductsTab = createMaterialTopTabNavigator({
     newProducts:{
         screen:NewProduct,
         navigationOptions: {

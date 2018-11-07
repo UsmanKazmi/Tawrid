@@ -12,32 +12,26 @@ import {
     Colors
 } from '../helpers/Helpers';
 import {
-    SwitchNavigator,
+    createSwitchNavigator,
     createDrawerNavigator,
-    StackNavigator,
+    createStackNavigator,
     createBottomTabNavigator,
 } from 'react-navigation';
 
 import Login from '../screens/Login';
-import Home from '../screens/Home';
 import TabProducts from '../screens/TabProducts';
 import SideMenu from '../components/SideMenu.js';
 import CardGridView from '../screens/CardGridView';
-import {
-    TopHeaderBar
-} from '../components/TopHeaderBar';
-import Notification from '../screens/Notification'
 import Orders from '../screens/Orders';
 import Profile from '../screens/Profile';
 import Cart from '../screens/Cart';
-import MyStatementSheet from '../screens/MyStatementSheet'
 import Chat from '../screens/Chat';
 import OrderSelected from '../screens/OrderSelected';
 import OrdersDetails from '../screens/OrderDetails';
 
 
 //stacks for HomePage Tabs Routing
-const GridView = StackNavigator({
+const GridView = createStackNavigator({
         tabproduct: {
             screen: TabProducts
         },
@@ -49,7 +43,7 @@ const GridView = StackNavigator({
 
 
 
-const MyStoreTabs = StackNavigator({
+const MyStoreTabs = createStackNavigator({
     FirstTab: {
         screen: GridView,
         navigationOptions: ({ navigation }) => {
@@ -119,7 +113,7 @@ const MyStoreTabs = StackNavigator({
     },
 })
 
-const MyOrdersTab = StackNavigator({
+const MyOrdersTab = createStackNavigator({
     FirstTab: {
         screen: Orders,
         navigationOptions: ({ navigation }) => {
@@ -142,40 +136,23 @@ const MyOrdersTab = StackNavigator({
                         <Image
                             source={require('../../assets/icons/menu.png')}
                             style={{ marginLeft: 10, width: 20, height: 20 }} />
-
                     </TouchableHighlight>
-
-
                 </View>,
-
                 headerRight: <View style={{ flexDirection: 'row' }}>
-
-
-
                     <TouchableHighlight
                         onPress={() => navigation.openGridView()}
                         style={styles.filterIcon}>
                         <Image
                             source={require('../../assets/icons/filter.png')}
                             style={{ marginRight: 10, width: 20, height: 0 }} />
-
                     </TouchableHighlight>
-
-
                 </View>,
-
-
-
-
             }
         },
-
     },
-
 })
 
-
-const MyCartTab = StackNavigator({
+const MyCartTab = createStackNavigator({
     FirstTab: {
         screen: Cart,
         navigationOptions: ({ navigation }) => {
@@ -199,39 +176,23 @@ const MyCartTab = StackNavigator({
                         <Image
                             source={require('../../assets/icons/menu.png')}
                             style={{ marginLeft: 10, width: 20, height: 20 }} />
-
                     </TouchableHighlight>
-
-
                 </View>,
-
                 headerRight: <View style={{ flexDirection: 'row' }}>
-
                     <TouchableHighlight
                         onPress={() => navigation.toggleDrawer()}
                         style={styles.filterIcon}>
                         <Image
                             source={require('../../assets/icons/print.png')}
                             style={{ marginRight: 10, width: 20, height: 20 }} />
-
                     </TouchableHighlight>
-
-
-
-
                 </View>,
-
-
-
-
             }
         },
-
     },
-
 })
 
-const MyChatTab = StackNavigator({
+const MyChatTab = createStackNavigator({
     FirstTab: {
         screen: Chat,
         navigationOptions: ({ navigation }) => {
@@ -246,9 +207,7 @@ const MyChatTab = StackNavigator({
                         {'My Chats'}
                     </Text>
                 </View>,
-
                 headerLeft: <View style={{ flexDirection: 'row' }}>
-
                     <TouchableHighlight
                         onPress={() => navigation.toggleDrawer()}
                         style={styles.filterIcon}>
@@ -257,10 +216,7 @@ const MyChatTab = StackNavigator({
                             style={{ marginLeft: 10, width: 20, height: 20 }} />
 
                     </TouchableHighlight>
-
-
                 </View>,
-
                 headerRight: <View style={{ flexDirection: 'row' }}>
 
                     <TouchableHighlight
@@ -272,19 +228,12 @@ const MyChatTab = StackNavigator({
 
                     </TouchableHighlight>
                 </View>,
-
-
-
-
             }
         },
-
     },
-
 })
 
-
-const MyStatementsTab = StackNavigator({
+const MyStatementsTab = createStackNavigator({
     FirstTab: {
         screen: OrdersDetails,
         navigationOptions: ({ navigation }) => {
@@ -325,18 +274,12 @@ const MyStatementsTab = StackNavigator({
 
                     </TouchableHighlight>
                 </View>,
-
-
-
-
             }
         },
-
     },
-
 })
 
-const ProfilePage_withHeader = StackNavigator({
+const ProfilePage_withHeader = createStackNavigator({
     FirstTab: {
         screen: Profile,
         navigationOptions: ({ navigation }) => {
@@ -355,7 +298,6 @@ const ProfilePage_withHeader = StackNavigator({
                         {'Profile'}
                     </Text>
                 </View>,
-
                 headerLeft: <View style={{ flexDirection: 'row' }}>
 
                     <TouchableHighlight
@@ -366,10 +308,7 @@ const ProfilePage_withHeader = StackNavigator({
                             style={{ marginLeft: 10, width: 20, height: 20 }} />
 
                     </TouchableHighlight>
-
-
                 </View>,
-
                 headerRight: <View style={{ flexDirection: 'row' }}>
 
                     <TouchableHighlight
@@ -381,28 +320,10 @@ const ProfilePage_withHeader = StackNavigator({
 
                     </TouchableHighlight>
                 </View>,
-
-
-
-
             }
         },
-
     },
-
 })
-
-
-
-
-
-
-
-
-
-
-
-
 
 const HomeActiveTabs = createBottomTabNavigator({
     storeTab: {
@@ -414,10 +335,7 @@ const HomeActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/home_active.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/home_inactive.png')} size={10} />
             )
-
         }
-
-
     },
     ordersTab: {
         screen: MyOrdersTab,
@@ -428,7 +346,6 @@ const HomeActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/ordersactive.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/ordersinactive.png')} size={10} />
             )
-
         }
     },
     cartTab: {
@@ -440,7 +357,6 @@ const HomeActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/addtocardActive.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/addtocardInActive.png')} size={10} />
             )
-
         }
     },
     MyChatTab: {
@@ -452,7 +368,6 @@ const HomeActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/chatactive.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/chatinactive.png')} size={10} />
             )
-
         }
     },
     MyStatementSheet: {
@@ -464,11 +379,8 @@ const HomeActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/statementsactive.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/statementsinactive.png')} size={10} />
             )
-
         }
     },
-
-
 },
     {
         initialRouteName:'storeTab',
@@ -858,7 +770,7 @@ openGridView = () => {
 
 }
 
-const UserStack = StackNavigator({
+const UserStack = createStackNavigator({
     MyStore: {
         screen: HomeActiveTabs,
         navigationOptions: ({ navigation }) => {
@@ -967,7 +879,7 @@ const navigationDrawer = createDrawerNavigator({
 
 
 
-const AuthenticationStack = StackNavigator({
+const AuthenticationStack = createStackNavigator({
     login: Login,
     // register: Register,
     // forgotPassword:ForgotPassword,
@@ -977,7 +889,7 @@ const AuthenticationStack = StackNavigator({
 
 )
 
-const MainStack = SwitchNavigator({
+const MainStack = createSwitchNavigator({
  
 
     authenticationStack: AuthenticationStack, //stack for login,register,forgotpassword

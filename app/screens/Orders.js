@@ -45,7 +45,7 @@ class Orders extends Component {
 
   componentDidMount(){
     this.getProduct_list();
-    retrieveData('Token for Login')
+    _retrieveData('Token for Login')
     
   }
 

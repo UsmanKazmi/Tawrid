@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import {Colors} from '../helpers/Helpers';
 import Home from '../screens/Home';
-import {SwitchNavigator, TabNavigator, StackNavigator, createBottomTabNavigator,navigationOptions  } from 'react-navigation';
+import {createMaterialTopTabNavigator} from 'react-navigation';
 import ActiveOrders from '../screens/ActiveOrders';
 import DeliveredOrder from '../screens/DeliveredOrder';
 import AwaitingOrder from '../screens/AwaitingOrder';
 
 
 
-const OrdersTab = TabNavigator({
+const OrdersTab = createMaterialTopTabNavigator({
     activeOrders:{screen:ActiveOrders,
         navigationOptions: {
             tabBarLabel: 'Active Orders'
@@ -22,12 +22,8 @@ const OrdersTab = TabNavigator({
     deliveredOrders:{screen:DeliveredOrder,  
         navigationOptions: {
             tabBarLabel: 'Delivered Documents'
-
         }
-    
     },
-
-
 },
 
 {

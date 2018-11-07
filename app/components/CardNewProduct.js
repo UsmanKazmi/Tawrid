@@ -21,9 +21,10 @@ class CardNewProduct extends Component {
             images.push(element[9397])
             images.push(element[9398])
         });
+        next.data.splice(1, 1)
     }
     render() {
-        console.log('sd ', this.props.data[0].name);
+        console.log('sd ', this.props.data);
         return (
             <View style={styles.mainView}>
                 <Swiper style={styles.wrapper} showsButtons={false}
@@ -42,77 +43,66 @@ class CardNewProduct extends Component {
                         }) : null
                     }
                 </Swiper>
-                <View style={{
-                    backgroundColor: Colors.LightGreen,
-                }}>
-                    <View style={{ flexDirection: "row" }}>
-                        <Text style={styles.cardTitle}>
-                            {this.props.data[0].name}
-                        </Text>
-                        <Image style={styles.tagImage}
-                            source={require('../../assets/icons/loyalitybadge.png')}
-                        />
-                        <Text style={styles.cardPrice}>
-                            {this.props.data[0].currency}{this.props.data[0].price}
-                        </Text>
-                    </View>
-                    <Text style={styles.cardSubTitle}>
-                        {this.props.data[0].quantity} {this.props.data[0].unit} in {this.props.data[0].package}
-                    </Text>
-                    <View
-                        style={{
-                            borderBottomColor: 'white',
-                            borderBottomWidth: StyleSheet.hairlineWidth,
-                        }}
-                    />
-                    <View style={{ flexDirection: "row", justifyContent: 'space-evenly' }}>
-                        <TouchableOpacity style={styles.bottomButtons}>
-                            <Image
-                                style={{ height: 20, width: 20, }}
-                                source={require('../../assets/icons/addtocart.png')}
+                {   this.props.data.map((data, index)=>{
+                    return(
+                        <View key={index} style={{
+                            backgroundColor: Colors.LightGreen,
+                        }}>
+                            <View style={{ flexDirection: "row" }}>
+                                <Text style={styles.cardTitle}>
+                                    {data.name}
+                                </Text>
+                                <Image style={styles.tagImage}
+                                    source={require('../../assets/icons/loyalitybadge.png')}
+                                />
+                                <Text style={styles.cardPrice}>
+                                    {data.currency}{data.price}
+                                </Text>
+                            </View>
+                            <Text style={styles.cardSubTitle}>
+                                {data.quantity} {data.unit} in {data.package}
+                            </Text>
+                            <View
+                                style={{
+                                    borderBottomColor: 'white',
+                                    borderBottomWidth: StyleSheet.hairlineWidth,
+                                }}
                             />
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.bottomButtons}>
-                            <Image
-                                style={{ height: 20, width: 20, }}
-                                source={require('../../assets/icons/fav.png')}
-                            />
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.bottomButtons}>
-                            <Image
-                                style={{ height: 20, width: 20, }}
-                                source={require('../../assets/icons/comment.png')}
-                            />
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.bottomButtons}>
-                            <Image
-                                style={{ height: 20, width: 20, }}
-                                source={require('../../assets/icons/share.png')}
-                            />
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.bottomButtons}>
-                            <Image
-                                style={{ height: 20, width: 20, }}
-                                source={require('../../assets/icons/info.png')}
-                            />
-                        </TouchableOpacity>
-                    </View>
-                </View>
+                            <View style={{ flexDirection: "row", justifyContent: 'space-evenly' }}>
+                                <TouchableOpacity style={styles.bottomButtons}>
+                                    <Image style={styles.bottomImage}
+                                        source={require('../../assets/icons/addtocart.png')}
+                                    />
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.bottomButtons}>
+                                    <Image style={styles.bottomImage}
+                                        source={require('../../assets/icons/fav.png')}
+                                    />
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.bottomButtons}>
+                                    <Image style={styles.bottomImage}
+                                        source={require('../../assets/icons/comment.png')}
+                                    />
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.bottomButtons}>
+                                    <Image style={styles.bottomImage}
+                                        source={require('../../assets/icons/share.png')}
+                                    />
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.bottomButtons}>
+                                    <Image style={styles.bottomImage}
+                                        source={require('../../assets/icons/info.png')}
+                                    />
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    )
+                })}
             </View>
         );
     }
 }
-function mapStateToProps(state) {
-    return {
-
-    }
-}
-function mapDispatchToProps(dispatch) {
-    return {
-
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(CardNewProduct)
+export default (CardNewProduct)
 
 
 const styles = StyleSheet.create({
@@ -196,6 +186,10 @@ const styles = StyleSheet.create({
         width: 20,
         marginHorizontal: 5,
         alignSelf: 'center'
+    },
+    bottomImage: { 
+        height: 20, 
+        width: 20 
     }
 });
 

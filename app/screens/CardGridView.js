@@ -89,7 +89,8 @@ const styles = StyleSheet.create({
 
     },
     mainView: {
-        margin: 15
+        margin: 15,
+        backgroundColor: Colors.White
     },
     newProductCards: {
         justifyContent: 'space-evenly',

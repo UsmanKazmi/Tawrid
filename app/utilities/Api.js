@@ -60,7 +60,7 @@ export const TawridApi = {
     return fetch(url, {
       method: 'GET',
       headers:({
-        'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjI5LCJpc3MiOiJodHRwOi8vcG9ydGFsLnRhd3JpZC5zdG9yZS9hcGkvdjEvbG9naW4iLCJpYXQiOjE1NDE0ODc4MzEsImV4cCI6MTU0MTU3NDIzMSwibmJmIjoxNTQxNDg3ODMxLCJqdGkiOiIybzNNN0MwdzNzaHFHSW9qIn0.BoajQ0NFlCmPLvx4GFHYrGPZOZ3C-4iB1m1-UGpgQ5o'
+        'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MTU2OTc1MCwiZXhwIjoxNTQxNjU2MTUwLCJuYmYiOjE1NDE1Njk3NTAsImp0aSI6Ing1Qm1tZ3d3UHloeGVDdG0ifQ.G__EwOtO86Gzpjp3T6_m4rkYYs89P1LMXYh6dpRTQWE'
       })
     })
       .then(res => res.json())
