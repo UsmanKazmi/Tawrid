@@ -1,12 +1,7 @@
 import React,{Component} from 'react'
 import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
-import {ScrollView} from 'react-native';
-import { Colors } from '../helpers/Helpers';
 import { Image, Text, View, StyleSheet,TouchableOpacity,Dimensions } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
-import Swiper from 'react-native-swiper';
 import Carousel from 'react-native-snap-carousel';
-
 
 export class ImageSlider extends Component {
     
@@ -42,38 +37,26 @@ export class ImageSlider extends Component {
                     backgroundColor:"#fff",
                     width: 100 + '%' ,
                     height: 100 +  '%' ,
-
                     resizeMode:'cover',
                     borderWidth:1,
                     borderRadius:7
-
-
              }} />
-                   
-                    
             </View>
         );
     }
-
-
     render(){
-
-
-
         return (
             <Carousel
-                firstItem='1'
+                firstItem={1}
                 ref={(c) => { this._carousel = c; }}
                 data={this.state.customWeather}
                 renderItem={this._renderItem}
                 sliderWidth={sliderWidth}
                 sliderHeight={10}
-                itemWidth={itemWidth}
-                
+                itemWidth={itemWidth}   
             />
-            
         )
-  }
+    }
 }
 
 const horizontalMargin = 10;
@@ -85,19 +68,14 @@ const sliderHeight = Dimensions.get('window').height;
 const itemWidth = slideWidth + horizontalMargin * 4;
 const itemHeight = 200;
 
-
 const styles = StyleSheet.create({
+    slide: {
+        height:100 +"%" ,
+        width: 100+'%', 
 
-slide: {
-    height:100 +"%" ,
-    width: 100+'%', 
-
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#9DD6EB',
-  },
-  
-    
-   
-  });
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#9DD6EB',
+    },
+});
   

@@ -45,13 +45,12 @@ export class CardActiveOrders extends Component {
 
                 <View style={styles.chatView}>
                     <Image
-                        style={{ height: 10, width: 10, marginHorizontal: 5, alignSelf: 'center' }}
+                        style={styles.chatImage}
                         source={require('../../assets/icons/chatBlue.png')}
                     />
                     <Text style={styles.chatText}>
                         Chat Now
-                            </Text>
-
+                    </Text>
                     <Text style={styles.requiredText}>
                         Required Price Offer
                     </Text>
@@ -61,15 +60,13 @@ export class CardActiveOrders extends Component {
     }
 }
 
-
 const styles = StyleSheet.create({
-
     mainView: {
         borderWidth: 2,
         borderColor: Colors.LighterGrey,
         borderRadius: 5,
         width: 90 + '%',
-        height: 250,
+        height: 280,
         marginStart: 20,
         marginEnd: 20,
         marginBottom: 10,
@@ -121,6 +118,12 @@ const styles = StyleSheet.create({
     imageSliderView: {
         marginTop: 10,
         flex: 1
+    },
+    chatImage: { 
+        height: 10, 
+        width: 10, 
+        marginHorizontal: 5, 
+        alignSelf: 'center' 
     }
 });
 

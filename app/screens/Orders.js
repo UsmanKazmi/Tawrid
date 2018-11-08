@@ -45,8 +45,6 @@ class Orders extends Component {
 
   componentDidMount(){
     this.getProduct_list();
-    _retrieveData('Token for Login')
-    
   }
 
   UNSAFE_componentWillMount(){
@@ -56,8 +54,6 @@ class Orders extends Component {
   openNavigationDrawer = () => {
     this.props.navigation.toggleDrawer();
   }
-  
-
   render() {
 
     return (

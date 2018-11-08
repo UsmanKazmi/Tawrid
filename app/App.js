@@ -25,7 +25,7 @@ export default class App extends Component {
   }
 
   render() {
-    console.disableYellowBox = true; 
+    // console.disableYellowBox = true; 
     return (
       <Provider store={store}>
         <View style={styles.container}>
@@ -33,9 +33,6 @@ export default class App extends Component {
           <Routes/>
         </View>
       </Provider>
-  
-          
-      
     );
 
   }
