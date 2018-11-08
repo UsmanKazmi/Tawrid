@@ -8,53 +8,53 @@ import { SliderRange } from './SliderRange';
 
 export class CardActiveOrders extends Component {
     render() {
+        console.log('Card Active Orders ', this.props.data)
         return (
             <View style={styles.mainView}>
-                <View style={styles.imageSliderView}>
-                    <ImageSlider />
-                </View>
-                <View style={styles.textView}>
-                    <Text style={styles.orderText}>
-                        Order:102030
-                        </Text>
-
-                    <Text style={styles.priceText}>
-                        $3017.4
-                        </Text>
-
-                    <Image
-                        style={{ height: 20, width: 20, }}
-                        source={require('../../assets/icons/question.png')}
-                    />
-
-                </View>
-
-                <View style={styles.shippingView}>
-                    <Image
-                        style={{ height: 15, width: 15, }}
-                        source={require('../../assets/icons/shipping.png')}
-                    />
-                    <Text style={styles.shippingText}>
-                        Shipping:N/A
-                    </Text>
-                </View>
-                <View style={{ flexDirection: 'row' }}>
-                    <SliderRange />
-                </View>
-
-
-                <View style={styles.chatView}>
-                    <Image
-                        style={styles.chatImage}
-                        source={require('../../assets/icons/chatBlue.png')}
-                    />
-                    <Text style={styles.chatText}>
-                        Chat Now
-                    </Text>
-                    <Text style={styles.requiredText}>
-                        Required Price Offer
-                    </Text>
-                </View>
+                {this.props.data ?
+                    <View>
+                        <View style={styles.imageSliderView}>
+                            <ImageSlider image={this.props.data.list_image_order} />
+                        </View>
+                        <View style={styles.textView}>
+                            <Text style={styles.orderText}>
+                                Order: {this.props.data.order_no}
+                            </Text>
+                            <Text style={styles.priceText}>
+                                {this.props.data.total_products_price}
+                            </Text>
+                            <Image
+                                style={{ height: 20, width: 20, }}
+                                source={require('../../assets/icons/question.png')}
+                            />
+                        </View>
+                        <View style={styles.shippingView}>
+                            <Image
+                                style={{ height: 15, width: 15, }}
+                                source={require('../../assets/icons/shipping.png')}
+                            />
+                            <Text style={styles.shippingText}>
+                                Shipping:N/A
+                                </Text>
+                        </View>
+                        <View style={{ flexDirection: 'row' }}>
+                            <SliderRange />
+                        </View>
+                        <View style={styles.chatView}>
+                            <Image
+                                style={styles.chatImage}
+                                source={require('../../assets/icons/chatBlue.png')}
+                            />
+                            <Text style={styles.chatText}>
+                                Chat Now
+                                </Text>
+                            <Text style={styles.requiredText}>
+                                {this.props.data.status}
+                            </Text>
+                        </View>
+                    </View>
+                    : null
+            }
             </View>
         )
     }
@@ -119,11 +119,11 @@ const styles = StyleSheet.create({
         marginTop: 10,
         flex: 1
     },
-    chatImage: { 
-        height: 10, 
-        width: 10, 
-        marginHorizontal: 5, 
-        alignSelf: 'center' 
+    chatImage: {
+        height: 10,
+        width: 10,
+        marginHorizontal: 5,
+        alignSelf: 'center'
     }
 });
 

@@ -22,33 +22,37 @@ class Orders extends Component {
     }
   }; 
 
-  getProduct_list(){
-    let collection = {
-    
-    }
-    collection.email = 'khaled@tawrid.net';
-    collection.password = '123456';
+  // getProduct_list(){
+  //   let collection = {
+  //   }
+  //   collection.email = 'khaled@tawrid.net';
+  //   collection.password = '123456';
 
-    TawridApi.getProduct_list(collection).then(value => {
-      this.setState({
-          response: value,
-      }); 
-  })
+  //   TawridApi.getProduct_list(collection).then(value => {
+  //     this.setState({
+  //         response: value,
+  //     }); 
+  // })
+  //   .catch(error =>{
+  //     this.setState({
+  //       loading: false,
+  //     });
+  //     console.error(error);
+  //   });
+  // }
 
-  .catch(error =>{
-    this.setState({
-      loading: false,
-    });
-    console.error(error);
-  });
-}
-
-  componentDidMount(){
-    this.getProduct_list();
-  }
+  // componentDidMount(){
+  //   this.getProduct_list();
+  // }
 
   UNSAFE_componentWillMount(){
-    this.props.getOrderData();
+    // TawridApi.getOrderList().then(value => {
+    //   console.log('Product List ', value.data)
+    //   this.setState({
+    //     response: value.data
+    //   })
+    // })
+    
   }
 
   openNavigationDrawer = () => {
@@ -65,7 +69,7 @@ class Orders extends Component {
           width: 100 + "%",
           height: 85 + "%"
         }}>
-          <RouteOrders />
+          <RouteOrders/>
         </View>
       </View>
     )
@@ -76,12 +80,8 @@ function mapStateToProps(state){
 }
 function mapDispatchToProps(dispatch){
   return {
-    getOrderData: () => {
-      return dispatch(Action.getOrdersDataAct())
-    },
   }
 }
-
 export default connect(mapStateToProps, mapDispatchToProps)(Orders);
 
 

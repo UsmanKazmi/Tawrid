@@ -103,6 +103,26 @@ export const TawridApi = {
     })
       .then(res => res.json())
       .then(response => {
+        // console.log('Success', response)
+        return response;
+      })
+      .catch(err => {
+        console.log('Error ', err)
+      })
+  },
+
+  // get order list
+  async getOrderList(){
+    var url= "http://portal.tawrid.store/api/v1/order?include=orderProducts";
+    return fetch(url, {
+      method: 'GET',
+      headers:({
+        'token': 
+        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MTY1NjUxNywiZXhwIjoxNTQxNzQyOTE3LCJuYmYiOjE1NDE2NTY1MTcsImp0aSI6ImdadTQ4T08xRTFYT09GNlUifQ.1OOiL7j-NB6ckXmMK8d142HtIJCF4-puT5mVB12ymRE'
+      })
+    })
+      .then(res => res.json())
+      .then(response => {
         console.log('Success', response)
         return response;
       })
@@ -110,5 +130,4 @@ export const TawridApi = {
         console.log('Error ', err)
       })
   }
-   
 }

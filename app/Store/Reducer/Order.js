@@ -1,14 +1,14 @@
-import action from '../action';
+import actiontype from '../action';
 
 const initial_State = {
 }
 
 function orderReducer( state = initial_State , action )
 {
-    const newState = {...state}
+    newState = {...state}
     switch(action.type){
-        case action.getOrderData : {
-            return newState.orders = action.data
+        case actiontype.getOrderData : {
+            return newState = action
         }
         default : {
             return state   

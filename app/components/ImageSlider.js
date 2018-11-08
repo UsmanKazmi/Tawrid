@@ -1,60 +1,56 @@
-import React,{Component} from 'react'
-import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
+import React,{Component} from 'react';
 import { Image, Text, View, StyleSheet,TouchableOpacity,Dimensions } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 
+
+var imagesObject = {}
 export class ImageSlider extends Component {
-    
     constructor(props) {
         super(props);
-
         this.state = {
             customWeather: [
-            { state: 'sn', stateImage: require('../../assets/images/kitty.jpeg') },
-            { state: 'sl', stateImage: require('../../assets/images/kitty.jpeg') },
-            { state: 'h', stateImage: require('../../assets/images/kitty.jpeg') },
-            { state: 't',  stateImage: require('../../assets/images/kitty.jpeg') },
-            { state: 'hr', stateImage: require('../../assets/images/kitty.jpeg') },
-            { state: 'lr',  stateImage: require('../../assets/images/kitty.jpeg') },
-            { state: 's',  stateImage: require('../../assets/images/kitty.jpeg') },
-            { state: 'hc',  stateImage: require('../../assets/images/kitty.jpeg') },
-            { state: 'lc',  stateImage: require('../../assets/images/kitty.jpeg') },
-            { state: 'c',  stateImage: require('../../assets/images/kitty.jpeg') }
-            ],
-          
-
+                { state: 'sn', stateImage: require('../../assets/images/kitty.jpeg') },
+            ]
         };
     }
-
-    
-
-    _renderItem({ item, index }) {
+    _renderItem( item, index ) {
         return (
-            <View style={styles.slide}>
-            
-              
-                <Image source={item.stateImage} style={{ 
+            <View style={styles.slide} key={index}>              
+                <Image source={item.image} style={{ 
                     backgroundColor:"#fff",
                     width: 100 + '%' ,
                     height: 100 +  '%' ,
                     resizeMode:'cover',
                     borderWidth:1,
                     borderRadius:7
-             }} />
+                }} />
             </View>
         );
     }
     render(){
+        console.log('Image Slider ', this.props.image)
+        // this.props.image.forEach(image => {
+        //     imagesObject= {
+        //         state: 'sn',
+        //         image
+        //     }
+        // });
+        // this.state.customWeather.push(imagesObject)
         return (
-            <Carousel
-                firstItem={1}
-                ref={(c) => { this._carousel = c; }}
-                data={this.state.customWeather}
-                renderItem={this._renderItem}
-                sliderWidth={sliderWidth}
-                sliderHeight={10}
-                itemWidth={itemWidth}   
-            />
+            <View>
+            {this.props.image ?
+                <Carousel
+                    firstItem={1}
+                    ref={(c) => { this._carousel = c; }}
+                    data={this.state.customWeather}
+                    renderItem={this._renderItem}
+                    sliderWidth={sliderWidth}
+                    sliderHeight={10}
+                    itemWidth={itemWidth}   
+                />
+                : null
+            }
+            </View>
         )
     }
 }

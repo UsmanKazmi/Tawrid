@@ -25,7 +25,7 @@ function doGetRequest({url}){
         fetch('http://portal.tawrid.store/'+ url,{
             method : 'GET',
             headers: {
-                token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MTIzNjI0OCwiZXhwIjoxNTQxMzIyNjQ4LCJuYmYiOjE1NDEyMzYyNDgsImp0aSI6ImVVYmxZQnpTeWJhWFhmWTkifQ.GjZ99HY09t4YBTViXKhW77ZR-19AxFtsE_d4ApCk4ZM"
+                token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MTY1NjUxNywiZXhwIjoxNTQxNzQyOTE3LCJuYmYiOjE1NDE2NTY1MTcsImp0aSI6ImdadTQ4T08xRTFYT09GNlUifQ.1OOiL7j-NB6ckXmMK8d142HtIJCF4-puT5mVB12ymRE'
             }
         })
         .then(res => res.json())
@@ -43,6 +43,7 @@ function getOrdersDataAct(){
     return dispatch => {
         doGetRequest({url:'api/v1/order?include=orderProducts'})
         .then(success => {
+            console.log('Action ', success)
             dispatch({
                 type: actionType.getOrderData,
                 data: success.data

@@ -7,33 +7,47 @@ import RouteOrders from '../config/RouteOrders';
 import { Search } from '../components/Search';
 import { CardActiveOrders } from '../components/CardActiveOrders';
 import { connect } from 'react-redux';
+import Action from '../Store/ActionCenter';
 
 class ActiveOrders extends Component {
+    
+    UNSAFE_componentWillMount(){
+        this.props.getOrderList();
+    }
+
     render() {
         return (
             <ScrollView>
                 <View style={styles.mainView}>
-                    <CardActiveOrders />
-                    <CardActiveOrders />
-                    <CardActiveOrders />
+                    {   this.props.data ?
+                            this.props.data.map((data, index)=> {
+                            return (
+                                <CardActiveOrders data={data}/>
+                            )
+                        }) : null
+                    }
+                    {/* <CardActiveOrders />
+                    <CardActiveOrders /> */}
                 </View>
             </ScrollView>
         )
     }
 }
-function mapStateToProps(state) {
-    console.log('abc ', state);
+
+function mapStateToProps(state){
+    console.log('Active Orders ', state.OrderReducer.data)
     return {
-        orders: state
+        data: state.OrderReducer.data
     }
 }
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch){
     return {
-
+        getOrderList: () => {
+            return dispatch(Action.getOrdersDataAct())
+        },
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ActiveOrders)
-
 
 const styles = StyleSheet.create({
     mainView: {
@@ -42,8 +56,4 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column'
     },
-
-
-
-
 })
