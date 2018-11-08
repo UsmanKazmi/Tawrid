@@ -45,7 +45,7 @@ class SideMenu extends Component {
         
             
           <TouchableOpacity color="rgba(f, f, f, f)" 
-            onPress={ this.openNotification}
+            onPress={this.openNotification}
           
             style={styles.notificationIcon}>
                  <Icon name={"ios-notifications-outline"}  size={20} color="#01a699" />
@@ -229,7 +229,8 @@ const styles = StyleSheet.create ({
         //  color:Colors.Green,
           paddingStart:40,
           justifyContent:'flex-start',
-          alignItems:'center'
+          alignItems:'center',
+          textAlignVertical:'center'
       }
 
 })

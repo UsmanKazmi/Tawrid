@@ -28,6 +28,8 @@ import Cart from '../screens/Cart';
 import Chat from '../screens/Chat';
 import OrderSelected from '../screens/OrderSelected';
 import OrdersDetails from '../screens/OrderDetails';
+import Notification from '../screens/Notification';
+
 
 
 //stacks for HomePage Tabs Routing
@@ -324,6 +326,55 @@ const ProfilePage_withHeader = createStackNavigator({
         },
     },
 })
+
+
+const NotificationStack = createStackNavigator({
+    FirstTab: {
+        screen: Notification,
+        navigationOptions: ({ navigation }) => {
+
+            return {
+                style:{
+                    
+                },
+                headerStyle: {
+                    elevation: 3,
+                    shadowOpacity: 0,
+                    
+                },
+                headerTitle: <View style={styles.titleTextView}>
+                    <Text style={styles.titleText}>
+                        {'Notifications'}
+                    </Text>
+                </View>,
+                headerLeft: <View style={{ flexDirection: 'row' }}>
+
+                    <TouchableHighlight
+                        onPress={() => navigation.toggleDrawer()}
+                        style={styles.filterIcon}>
+                        <Image
+                            source={require('../../assets/icons/menu.png')}
+                            style={{ marginLeft: 10, width: 20, height: 20 }} />
+
+                    </TouchableHighlight>
+                </View>,
+                headerRight: <View style={{ flexDirection: 'row' }}>
+
+                    <TouchableHighlight
+                        onPress={() => navigation.toggleDrawer()}
+                        style={styles.filterIcon}>
+                        <Image
+                            source={require('../../assets/icons/print.png')}
+                            style={{ marginRight: 10, width: 20, height: 0 }} />
+
+                    </TouchableHighlight>
+                </View>,
+            }
+        },
+    },
+})
+
+
 
 const HomeActiveTabs = createBottomTabNavigator({
     storeTab: {
@@ -789,6 +840,9 @@ const navigationDrawer = createDrawerNavigator({
     },
     Profile: {
         screen: ProfilePage_withHeader
+    },
+    notification: {
+        screen: NotificationStack
     }
 },
 
