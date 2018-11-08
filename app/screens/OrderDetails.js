@@ -118,7 +118,6 @@ const styles = StyleSheet.create({
           fontSize: 15,
           // lineHeight: 24,
           fontFamily: 'DIN Next LT Arabic',
-          fontWeight: 'bold',
           color: Colors.DarkGrey,
   
   

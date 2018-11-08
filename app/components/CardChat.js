@@ -50,7 +50,7 @@ export class CardChat extends Component {
                                     style={{
                                         resizeMode: 'contain',
                                         height: 15,
-                                        widht: 15
+                                        width: 15
                                     }}
                                     source={require('../../assets/icons/shipping.png')}
                                 />

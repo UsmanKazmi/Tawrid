@@ -27,14 +27,12 @@ export class SliderRange extends Component {
               value={this.state.value}
               trackStyle={{
                 backgroundColor:'grey',
-                color:'green'
               }}
 
         
             minimumTrackTintColor='red'
               thumbStyle={{
                 backgroundColor:'red',
-                color:'blue'
               }}
 
               thumbTouchSize={{

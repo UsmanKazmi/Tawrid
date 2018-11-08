@@ -67,8 +67,6 @@ export default class OrderDetails_Financial extends Component {
                         </View>
 
                             <View  style={{
-                                color:Colors.Grey,
-                                fontWeight:'bold',
                                 marginHorizontal:20,
                                 marginVertical:10,
                                 borderBottomColor:Colors.Grey,
@@ -193,8 +191,6 @@ export default class OrderDetails_Financial extends Component {
                                         
                                        
                         <View  style={{
-                                color:Colors.Grey,
-                                fontWeight:'bold',
                                 marginHorizontal:20,
                                 marginVertical:10,
                                 borderColor:Colors.Grey,
