@@ -25,7 +25,7 @@ class ActiveOrders extends Component {
                                 <CardActiveOrders data={data}/>
                             )
                         }) : null
-                    }
+                    } 
                     {/* <CardActiveOrders />
                     <CardActiveOrders /> */}
                 </View>
@@ -35,7 +35,6 @@ class ActiveOrders extends Component {
 }
 
 function mapStateToProps(state){
-    console.log('Active Orders ', state.OrderReducer.data)
     return {
         data: state.OrderReducer.data
     }

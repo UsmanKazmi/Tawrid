@@ -25,7 +25,7 @@ function doGetRequest({url}){
         fetch('http://portal.tawrid.store/'+ url,{
             method : 'GET',
             headers: {
-                token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MTY1NjUxNywiZXhwIjoxNTQxNzQyOTE3LCJuYmYiOjE1NDE2NTY1MTcsImp0aSI6ImdadTQ4T08xRTFYT09GNlUifQ.1OOiL7j-NB6ckXmMK8d142HtIJCF4-puT5mVB12ymRE'
+                token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MTc0MzMyOSwiZXhwIjoxNTQxODI5NzI5LCJuYmYiOjE1NDE3NDMzMjksImp0aSI6ImlDQjZXOXJjaEwyR2c3dVoifQ.8vY-srJE-xF2UF9V-p5CnM6YtX1XaMwnamoXh1fmS-4'
             }
         })
         .then(res => res.json())
@@ -57,7 +57,7 @@ function getNewProductsAct(){
     return dispatch => {
         fetch('http://portal.tawrid.store/api/v1/product/626/show?include=tags,categories,company,features',{
             headers: {
-                token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MTM5ODQxNiwiZXhwIjoxNTQxNDg0ODE2LCJuYmYiOjE1NDEzOTg0MTYsImp0aSI6IlcxU2RlQ2hGTlJCTXRjZ0QifQ.F5lJe9aVErMwJC-0_M8zerVMQkj445QzKNZzhJ-XviQ"
+                token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MTc0MzMyOSwiZXhwIjoxNTQxODI5NzI5LCJuYmYiOjE1NDE3NDMzMjksImp0aSI6ImlDQjZXOXJjaEwyR2c3dVoifQ.8vY-srJE-xF2UF9V-p5CnM6YtX1XaMwnamoXh1fmS-4"
             }
         })
         .then(res => res.json())

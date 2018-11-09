@@ -3,6 +3,7 @@ import { View, StyleSheet, Text, TouchableOpacity, Image, ScrollView, TextInput 
 import { Search } from '../components/Search';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {Colors} from '../helpers/Helpers';
+import {TawridApi} from '../utilities/Api';
 
 export default class Cart extends Component {
     constructor(){
@@ -11,10 +12,10 @@ export default class Cart extends Component {
             isChat: false,
             number1: 0,
             number2: 0,
-            number3: 0
+            number3: 0,
+            response: [],
         }
     }
-    
     openChat = () => {
         let {isChat} = this.state;
         if(isChat === false)
@@ -22,7 +23,6 @@ export default class Cart extends Component {
         else
             this.setState({isChat: false})
     }
-
     addNumber = (num) => {
         if(num === this.state.number1)
             this.setState({number1: ++num})
@@ -31,7 +31,6 @@ export default class Cart extends Component {
         else
             this.setState({number3: ++num})
     }
-
     subNumber= (num) => {
         if(num === this.state.number1)
             this.setState({number1: --num})
@@ -41,6 +40,15 @@ export default class Cart extends Component {
             this.setState({number3: --num})
     }   
 
+    UNSAFE_componentWillMount() {
+        TawridApi.cartInfo().then(value => {
+            console.log('My Cart Info ', value.data)
+            this.setState({
+                response: value.data
+            })
+        })
+    }
+
     render() {
         return (
             <View style={{ flex: 1,backgroundColor:Colors.White }}>
@@ -49,8 +57,8 @@ export default class Cart extends Component {
                     <Search placeholder={'Search Cart'} />
                 </View>
                 <View style={{ paddingHorizontal: 15, paddingVertical: 3, borderBottomWidth: 1 }}>
-                    <Text style={{ color: 'grey' }}> Subtotal <Text style={styles.SubTotalAmount}> $2039.4 </Text></Text>
-                    <Text style={{ color: 'cyan' }}> CBM <Text style={styles.cbmText}> 0.00 M³ </Text> </Text>
+                    <Text style={{ color: 'grey' }}> Subtotal <Text style={styles.SubTotalAmount}> {this.state.response.total} </Text></Text>
+                    <Text style={{ color:  Colors.Green }}> CBM <Text style={styles.cbmText}> {this.state.response.total_cbm} M³ </Text> </Text>
                     <View style={styles.buttonView}>
                         <TouchableOpacity style={styles.createOrderBtn}>
                             <Text style={styles.btnText}>create order</Text>

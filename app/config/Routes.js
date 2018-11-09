@@ -26,10 +26,9 @@ import Orders from '../screens/Orders';
 import Profile from '../screens/Profile';
 import Cart from '../screens/Cart';
 import Chat from '../screens/Chat';
-import OrderSelected from '../screens/OrderSelected';
 import OrdersDetails from '../screens/OrderDetails';
 import Notification from '../screens/Notification';
-
+import MyStatementSheet from '../screens/MyStatementSheet';
 
 
 //stacks for HomePage Tabs Routing
@@ -42,8 +41,6 @@ const GridView = createStackNavigator({
         },
     }
 )
-
-
 
 const MyStoreTabs = createStackNavigator({
     FirstTab: {
@@ -114,7 +111,6 @@ const MyStoreTabs = createStackNavigator({
         },
     },
 })
-
 const MyOrdersTab = createStackNavigator({
     FirstTab: {
         screen: Orders,
@@ -259,21 +255,15 @@ const MyStatementsTab = createStackNavigator({
                         <Image
                             source={require('../../assets/icons/menu.png')}
                             style={{ marginLeft: 10, width: 20, height: 20 }} />
-
                     </TouchableHighlight>
-
-
                 </View>,
-
                 headerRight: <View style={{ flexDirection: 'row' }}>
-
                     <TouchableHighlight
                         onPress={() => navigation.toggleDrawer()}
                         style={styles.filterIcon}>
                         <Image
                             source={require('../../assets/icons/print.png')}
                             style={{ marginRight: 10, width: 20, height: 0 }} />
-
                     </TouchableHighlight>
                 </View>,
             }
@@ -308,18 +298,15 @@ const ProfilePage_withHeader = createStackNavigator({
                         <Image
                             source={require('../../assets/icons/menu.png')}
                             style={{ marginLeft: 10, width: 20, height: 20 }} />
-
                     </TouchableHighlight>
                 </View>,
                 headerRight: <View style={{ flexDirection: 'row' }}>
-
                     <TouchableHighlight
                         onPress={() => navigation.toggleDrawer()}
                         style={styles.filterIcon}>
                         <Image
                             source={require('../../assets/icons/print.png')}
                             style={{ marginRight: 10, width: 20, height: 20 }} />
-
                     </TouchableHighlight>
                 </View>,
             }
@@ -332,7 +319,6 @@ const NotificationStack = createStackNavigator({
     FirstTab: {
         screen: Notification,
         navigationOptions: ({ navigation }) => {
-
             return {
                 style:{
                     
@@ -340,7 +326,6 @@ const NotificationStack = createStackNavigator({
                 headerStyle: {
                     elevation: 3,
                     shadowOpacity: 0,
-                    
                 },
                 headerTitle: <View style={styles.titleTextView}>
                     <Text style={styles.titleText}>
@@ -348,33 +333,27 @@ const NotificationStack = createStackNavigator({
                     </Text>
                 </View>,
                 headerLeft: <View style={{ flexDirection: 'row' }}>
-
                     <TouchableHighlight
                         onPress={() => navigation.toggleDrawer()}
                         style={styles.filterIcon}>
                         <Image
                             source={require('../../assets/icons/menu.png')}
                             style={{ marginLeft: 10, width: 20, height: 20 }} />
-
                     </TouchableHighlight>
                 </View>,
                 headerRight: <View style={{ flexDirection: 'row' }}>
-
                     <TouchableHighlight
                         onPress={() => navigation.toggleDrawer()}
                         style={styles.filterIcon}>
                         <Image
                             source={require('../../assets/icons/print.png')}
                             style={{ marginRight: 10, width: 20, height: 0 }} />
-
                     </TouchableHighlight>
                 </View>,
             }
         },
     },
 })
-
-
 
 const HomeActiveTabs = createBottomTabNavigator({
     storeTab: {
@@ -450,8 +429,6 @@ const HomeActiveTabs = createBottomTabNavigator({
 
         }
     }
-
-
 );
 
 const OrdersActiveTabs = createBottomTabNavigator({
@@ -464,10 +441,7 @@ const OrdersActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/home_active.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/home_inactive.png')} size={10} />
             )
-
         }
-
-
     },
     ordersTab: {
         screen: MyOrdersTab,
@@ -478,7 +452,6 @@ const OrdersActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/ordersactive.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/ordersinactive.png')} size={10} />
             )
-
         }
     },
     cartTab: {
@@ -490,7 +463,6 @@ const OrdersActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/addtocardActive.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/addtocardInActive.png')} size={10} />
             )
-
         }
     },
     MyChatTab: {
@@ -502,7 +474,6 @@ const OrdersActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/chatactive.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/chatinactive.png')} size={10} />
             )
-
         }
     },
     MyStatementSheet: {
@@ -517,13 +488,10 @@ const OrdersActiveTabs = createBottomTabNavigator({
 
         }
     },
-
-
 },
     {
         initialRouteName:'ordersTab',
         tabBarOptions: {
-
             showLabel: false,
             activeTintColor: '#fff',
             inactiveTintColor: '#bdb1cc',
@@ -534,11 +502,8 @@ const OrdersActiveTabs = createBottomTabNavigator({
                 right: 0,
                 bottom: 0,
             },
-
         }
     }
-
-
 );
 
 const CartActiveTabs = createBottomTabNavigator({
@@ -551,10 +516,7 @@ const CartActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/home_active.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/home_inactive.png')} size={10} />
             )
-
         }
-
-
     },
     ordersTab: {
         screen: MyOrdersTab,
@@ -565,7 +527,6 @@ const CartActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/ordersactive.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/ordersinactive.png')} size={10} />
             )
-
         }
     },
     cartTab: {
@@ -577,7 +538,6 @@ const CartActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/addtocardActive.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/addtocardInActive.png')} size={10} />
             )
-
         }
     },
     MyChatTab: {
@@ -589,7 +549,6 @@ const CartActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/chatactive.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/chatinactive.png')} size={10} />
             )
-
         }
     },
     MyStatementSheet: {
@@ -601,16 +560,12 @@ const CartActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/statementsactive.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/statementsinactive.png')} size={10} />
             )
-
         }
     },
-
-
 },
     {
         initialRouteName:'cartTab',
         tabBarOptions: {
-
             showLabel: false,
             activeTintColor: '#fff',
             inactiveTintColor: '#bdb1cc',
@@ -621,13 +576,9 @@ const CartActiveTabs = createBottomTabNavigator({
                 right: 0,
                 bottom: 0,
             },
-
         }
     }
-
-
 );
-
 
 const ChatActiveTabs = createBottomTabNavigator({
     storeTab: {
@@ -639,10 +590,7 @@ const ChatActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/home_active.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/home_inactive.png')} size={10} />
             )
-
         }
-
-
     },
     ordersTab: {
         screen: MyOrdersTab,
@@ -653,7 +601,6 @@ const ChatActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/ordersactive.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/ordersinactive.png')} size={10} />
             )
-
         }
     },
     cartTab: {
@@ -665,7 +612,6 @@ const ChatActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/addtocardActive.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/addtocardInActive.png')} size={10} />
             )
-
         }
     },
     MyChatTab: {
@@ -677,7 +623,6 @@ const ChatActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/chatactive.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/chatinactive.png')} size={10} />
             )
-
         }
     },
     MyStatementSheet: {
@@ -689,11 +634,8 @@ const ChatActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/statementsactive.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/statementsinactive.png')} size={10} />
             )
-
         }
     },
-
-
 },
     {
         initialRouteName:'MyChatTab',
@@ -712,10 +654,7 @@ const ChatActiveTabs = createBottomTabNavigator({
 
         }
     }
-
-
 );
-
 
 const StatementActiveTabs = createBottomTabNavigator({
     storeTab: {
@@ -727,10 +666,7 @@ const StatementActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/home_active.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/home_inactive.png')} size={10} />
             )
-
         }
-
-
     },
     ordersTab: {
         screen: MyOrdersTab,
@@ -741,7 +677,6 @@ const StatementActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/ordersactive.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/ordersinactive.png')} size={10} />
             )
-
         }
     },
     cartTab: {
@@ -753,7 +688,6 @@ const StatementActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/addtocardActive.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/addtocardInActive.png')} size={10} />
             )
-
         }
     },
     MyChatTab: {
@@ -765,7 +699,6 @@ const StatementActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/chatactive.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/chatinactive.png')} size={10} />
             )
-
         }
     },
     MyStatementSheet: {
@@ -777,16 +710,12 @@ const StatementActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/statementsactive.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/statementsinactive.png')} size={10} />
             )
-
         }
     },
-
-
 },
     {
         initialRouteName:'MyStatementSheet',
         tabBarOptions: {
-
             showLabel: false,
             activeTintColor: '#fff',
             inactiveTintColor: '#bdb1cc',
@@ -800,8 +729,6 @@ const StatementActiveTabs = createBottomTabNavigator({
 
         }
     }
-
-
 );
 
 

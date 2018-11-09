@@ -60,7 +60,7 @@ export const TawridApi = {
     return fetch(url, {
       method: 'GET',
       headers:({
-        'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MTY1NjUxNywiZXhwIjoxNTQxNzQyOTE3LCJuYmYiOjE1NDE2NTY1MTcsImp0aSI6ImdadTQ4T08xRTFYT09GNlUifQ.1OOiL7j-NB6ckXmMK8d142HtIJCF4-puT5mVB12ymRE'
+        'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MTc0MzMyOSwiZXhwIjoxNTQxODI5NzI5LCJuYmYiOjE1NDE3NDMzMjksImp0aSI6ImlDQjZXOXJjaEwyR2c3dVoifQ.8vY-srJE-xF2UF9V-p5CnM6YtX1XaMwnamoXh1fmS-4'
       })
     })
       .then(res => res.json())
@@ -93,12 +93,13 @@ export const TawridApi = {
     });
   },
   
+  // get favourite of my product
   async getMyProduct(){
     var url= "http://portal.tawrid.store/api/v1/favorite/list?include=product";
     return fetch(url, {
       method: 'GET',
       headers:({
-        'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MTY1NjUxNywiZXhwIjoxNTQxNzQyOTE3LCJuYmYiOjE1NDE2NTY1MTcsImp0aSI6ImdadTQ4T08xRTFYT09GNlUifQ.1OOiL7j-NB6ckXmMK8d142HtIJCF4-puT5mVB12ymRE'
+        'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MTc0MzMyOSwiZXhwIjoxNTQxODI5NzI5LCJuYmYiOjE1NDE3NDMzMjksImp0aSI6ImlDQjZXOXJjaEwyR2c3dVoifQ.8vY-srJE-xF2UF9V-p5CnM6YtX1XaMwnamoXh1fmS-4'
       })
     })
       .then(res => res.json())
@@ -118,7 +119,7 @@ export const TawridApi = {
       method: 'GET',
       headers:({
         'token': 
-        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MTY1NjUxNywiZXhwIjoxNTQxNzQyOTE3LCJuYmYiOjE1NDE2NTY1MTcsImp0aSI6ImdadTQ4T08xRTFYT09GNlUifQ.1OOiL7j-NB6ckXmMK8d142HtIJCF4-puT5mVB12ymRE'
+        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MTc0MzMyOSwiZXhwIjoxNTQxODI5NzI5LCJuYmYiOjE1NDE3NDMzMjksImp0aSI6ImlDQjZXOXJjaEwyR2c3dVoifQ.8vY-srJE-xF2UF9V-p5CnM6YtX1XaMwnamoXh1fmS-4'
       })
     })
       .then(res => res.json())
@@ -128,6 +129,27 @@ export const TawridApi = {
       })
       .catch(err => {
         console.log('Error ', err)
+      })
+  },
+
+  // my cart info 
+  async cartInfo() {
+    var url= "http://portal.tawrid.store/api/v1/cart/info";
+    return fetch(url,  {
+      method: 'GET',
+      headers:({
+        'token': 
+        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MTc0MzMyOSwiZXhwIjoxNTQxODI5NzI5LCJuYmYiOjE1NDE3NDMzMjksImp0aSI6ImlDQjZXOXJjaEwyR2c3dVoifQ.8vY-srJE-xF2UF9V-p5CnM6YtX1XaMwnamoXh1fmS-4'
+      })
+    })
+      .then(res => res.json())
+      .then(response => {
+          console.log('My Cart ', response)
+          return response;
+      })
+      .catch(err => {
+        console.log('Error ', err)
+        return err
       })
   }
 }

@@ -14,7 +14,7 @@ export class CardActiveOrders extends Component {
                 {this.props.data ?
                     <View>
                         <View style={styles.imageSliderView}>
-                            <ImageSlider image={this.props.data.list_image_order} />
+                            <ImageSlider image={this.props.data.list_image_order}/>
                         </View>
                         <View style={styles.textView}>
                             <Text style={styles.orderText}>
@@ -54,7 +54,7 @@ export class CardActiveOrders extends Component {
                         </View>
                     </View>
                     : null
-            }
+            } 
             </View>
         )
     }
