@@ -1,15 +1,15 @@
 import actionType from './action';
 
 function doPostRequest({ url, data}) {
+    console.log('Data ', JSON.stringify(data))
     return new Promise( resolve => {
         fetch('http://portal.tawrid.store/'+ url, {
             method : 'POST',
             headers: {
-                'Accept': 'application/json',
                 "Content-Type": "application/json",
                  token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjAwMzI5MSwiZXhwIjoxNTQyMDg5NjkxLCJuYmYiOjE1NDIwMDMyOTEsImp0aSI6ImVqMTRJR1pDczZoallJS1AifQ.hiTLrRsCGIvSfWPbk6ACpHqAFqm00QxiV7eNR_kifPg'
             },
-            body: JSON.stringify({ bodyData: data })
+            body: JSON.stringify(data)
         })
         .then(res => res.json())
         .then(success => {
@@ -38,7 +38,6 @@ function doGetRequest({url}){
         });
     })
 }
-
 // get order list
 function getOrdersDataAct(){
     console.log('Get Orders !!!!');
@@ -53,7 +52,7 @@ function getOrdersDataAct(){
         })
     }
 }
-
+// show balance request
 function showBalanceAct(statementData){
     console.log('Statement ', statementData);
     return dispatch => {
@@ -62,9 +61,26 @@ function showBalanceAct(statementData){
             data: statementData
         })
             .then(success => {
-                console.log('statement Data ', success)
+                console.log('Statement Data ', success)
                 dispatch({
                     type: actionType.showStatementBalance,
+                    data: success.data
+                })
+            })
+    }
+}
+// total statement api
+function totalStatementAct(totalStatement) {
+    console.log('Total Statement ', totalStatement)
+    return dispatch => {
+        doPostRequest({
+            url: 'api/v1/statement/total',
+            data: totalStatement
+        })
+            .then(success => {
+                console.log('Total Statement2 ', success)
+                dispatch({
+                    type: actionType.totalStatement,
                     data: success.data
                 })
             })
@@ -74,4 +90,5 @@ function showBalanceAct(statementData){
 export default {
     getOrdersDataAct,
     showBalanceAct,
+    totalStatementAct,
 }

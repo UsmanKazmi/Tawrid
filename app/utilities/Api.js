@@ -26,8 +26,6 @@ _retrieveData = async () => {
    }
 }
 
-
-
 export const TawridApi = {
   
   async Login(collection) {

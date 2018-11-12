@@ -10,7 +10,7 @@ export class CardActiveOrders extends Component {
         return (
             <View style={styles.mainView}>
                 {this.props.data ?
-                    <View>
+                    <View style={{width:100+'%',height:'100%'}}>
                         <View style={styles.imageSliderView}>
                             <ImageSlider image={this.props.data.list_image_order}/>
                         </View>
