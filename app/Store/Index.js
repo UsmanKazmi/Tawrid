@@ -3,10 +3,12 @@ import thunk from 'redux-thunk';
 
 import OrderReducer from './Reducer/Order';
 import ProductReducer from './Reducer/Product';
+import StatementReducer from './Reducer/Statement';
 
 const allReducers = combineReducers({
     OrderReducer,
-    ProductReducer
+    ProductReducer,
+    StatementReducer
 })
 
 const store = createStore(allReducers, applyMiddleware(thunk));

@@ -15,14 +15,19 @@ class CardMyProduct extends Component {
             ['name']: !info
         })
     }
-
+    info = (data) => {
+        console.log('Info ', data)
+    }
+    tags = (tag) => {
+        console.log('Tags ', tag)
+    }
     render() {
-        console.log('My Products: ', this.props.data[0]);
+        // console.log('My Products: ', this.props.data[0]);
         return (
             <View style={styles.mainView}>
                 {
                     this.props.data ?
-                        this.props.data.map((data, index) => { 
+                        this.props.data.map((data, index) => {
                             console.log('image ', data.product.data.image_primary)
                             return (
                                 <View key={index} style={styles.card}>
@@ -30,7 +35,7 @@ class CardMyProduct extends Component {
                                         activeDot={<View style={styles.slideView} />}
                                     >
                                         <View style={styles.slide1} >
-                                            <Image style={styles.image} 
+                                            <Image style={styles.image}
                                                 source={{ uri: data.product.data.image_primary }}
                                             />
                                         </View>
@@ -46,11 +51,11 @@ class CardMyProduct extends Component {
                                                 source={require('../../assets/icons/loyalitybadge.png')}
                                             />
                                             <Text style={styles.cardPrice}>
-                                                 {data.product.data.currency}{data.product.data.price}
+                                                {data.product.data.currency}{data.product.data.price}
                                             </Text>
                                         </View>
                                         <Text style={styles.cardSubTitle}>
-                                            {data.product.data.quantity} {data.product.data.unit} in 
+                                            {data.product.data.quantity} {data.product.data.unit} in
                                             {data.product.data.package}
                                         </Text>
                                         <View
@@ -68,7 +73,7 @@ class CardMyProduct extends Component {
                                                 />
                                             </TouchableOpacity>
                                             <TouchableOpacity style={styles.bottomButtons}
-                                            onPress={() => this.handleChange(data.product.data.is_favorite, 'fav')}>
+                                              onPress={() => this.handleChange(data.product.data.is_favorite, 'fav')}>
                                                 <Image
                                                     style={{ height: 20, width: 20, }}
                                                     source={require('../../assets/icons/fav.png')}
@@ -86,7 +91,8 @@ class CardMyProduct extends Component {
                                                     source={require('../../assets/icons/share.png')}
                                                 />
                                             </TouchableOpacity>
-                                            <TouchableOpacity style={styles.bottomButtons}>
+                                            <TouchableOpacity style={styles.bottomButtons}
+                                                onPress={() => this.info(data.product.data.size_information)}>
                                                 <Image
                                                     style={{ height: 20, width: 20, }}
                                                     source={require('../../assets/icons/info.png')}
@@ -137,7 +143,6 @@ const styles = StyleSheet.create({
         marginBottom: 5,
         marginTop: 10,
         fontWeight: "bold"
-
     },
     cardSubTitle: {
         color: 'white',

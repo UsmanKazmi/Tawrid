@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
-import { ScrollView } from 'react-native';
 import { Colors } from '../helpers/Helpers';
-import { Image, Text, View, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+import { Image, Text, View, StyleSheet} from 'react-native';
 import { ImageSlider } from './ImageSlider';
 import { SliderRange } from './SliderRange';
 
@@ -53,7 +51,46 @@ export class CardActiveOrders extends Component {
                             </Text>
                         </View>
                     </View>
-                    : null
+                    : <View>
+                    <View style={styles.imageSliderView}>
+                        <ImageSlider />
+                    </View>
+                    <View style={styles.textView}>
+                        <Text style={styles.orderText}>
+                            Order: 
+                        </Text>
+                        <Text style={styles.priceText}>
+                        </Text>
+                        <Image
+                            style={{ height: 20, width: 20, }}
+                            source={require('../../assets/icons/question.png')}
+                        />
+                    </View>
+                    <View style={styles.shippingView}>
+                        <Image
+                            style={{ height: 15, width: 15, }}
+                            source={require('../../assets/icons/shipping.png')}
+                        />
+                        <Text style={styles.shippingText}>
+                            Shipping:N/A
+                            </Text>
+                    </View>
+                    <View style={{ flexDirection: 'row' }}>
+                        <SliderRange />
+                    </View>
+                    <View style={styles.chatView}>
+                        <Image
+                            style={styles.chatImage}
+                            source={require('../../assets/icons/chatBlue.png')}
+                        />
+                        <Text style={styles.chatText}>
+                            Chat Now
+                            </Text>
+                        <Text style={styles.requiredText}>
+                            
+                        </Text>
+                    </View>
+                </View>
             } 
             </View>
         )

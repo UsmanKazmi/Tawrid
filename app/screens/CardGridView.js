@@ -79,14 +79,10 @@ const styles = StyleSheet.create({
         flex: 1,
         fontWeight: 'bold',
         color: 'grey',
-
-
     },
     viewAllText: {
         textAlign: 'center',
         fontSize: 12
-
-
     },
     mainView: {
         margin: 15,

@@ -7,11 +7,24 @@ import {
   View
 } from 'react-native';
 import { StatementItem } from '../components/StatementItem';
+import { Search } from '../components/Search';
+import { connect } from 'react-redux';
+import Action from '../Store/ActionCenter';
 
-export default class MyStatementSheet extends Component {
+class MyStatementSheet extends Component {
     static navigationOptions = {
       title: 'My Statement',
     };
+
+    UNSAFE_componentWillMount(){
+      let statementData= {
+        type: 'user',
+        id: 29,
+        balance: {"3": '76387.536'},
+        offset: 10
+      }
+      this.props.showBalance(statementData);
+    }
 
     loadItems(){
       dropdown_items = [];
@@ -45,43 +58,57 @@ export default class MyStatementSheet extends Component {
     render() {
       const { navigate } = this.props.navigation;
       return (
-        <View style={styles.parent}> 
+        <View style={styles.parent}>
+            <Search/> 
+        
+                <View style={{flexDirection: 'row', padding: 30}}>
 
-          <View style={{flexDirection: 'row', padding: 30}}>
+                  <View style={{ justifyContent:'flex-start',flex:1}}> 
 
-            <View style={{ justifyContent:'flex-start',flex:1}}> 
+                    <View style={styles.horizontal_label}>
+                      <Text> +Value</Text>
+                      <Text style={styles.label_blue}> $ 2053.50</Text>
+                    </View> 
 
-              <View style={styles.horizontal_label}>
-                <Text> +Value</Text>
-                <Text style={styles.label_blue}> $ 2053.50</Text>
-              </View> 
+                    <View style={styles.horizontal_label}>
+                      <Text> -Value</Text>
+                      <Text style={styles.label_pink}> $ 1345.16</Text>
+                    </View>
 
-              <View style={styles.horizontal_label}>
-                <Text> -Value</Text>
-                <Text style={styles.label_pink}> $ 1345.16</Text>
-              </View>
+                  </View>
 
-            </View>
+                  <View style={{alignSelf:'center'}}>
+                  <View style={{flexDirection:'row'}}> 
+                      <Text style={{justifyContent:'center',alignItems:'center'}}>Total</Text>
+                      <Text style={styles.label_orange}> $ 2349.70</Text>
+                    </View>
+                  </View>
+                </View>
 
-            <View style={{alignSelf:'center'}}>
-            <View style={{flexDirection:'row'}}> 
-                <Text style={{justifyContent:'center',alignItems:'center'}}>Total</Text>
-                <Text style={styles.label_orange}> $ 2349.70</Text>
-              </View>
-            </View>
-          </View>
+                <View style={{backgroundColor:'#E3E3E3', width:100+"%", height:1}}/>
 
-          <View style={{backgroundColor:'#E3E3E3', width:100+"%", height:1}}/>
-
-          <FlatList 
-              style={{marginTop:30}}
-              data={this.state.values}
-              renderItem = {({item}) => <StatementItem id={" " +item.id} price_2={item.price_2} track_no={item.track_no} type={item.type} date={item.price} status={item.price} price={item.price} />}
-          />
+                <FlatList 
+                    style={{marginTop:30}}
+                    data={this.state.values}
+                    renderItem = {({item}) => <StatementItem id={" " +item.id} price_2={item.price_2} track_no={item.track_no} type={item.type} date={item.price} status={item.price} price={item.price} />}
+                />
         </View>
       );
     }
   }
+  function mapStateToProps(state){
+    return {
+
+    }
+  }
+  function mapDispatchToProps(dispatch){
+    return {
+      showBalance: (data) => {
+        return dispatch(Action.showBalanceAct(data))
+      } 
+    }
+  }
+  export default connect(mapStateToProps, mapDispatchToProps)(MyStatementSheet)
 
   const styles = StyleSheet.create({
     parent: {

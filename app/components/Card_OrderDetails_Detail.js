@@ -1,10 +1,7 @@
-import React, { Component } from 'react'
-import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
-import { ScrollView } from 'react-native';
+import React, { Component } from 'react';
 import { Colors } from '../helpers/Helpers';
 import { Image, Text, View, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
 
 export class Card_OrderDetails_Detail extends Component {
     constructor() {
@@ -31,7 +28,6 @@ export class Card_OrderDetails_Detail extends Component {
         else
             this.setState({ number3: --num })
     }
-
 
     render() {
         return (

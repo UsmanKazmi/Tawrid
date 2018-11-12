@@ -6,7 +6,8 @@ function doPostRequest({ url, data}) {
             method : 'POST',
             headers: {
                 'Accept': 'application/json',
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                 token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjAwMzI5MSwiZXhwIjoxNTQyMDg5NjkxLCJuYmYiOjE1NDIwMDMyOTEsImp0aSI6ImVqMTRJR1pDczZoallJS1AifQ.hiTLrRsCGIvSfWPbk6ACpHqAFqm00QxiV7eNR_kifPg'
             },
             body: JSON.stringify({ bodyData: data })
         })
@@ -25,7 +26,7 @@ function doGetRequest({url}){
         fetch('http://portal.tawrid.store/'+ url,{
             method : 'GET',
             headers: {
-                token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MTc0MzMyOSwiZXhwIjoxNTQxODI5NzI5LCJuYmYiOjE1NDE3NDMzMjksImp0aSI6ImlDQjZXOXJjaEwyR2c3dVoifQ.8vY-srJE-xF2UF9V-p5CnM6YtX1XaMwnamoXh1fmS-4'
+                token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjAwMzI5MSwiZXhwIjoxNTQyMDg5NjkxLCJuYmYiOjE1NDIwMDMyOTEsImp0aSI6ImVqMTRJR1pDczZoallJS1AifQ.hiTLrRsCGIvSfWPbk6ACpHqAFqm00QxiV7eNR_kifPg'
             }
         })
         .then(res => res.json())
@@ -38,6 +39,7 @@ function doGetRequest({url}){
     })
 }
 
+// get order list
 function getOrdersDataAct(){
     console.log('Get Orders !!!!');
     return dispatch => {
@@ -52,30 +54,24 @@ function getOrdersDataAct(){
     }
 }
 
-function getNewProductsAct(){
-    console.log('New Products !!!!');
+function showBalanceAct(statementData){
+    console.log('Statement ', statementData);
     return dispatch => {
-        fetch('http://portal.tawrid.store/api/v1/product/626/show?include=tags,categories,company,features',{
-            headers: {
-                token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MTc0MzMyOSwiZXhwIjoxNTQxODI5NzI5LCJuYmYiOjE1NDE3NDMzMjksImp0aSI6ImlDQjZXOXJjaEwyR2c3dVoifQ.8vY-srJE-xF2UF9V-p5CnM6YtX1XaMwnamoXh1fmS-4"
-            }
+        doPostRequest({
+            url: 'api/v1/statement/show',
+            data: statementData
         })
-        .then(res => res.json())
-        .then(success => {
-            dispatch({
-                type: actionType.getNewProducts,
-                data: success.data
+            .then(success => {
+                console.log('statement Data ', success)
+                dispatch({
+                    type: actionType.showStatementBalance,
+                    data: success.data
+                })
             })
-        })
-        .catch(err => {
-            console.log(err );
-        });
-    }   
+    }
 }
-
-
 
 export default {
     getOrdersDataAct,
-    getNewProductsAct,
+    showBalanceAct,
 }

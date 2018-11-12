@@ -1,12 +1,8 @@
 import React, {Component} from 'react';
 import {Platform,AsyncStorage , StyleSheet, Text, Alert, View, Dimensions, Image, TouchableWithoutFeedback, Keyboard, TouchableHighlight,Navigator, Animated, StatusBar, TextInput} from 'react-native';
 import {LoginAnimation, Colors} from '../helpers/Helpers';
-import Api, { TawridApi } from '../utilities/Api';
-import {Actions} from 'react-native-router-flux';
+import { TawridApi } from '../utilities/Api';
 import Loader from '../components/Loader';
-import Toast from '../components/Toasts';
-
-import Home from './Home';
 
 export default class Login extends Component {
 
@@ -30,7 +26,6 @@ _storeData = async (keyForStorage,valueForStorage) => {
 
   constructor(Props) {
     // this.onSuccessLogin = this.onSuccessLogin.bind(this);
-
     super(Props);
     this.state = {
       logoOpacityAnimation: new Animated.Value(0),
@@ -122,10 +117,10 @@ _storeData = async (keyForStorage,valueForStorage) => {
           } else if (this.state.response.status == 'error') {
               Alert.alert(this.state.response.message);
           } else {
-            Alert.alert('An unknown error occured. Please contact App support team');
+            Alert.alert(Error ,'An unknown error occured. Please contact App support team');
           }
         } else {
-            Alert.alert('Request Terminated. Please check your internet or contact our support.');
+            Alert.alert(Error ,'Request Terminated. Please check your internet or contact our support.');
         }
         
       })
@@ -146,16 +141,10 @@ _storeData = async (keyForStorage,valueForStorage) => {
   }
   saveTokenInLocalStorage(){
     let token = this.state.response.data.token;
-
-
-    console.log('The Token is',this.state.response.data.token)
+    console.log('The Token is', token)
   }
 
   render() {
-
-
-
-
     // Logo Animation
     const logoAnimationStyle = {
       opacity: this.state.logoOpacityAnimation
@@ -184,11 +173,8 @@ _storeData = async (keyForStorage,valueForStorage) => {
             <Animated.View style={[logoAnimationStyle,styles.logo]}>
                 <Image style={styles.logo} resizeMode={"contain"} source={require('../../assets/images/whitelogo3x.png')} />  
             </Animated.View>
-            
             <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
             <Animated.View style={[loginInputAnimationStyle,styles.formFields]}>
-            
-            
             <TextInput editable={this.state.textEdit} autoCapitalize = "none" maxLength={40} 
               autoCorrect={false} returnKeyType="next" underlineColorAndroid="transparent" 
               textContentType="emailAddress" keyboardType="email-address" 
@@ -197,17 +183,12 @@ _storeData = async (keyForStorage,valueForStorage) => {
               ref={(input) => { this.Email = input; }}
               onSubmitEditing={()=>{ this.Password.focus() }} blurOnSubmit={false} 
               value={this.state.email} onChangeText={(email) => this.setState({email})} />
-            
-            
-            
-            
             <TextInput editable={this.state.textEdit} autoCapitalize="none" maxLength={24} 
               autoCorrect={false} returnKeyType="go" underlineColorAndroid="transparent" secureTextEntry={true} 
               keyboardAppearance="light" placeholder="Password" placeholderTextColor="rgba(255,255,255,0.6)" 
               style={styles.passwordField} ref={(input) => { this.Password = input; }}
               onSubmitEditing={()=>{ this.signIn() }} blurOnSubmit={false} 
               value={this.state.password} onChangeText={(password) => this.setState({password})}/>
-            
             </Animated.View>
             </TouchableWithoutFeedback>
             <Animated.View style={[styles.loginAnimation, loginAnimationStyle]}>
@@ -216,13 +197,11 @@ _storeData = async (keyForStorage,valueForStorage) => {
             </TouchableHighlight>
             <Loader style={styles.loadingAnimation} loading= {this.state.loading} color={'#ffffff'} size= {'small'} position = {'absolute'} float = {'right'} height= {48} width= {284} />
             </Animated.View>
-            
             <Animated.View style={[styles.forgetPassword, forgetPasswordAnimationStyle]}>
             <TouchableHighlight style={styles.forgetPassword} onPress={() => { this.forgotPasswordMethod() } } activeOpacity={75 / 100} underlayColor={"rgba(51,51,51,0.6)"}>
                 <Text style={styles.forgetPasswordText}>Forget Password?</Text>
             </TouchableHighlight>
             </Animated.View>
-          
       </View>
     );
   }

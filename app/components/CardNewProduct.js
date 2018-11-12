@@ -23,8 +23,15 @@ class CardNewProduct extends Component {
         });
         next.data.splice(1, 1)
     }
+    info = (data) => {
+        console.log('Info ', data)
+    }
+    tags = (tag) => {
+        console.log('Tags ', tag)
+    }
+
     render() {
-        console.log('sd ', this.props.data);
+        // console.log('sd ', this.props.data);
         return (
             <View style={styles.mainView}>
                 <Swiper style={styles.wrapper} showsButtons={false}
@@ -43,8 +50,8 @@ class CardNewProduct extends Component {
                         }) : null
                     }
                 </Swiper>
-                {   this.props.data.map((data, index)=>{
-                    return(
+                {this.props.data.map((data, index) => {
+                    return (
                         <View key={index} style={{
                             backgroundColor: Colors.LightGreen,
                         }}>
@@ -52,9 +59,11 @@ class CardNewProduct extends Component {
                                 <Text style={styles.cardTitle}>
                                     {data.name}
                                 </Text>
-                                <Image style={styles.tagImage}
-                                    source={require('../../assets/icons/loyalitybadge.png')}
-                                />
+                                <TouchableOpacity style={styles.tagBtn} onPress={() => this.tags(data.tags)}>
+                                    <Image style={styles.tagImage}
+                                        source={require('../../assets/icons/loyalitybadge.png')}
+                                    />
+                                </TouchableOpacity>
                                 <Text style={styles.cardPrice}>
                                     {data.currency}{data.price}
                                 </Text>
@@ -68,8 +77,8 @@ class CardNewProduct extends Component {
                                     borderBottomWidth: StyleSheet.hairlineWidth,
                                 }}
                             />
-                            <View style={{ flexDirection: "row", justifyContent: 'space-evenly' }}>
-                                <TouchableOpacity style={styles.bottomButtons}>
+                            <View style={styles.bottomIcons}>
+                                <TouchableOpacity style={styles.bottomButtons} >
                                     <Image style={styles.bottomImage}
                                         source={require('../../assets/icons/addtocart.png')}
                                     />
@@ -89,7 +98,8 @@ class CardNewProduct extends Component {
                                         source={require('../../assets/icons/share.png')}
                                     />
                                 </TouchableOpacity>
-                                <TouchableOpacity style={styles.bottomButtons}>
+                                <TouchableOpacity style={styles.bottomButtons}
+                                    onPress={() => this.info(data)} >
                                     <Image style={styles.bottomImage}
                                         source={require('../../assets/icons/info.png')}
                                     />
@@ -103,7 +113,6 @@ class CardNewProduct extends Component {
     }
 }
 export default (CardNewProduct)
-
 
 const styles = StyleSheet.create({
     mainView: {
@@ -133,7 +142,6 @@ const styles = StyleSheet.create({
         marginBottom: 5,
         marginTop: 10,
         fontWeight: "bold"
-
     },
     cardSubTitle: {
         color: 'white',
@@ -187,9 +195,17 @@ const styles = StyleSheet.create({
         marginHorizontal: 5,
         alignSelf: 'center'
     },
-    bottomImage: { 
-        height: 20, 
-        width: 20 
+    bottomIcons: {
+        flexDirection: "row",
+        justifyContent: 'space-evenly'
+    },
+    bottomImage: {
+        height: 20,
+        width: 20
+    },
+    tagBtn: {
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 });
 

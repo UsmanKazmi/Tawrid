@@ -53,7 +53,7 @@ export default class Cart extends Component {
         return (
             <View style={{ flex: 1,backgroundColor:Colors.White }}>
             
-                <View style={{ alignItems: 'center', paddingVertical: 4, borderBottomWidth: 1, borderColor: 'gray' }}>
+                <View style={styles.searchStyle}>
                     <Search placeholder={'Search Cart'} />
                 </View>
                 <View style={{ paddingHorizontal: 15, paddingVertical: 3, borderBottomWidth: 1 }}>
@@ -188,8 +188,7 @@ export default class Cart extends Component {
                     </View>
                     <View style={{ paddingHorizontal: 15, borderBottomWidth: 1 }}>
                         <View style={styles.imageView}>
-                            <Image
-                                style={{
+                            <Image style={{
                                     width: 120, borderWidth: 1,
                                     height: 120, position: 'relative'
                                 }}
@@ -254,6 +253,12 @@ export default class Cart extends Component {
 }
 
 const styles = StyleSheet.create({
+    searchStyle :{ 
+        alignItems: 'center', 
+        paddingVertical: 4, 
+        borderBottomWidth: 1, 
+        borderColor: 'gray' 
+    },
     SubTotalAmount: {
         color: Colors.Grey,
         fontWeight: 'bold'

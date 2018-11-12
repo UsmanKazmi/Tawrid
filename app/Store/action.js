@@ -1,4 +1,4 @@
 export default {
     getOrderData: 'GET_ORDER_DATA',
-    getNewProducts: 'GET_NEW_PRODUCTS',
+    showStatementBalance: 'SHOW_STATEMENT_BALANCE',
 }

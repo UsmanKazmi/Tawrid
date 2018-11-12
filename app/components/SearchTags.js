@@ -3,7 +3,6 @@ import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { Colors } from '../helpers/Helpers';
 import Tags from "react-native-tags";
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
-import TagInput from 'react-native-tag-input';
 
 export default class SearchTags extends Component {
 
@@ -30,7 +29,8 @@ export default class SearchTags extends Component {
                         onTagPress={(index, tagLabel, event, deleted) =>
                             console.log(index, tagLabel, event, deleted ? "deleted" : "not deleted")
                         }
-                        containerStyle={{ justifyContent: "center", borderBottomWidth: 1 }}
+                        tagContainerStyle={{ backgroundColor: Colors.Green, }}
+                        containerStyle={{ justifyContent: "center", borderBottomWidth: 1, }}
                         inputStyle={{ backgroundColor: "white" }}
                     />
                 </View>
@@ -55,7 +55,7 @@ export default class SearchTags extends Component {
                         maxNumberOfTags={4}
                         containerStyle={{ justifyContent: "center", borderBottomWidth: 1, width: '100%' }}
                         inputStyle={{ backgroundColor: "white" }}
-                        tagContainerStyle={{ backgroundColor: 'cyan' }}
+                        tagContainerStyle={{ backgroundColor: Colors.Green, display:'block' ,flex: 1 }}
                         tagTextStyle={{ color: 'white', verticalAlignText: 'center' }}
 
                     />

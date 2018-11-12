@@ -1,10 +1,6 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, Animated, Dimensions, ScrollView, View, StatusBar, Text, TouchableHighlight, TouchableOpacity, TextInput } from 'react-native';
-import { Colors } from '../helpers/Helpers';
-import Icon from 'react-native-vector-icons/Ionicons';
-import RouteOrders from '../config/RouteOrders';
-import { Search } from '../components/Search';
+import { StyleSheet, ScrollView, View,} from 'react-native';
 import { CardActiveOrders } from '../components/CardActiveOrders';
 import { connect } from 'react-redux';
 import Action from '../Store/ActionCenter';
@@ -22,7 +18,7 @@ class ActiveOrders extends Component {
                     {   this.props.data ?
                             this.props.data.map((data, index)=> {
                             return (
-                                <CardActiveOrders data={data}/>
+                                <CardActiveOrders data={data} key={index}/>
                             )
                         }) : null
                     } 

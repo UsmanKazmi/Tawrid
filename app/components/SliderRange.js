@@ -1,24 +1,19 @@
-import React, { Component } from 'react'
-import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
-
-import { Image, Text, View, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
-
+import React, { Component } from 'react';
+import {View, StyleSheet, Text } from 'react-native';
 import Slider from "react-native-slider";
 
-
 export class SliderRange extends Component {
-
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      sliderValue: 0.5
+      sliderValue: 30
     };
   }
   render() {
     return (
       <View style={styles.container}>
         <Slider
-          value={this.state.value}
+          value={this.state.sliderValue}
           trackStyle={{
             backgroundColor: 'grey',
           }}
@@ -30,14 +25,14 @@ export class SliderRange extends Component {
             width: 2,
             height: 2
           }}
-          onValueChange={slider => this.setState({ slider })}
+          minimumValue={1}
+          maximumValue={100}
+          onValueChange={(sliderValue) => this.setState({ sliderValue })}
         />
       </View>
     )
   }
 }
-
-
 
 const styles = StyleSheet.create({
 
