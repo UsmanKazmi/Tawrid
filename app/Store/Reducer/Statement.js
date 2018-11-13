@@ -1,6 +1,8 @@
 import actiontype from '../action';
 
 const initial_State = {
+    showBalance: [],
+    total: []
 }
 
 function statementReducer( state = initial_State , action )
@@ -8,10 +10,10 @@ function statementReducer( state = initial_State , action )
     newState = {...state}
     switch(action.type){
         case actiontype.showStatementBalance : {
-            return newState.showBalance = action
+            return {showBalance: showBalance.push(action)}
         }
         case actiontype.totalStatement: {
-            return {total:action}
+            return {total: total.push(action)}
         }
         default : {
             return state   

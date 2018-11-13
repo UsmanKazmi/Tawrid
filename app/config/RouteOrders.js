@@ -28,7 +28,7 @@ const OrdersTab = createMaterialTopTabNavigator({
 {
     tabBarOptions: {
         labelStyle: { 
-            fontSize: 8,
+            fontSize: 10,
             fontWeight:'bold',
             justifyContent:'center',
             alignItems:'center'

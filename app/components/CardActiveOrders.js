@@ -85,9 +85,8 @@ export class CardActiveOrders extends Component {
                         />
                         <Text style={styles.chatText}>
                             Chat Now
-                            </Text>
+                        </Text>
                         <Text style={styles.requiredText}>
-                            
                         </Text>
                     </View>
                 </View>

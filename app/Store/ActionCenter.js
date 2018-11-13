@@ -1,4 +1,5 @@
 import actionType from './action';
+import { Alert } from 'react-native';
 
 function doPostRequest({ url, data}) {
     console.log('Data ', JSON.stringify(data))
@@ -7,16 +8,24 @@ function doPostRequest({ url, data}) {
             method : 'POST',
             headers: {
                 "Content-Type": "application/json",
-                 token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjAwMzI5MSwiZXhwIjoxNTQyMDg5NjkxLCJuYmYiOjE1NDIwMDMyOTEsImp0aSI6ImVqMTRJR1pDczZoallJS1AifQ.hiTLrRsCGIvSfWPbk6ACpHqAFqm00QxiV7eNR_kifPg'
+                 token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjA5MjAxNiwiZXhwIjoxNTQyMTc4NDE2LCJuYmYiOjE1NDIwOTIwMTYsImp0aSI6Ik4xc2p6YW9Gc3lEU2JocEYifQ.r-ZrvxpBs_C31fEJSH_54chcEmuq7TX18zwtsv7luTQ'
             },
             body: JSON.stringify(data)
         })
         .then(res => res.json())
         .then(success => {
             resolve(success);
+            if(success.status=='error'){
+                Alert.alert(Error, success.message);
+            }
+
+            console.log( 'success from Post',{ success });
+
         })
         .catch(err => {
-            console.log({ err });
+            console.log( 'Error in Post Request',{ err });
+
+            Alert.alert(Error, 'An unknown error occured. Please contact App support team');
         });
     })
 }
@@ -26,15 +35,24 @@ function doGetRequest({url}){
         fetch('http://portal.tawrid.store/'+ url,{
             method : 'GET',
             headers: {
-                token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjAwMzI5MSwiZXhwIjoxNTQyMDg5NjkxLCJuYmYiOjE1NDIwMDMyOTEsImp0aSI6ImVqMTRJR1pDczZoallJS1AifQ.hiTLrRsCGIvSfWPbk6ACpHqAFqm00QxiV7eNR_kifPg'
+                token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjA5MjAxNiwiZXhwIjoxNTQyMTc4NDE2LCJuYmYiOjE1NDIwOTIwMTYsImp0aSI6Ik4xc2p6YW9Gc3lEU2JocEYifQ.r-ZrvxpBs_C31fEJSH_54chcEmuq7TX18zwtsv7luTQ'
             }
         })
         .then(res => res.json())
+        
         .then(success => {
             resolve(success);
+            if(success.status=='error'){
+                Alert.alert(Error, success.message);
+            }
+
+            console.log( 'success from get',{ success });
+
         })
         .catch(err => {
-            console.log({ err });
+            console.log( 'Error in Get  Request',{ err });
+            Alert.alert(Error, 'An unknown error occured. Please contact App support team');
+
         });
     })
 }
@@ -50,6 +68,11 @@ function getOrdersDataAct(){
                 data: success.data
             })
         })
+        .catch(err => {
+            console.log( 'Error in getOrdersDataAct request',{ err });
+            Alert.alert(Error, 'An unknown error occured. Please contact App support team');
+
+        });
     }
 }
 // show balance request
@@ -67,6 +90,11 @@ function showBalanceAct(statementData){
                     data: success.data
                 })
             })
+            .catch(err => {
+                console.log( 'Error in showBalanceAct request',{ err });
+                Alert.alert(Error, 'An unknown error occured. Please contact App support team');
+    
+            });
     }
 }
 // total statement api
@@ -84,6 +112,11 @@ function totalStatementAct(totalStatement) {
                     data: success.data
                 })
             })
+            .catch(err => {
+                console.log( 'Error in totalStatementAct request',{ err });
+                Alert.alert(Error, 'An unknown error occured. Please contact App support team');
+    
+            });
     }
 }
 

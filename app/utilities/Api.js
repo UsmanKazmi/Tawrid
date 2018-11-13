@@ -34,7 +34,7 @@ export const TawridApi = {
       method: 'POST', // or 'PUT'
       body: JSON.stringify(collection), // data can be `string` or {object}!
       headers:({
-        'token':'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjAwMzI5MSwiZXhwIjoxNTQyMDg5NjkxLCJuYmYiOjE1NDIwMDMyOTEsImp0aSI6ImVqMTRJR1pDczZoallJS1AifQ.hiTLrRsCGIvSfWPbk6ACpHqAFqm00QxiV7eNR_kifPg',
+        'token':'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjA5MjAxNiwiZXhwIjoxNTQyMTc4NDE2LCJuYmYiOjE1NDIwOTIwMTYsImp0aSI6Ik4xc2p6YW9Gc3lEU2JocEYifQ.r-ZrvxpBs_C31fEJSH_54chcEmuq7TX18zwtsv7luTQ',
         'Content-Type': 'application/json'
       })
     }).then(res => res.json())
@@ -56,7 +56,7 @@ export const TawridApi = {
     return fetch(url, {
       method: 'GET',
       headers:({
-        'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjAwMzI5MSwiZXhwIjoxNTQyMDg5NjkxLCJuYmYiOjE1NDIwMDMyOTEsImp0aSI6ImVqMTRJR1pDczZoallJS1AifQ.hiTLrRsCGIvSfWPbk6ACpHqAFqm00QxiV7eNR_kifPg'
+        'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjA5MjAxNiwiZXhwIjoxNTQyMTc4NDE2LCJuYmYiOjE1NDIwOTIwMTYsImp0aSI6Ik4xc2p6YW9Gc3lEU2JocEYifQ.r-ZrvxpBs_C31fEJSH_54chcEmuq7TX18zwtsv7luTQ'
       })
     })
       .then(res => res.json())
@@ -95,7 +95,7 @@ export const TawridApi = {
     return fetch(url, {
       method: 'GET',
       headers:({
-        'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjAwMzI5MSwiZXhwIjoxNTQyMDg5NjkxLCJuYmYiOjE1NDIwMDMyOTEsImp0aSI6ImVqMTRJR1pDczZoallJS1AifQ.hiTLrRsCGIvSfWPbk6ACpHqAFqm00QxiV7eNR_kifPg'
+        'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjA5MjAxNiwiZXhwIjoxNTQyMTc4NDE2LCJuYmYiOjE1NDIwOTIwMTYsImp0aSI6Ik4xc2p6YW9Gc3lEU2JocEYifQ.r-ZrvxpBs_C31fEJSH_54chcEmuq7TX18zwtsv7luTQ'
       })
     })
       .then(res => res.json())
@@ -115,7 +115,7 @@ export const TawridApi = {
       method: 'GET',
       headers:({
         'token': 
-        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjAwMzI5MSwiZXhwIjoxNTQyMDg5NjkxLCJuYmYiOjE1NDIwMDMyOTEsImp0aSI6ImVqMTRJR1pDczZoallJS1AifQ.hiTLrRsCGIvSfWPbk6ACpHqAFqm00QxiV7eNR_kifPg'
+        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjA5MjAxNiwiZXhwIjoxNTQyMTc4NDE2LCJuYmYiOjE1NDIwOTIwMTYsImp0aSI6Ik4xc2p6YW9Gc3lEU2JocEYifQ.r-ZrvxpBs_C31fEJSH_54chcEmuq7TX18zwtsv7luTQ'
       })
     })
       .then(res => res.json())
@@ -135,7 +135,7 @@ export const TawridApi = {
       method: 'GET',
       headers:({
         'token': 
-        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjAwMzI5MSwiZXhwIjoxNTQyMDg5NjkxLCJuYmYiOjE1NDIwMDMyOTEsImp0aSI6ImVqMTRJR1pDczZoallJS1AifQ.hiTLrRsCGIvSfWPbk6ACpHqAFqm00QxiV7eNR_kifPg'
+        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjA5MjAxNiwiZXhwIjoxNTQyMTc4NDE2LCJuYmYiOjE1NDIwOTIwMTYsImp0aSI6Ik4xc2p6YW9Gc3lEU2JocEYifQ.r-ZrvxpBs_C31fEJSH_54chcEmuq7TX18zwtsv7luTQ'
       })
     })
       .then(res => res.json())

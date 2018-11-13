@@ -3,21 +3,18 @@ import { Platform, AsyncStorage, StyleSheet, Text, Alert, View, Dimensions, Imag
 import { LoginAnimation, Colors } from '../helpers/Helpers';
 import { TawridApi } from '../utilities/Api';
 import Loader from '../components/Loader';
+import { connect } from 'react-redux';
+import Action from '../Store/ActionCenter';
 
-export default class Login extends Component {
-
+class Login extends Component {
   static navigationOptions = {
     header: null
-
   }
-
   _storeData = async (keyForStorage, valueForStorage) => {
     try {
       await AsyncStorage.setItem(keyForStorage, valueForStorage);
-
       console.log('The Key For Storage is: ', keyForStorage)
       console.log('The Value For Storage is: ', valueForStorage)
-
     }
     catch (error) {
       alert("Error Saving Token")
@@ -40,15 +37,12 @@ export default class Login extends Component {
       forgotPassword: true,
     }
   };
-
   // before view appear
   componentWillMount() { }
-
   // when view appears
   componentDidMount() {
     LoginAnimation(this.state.logoOpacityAnimation, this.state.loginInputAnimation, this.state.loginAnimation, this.state.forgetPasswordAnimation);
   }
-
 
   forgotPasswordMethod() {
     this.setState({ forgotPassword: true })
@@ -58,10 +52,8 @@ export default class Login extends Component {
 
     this.state.email = "khaled@tawrid.net";
     this.state.password = "123456";
-
     let emailSubmit = false;
     let passwordSubmit = false;
-
     let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     let reg = new RegExp(regex);
 
@@ -143,6 +135,8 @@ export default class Login extends Component {
   }
   saveTokenInLocalStorage() {
     let token = this.state.response.data.token;
+    // storing token in redux
+    // this.props.storeToken(token)
     console.log('The Token is', token)
   }
   getUserData() {
@@ -159,17 +153,14 @@ export default class Login extends Component {
     const loginInputAnimationStyle = {
       opacity: this.state.loginInputAnimation
     }
-
     // Login Input Animation
     const forgetPasswordAnimationStyle = {
       opacity: this.state.forgetPasswordAnimation
     }
-
     // Login Animation
     const loginAnimationStyle = {
       opacity: this.state.loginAnimation,
     }
-
 
     return (
       <View style={styles.container} keyboardShouldPersistTaps={true}>
@@ -216,6 +207,18 @@ export default class Login extends Component {
     );
   }
 }
+function mapStateToProps(state) {
+  return {
+  }
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    // storeToken = (token) => {
+    //   return dispatch(Action.storeTokenAct(token))
+    // }
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
 
 const styles = StyleSheet.create({
   container: {
