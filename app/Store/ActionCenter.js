@@ -18,9 +18,7 @@ function doPostRequest({ url, data}) {
             if(success.status=='error'){
                 Alert.alert(Error, success.message);
             }
-
             console.log( 'success from Post',{ success });
-
         })
         .catch(err => {
             console.log( 'Error in Post Request',{ err });
@@ -39,23 +37,29 @@ function doGetRequest({url}){
             }
         })
         .then(res => res.json())
-        
         .then(success => {
             resolve(success);
             if(success.status=='error'){
                 Alert.alert(Error, success.message);
             }
-
             console.log( 'success from get',{ success });
-
         })
         .catch(err => {
             console.log( 'Error in Get  Request',{ err });
             Alert.alert(Error, 'An unknown error occured. Please contact App support team');
-
         });
     })
 }
+// storing token 
+function storeTokenAct(token){
+    return dispatch => {
+        dispatch({
+            type: actionType.storeToken,
+            data: token
+        })
+    }
+}
+
 // get order list
 function getOrdersDataAct(){
     console.log('Get Orders !!!!');
@@ -71,7 +75,6 @@ function getOrdersDataAct(){
         .catch(err => {
             console.log( 'Error in getOrdersDataAct request',{ err });
             Alert.alert(Error, 'An unknown error occured. Please contact App support team');
-
         });
     }
 }
@@ -124,4 +127,5 @@ export default {
     getOrdersDataAct,
     showBalanceAct,
     totalStatementAct,
+    storeTokenAct,
 }

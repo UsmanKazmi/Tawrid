@@ -10,10 +10,10 @@ function statementReducer( state = initial_State , action )
     newState = {...state}
     switch(action.type){
         case actiontype.showStatementBalance : {
-            return {showBalance: showBalance.push(action)}
+            return {showBalance: action}
         }
         case actiontype.totalStatement: {
-            return {total: total.push(action)}
+            return {total: action}
         }
         default : {
             return state   

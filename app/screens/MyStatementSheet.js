@@ -63,26 +63,29 @@ class MyStatementSheet extends Component {
     return (
       <View style={styles.parent}>
         <Search />
+        {this.props.total ?
       <View>
         <View style={{ flexDirection: 'row', padding: 30 }}>
           <View style={{ justifyContent: 'flex-start', flex: 1 }}>
             <View style={styles.horizontal_label}>
               <Text> +Value</Text>
-              <Text style={styles.label_blue}>2313232312</Text>
+              <Text style={styles.label_blue}> {this.props.total.total_plus} </Text>
             </View>
             <View style={styles.horizontal_label}>
               <Text> -Value</Text>
-              <Text style={styles.label_pink}>2313232312 </Text>
+              <Text style={styles.label_pink}> {this.props.total.total_minus} </Text>
             </View>
           </View>
           <View style={{ alignSelf: 'center' }}>
             <View style={{ flexDirection: 'row' }}>
               <Text style={{ justifyContent: 'center', alignItems: 'center' }}>Total</Text>
-              <Text style={styles.label_orange}> 2313232312</Text>
+              <Text style={styles.label_orange}> {this.props.total.total} </Text>
             </View>
           </View>
         </View>
       </View>
+    : null  
+    }
         <View style={{ backgroundColor: '#E3E3E3', width: 100 + "%", height: 1 }} />
           <FlatList
             style={{ marginTop: 30 }}
@@ -97,9 +100,9 @@ class MyStatementSheet extends Component {
   } 
 }
 function mapStateToProps(state) {
-  console.log('State 1', state.StatementReducer)
+  console.log('State 1', state.StatementReducer.total.data)
   return {
-    total: state.StatementReducer
+    total: state.StatementReducer.total.data
   }
 }
 function mapDispatchToProps(dispatch) {

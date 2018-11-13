@@ -128,6 +128,27 @@ export const TawridApi = {
       })
   },
 
+  // cart list
+  async cartList(){
+    var url= "http://portal.tawrid.store/api/v1/cart/list?include=product";
+    return fetch(url,  {
+      method: 'GET',
+      headers:({
+        'token': 
+        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjA5MjAxNiwiZXhwIjoxNTQyMTc4NDE2LCJuYmYiOjE1NDIwOTIwMTYsImp0aSI6Ik4xc2p6YW9Gc3lEU2JocEYifQ.r-ZrvxpBs_C31fEJSH_54chcEmuq7TX18zwtsv7luTQ'
+      })
+    })
+      .then(res => res.json())
+      .then(response => {
+          console.log('My Cart List ', response)
+          return response;
+      })
+      .catch(err => {
+        console.log('Error ', err)
+        return err
+      })
+  },
+
   // my cart info 
   async cartInfo() {
     var url= "http://portal.tawrid.store/api/v1/cart/info";
@@ -140,7 +161,7 @@ export const TawridApi = {
     })
       .then(res => res.json())
       .then(response => {
-          console.log('My Cart ', response)
+          console.log('My Cart Info ', response)
           return response;
       })
       .catch(err => {

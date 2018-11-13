@@ -136,7 +136,7 @@ class Login extends Component {
   saveTokenInLocalStorage() {
     let token = this.state.response.data.token;
     // storing token in redux
-    // this.props.storeToken(token)
+    this.props.storeToken(token)
     console.log('The Token is', token)
   }
   getUserData() {
@@ -213,9 +213,9 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch) {
   return {
-    // storeToken = (token) => {
-    //   return dispatch(Action.storeTokenAct(token))
-    // }
+    storeToken: (token) => {
+      return dispatch(Action.storeTokenAct(token))
+    }
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Login)
