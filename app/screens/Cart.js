@@ -55,6 +55,10 @@ export default class Cart extends Component {
             })
         })
     }
+
+
+
+
     render() {
         return (
             <View style={{ flex: 1, backgroundColor: Colors.White }}>
@@ -62,7 +66,7 @@ export default class Cart extends Component {
                     <Search placeholder={'Search Cart'} />
                 </View>
                 {this.state.response ?
-                    <View style={{ paddingHorizontal: 15, paddingVertical: 3, borderBottomWidth: 1 }}>
+                    <View style={{ paddingHorizontal: 15, paddingVertical: 3, borderBottomWidth: 1,borderColor:Colors.LightestGrey }}>
                         <Text style={{ color: 'grey' }}> Subtotal <Text style={styles.SubTotalAmount}> {this.state.response.total} </Text></Text>
                         <Text style={{ color: Colors.Green }}> CBM <Text style={styles.cbmText}> {this.state.response.total_cbm} M³ </Text> </Text>
                         <View style={styles.buttonView}>
@@ -93,7 +97,7 @@ export default class Cart extends Component {
                                                 }}>
                                                 <Image source={require('../../assets/icons/question.png')}
                                                     style={{ width: 20, height: 20 }} />
-                                                <Text style={{ color: Colors.White }}>{data.product.data.currency}{data.product.data.price} </Text>
+                                                <Text style={{ color: Colors.White }}>{data.product.data.currency}{data.product.data.price.split(".00")} </Text>
                                             </View>
                                         </View>
                                         <View>
@@ -153,9 +157,9 @@ export default class Cart extends Component {
 const styles = StyleSheet.create({
     searchStyle: {
         alignItems: 'center',
-        paddingVertical: 4,
+        paddingVertical: 6,
         borderBottomWidth: 1,
-        borderColor: 'gray'
+        borderColor: Colors.LightestGrey
     },
     SubTotalAmount: {
         color: Colors.Grey,

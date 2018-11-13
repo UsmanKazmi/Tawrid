@@ -5,6 +5,7 @@ import CardNewProduct from '../components/CardNewProduct';
 import { TawridApi } from  '../utilities/Api';
 import { _retrieveData } from '../helpers/Helpers';
 
+
 class NewProduct extends Component {
     constructor(){
         super();
@@ -20,7 +21,7 @@ class NewProduct extends Component {
             let img = []
             img.push(value.data.image_secondary)
             abc.push(value.data)
-            console.log('as ', abc)
+            // console.log('as ', abc)
             this.setState({
                 response: value.data,
                 img

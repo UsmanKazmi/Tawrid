@@ -168,5 +168,58 @@ export const TawridApi = {
         console.log('Error ', err)
         return err
       })
+  },
+
+
+
+  //Add to favourite Service
+  async addToFav() {
+    var url= "http://portal.tawrid.store/api/v1/favorite/9463/add";
+    return fetch(url,  {
+      method: 'GET',
+      headers:({
+        'token': 
+        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjA5MjAxNiwiZXhwIjoxNTQyMTc4NDE2LCJuYmYiOjE1NDIwOTIwMTYsImp0aSI6Ik4xc2p6YW9Gc3lEU2JocEYifQ.r-ZrvxpBs_C31fEJSH_54chcEmuq7TX18zwtsv7luTQ'
+      })
+    })
+      .then(res => res.json())
+      .then(response => {
+          console.log('Add To Favourute Service response: ', response)
+          return response;
+      })
+      .catch(err => {
+        console.log('Error ', err)
+        Alert.alert(Error, 'An unknown error occured in Add To Favourute Service. Please contact App support team');
+
+        return err
+      })
+  },
+
+
+  async removeFromFav() {
+    var url= "http://portal.tawrid.store/api/v1/favorite/9467/remove";
+    return fetch(url,  {
+      method: 'GET',
+      headers:({
+        'token': 
+        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjA5MjAxNiwiZXhwIjoxNTQyMTc4NDE2LCJuYmYiOjE1NDIwOTIwMTYsImp0aSI6Ik4xc2p6YW9Gc3lEU2JocEYifQ.r-ZrvxpBs_C31fEJSH_54chcEmuq7TX18zwtsv7luTQ'
+      })
+    })
+      .then(res => res.json())
+      .then(response => {
+          console.log('remove from favourite Service response: ', response)
+          return response;
+      })
+      .catch(err => {
+        console.log('Error ', err)
+        Alert.alert(Error, 'An unknown error occured in remove from favorite Service. Please contact App support team');
+
+        return err
+      })
   }
+
+
+
+
+
 }

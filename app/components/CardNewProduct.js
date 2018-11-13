@@ -3,6 +3,8 @@ import { Colors } from '../helpers/Helpers';
 import { Image, Text, View, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import Swiper from 'react-native-swiper';
 import { connect } from 'react-redux';
+import { Share } from 'react-native';
+import { TawridApi } from '../utilities/Api';
 
 const { height } = Dimensions.get('window')
 
@@ -26,8 +28,82 @@ class CardNewProduct extends Component {
     info = (data) => {
         console.log('Info ', data)
     }
+
+    shareData = (data) => {
+        console.log('Share ', data)
+        Share.share({
+            message: data.description,
+            url: data.image_primary,
+            title: data.name
+          }, {
+            // Android only:
+            dialogTitle: data.name,
+            // iOS only:
+            excludedActivityTypes: [
+              'com.apple.UIKit.activity.PostToTwitter'
+            ]
+          })
+
+
+    }
+
+    openChat = (data) =>{
+        // this.props.navigation.navigate('MyChatTab');
+         
+    } 
+
+
+    removeFromFav = () => {   
+
+        TawridApi.removeFromFav().then(value => {
+            this.setState({
+              response: value,
+          
+            });
+            if (this.state.response) {
+              console.log(' removeFromFav response from server ', this.state.response)
+              if (this.state.response.status == 'success') {
+                alert("Removed from favourite")    
+              } else if (this.state.response.status == 'error') {
+                Alert.alert(this.state.response.message);
+              } else {
+                Alert.alert(Error, 'An unknown error occured. Please contact App support team');
+              }
+            } else {
+              Alert.alert(Error, 'Request Terminated. Please check your internet or contact our support.');
+            }
+    
+          })
+    }
+
+    addtoFav = () => {   
+
+        TawridApi.addToFav().then(value => {
+            this.setState({
+              response: value,
+          
+            });
+            if (this.state.response) {
+              console.log('addtoFav response from server ', this.state.response)
+              if (this.state.response.status == 'success') {
+                alert("added to favourite")    
+              } else if (this.state.response.status == 'error') {
+                Alert.alert(this.state.response.message);
+              } else {
+                Alert.alert(Error, 'An unknown error occured. Please contact App support team');
+              }
+            } else {
+              Alert.alert(Error, 'Request Terminated. Please check your internet or contact our support.');
+            }
+    
+          })
+    }
+
     tags = (tag) => {
         console.log('Tags ', tag)
+
+
+        
     }
 
     render() {
@@ -83,17 +159,27 @@ class CardNewProduct extends Component {
                                         source={require('../../assets/icons/addtocart.png')}
                                     />
                                 </TouchableOpacity>
-                                <TouchableOpacity style={styles.bottomButtons}>
+                                <TouchableOpacity style={styles.bottomButtons}
+                                onPress={() => this.addtoFav()}
+
+                                >
                                     <Image style={styles.bottomImage}
                                         source={require('../../assets/icons/fav.png')}
                                     />
                                 </TouchableOpacity>
-                                <TouchableOpacity style={styles.bottomButtons}>
+                                <TouchableOpacity style={styles.bottomButtons}
+                                onPress={() => this.openChat(data)}
+
+                                >
+
                                     <Image style={styles.bottomImage}
                                         source={require('../../assets/icons/comment.png')}
                                     />
                                 </TouchableOpacity>
-                                <TouchableOpacity style={styles.bottomButtons}>
+                                <TouchableOpacity style={styles.bottomButtons}
+                                onPress={() => this.shareData(data)}
+
+                                >
                                     <Image style={styles.bottomImage}
                                         source={require('../../assets/icons/share.png')}
                                     />

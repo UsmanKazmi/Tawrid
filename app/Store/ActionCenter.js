@@ -123,6 +123,26 @@ function totalStatementAct(totalStatement) {
     }
 }
 
+// function addToFav(){
+//     console.log('Add To Favourite Service initiated');
+//     return dispatch => {
+//         doGetRequest({url:'api/v1/favorite/9463/add'})
+//         .then(success => {
+//             console.log('Action ', success)
+//             dispatch({
+//                 type: actionType.addToFav,
+//                 data: success.data
+//             })
+//         })
+//         .catch(err => {
+//             console.log( 'Error in addToFav request',{ err });
+//             Alert.alert(Error, 'An unknown error occured. Please contact App support team');
+//         });
+//     }
+// }
+
+
+
 export default {
     getOrdersDataAct,
     showBalanceAct,

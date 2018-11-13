@@ -3,4 +3,5 @@ export default {
     showStatementBalance: 'SHOW_STATEMENT_BALANCE',
     totalStatement: 'TOTAL_STATEMENT',
     storeToken: 'STORE_TOKEN',
+    addToFav:'ADD_TO_FAV',
 }
