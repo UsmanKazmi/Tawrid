@@ -29,6 +29,7 @@ class SideMenu extends Component {
     this.props.navigation.navigate('notification');
   }
   render () {
+    console.log('props ', this.props)
     return (
       <View style={styles.container}>
         <ScrollView>
@@ -58,15 +59,11 @@ class SideMenu extends Component {
              <TouchableHighlight style={styles.buttonRow} underlayColor={Colors.TransparentGreen}
                onPress={ this.openStoreTabs}>
                   <View style ={{flexDirection:'row', paddingStart:20}}>    
-
-                      
                           <Image
                                 style={{height:20,width:20, }}
                                 source={require('../../assets/icons/menu1.png')}
                             /> 
-                    
                           <Text  style={styles.pageText} >MY STORE</Text>
-                        
                   </View>
                 </TouchableHighlight>
 

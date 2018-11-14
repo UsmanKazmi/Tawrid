@@ -21,6 +21,7 @@ import Login from '../screens/Login';
 import TabProducts from '../screens/TabProducts';
 import SideMenu from '../components/SideMenu.js';
 import CardGridView from '../screens/CardGridView';
+import CardNewProduct from '../components/CardNewProduct';
 import Orders from '../screens/Orders';
 import Profile from '../screens/Profile';
 import Cart from '../screens/Cart';
@@ -346,7 +347,6 @@ const NotificationStack = createStackNavigator({
     FirstTab: {
         screen: Notification,
         navigationOptions: ({ navigation }) => {
-
             return {
                 style:{
                     
@@ -354,7 +354,6 @@ const NotificationStack = createStackNavigator({
                 headerStyle: {
                     elevation: 3,
                     shadowOpacity: 0,
-                    
                 },
                 headerTitle: <View style={styles.titleTextView}>
                     <Text style={styles.titleText}>
@@ -785,8 +784,6 @@ const StatementActiveTabs = createBottomTabNavigator({
 
         }
     },
-
-
 },
     {
         initialRouteName:'MyStatementSheet',
@@ -808,22 +805,18 @@ const StatementActiveTabs = createBottomTabNavigator({
 );
 // -----------------------STACKS FOR ACTIVE TABS END----------------------//
 
-
-
-
 openDrawer = () => {
     this.navigation.navigate('home');
 }
 
 openNavigationDrawer = () => {
     this.navigation.toggleDrawer();
-
 }
 
 openGridView = () => {
     this.props.navigation.navigate('gridview');
-
 }
+
 const ClientStack = createStackNavigator({
     storeTabs: {
         screen: HomeActiveTabs
@@ -846,14 +839,18 @@ const ClientStack = createStackNavigator({
     notification: {
         screen: NotificationStack
     },
-    
+    CardNewProduct: {
+        screen: CardNewProduct
+    },
+    OrderSelected: {
+        screen: OrderSelected
+    }
 },
 {
     navigationOptions: {
         header: null
     }
 }
-
 )
 
 const navigationDrawer = createDrawerNavigator({

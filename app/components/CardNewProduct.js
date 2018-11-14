@@ -5,6 +5,7 @@ import Swiper from 'react-native-swiper';
 import { connect } from 'react-redux';
 import { Share } from 'react-native';
 import { TawridApi } from '../utilities/Api';
+import { withNavigation } from 'react-navigation';
 
 const { height } = Dimensions.get('window')
 
@@ -25,10 +26,10 @@ class CardNewProduct extends Component {
         });
         next.data.splice(1, 1)
     }
-    info = (data) => {
-        //OPEN ORDER SELECTED PAGE
-
-        console.log('Info ', data)
+    info = () => {
+        //OPEN ORDER SELECTED PAGE\
+        console.log('Info ')
+        this.props.navigation.dispatch('OrderInfo')
     }
 
     shareData = (data) => {
@@ -80,11 +81,9 @@ class CardNewProduct extends Component {
     }
 
     addtoFav = () => {   
-
         TawridApi.addToFav().then(value => {
             this.setState({
               response: value,
-          
             });
             if (this.state.response) {
               console.log('addtoFav response from server ', this.state.response)
@@ -98,19 +97,15 @@ class CardNewProduct extends Component {
             } else {
               Alert.alert(Error, 'Request Terminated. Please check your internet or contact our support.');
             }
-    
           })
     }
 
     tags = (tag) => {
         console.log('Tags ', tag)
-
-
-        
     }
 
     render() {
-        // console.log('sd ', this.props.data);
+        console.log('Props ', this.props);
         return (
             <View style={styles.mainView}>
                 <Swiper style={styles.wrapper} showsButtons={false}
@@ -163,9 +158,7 @@ class CardNewProduct extends Component {
                                     />
                                 </TouchableOpacity>
                                 <TouchableOpacity style={styles.bottomButtons}
-                                onPress={() => this.addtoFav()}
-
-                                >
+                                onPress={() => this.addtoFav()}>
                                     <Image style={styles.bottomImage}
                                         source={require('../../assets/icons/fav.png')}
                                     />
@@ -174,21 +167,19 @@ class CardNewProduct extends Component {
                                 onPress={() => this.openChat(data)}
 
                                 >
-
                                     <Image style={styles.bottomImage}
                                         source={require('../../assets/icons/comment.png')}
                                     />
                                 </TouchableOpacity>
                                 <TouchableOpacity style={styles.bottomButtons}
                                 onPress={() => this.shareData(data)}
-
                                 >
                                     <Image style={styles.bottomImage}
                                         source={require('../../assets/icons/share.png')}
                                     />
                                 </TouchableOpacity>
                                 <TouchableOpacity style={styles.bottomButtons}
-                                    onPress={() => this.info(data)} >
+                                    onPress={this.info} >
                                     <Image style={styles.bottomImage}
                                         source={require('../../assets/icons/info.png')}
                                     />
@@ -201,7 +192,7 @@ class CardNewProduct extends Component {
         );
     }
 }
-export default (CardNewProduct)
+export default withNavigation(CardNewProduct)
 
 const styles = StyleSheet.create({
     mainView: {
