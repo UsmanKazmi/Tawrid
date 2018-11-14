@@ -824,9 +824,7 @@ openGridView = () => {
     this.props.navigation.navigate('gridview');
 
 }
-
-
-const navigationDrawer = createDrawerNavigator({
+const ClientStack = createStackNavigator({
     storeTabs: {
         screen: HomeActiveTabs
     },
@@ -847,7 +845,22 @@ const navigationDrawer = createDrawerNavigator({
     },
     notification: {
         screen: NotificationStack
+    },
+    
+},
+{
+    navigationOptions: {
+        header: null
     }
+}
+
+)
+
+const navigationDrawer = createDrawerNavigator({
+
+    Home: {
+        screen: ClientStack
+    },
 },
 
     {

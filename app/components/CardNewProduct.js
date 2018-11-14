@@ -26,11 +26,14 @@ class CardNewProduct extends Component {
         next.data.splice(1, 1)
     }
     info = (data) => {
+        //OPEN ORDER SELECTED PAGE
+
         console.log('Info ', data)
     }
 
     shareData = (data) => {
         console.log('Share ', data)
+        
         Share.share({
             message: data.description,
             url: data.image_primary,
