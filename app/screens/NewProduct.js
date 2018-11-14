@@ -3,7 +3,7 @@ import { ScrollView } from 'react-native';
 import { View, alert } from 'react-native';
 import CardNewProduct from '../components/CardNewProduct';
 import { TawridApi } from  '../utilities/Api';
-import { _retrieveData } from '../helpers/Helpers';
+import { _retrieveData, Colors } from '../helpers/Helpers';
 
 
 class NewProduct extends Component {
@@ -32,7 +32,7 @@ class NewProduct extends Component {
     render() {
         return (
             <ScrollView >
-                <View style={{ paddingBottom: 30 }}>
+                <View style={{ paddingBottom: 30,backgroundColor:Colors.White }}>
                     {this.state.response ? 
                         <CardNewProduct data={[this.state.response, this.state.img]}/>
                         : null

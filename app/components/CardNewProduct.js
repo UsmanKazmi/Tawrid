@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Colors } from '../helpers/Helpers';
-import { Image, Text, View, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+import { Image, Text, View, StyleSheet, TouchableOpacity, Dimensions,Platform } from 'react-native';
 import Swiper from 'react-native-swiper';
 import { connect } from 'react-redux';
 import { Share } from 'react-native';
@@ -14,6 +14,14 @@ class CardNewProduct extends Component {
     constructor() {
         super();
     }
+    componentDidMount(){
+        //to fix react-native-swiper in android bug
+            if (Platform.OS === 'android') {
+                setTimeout(() => {
+                    this.setState({ visiableSwiper: true })
+                }, 0)
+            }
+    }
 
     UNSAFE_componentWillReceiveProps(next) {
         console.log('abc ', next.data[1])
@@ -26,10 +34,11 @@ class CardNewProduct extends Component {
         });
         next.data.splice(1, 1)
     }
-    info = () => {
-        //OPEN ORDER SELECTED PAGE\
-        console.log('Info ')
-        this.props.navigation.dispatch('OrderInfo')
+    info = (data) => {
+        //OPEN Product Detail PAGE
+        console.log('DATA FROM STACK',data)
+        this.props.navigation.navigate('productDetails',data)
+        
     }
 
     shareData = (data) => {
@@ -52,8 +61,8 @@ class CardNewProduct extends Component {
     }
 
     openChat = (data) =>{
-        // this.props.navigation.navigate('MyChatTab');
-         
+        console.log('CHAT')
+        this.props.navigation.navigate('chatScreen')         
     } 
 
 
@@ -108,9 +117,9 @@ class CardNewProduct extends Component {
         console.log('Props ', this.props);
         return (
             <View style={styles.mainView}>
-                <Swiper style={styles.wrapper} showsButtons={false}
-                    activeDot={<View style={styles.slideView} />}
-                >
+                <Swiper style={styles.wrapper} showsButtons={false} showsButtons={false} index='2' autoplay 
+                autoplayTimeout={5}
+                    activeDot={<View style={styles.slideView} />}>
                     {this.props.data ?
                         images.map((image, index) => {
                             return (
@@ -179,7 +188,7 @@ class CardNewProduct extends Component {
                                     />
                                 </TouchableOpacity>
                                 <TouchableOpacity style={styles.bottomButtons}
-                                    onPress={this.info} >
+                                    onPress={() => this.info(data)} >
                                     <Image style={styles.bottomImage}
                                         source={require('../../assets/icons/info.png')}
                                     />

@@ -16,14 +16,29 @@ const cardTitle = {
 }
 
 export default class OrderSelected extends Component {
+
+
+    componentDidMount(data){
+        dataFromParams = this.props.navigation.state.params
+        console.log('DATA HAS COME ',dataFromParams.name)
+        // next.data[1].forEach(element => {
+        //     images.push(element[9394])
+        //     images.push(element[9395])
+        //     images.push(element[9396])
+        //     images.push(element[9397])
+        //     images.push(element[9398])
+        // });
+        // next.data.splice(1, 1)
+    }
+
+
     render() {
         return (
             <View style={{ paddingBottom: 30, backgroundColor: Colors.White }}>
-                <View style={styles.searchBox}>
+            {this.props.navigation.state.params ? 
 
-                    <Search placeholder={'Search Orders'} />
-                </View >
-                <ScrollView  >
+                <ScrollView >
+
                     <View style={{
                         flex: 1,
                         borderWidth: StyleSheet.hairlineWidth,
@@ -59,18 +74,22 @@ export default class OrderSelected extends Component {
                             </View>
                         </View>
                         <View style={{ flexDirection: "row" }}>
+
+
                             <Text
-                                style={styles.cardTitle}>{'30 CM. Crockery Set '}
+                                style={styles.cardTitle}>{this.props.navigation.state.params.name}
                             </Text>
+
                             <Image
                                 style={{ height: 20, width: 20, marginHorizontal: 5, alignSelf: 'center' }}
                                 source={require('../../assets/icons/loayalitybadgeGreen.png')}
                             />
                             <Text
-                                style={styles.cardPrice}>{'$62.93'}
+                                style={styles.cardPrice}>{this.props.navigation.state.params.currency}{this.props.navigation.state.params.price}
                             </Text>
                         </View>
-                        <Text style={styles.cardSubTitle}>{'20 PIECES in BOX in BOX / 4.5 KG'}</Text>
+                        <Text style={styles.cardSubTitle}> {this.props.navigation.state.params.quantity}{' '}{this.props.navigation.state.params.unit}
+                        </Text>
                         <View style={{ flexDirection: "row" }}>
                             <Text
                                 style={
@@ -93,6 +112,8 @@ export default class OrderSelected extends Component {
                         <RouteCardSelected />
                     </View>
                 </ScrollView>
+                : null}
+
             </View>
         )
     }

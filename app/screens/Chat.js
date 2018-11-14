@@ -18,6 +18,7 @@ export default class Chat extends Component {
 
   }
   render() {
+    console.log('chatSCREeN',this)
     return (
 
         <View style={{flex:1,paddingBottom:50,backgroundColor:Colors.White}}>
