@@ -28,7 +28,7 @@ export default class OrderSelected extends Component {
         
         dataFromParams = this.props.navigation.state.params
         // this.setState({images: images.push(dataFromParams.image_secondary)})
-        console.log('DATA HAS COME ',dataFromParams.name)
+        console.log('DATA REACHED ORDER SELECTED ',dataFromParams.name)
         console.log('Img ', dataFromParams.image_secondary)
         // console.log('asddsa', this.state.images)
     }
@@ -69,7 +69,7 @@ export default class OrderSelected extends Component {
                                     source={require('../../assets/icons/briefcase.png')} />
 
                                 <Text style={{ fontSize: 7, color: Colors.White }}>
-                                    KRM HEDIYELIK
+                                {this.props.navigation.state.params.company.data.brand_name}
                               </Text>
                             </View>
                         </View>
@@ -86,7 +86,7 @@ export default class OrderSelected extends Component {
                                 style={styles.cardPrice}>{this.props.navigation.state.params.currency}{this.props.navigation.state.params.price}
                             </Text>
                         </View>
-                        <Text style={styles.cardSubTitle}> {this.props.navigation.state.params.quantity}{' '}{this.props.navigation.state.params.unit}
+                        <Text style={styles.cardSubTitle}> {this.props.navigation.state.params.quantity}{' '}{this.props.navigation.state.params.unit} in {this.props.navigation.state.params.package} / {this.props.navigation.state.params.weight} KG
                         </Text>
                         <View style={{ flexDirection: "row" }}>
                             <Text
@@ -105,9 +105,9 @@ export default class OrderSelected extends Component {
                         </View>
                     </View>
                     <View style={{
-                        height: screenHeight / 2.5
+                        height: screenHeight / 2
                     }}>
-                        <RouteCardSelected />
+                        <RouteCardSelected data={this.props.navigation.state.params}  />
                     </View>
                 </ScrollView>
                 : null
@@ -230,7 +230,7 @@ const styles = StyleSheet.create({
     },
     cardSubTitle: {
         color: Colors.DarkGrey,
-        fontSize: 10,
+        fontSize: 11,
         marginBottom: 3
     },
     cardPrice: {

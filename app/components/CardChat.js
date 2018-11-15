@@ -10,27 +10,45 @@ const { height } = Dimensions.get('window')
 
 export class CardChat extends Component {
 
+    componentDidMount(data){
+        dataFromParams = this.props.data
+        // this.setState({images: images.push(dataFromParams.image_secondary)})
+        console.log('DATA HAS COME from Chat ',dataFromParams)
+        // console.log('asddsa', this.state.images)
+    }
+
     render() {
         return (
             <View style={styles.mainView}>
-                <View style={styles.slide1}>
+
+
+              <View style={styles.slide1}>
+              {this.props.data ?
+
                     <Image
                         style={styles.image}
-                        source={require('../../assets/images/product.jpg')}
-                    />
+                        source={{ uri: this.props.data.image_primary }}
+                        />
+                        :null}
+
                 </View>
                 <View style={{
                     borderBottomLeftRadius: 7,
                     borderBottomRightRadius: 7,
                 }}>
                     <View style={{ flexDirection: "row" }}>
+                    {this.props.data ?
+
                         <Text
-                            style={styles.cardTitle}>{'30 CM. Crockery Set '}
+                            style={styles.cardTitle}>{this.props.data.name}
                         </Text>
+                        :null}
 
 
                     </View>
-                    <Text style={styles.cardSubTitle}>{'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua. Utenim ad minim veniam'}</Text>
+                    {this.props.data ?
+                    <Text style={styles.cardSubTitle}>{this.props.data.description}</Text>
+                    :null }
                     <View
                         style={{
                             borderBottomColor: 'white',
@@ -50,21 +68,31 @@ export class CardChat extends Component {
                                     style={{
                                         resizeMode: 'contain',
                                         height: 15,
-                                        width: 15
+                                        width: 15,
+                                        paddingHorizontal:10
                                     }}
                                     source={require('../../assets/icons/shipping.png')}
-                                />
+
+                                    />
+
+                                {this.props.data ?
+
                                 <Text style={{
                                     fontSize: 12,
                                     color: Colors.Grey
                                 }}>
-                                    http://portal.tawrid.store/product/9407/shop
+                                    {`http://portal.tawrid.store/product/${this.props.data.id}/shop`}
                                 </Text>
+                                : null }
                             </View>
                         </TouchableOpacity>
                     </View>
+                    
                 </View>
+
+
             </View>
+            
         );
     }
 }

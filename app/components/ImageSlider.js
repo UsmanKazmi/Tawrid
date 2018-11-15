@@ -5,16 +5,12 @@ import Carousel from 'react-native-snap-carousel';
 var imagesObject = {}
 var customImage = []
 export class ImageSlider extends Component {
+
+
     constructor() {
         super();
         this.state = {
-            customWeather: [
-                { state: 'lr', stateImage: require('../../assets/images/kitty.jpeg') },
-                { state: 's', stateImage: require('../../assets/images/kitty.jpeg') },
-                { state: 'hc', stateImage: require('../../assets/images/kitty.jpeg') },
-                { state: 'lc', stateImage: require('../../assets/images/kitty.jpeg') },
-                { state: 'c', stateImage: require('../../assets/images/kitty.jpeg') }
-            ]
+          
         };
     }
     _renderItem(item, index) {
@@ -46,8 +42,7 @@ export class ImageSlider extends Component {
                     sliderHeight={10}
                     itemWidth={itemWidth}
                 />
-                : null
-                }
+                : null}
             </View>
         )
     }

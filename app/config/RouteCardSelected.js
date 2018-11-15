@@ -15,6 +15,7 @@ import OrderSelectedFeature from '../screens/OrderSelectedFeature';
 
 
 const OrdersTab = createMaterialTopTabNavigator({
+
     activeOrders:{screen:OrderSelectedDetails,
         navigationOptions: {
             tabBarLabel: 'Detail'
@@ -50,18 +51,24 @@ const OrdersTab = createMaterialTopTabNavigator({
         style: {
           backgroundColor: 'transparent',
         }
-    }
+    },
+    
 })
 
 
 
 
 class RouteCardSelected extends Component {
+
+    
+    componentDidMount(next) {
+        console.log('ttt',this.props.data)
+    }
     render() {
         return (
        
            
-           <OrdersTab />
+           <OrdersTab screenProps={{data:this.props.data}} />
         )
     }
 }

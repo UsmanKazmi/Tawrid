@@ -8,7 +8,7 @@ function doPostRequest({ url, data}) {
             method : 'POST',
             headers: {
                 "Content-Type": "application/json",
-                 token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjE4MTU4OCwiZXhwIjoxNTQyMjY3OTg4LCJuYmYiOjE1NDIxODE1ODgsImp0aSI6Im5qTUM4bHpwZ3ZWazFKWEcifQ.Goeaz2mZQyfThZHDriyVEvp9bqSYzC1cdORfL-ynes4'
+                 token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjI4MTQ4NiwiZXhwIjoxNTQyMzY3ODg2LCJuYmYiOjE1NDIyODE0ODYsImp0aSI6IlpESnpFRnppTnR5YTNxcG0ifQ.7zFDKHjn_Yz8FgzzawfhGzYEdENNnOav1slNQkbg_7E'
             },
             body: JSON.stringify(data)
         })
@@ -33,7 +33,7 @@ function doGetRequest({url}){
         fetch('http://portal.tawrid.store/'+ url,{
             method : 'GET',
             headers: {
-                token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjE4MTU4OCwiZXhwIjoxNTQyMjY3OTg4LCJuYmYiOjE1NDIxODE1ODgsImp0aSI6Im5qTUM4bHpwZ3ZWazFKWEcifQ.Goeaz2mZQyfThZHDriyVEvp9bqSYzC1cdORfL-ynes4'
+                token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjI4MTQ4NiwiZXhwIjoxNTQyMzY3ODg2LCJuYmYiOjE1NDIyODE0ODYsImp0aSI6IlpESnpFRnppTnR5YTNxcG0ifQ.7zFDKHjn_Yz8FgzzawfhGzYEdENNnOav1slNQkbg_7E'
             }
         })
         .then(res => res.json())

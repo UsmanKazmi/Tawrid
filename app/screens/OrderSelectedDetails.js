@@ -8,10 +8,18 @@ import { Search } from '../components/Search';
 import { CardActiveOrders } from '../components/CardActiveOrders';
 
 export default class OrderSelectedDetails extends Component {
-  render() {
-    return (
 
+
+    componentDidMount(next) {
+
+    }
+  render() {
+
+    return (
+        
         <View style={styles.mainView}>
+        {this.props.screenProps.data ? 
+
 
                 <View style={{
                     marginHorizontal:40,
@@ -32,7 +40,8 @@ export default class OrderSelectedDetails extends Component {
                                     fontSize:12
 
                                 }}>
-                                        Price                
+                                Product Name
+                
                                 </Text>
 
                                 <Text style={{
@@ -43,7 +52,8 @@ export default class OrderSelectedDetails extends Component {
 
 
                                 }}>
-                                         $5.50                
+                                        {this.props.screenProps.data.name}              
+              
                                  </Text>
                         </View>
 
@@ -62,7 +72,7 @@ export default class OrderSelectedDetails extends Component {
                                     fontSize:12
 
                                 }}>
-                                        Unit                
+                                Company                
                                 </Text>
 
                                 <Text style={{
@@ -73,7 +83,7 @@ export default class OrderSelectedDetails extends Component {
 
 
                                 }}>
-                                         Pieces                
+                                {this.props.screenProps.data.company.data.name}                
                                  </Text>
                         </View>
 
@@ -90,7 +100,7 @@ export default class OrderSelectedDetails extends Component {
                                     fontSize:12
 
                                 }}>
-                                        Package                
+                                Company Code                
                                 </Text>
 
                                 <Text style={{
@@ -101,7 +111,8 @@ export default class OrderSelectedDetails extends Component {
 
 
                                 }}>
-                                         Box                
+                                {this.props.screenProps.data.company_code}                
+                
                                  </Text>
                         </View>
 
@@ -118,7 +129,7 @@ export default class OrderSelectedDetails extends Component {
                                     fontSize:12
 
                                 }}>
-                                     Quantity in Package                
+                                Company Barcode               
                                 </Text>
 
                                 <Text style={{
@@ -129,14 +140,47 @@ export default class OrderSelectedDetails extends Component {
 
 
                                 }}>
-                                         12                
+                                null               
+                
                                  </Text>
                         </View>
+
+                        <View style={{
+                            marginVertical:7,
+                            flexDirection:'row',
+                            width:100 + '%'
+        
+                        }}>                       
+                                <Text style={{
+                                    textAlign:'left',
+                                    flex:1,
+                                    color:Colors.LightGrey,
+                                    fontSize:12
+
+                                }}>
+                                Code               
+                                </Text>
+
+                                <Text style={{
+                                    textAlign:'right',
+                                    color:Colors.DarkGrey,
+                                    fontFamily:'bold',
+                                    fontSize:13
+
+
+                                }}>
+                                {this.props.screenProps.data.id}                
+                
+                                 </Text>
+                        </View>
+
+                        
+                        
 
 
                 
                 </View>
-
+        : null }
         </View>
     )
 

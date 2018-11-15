@@ -61,7 +61,7 @@ class CardNewProduct extends Component {
 
     openChat = (data) =>{
         console.log('CHAT')
-        this.props.navigation.navigate('chatScreen', data)         
+        this.props.navigation.navigate('chatScreen', data)      
     } 
 
 

@@ -17,11 +17,23 @@ export default class Chat extends Component {
     this.props.navigation.toggleDrawer();
 
   }
-  render() {
-    console.log('chatSCREeN',this)
-    return (
 
+  componentDidMount(data){
+    dataFromParams = this.props.navigation.state.params
+    // this.setState({images: images.push(dataFromParams.image_secondary)})
+    console.log('DATA HAS COME from CardNewProduct ',dataFromParams)
+    // console.log('asddsa', this.state.images)
+}
+
+
+
+
+  render() {
+    return (
+ 
         <View style={{flex:1,paddingBottom:50,backgroundColor:Colors.White}}>
+
+        {this.props.navigation.state.params ? 
 
               
                <ScrollView>
@@ -36,7 +48,7 @@ export default class Chat extends Component {
 
                     
                         <View >
-                          <CardChat/>
+                          <CardChat data={this.props.navigation.state.params} />
                         </View>
 
 
@@ -56,7 +68,8 @@ export default class Chat extends Component {
                           </Text>
 
                           <ChatBubble 
-                          chatText='Dear agent I want to discuss30 CM. Crockery Set'
+                         
+                          chatText={'Dear agent I want to discuss '+this.props.navigation.state.params.name}
                           backgroundColor={Colors.Green}
                           color={Colors.White}
                        />
@@ -190,7 +203,7 @@ export default class Chat extends Component {
 
               </ScrollView>
               
-           
+           : null }
 
         </View>
     )

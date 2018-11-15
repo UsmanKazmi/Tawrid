@@ -6,34 +6,39 @@ import { Image, Text, View, StyleSheet, TouchableOpacity, Dimensions } from 'rea
 import Carousel from 'react-native-snap-carousel';
 
 export class ImageSlider_OrderSelected extends Component {
+
+
+    componentDidMount(data){
+        dataFromParams = this.props.image
+        // this.setState({images: images.push(dataFromParams.image_secondary)})
+        console.log('DATA HAS COME into IMAGE SLIDER ',dataFromParams)
+
+      
+        
+
+        }
+
+
     constructor(props) {
         super(props);
         this.state = {
-            customWeather: [
-                { state: 'sn', stateImage: require('../../assets/images/product.jpg') },
-                { state: 'sl', stateImage: require('../../assets/images/product.jpg') },
-                { state: 'h', stateImage: require('../../assets/images/product.jpg') },
-                { state: 't', stateImage: require('../../assets/images/product.jpg') },
-                { state: 'hr', stateImage: require('../../assets/images/product.jpg') },
-                { state: 'lr', stateImage: require('../../assets/images/kitty.jpeg') },
-                { state: 's', stateImage: require('../../assets/images/kitty.jpeg') },
-                { state: 'hc', stateImage: require('../../assets/images/kitty.jpeg') },
-                { state: 'lc', stateImage: require('../../assets/images/kitty.jpeg') },
-                { state: 'c', stateImage: require('../../assets/images/kitty.jpeg') }
-            ],
+            customWeather:this.props.image
+            
         };
     }
-    _renderItem({ item, index }) {
+   
+    _renderItem(item, index) {
+        console.log('Item ', item.item)
         return (
-            <View style={styles.slide}>
-                <Image source={item.stateImage} style={{
+            <View style={styles.slide} key={index}>
+                <Image source={{uri:`${item.item}`}} style={{
                     backgroundColor: "#fff",
                     width: 100 + '%',
                     height: 100 + '%',
                     resizeMode: 'cover',
                     borderWidth: 1,
                     borderRadius: 7
-                }} />
+                }} /> 
             </View>
         );
     }
@@ -45,20 +50,25 @@ export class ImageSlider_OrderSelected extends Component {
     // }
 
     render() {
-        this.props.images ?
-                console.log('imasd1 ', this.props.images) 
-            : null
-        
+    
+       
         return (
+            
+        <View>
+            {this.props.image ?
+
             <Carousel
                 firstItem={1}
                 ref={(c) => { this._carousel = c; }}
-                data={this.state.customWeather}
+                data={this.props.image}
                 renderItem={this._renderItem}
                 sliderWidth={sliderWidth}
                 sliderHeight={sliderHeight}
                 itemWidth={itemWidth}
             />
+            : null}
+
+            </View>
         )
     }
 }

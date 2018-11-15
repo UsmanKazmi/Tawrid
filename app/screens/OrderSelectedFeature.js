@@ -12,6 +12,8 @@ export default class OrderSelectedFeature extends Component {
     return (
 
         <View style={styles.mainView}>
+                {this.props.screenProps.data ? 
+
 
                 <View style={{
                     marginHorizontal:40,
@@ -32,7 +34,7 @@ export default class OrderSelectedFeature extends Component {
                                     fontSize:12
 
                                 }}>
-                                        Price                
+                                    Name                
                                 </Text>
 
                                 <Text style={{
@@ -43,7 +45,7 @@ export default class OrderSelectedFeature extends Component {
 
 
                                 }}>
-                                         $5.50                
+                                {this.props.screenProps.data.features.data[0].name}                
                                  </Text>
                         </View>
 
@@ -62,7 +64,7 @@ export default class OrderSelectedFeature extends Component {
                                     fontSize:12
 
                                 }}>
-                                        Unit                
+                                        Value                
                                 </Text>
 
                                 <Text style={{
@@ -73,69 +75,17 @@ export default class OrderSelectedFeature extends Component {
 
 
                                 }}>
-                                         Pieces                
+                                {this.props.screenProps.data.features.data[0].value}                
+                
                                  </Text>
                         </View>
 
-                        <View style={{
-                            marginVertical:7,
-                            flexDirection:'row',
-                            width:100 + '%'
-        
-                        }}>                       
-                                <Text style={{
-                                    textAlign:'left',
-                                    flex:1,
-                                    color:Colors.LightGrey,
-                                    fontSize:12
-
-                                }}>
-                                        Package                
-                                </Text>
-
-                                <Text style={{
-                                    textAlign:'right',
-                                    color:Colors.DarkGrey,
-                                    fontFamily:'bold',
-                                    fontSize:13
-
-
-                                }}>
-                                         Box                
-                                 </Text>
-                        </View>
-
-                        <View style={{
-                            marginVertical:7,
-                            flexDirection:'row',
-                            width:100 + '%'
-        
-                        }}>                       
-                                <Text style={{
-                                    textAlign:'left',
-                                    flex:1,
-                                    color:Colors.LightGrey,
-                                    fontSize:12
-
-                                }}>
-                                     Quantity in Package                
-                                </Text>
-
-                                <Text style={{
-                                    textAlign:'right',
-                                    color:Colors.DarkGrey,
-                                    fontFamily:'bold',
-                                    fontSize:13
-
-
-                                }}>
-                                         12                
-                                 </Text>
-                        </View>
+                        
 
 
                 
                 </View>
+                : null }
 
         </View>
     )

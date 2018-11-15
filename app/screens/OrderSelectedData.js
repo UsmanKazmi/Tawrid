@@ -8,10 +8,19 @@ import { Search } from '../components/Search';
 import { CardActiveOrders } from '../components/CardActiveOrders';
 
 export default class OrderSelectedData extends Component {
-  render() {
-    return (
 
+
+    componentDidMount(next) {
+        console.log('screenprops Detail',this.props.screenProps.data)
+
+    }
+
+  render() {
+    return(
+        
         <View style={styles.mainView}>
+        {this.props.screenProps.data ? 
+
 
                 <View style={{
                     marginHorizontal:40,
@@ -43,7 +52,8 @@ export default class OrderSelectedData extends Component {
 
 
                                 }}>
-                                         $5.50                
+                                        {this.props.screenProps.data.currency}{this.props.screenProps.data.price}               
+              
                                  </Text>
                         </View>
 
@@ -73,7 +83,7 @@ export default class OrderSelectedData extends Component {
 
 
                                 }}>
-                                         Pieces                
+                                {this.props.screenProps.data.unit}                
                                  </Text>
                         </View>
 
@@ -101,7 +111,8 @@ export default class OrderSelectedData extends Component {
 
 
                                 }}>
-                                         Box                
+                                {this.props.screenProps.data.package}                
+                
                                  </Text>
                         </View>
 
@@ -129,14 +140,73 @@ export default class OrderSelectedData extends Component {
 
 
                                 }}>
-                                         12                
+                                {this.props.screenProps.data.quantity}                
+                
+                                 </Text>
+                        </View>
+
+                        <View style={{
+                            marginVertical:7,
+                            flexDirection:'row',
+                            width:100 + '%'
+        
+                        }}>                       
+                                <Text style={{
+                                    textAlign:'left',
+                                    flex:1,
+                                    color:Colors.LightGrey,
+                                    fontSize:12
+
+                                }}>
+                                     Total Weight               
+                                </Text>
+
+                                <Text style={{
+                                    textAlign:'right',
+                                    color:Colors.DarkGrey,
+                                    fontFamily:'bold',
+                                    fontSize:13
+
+
+                                }}>
+                                {this.props.screenProps.data.weight}                
+                
+                                 </Text>
+                        </View>
+
+                        
+                        <View style={{
+                            marginVertical:7,
+                            flexDirection:'row',
+                            width:100 + '%'
+        
+                        }}>                       
+                                <Text style={{
+                                    textAlign:'left',
+                                    flex:1,
+                                    color:Colors.LightGrey,
+                                    fontSize:12
+
+                                }}>
+                                     CBM              
+                                </Text>
+
+                                <Text style={{
+                                    textAlign:'right',
+                                    color:Colors.DarkGrey,
+                                    fontFamily:'bold',
+                                    fontSize:13
+
+
+                                }}>
+                                {this.props.screenProps.data.cbm}                
                                  </Text>
                         </View>
 
 
                 
                 </View>
-
+        : null }
         </View>
     )
 
