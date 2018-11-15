@@ -36,9 +36,8 @@ class CardNewProduct extends Component {
     }
     info = (data) => {
         //OPEN Product Detail PAGE
-        console.log('DATA FROM STACK',data)
-        this.props.navigation.navigate('productDetails',data)
-        
+        console.log('DATA FROM STACK', data)
+        this.props.navigation.navigate('productDetails', data)
     }
 
     shareData = (data) => {
@@ -62,7 +61,7 @@ class CardNewProduct extends Component {
 
     openChat = (data) =>{
         console.log('CHAT')
-        this.props.navigation.navigate('chatScreen')         
+        this.props.navigation.navigate('chatScreen', data)         
     } 
 
 

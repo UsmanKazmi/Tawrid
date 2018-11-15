@@ -3,8 +3,6 @@ import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 
 import { ScrollView } from 'react-native';
 import { Colors } from '../helpers/Helpers';
 import { Image, Text, View, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
-import Swiper from 'react-native-swiper';
 import Carousel from 'react-native-snap-carousel';
 
 export class ImageSlider_OrderSelected extends Component {
@@ -39,7 +37,18 @@ export class ImageSlider_OrderSelected extends Component {
             </View>
         );
     }
+
+    // iterateImages = () => {
+    //     this.props.images.forEach(element => {
+    //         console.log('For each ', element)
+    //     });
+    // }
+
     render() {
+        this.props.images ?
+                console.log('imasd1 ', this.props.images) 
+            : null
+        
         return (
             <Carousel
                 firstItem={1}

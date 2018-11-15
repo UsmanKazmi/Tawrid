@@ -17,18 +17,20 @@ const cardTitle = {
 
 export default class OrderSelected extends Component {
 
+    constructor(){
+        super()
+        this.state = {
+            images: []
+        }
+    }
 
     componentDidMount(data){
+        
         dataFromParams = this.props.navigation.state.params
+        // this.setState({images: images.push(dataFromParams.image_secondary)})
         console.log('DATA HAS COME ',dataFromParams.name)
-        // next.data[1].forEach(element => {
-        //     images.push(element[9394])
-        //     images.push(element[9395])
-        //     images.push(element[9396])
-        //     images.push(element[9397])
-        //     images.push(element[9398])
-        // });
-        // next.data.splice(1, 1)
+        console.log('Img ', dataFromParams.image_secondary)
+        // console.log('asddsa', this.state.images)
     }
 
 
@@ -36,9 +38,7 @@ export default class OrderSelected extends Component {
         return (
             <View style={{ paddingBottom: 30, backgroundColor: Colors.White }}>
             {this.props.navigation.state.params ? 
-
                 <ScrollView >
-
                     <View style={{
                         flex: 1,
                         borderWidth: StyleSheet.hairlineWidth,
@@ -47,9 +47,9 @@ export default class OrderSelected extends Component {
                     </View>
                     <View style={{
                         marginVertical: 5,
-                        height: screenHeight / 2.5,
+                        height: screenHeight/2.5,
                     }}>
-                        <ImageSlider_OrderSelected />
+                        <ImageSlider_OrderSelected image={this.props.navigation.state.params.image_secondary} />
                     </View>
                     <View style={{
                         margin: 20
@@ -74,8 +74,6 @@ export default class OrderSelected extends Component {
                             </View>
                         </View>
                         <View style={{ flexDirection: "row" }}>
-
-
                             <Text
                                 style={styles.cardTitle}>{this.props.navigation.state.params.name}
                             </Text>
@@ -112,7 +110,8 @@ export default class OrderSelected extends Component {
                         <RouteCardSelected />
                     </View>
                 </ScrollView>
-                : null}
+                : null
+            }
 
             </View>
         )
