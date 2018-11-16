@@ -4,14 +4,15 @@ import { View, alert } from 'react-native';
 import CardNewProduct from '../components/CardNewProduct';
 import { TawridApi } from  '../utilities/Api';
 import { _retrieveData, Colors } from '../helpers/Helpers';
-
+import Loader from '../components/Loader';
 
 class NewProduct extends Component {
     constructor(){
         super();
         this.state = {
             response: [],
-            img: []
+            img: [],
+            loading: false
         }
     }
     
@@ -24,7 +25,8 @@ class NewProduct extends Component {
             // console.log('as ', abc)
             this.setState({
                 response: value.data,
-                img
+                img,
+                loading: false
             })
         })
     }
@@ -35,13 +37,11 @@ class NewProduct extends Component {
                 <View style={{ paddingBottom: 30,backgroundColor:Colors.White }}>
                     {this.state.response ? 
                         <CardNewProduct data={[this.state.response, this.state.img]}/>
-                        : null
+                        : 
+                        <Loader style={styles.loadingAnimation} loading={this.state.loading} 
+                        color={Colors.Green} size={'medium'} position={'absolute'} float={'right'} 
+                        height={48} width={284} />
                     }
-                    {/* <CardNewProduct />
-
-                    <CardNewProduct />
-
-                    <CardNewProduct /> */}
                 </View>
             </ScrollView>
         )

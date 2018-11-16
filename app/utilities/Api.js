@@ -80,7 +80,7 @@ export const TawridApi = {
       })
     }).then(res => res.json())
     .then(response => {
-      // console.log('Success:', response);
+      console.log('Success1:', response);
       return response;
 
     })
@@ -215,5 +215,33 @@ export const TawridApi = {
         Alert.alert(Error , 'An unknown error occured in remove from favorite Service. Please contact App support team');
         return err
       })
-  }
+  },
+
+  async AddtoCart(collection) {
+    console.log("Collection in AddtoCart is ", collection)
+    var url = 'http://portal.tawrid.store/api/v1/cart/'+collection.productID+'/'+collection.method;
+    console.log("URL IS", url)
+
+    return fetch(url, {
+      method: 'POST', // or 'PUT'
+      body: JSON.stringify(collection), // data can be `string` or {object}!
+      headers:({
+        'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjM0ODExNiwiZXhwIjoxNTQyNDM0NTE2LCJuYmYiOjE1NDIzNDgxMTYsImp0aSI6Im1UbkJ4cENseXlTUkFWdUUifQ.U9J5iLU0dMp6PUWv_mOh4aBaw5VtkBK5-uz5bOwOoPE',
+        'Content-Type': 'application/json'
+      })
+    }).then(res => res.json())
+    .then(response => {
+      console.log('Success: from AddtoCart Service', response);
+      return response;
+
+    })
+    .catch(error => {
+      console.log('Error: ', error);
+      Alert.alert(Error , 'An unknown error occured in remove from AddtoCart Service. Please contact App support team');
+
+    });
+  },
+
+
+
 }

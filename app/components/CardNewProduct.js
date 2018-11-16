@@ -111,6 +111,45 @@ class CardNewProduct extends Component {
         console.log('Tags ', tag)
     }
 
+            
+    addtoCart= () => {
+                
+                let collection = {
+                }
+                collection.productID = '626';
+                collection.method = 'add';
+                collection.note = 'Test';
+                collection.quantity = '11';
+
+                TawridApi.AddtoCart(collection).then(value => {
+                    console.log('value',value)
+                this.setState({
+                    response: value,
+                    
+                }); 
+                if (this.state.response) {
+                    console.log('Success:  Response from AddtoCart Method ',this.state.response);
+                    if (this.state.response.status == 'success') {
+                      alert("Product is successfully added to Cart")    
+                    } else if (this.state.response.status == 'error') {
+                      Alert.alert(this.state.response.message);
+                    } else {
+                      Alert.alert(Error, 'An unknown error occured. Please contact App support team');
+                    }
+                  } else {
+                    Alert.alert(Error, 'Request Terminated. Please check your internet or contact our support.');
+                  }
+
+            })
+            .catch(error =>{
+            this.setState({
+                // loading: false,
+            });
+            console.log('Error: AddtoCart Method ',error);
+            });
+
+        }
+
     render() {
         console.log('Props ', this.props);
         return (
@@ -159,7 +198,10 @@ class CardNewProduct extends Component {
                                 }}
                             />
                             <View style={styles.bottomIcons}>
-                                <TouchableOpacity style={styles.bottomButtons} >
+                                <TouchableOpacity style={styles.bottomButtons} 
+                                onPress={() => this.addtoCart()}>
+
+                                
                                     <Image style={styles.bottomImage}
                                         source={require('../../assets/icons/addtocart.png')}
                                     />
@@ -186,7 +228,8 @@ class CardNewProduct extends Component {
                                     />
                                 </TouchableOpacity>
                                 <TouchableOpacity style={styles.bottomButtons}
-                                    onPress={() => this.info(data)} >
+                                    onPress={() => this.info(data)} 
+                                    >
                                     <Image style={styles.bottomImage}
                                         source={require('../../assets/icons/info.png')}
                                     />

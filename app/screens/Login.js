@@ -277,7 +277,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: 'DIN Next LT Arabic',
     textAlign: 'center',
-
   },
   forgetPassword: {
     backgroundColor: 'transparent',

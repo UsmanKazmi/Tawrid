@@ -24,8 +24,9 @@ export default class OrderSelected extends Component {
         }
     }
 
-    componentDidMount(data){
-        
+    componentDidMount(){
+                console.log('dataFromParams', this.props.navigation.state.params)
+
         dataFromParams = this.props.navigation.state.params
         // this.setState({images: images.push(dataFromParams.image_secondary)})
         console.log('DATA REACHED ORDER SELECTED ',dataFromParams.name)

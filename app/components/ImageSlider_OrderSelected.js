@@ -32,7 +32,7 @@ export class ImageSlider_OrderSelected extends Component {
         console.log('Item ', item.item)
         return (
             <View style={styles.slide} key={index}>
-                <Image source={{ uri: `${item}` }} style={styles.imageStyle} />
+                <Image source={{uri: `${item}`}} style={styles.imageStyle} />
             </View>
         );
     }

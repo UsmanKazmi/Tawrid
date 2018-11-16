@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
         fontSize: 12
     },
     mainView: {
+        backgroundColor:Colors.White,
         margin: 15,
         backgroundColor: Colors.White
     },
