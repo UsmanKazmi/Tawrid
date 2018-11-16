@@ -49,7 +49,8 @@ export default class OrderSelected extends Component {
                         marginVertical: 5,
                         height: screenHeight/2.5,
                     }}>
-                        <ImageSlider_OrderSelected image={this.props.navigation.state.params.image_secondary} />
+                        <ImageSlider_OrderSelected 
+                        image={this.props.navigation.state.params.image_secondary} />
                     </View>
                     <View style={{
                         margin: 20
@@ -73,11 +74,10 @@ export default class OrderSelected extends Component {
                               </Text>
                             </View>
                         </View>
-                        <View style={{ flexDirection: "row" }}>
+                        <View style={{ flexDirection: "row", alignItems: 'center' }}>
                             <Text
                                 style={styles.cardTitle}>{this.props.navigation.state.params.name}
                             </Text>
-
                             <Image
                                 style={{ height: 20, width: 20, marginHorizontal: 5, alignSelf: 'center' }}
                                 source={require('../../assets/icons/loayalitybadgeGreen.png')}
@@ -86,18 +86,24 @@ export default class OrderSelected extends Component {
                                 style={styles.cardPrice}>{this.props.navigation.state.params.currency}{this.props.navigation.state.params.price}
                             </Text>
                         </View>
-                        <Text style={styles.cardSubTitle}> {this.props.navigation.state.params.quantity}{' '}{this.props.navigation.state.params.unit} in {this.props.navigation.state.params.package} / {this.props.navigation.state.params.weight} KG
+                        <Text style={styles.cardSubTitle}> {this.props.navigation.state.params.quantity} {this.props.navigation.state.params.unit} in {this.props.navigation.state.params.package} / {this.props.navigation.state.params.weight} KG
                         </Text>
                         <View style={{ flexDirection: "row" }}>
-                            <Text
-                                style={
-                                    {
-                                        flex: 1,
-                                        color: Colors.Grey,
-                                        fontSize: 9,
-                                        alignSelf: 'flex-end'
-                                    }}>{'Tags: #Ramadan Products, #Home Crockery, #Plates'}
-                            </Text>
+                        <Text style={{fontSize: 9, color: Colors.Grey,}}>Tags: </Text>
+                        {this.props.navigation.state.params.tags.data.map((tag, index)=>{
+                            return (
+                                <View key={index}>
+                                    <Text
+                                        style={{
+                                                flex: 1,
+                                                color: Colors.Grey,
+                                                fontSize: 9,
+                                                alignSelf: 'flex-end'
+                                            }}>{tag.name}
+                                    </Text>
+                                </View>
+                        )})}
+
                             <Image
                                 style={{ height: 18, width: 18 }}
                                 source={require('../../assets/icons/addtocartplus.png')}
