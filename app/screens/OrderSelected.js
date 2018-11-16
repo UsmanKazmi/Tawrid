@@ -25,8 +25,7 @@ export default class OrderSelected extends Component {
     }
 
     componentDidMount(){
-                console.log('dataFromParams', this.props.navigation.state.params)
-
+        console.log('dataFromParams', this.props.navigation.state.params)
         dataFromParams = this.props.navigation.state.params
         // this.setState({images: images.push(dataFromParams.image_secondary)})
         console.log('DATA REACHED ORDER SELECTED ',dataFromParams.name)
@@ -71,7 +70,10 @@ export default class OrderSelected extends Component {
                                     source={require('../../assets/icons/briefcase.png')} />
 
                                 <Text style={{ fontSize: 7, color: Colors.White }}>
-                                {this.props.navigation.state.params.company.data.brand_name}
+                                {
+                                    this.props.navigation.state.params.company &&
+                                        this.props.navigation.state.params.company.data.brand_name
+                                }
                               </Text>
                             </View>
                         </View>
@@ -91,7 +93,9 @@ export default class OrderSelected extends Component {
                         </Text>
                         <View style={{ flexDirection: "row" }}>
                         <Text style={{fontSize: 9, color: Colors.Grey,}}>Tags: </Text>
-                        {this.props.navigation.state.params.tags.data.map((tag, index)=>{
+                        {
+                            this.props.navigation.state.params.tags &&
+                            this.props.navigation.state.params.tags.data.map((tag, index)=>{
                             return (
                                 <View key={index}>
                                     <Text

@@ -3,6 +3,7 @@ import { Colors } from '../helpers/Helpers';
 import { Image, Text, View, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import Swiper from 'react-native-swiper';
 import { TawridApi } from '../utilities/Api';
+import Loader from '../components/Loader';
 import { withNavigation } from 'react-navigation';
 import { Share } from 'react-native';
 
@@ -218,7 +219,9 @@ class CardMyProduct extends Component {
                                 </View>
                             )
                         }) :
-                        null
+                        <Loader style={styles.loadingAnimation} loading={this.state.loading} 
+                            color={'#000'} size={'small'}  
+                            height={100} width={200} />
                 }
             </View>
         );

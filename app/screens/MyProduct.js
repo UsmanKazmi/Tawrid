@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { ScrollView } from 'react-native';
-import { View, alert } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import CardMyProduct from '../components/CardMyProduct';
 import { TawridApi } from  '../utilities/Api';
+import Loader from '../components/Loader';
 import { _retrieveData, Colors } from '../helpers/Helpers';
 
 export default class MyProduct extends Component {
@@ -10,6 +11,7 @@ export default class MyProduct extends Component {
         super();
         this.state = {
             response: [],
+            loading: true
         }
     }
     
@@ -18,6 +20,7 @@ export default class MyProduct extends Component {
             // console.log('my ', value.data)
             this.setState({
                 response: value.data,
+                loading: false
             })
         })
     }
@@ -25,12 +28,14 @@ export default class MyProduct extends Component {
     render() {
         return (
             <ScrollView>
-                <View style={{ paddingBottom: 30,backgroundColor:Colors.White }}>
+                <View style={styles.mainView}>
                     {
                         this.state.response ? 
                             <CardMyProduct data={this.state.response}/>
-                        : 
-                            null
+                            : 
+                            <Loader style={styles.loadingAnimation} loading={this.state.loading} 
+                            color={'#000'} size={'small'}  
+                            height={100} width={200} />
                     }
                 </View>
             </ScrollView>
@@ -38,5 +43,10 @@ export default class MyProduct extends Component {
     }
 }
  
-
+const styles = StyleSheet.create({
+    mainView: { 
+        paddingBottom: 30, 
+        backgroundColor:Colors.White 
+    }
+})
 

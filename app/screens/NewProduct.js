@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { ScrollView } from 'react-native';
-import { View, alert } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import CardNewProduct from '../components/CardNewProduct';
 import { TawridApi } from  '../utilities/Api';
 import { _retrieveData, Colors } from '../helpers/Helpers';
@@ -12,7 +12,7 @@ class NewProduct extends Component {
         this.state = {
             response: [],
             img: [],
-            loading: false
+            loading: true
         }
     }
     
@@ -22,7 +22,6 @@ class NewProduct extends Component {
             let img = []
             img.push(value.data.image_secondary)
             abc.push(value.data)
-            // console.log('as ', abc)
             this.setState({
                 response: value.data,
                 img,
@@ -34,13 +33,13 @@ class NewProduct extends Component {
     render() {
         return (
             <ScrollView >
-                <View style={{ paddingBottom: 30,backgroundColor:Colors.White }}>
+                <View style={styles.mainView}>
                     {this.state.response ? 
                         <CardNewProduct data={[this.state.response, this.state.img]}/>
-                        : 
+                        :
                         <Loader style={styles.loadingAnimation} loading={this.state.loading} 
-                        color={Colors.Green} size={'medium'} position={'absolute'} float={'right'} 
-                        height={48} width={284} />
+                        color={'#000'} size={'small'}  
+                        height={100} width={200} />
                     }
                 </View>
             </ScrollView>
@@ -50,3 +49,9 @@ class NewProduct extends Component {
 export default NewProduct
 
 
+const styles = StyleSheet.create({
+    mainView: { 
+        paddingBottom: 30, 
+        backgroundColor:Colors.White 
+    }
+})
