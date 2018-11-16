@@ -86,11 +86,12 @@ const styles = StyleSheet.create({
     },
     mainView: {
         backgroundColor:Colors.White,
-        margin: 15,
-        backgroundColor: Colors.White
+        // paddingTop: 15,
+        paddingHorizontal:15,
+        marginBottom:50
     },
     newProductCards: {
-        justifyContent: 'space-evenly',
+        justifyContent: 'space-between',
         flexDirection: 'row',
     },
     myProductCards: {
