@@ -13,6 +13,9 @@ var images = []
 class CardNewProduct extends Component {
     constructor() {
         super();
+        this.state = {
+            loading: true
+        }
     }
     componentDidMount(){
         //to fix react-native-swiper in android bug
@@ -55,8 +58,6 @@ class CardNewProduct extends Component {
               'com.apple.UIKit.activity.PostToTwitter'
             ]
           })
-
-
     }
 
     openChat = (data) =>{
@@ -64,13 +65,11 @@ class CardNewProduct extends Component {
         this.props.navigation.navigate('chatScreen', data)      
     } 
 
-
     removeFromFav = () => {   
-
         TawridApi.removeFromFav().then(value => {
             this.setState({
               response: value,
-          
+              loading: false  
             });
             if (this.state.response) {
               console.log(' removeFromFav response from server ', this.state.response)
@@ -116,7 +115,7 @@ class CardNewProduct extends Component {
         console.log('Props ', this.props);
         return (
             <View style={styles.mainView}>
-                <Swiper style={styles.wrapper} showsButtons={false} showsButtons={false} index='2' autoplay 
+                <Swiper style={styles.wrapper} showsButtons={false} showsButtons={false} index={2} autoplay 
                 autoplayTimeout={5}
                     activeDot={<View style={styles.slideView} />}>
                     {this.props.data ?
