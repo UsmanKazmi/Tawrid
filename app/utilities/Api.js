@@ -56,7 +56,7 @@ export const TawridApi = {
     return fetch(url, {
       method: 'GET',
       headers:({
-        'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjM0ODExNiwiZXhwIjoxNTQyNDM0NTE2LCJuYmYiOjE1NDIzNDgxMTYsImp0aSI6Im1UbkJ4cENseXlTUkFWdUUifQ.U9J5iLU0dMp6PUWv_mOh4aBaw5VtkBK5-uz5bOwOoPE'
+        'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjM2MzU1NiwiZXhwIjoxNTQyNDQ5OTU2LCJuYmYiOjE1NDIzNjM1NTYsImp0aSI6IkhHak9ZdnVTUmdETUFKRVkifQ.ygQOk5OZ0_nMoE6UofRi6iucfxJOFyv70IAKvwX1FJ4'
       })
     })
       .then(res => res.json())
@@ -95,7 +95,7 @@ export const TawridApi = {
     return fetch(url, {
       method: 'GET',
       headers:({
-        'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjM0ODExNiwiZXhwIjoxNTQyNDM0NTE2LCJuYmYiOjE1NDIzNDgxMTYsImp0aSI6Im1UbkJ4cENseXlTUkFWdUUifQ.U9J5iLU0dMp6PUWv_mOh4aBaw5VtkBK5-uz5bOwOoPE'
+        'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjM2MzU1NiwiZXhwIjoxNTQyNDQ5OTU2LCJuYmYiOjE1NDIzNjM1NTYsImp0aSI6IkhHak9ZdnVTUmdETUFKRVkifQ.ygQOk5OZ0_nMoE6UofRi6iucfxJOFyv70IAKvwX1FJ4'
       })
     })
       .then(res => res.json())
@@ -115,7 +115,7 @@ export const TawridApi = {
       method: 'GET',
       headers:({
         'token': 
-        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjM0ODExNiwiZXhwIjoxNTQyNDM0NTE2LCJuYmYiOjE1NDIzNDgxMTYsImp0aSI6Im1UbkJ4cENseXlTUkFWdUUifQ.U9J5iLU0dMp6PUWv_mOh4aBaw5VtkBK5-uz5bOwOoPE'
+        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjM2MzU1NiwiZXhwIjoxNTQyNDQ5OTU2LCJuYmYiOjE1NDIzNjM1NTYsImp0aSI6IkhHak9ZdnVTUmdETUFKRVkifQ.ygQOk5OZ0_nMoE6UofRi6iucfxJOFyv70IAKvwX1FJ4'
       })
     })
       .then(res => res.json())
@@ -135,7 +135,7 @@ export const TawridApi = {
       method: 'GET',
       headers:({
         'token': 
-        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjM0ODExNiwiZXhwIjoxNTQyNDM0NTE2LCJuYmYiOjE1NDIzNDgxMTYsImp0aSI6Im1UbkJ4cENseXlTUkFWdUUifQ.U9J5iLU0dMp6PUWv_mOh4aBaw5VtkBK5-uz5bOwOoPE'
+        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjM2MzU1NiwiZXhwIjoxNTQyNDQ5OTU2LCJuYmYiOjE1NDIzNjM1NTYsImp0aSI6IkhHak9ZdnVTUmdETUFKRVkifQ.ygQOk5OZ0_nMoE6UofRi6iucfxJOFyv70IAKvwX1FJ4'
       })
     })
       .then(res => res.json())
@@ -156,7 +156,7 @@ export const TawridApi = {
       method: 'GET',
       headers:({
         'token': 
-        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjM0ODExNiwiZXhwIjoxNTQyNDM0NTE2LCJuYmYiOjE1NDIzNDgxMTYsImp0aSI6Im1UbkJ4cENseXlTUkFWdUUifQ.U9J5iLU0dMp6PUWv_mOh4aBaw5VtkBK5-uz5bOwOoPE'
+        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjM2MzU1NiwiZXhwIjoxNTQyNDQ5OTU2LCJuYmYiOjE1NDIzNjM1NTYsImp0aSI6IkhHak9ZdnVTUmdETUFKRVkifQ.ygQOk5OZ0_nMoE6UofRi6iucfxJOFyv70IAKvwX1FJ4'
       })
     })
       .then(res => res.json())
@@ -179,7 +179,7 @@ export const TawridApi = {
       method: 'GET',
       headers:({
         'token': 
-        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjM0ODExNiwiZXhwIjoxNTQyNDM0NTE2LCJuYmYiOjE1NDIzNDgxMTYsImp0aSI6Im1UbkJ4cENseXlTUkFWdUUifQ.U9J5iLU0dMp6PUWv_mOh4aBaw5VtkBK5-uz5bOwOoPE'
+        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjM2MzU1NiwiZXhwIjoxNTQyNDQ5OTU2LCJuYmYiOjE1NDIzNjM1NTYsImp0aSI6IkhHak9ZdnVTUmdETUFKRVkifQ.ygQOk5OZ0_nMoE6UofRi6iucfxJOFyv70IAKvwX1FJ4'
       })
     })
       .then(res => res.json())
@@ -202,7 +202,7 @@ export const TawridApi = {
       method: 'GET',
       headers:({
         'token': 
-        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjM0ODExNiwiZXhwIjoxNTQyNDM0NTE2LCJuYmYiOjE1NDIzNDgxMTYsImp0aSI6Im1UbkJ4cENseXlTUkFWdUUifQ.U9J5iLU0dMp6PUWv_mOh4aBaw5VtkBK5-uz5bOwOoPE'
+        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjM2MzU1NiwiZXhwIjoxNTQyNDQ5OTU2LCJuYmYiOjE1NDIzNjM1NTYsImp0aSI6IkhHak9ZdnVTUmdETUFKRVkifQ.ygQOk5OZ0_nMoE6UofRi6iucfxJOFyv70IAKvwX1FJ4'
       })
     })
       .then(res => res.json())
@@ -226,7 +226,7 @@ export const TawridApi = {
       method: 'POST', // or 'PUT'
       body: JSON.stringify(collection), // data can be `string` or {object}!
       headers:({
-        'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjM0ODExNiwiZXhwIjoxNTQyNDM0NTE2LCJuYmYiOjE1NDIzNDgxMTYsImp0aSI6Im1UbkJ4cENseXlTUkFWdUUifQ.U9J5iLU0dMp6PUWv_mOh4aBaw5VtkBK5-uz5bOwOoPE',
+        'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjM2MzU1NiwiZXhwIjoxNTQyNDQ5OTU2LCJuYmYiOjE1NDIzNjM1NTYsImp0aSI6IkhHak9ZdnVTUmdETUFKRVkifQ.ygQOk5OZ0_nMoE6UofRi6iucfxJOFyv70IAKvwX1FJ4',
         'Content-Type': 'application/json'
       })
     }).then(res => res.json())
