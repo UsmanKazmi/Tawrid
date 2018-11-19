@@ -1,7 +1,6 @@
 import actionType from './action';
 import { Alert } from 'react-native';
 
-let storeToken = ''
 
 function doPostRequest({ url, data}) {
     console.log('Data ', JSON.stringify(data))
@@ -10,7 +9,7 @@ function doPostRequest({ url, data}) {
             method : 'POST',
             headers: {
                 "Content-Type": "application/json",
-                 token: storeToken
+                token: storeToken
             },
             body: JSON.stringify(data)
         })
@@ -24,7 +23,7 @@ function doPostRequest({ url, data}) {
         })
         .catch(err => {
             console.log( 'Error in Post Request',{ err });
-
+            
             Alert.alert(Error, 'An unknown error occured. Please contact App support team');
         });
     })
@@ -54,7 +53,6 @@ function doGetRequest({url}){
 }
 // storing token 
 function storeTokenAct(token){
-    console.log('Token from redux', token)
     storeToken = token.toString()
     console.log('Token from variable ', storeToken)
     return dispatch => {
@@ -91,18 +89,18 @@ function showBalanceAct(statementData){
             url: 'api/v1/statement/show',
             data: statementData
         })
-            .then(success => {
-                console.log('Statement Data ', success)
-                dispatch({
-                    type: actionType.showStatementBalance,
-                    data: success.data
-                })
+        .then(success => {
+            console.log('Statement Data ', success)
+            dispatch({
+                type: actionType.showStatementBalance,
+                data: success.data
             })
-            .catch(err => {
-                console.log( 'Error in showBalanceAct request',{ err });
-                Alert.alert(Error, 'An unknown error occured. Please contact App support team');
-    
-            });
+        })
+        .catch(err => {
+            console.log( 'Error in showBalanceAct request',{ err });
+            Alert.alert(Error, 'An unknown error occured. Please contact App support team');
+            
+        });
     }
 }
 // total statement api
@@ -113,44 +111,45 @@ function totalStatementAct(totalStatement) {
             url: 'api/v1/statement/total',
             data: totalStatement
         })
-            .then(success => {
-                console.log('Total Statement2 ', success)
-                dispatch({
-                    type: actionType.totalStatement,
-                    data: success.data
-                })
+        .then(success => {
+            console.log('Total Statement2 ', success)
+            dispatch({
+                type: actionType.totalStatement,
+                data: success.data
             })
-            .catch(err => {
-                console.log( 'Error in totalStatementAct request',{ err });
-                Alert.alert(Error, 'An unknown error occured. Please contact App support team');
-    
-            });
+        })
+        .catch(err => {
+            console.log( 'Error in totalStatementAct request',{ err });
+            Alert.alert(Error, 'An unknown error occured. Please contact App support team');
+            
+        });
     }
 }
 
 // function addToFav(){
-//     console.log('Add To Favourite Service initiated');
-//     return dispatch => {
-//         doGetRequest({url:'api/v1/favorite/9463/add'})
-//         .then(success => {
-//             console.log('Action ', success)
-//             dispatch({
-//                 type: actionType.addToFav,
-//                 data: success.data
-//             })
-//         })
-//         .catch(err => {
-//             console.log( 'Error in addToFav request',{ err });
-//             Alert.alert(Error, 'An unknown error occured. Please contact App support team');
-//         });
-//     }
-// }
-
-
-
-export default {
-    getOrdersDataAct,
-    showBalanceAct,
-    totalStatementAct,
-    storeTokenAct,
-}
+    //     console.log('Add To Favourite Service initiated');
+    //     return dispatch => {
+        //         doGetRequest({url:'api/v1/favorite/9463/add'})
+        //         .then(success => {
+            //             console.log('Action ', success)
+            //             dispatch({
+                //                 type: actionType.addToFav,
+                //                 data: success.data
+                //             })
+                //         })
+                //         .catch(err => {
+                    //             console.log( 'Error in addToFav request',{ err });
+                    //             Alert.alert(Error, 'An unknown error occured. Please contact App support team');
+                    //         });
+                    //     }
+                    // }
+                    
+                    
+    export let storeToken= '' ;
+                    
+    export default {
+        getOrdersDataAct,
+        showBalanceAct,
+        totalStatementAct,
+        storeTokenAct,
+    }

@@ -1,7 +1,5 @@
 import React, {Component } from 'react';
 import {Alert} from 'react-native';
-import {retrieveData} from '../helpers/Helpers';
-import { connect } from 'react-redux';
 
 export class Api extends Component {
   constructor(Props) {
@@ -11,10 +9,10 @@ export class Api extends Component {
 };
 
 //Get Token From Local Storage
-
+let TokenFromStorage = ''
 _retrieveData = async () => {
   try {
-    const TokenFromStorage = await AsyncStorage.getItem('Token for Login');
+    TokenFromStorage = await AsyncStorage.getItem('Token for Login');
     if (TokenFromStorage !== null) {
       // We have data!!
       alert('TokenFromStorage')
@@ -23,12 +21,11 @@ _retrieveData = async () => {
    } catch (error) {
      // Error retrieving data
      alert('Cannot Retrieve Token from Local Storage')
-
    }
 }
 
+let storeToken = ''
 export const TawridApi = {
-  
   async Login(collection) {
     var url = 'http://portal.tawrid.store/api/v1/login';
     return fetch(url, {
@@ -40,7 +37,9 @@ export const TawridApi = {
       })
     }).then(res => res.json())
     .then(response => {
-      // console.log('Success:', response);
+      storeToken = response.data.token.toString()
+      console.log('login Response ', storeToken);
+
       return response;
     })
     .catch(error => { 
@@ -51,13 +50,11 @@ export const TawridApi = {
   // get New Products
   async getNewProduct() {
     console.log('started')
-    let token = retrieveData('Token for Login');
-    console.log('token ', token)
     var url= "http://portal.tawrid.store/api/v1/product/626/show?include=tags,categories,company,features";
     return fetch(url, {
       method: 'GET',
       headers:({
-        'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjQ2NTkwMywiZXhwIjoxNTQyNTUyMzAzLCJuYmYiOjE1NDI0NjU5MDMsImp0aSI6Ilgwa0FDY0kyNHg5TUJVa2wifQ.P0GaRvQLeckQO9aWms_oNFezAW7u81IBB6vvUMyT4zk'
+        token: storeToken
       })
     })
       .then(res => res.json())
@@ -96,7 +93,7 @@ export const TawridApi = {
     return fetch(url, {
       method: 'GET',
       headers:({
-        'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjQ2NTkwMywiZXhwIjoxNTQyNTUyMzAzLCJuYmYiOjE1NDI0NjU5MDMsImp0aSI6Ilgwa0FDY0kyNHg5TUJVa2wifQ.P0GaRvQLeckQO9aWms_oNFezAW7u81IBB6vvUMyT4zk'
+        'token': storeToken
       })
     })
       .then(res => res.json())
@@ -115,8 +112,7 @@ export const TawridApi = {
     return fetch(url, {
       method: 'GET',
       headers:({
-        'token': 
-        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjQ2NTkwMywiZXhwIjoxNTQyNTUyMzAzLCJuYmYiOjE1NDI0NjU5MDMsImp0aSI6Ilgwa0FDY0kyNHg5TUJVa2wifQ.P0GaRvQLeckQO9aWms_oNFezAW7u81IBB6vvUMyT4zk'
+        'token': storeToken
       })
     })
       .then(res => res.json())
@@ -135,8 +131,7 @@ export const TawridApi = {
     return fetch(url,  {
       method: 'GET',
       headers:({
-        'token': 
-        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjQ2NTkwMywiZXhwIjoxNTQyNTUyMzAzLCJuYmYiOjE1NDI0NjU5MDMsImp0aSI6Ilgwa0FDY0kyNHg5TUJVa2wifQ.P0GaRvQLeckQO9aWms_oNFezAW7u81IBB6vvUMyT4zk'
+        token: storeToken
       })
     })
       .then(res => res.json())
@@ -156,8 +151,7 @@ export const TawridApi = {
     return fetch(url,  {
       method: 'GET',
       headers:({
-        'token': 
-        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjQ2NTkwMywiZXhwIjoxNTQyNTUyMzAzLCJuYmYiOjE1NDI0NjU5MDMsImp0aSI6Ilgwa0FDY0kyNHg5TUJVa2wifQ.P0GaRvQLeckQO9aWms_oNFezAW7u81IBB6vvUMyT4zk'
+        token: storeToken
       })
     })
       .then(res => res.json())
@@ -177,8 +171,7 @@ export const TawridApi = {
     return fetch(url,  {
       method: 'GET',
       headers:({
-        'token': 
-        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjQ2NTkwMywiZXhwIjoxNTQyNTUyMzAzLCJuYmYiOjE1NDI0NjU5MDMsImp0aSI6Ilgwa0FDY0kyNHg5TUJVa2wifQ.P0GaRvQLeckQO9aWms_oNFezAW7u81IBB6vvUMyT4zk'
+        token: storeToken
       })
     })
       .then(res => res.json())
@@ -188,20 +181,18 @@ export const TawridApi = {
       })
       .catch(err => {
         console.log('Error ', err)
-        Alert.alert(Error, 'An unknown error occured in Add To Favourute Service. Please contact App support team');
-
+        Alert.alert(Error, 
+          'An unknown error occured in Add To Favourute Service. Please contact App support team');
         return err
       })
   },
-
 
   async removeFromFav() {
     var url= "http://portal.tawrid.store/api/v1/favorite/9467/remove";
     return fetch(url,  {
       method: 'GET',
       headers:({
-        'token': 
-        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjQ2NTkwMywiZXhwIjoxNTQyNTUyMzAzLCJuYmYiOjE1NDI0NjU5MDMsImp0aSI6Ilgwa0FDY0kyNHg5TUJVa2wifQ.P0GaRvQLeckQO9aWms_oNFezAW7u81IBB6vvUMyT4zk'
+        token: storeToken
       })
     })
       .then(res => res.json())
@@ -225,22 +216,16 @@ export const TawridApi = {
       method: 'POST', // or 'PUT'
       body: JSON.stringify(collection), // data can be `string` or {object}!
       headers:({
-        'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjQ2NTkwMywiZXhwIjoxNTQyNTUyMzAzLCJuYmYiOjE1NDI0NjU5MDMsImp0aSI6Ilgwa0FDY0kyNHg5TUJVa2wifQ.P0GaRvQLeckQO9aWms_oNFezAW7u81IBB6vvUMyT4zk',
-        'Content-Type': 'application/json'
+        token: storeToken
       })
     }).then(res => res.json())
     .then(response => {
       console.log('Success: from AddtoCart Service', response);
       return response;
-
     })
     .catch(error => {
       console.log('Error: ', error);
       Alert.alert(Error , 'An unknown error occured in remove from AddtoCart Service. Please contact App support team');
-
     });
   },
-
-
-
 }
