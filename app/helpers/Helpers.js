@@ -5,7 +5,7 @@ class Helpers extends Component {
     
 };
 
-export const retrieveData = async (key) => {
+export const _retrieveData = async (key) => {
     try {
         const value = await AsyncStorage.getItem(key);
         if (value !== null) {

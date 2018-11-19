@@ -6,17 +6,14 @@ import RouteOrders from '../config/RouteOrders';
 import { Search } from '../components/Search';
 import Action from '../Store/ActionCenter';
 import {connect} from 'react-redux';
-import { TawridApi } from '../utilities/Api';
 import { _retrieveData } from '../helpers/Helpers';
 
 class Orders extends Component {
 
   constructor(Props) {
     // this.onSuccessLogin = this.onSuccessLogin.bind(this);
-
     super(Props);
     this.state = {
-  
       loading: false,
       response: [],
     }
@@ -43,6 +40,7 @@ class Orders extends Component {
 
   // componentDidMount(){
   //   this.getProduct_list();
+  //   this._retrieveData('Login')
   // }
 
   UNSAFE_componentWillMount(){
@@ -84,13 +82,11 @@ function mapDispatchToProps(dispatch){
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Orders);
 
-
 const styles = StyleSheet.create({
   newProductView: {
     paddingTop: 10,
     paddingBottom: 10,
   },
-
   container: {
     backgroundColor: Colors.White,
     flex: 1,
@@ -105,12 +101,10 @@ const styles = StyleSheet.create({
   tabFont: {
     fontSize: 15,
     fontFamily: 'DIN Next LT Arabic',
-    // textTransform: 'uppercase',
     width: Dimensions.get('window').width / 2,
     paddingTop: 10,
     paddingBottom: 10,
     textAlign: 'center',
-
   },
   tabItem: {
     alignItems: 'center',
@@ -124,7 +118,6 @@ const styles = StyleSheet.create({
     paddingBottom: 15,
     paddingLeft: 20,
     paddingRight: 20,
-
   },
   navBarTitle: {
     flexDirection: 'row',

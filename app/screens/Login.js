@@ -131,10 +131,10 @@ class Login extends Component {
   onSuccessLogin() {
     this.props.navigation.navigate("storeTab");
     // this.refs.toast.show('hello world!');
-
   }
   saveTokenInLocalStorage() {
     let token = this.state.response.data.token;
+    this._storeData('Login', token)
     // storing token in redux
     this.props.storeToken(token)
     console.log('The Token is', token)

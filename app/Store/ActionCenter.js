@@ -1,6 +1,8 @@
 import actionType from './action';
 import { Alert } from 'react-native';
 
+let storeToken = ''
+
 function doPostRequest({ url, data}) {
     console.log('Data ', JSON.stringify(data))
     return new Promise( resolve => {
@@ -8,7 +10,7 @@ function doPostRequest({ url, data}) {
             method : 'POST',
             headers: {
                 "Content-Type": "application/json",
-                 token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjM2MzU1NiwiZXhwIjoxNTQyNDQ5OTU2LCJuYmYiOjE1NDIzNjM1NTYsImp0aSI6IkhHak9ZdnVTUmdETUFKRVkifQ.ygQOk5OZ0_nMoE6UofRi6iucfxJOFyv70IAKvwX1FJ4'
+                 token: storeToken
             },
             body: JSON.stringify(data)
         })
@@ -33,7 +35,7 @@ function doGetRequest({url}){
         fetch('http://portal.tawrid.store/'+ url,{
             method : 'GET',
             headers: {
-                token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5nIjoiZW4iLCJzdWIiOjMsImlzcyI6Imh0dHA6Ly9wb3J0YWwudGF3cmlkLnN0b3JlL2FwaS92MS9sb2dpbiIsImlhdCI6MTU0MjM2MzU1NiwiZXhwIjoxNTQyNDQ5OTU2LCJuYmYiOjE1NDIzNjM1NTYsImp0aSI6IkhHak9ZdnVTUmdETUFKRVkifQ.ygQOk5OZ0_nMoE6UofRi6iucfxJOFyv70IAKvwX1FJ4'
+                token: storeToken
             }
         })
         .then(res => res.json())
@@ -52,6 +54,9 @@ function doGetRequest({url}){
 }
 // storing token 
 function storeTokenAct(token){
+    console.log('Token from redux', token)
+    storeToken = token.toString()
+    console.log('Token from variable ', storeToken)
     return dispatch => {
         dispatch({
             type: actionType.storeToken,
