@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import {StyleSheet, Platform, View, StatusBar} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 import {Colors} from './helpers/Helpers';
-import Routes from './config/Routes';
+import Routes, { navigationDrawer } from './config/Routes';
 import {Provider} from 'react-redux';
 import store from './Store/Index';
-
+import { _retrieveData } from '../app/helpers/Helpers';
 
 const MyStatusBar = (Props) => (
   <View style={[styles.statusBar, { backgroundColor: Colors.Green }]}>
@@ -14,9 +14,22 @@ const MyStatusBar = (Props) => (
 );
 
 export default class App extends Component {
+
+  constructor(){
+    super()
+    this.state = {
+      isEmail: false
+    }
+  }
   
   componentWillMount() {
-    // before view appear
+   _retrieveData('UserEmail').then(value => {
+     console.log('Email Is ', value)
+     this.setState({
+       isEmail: true,
+       userData: value
+     })
+   })
   }
  
   componentDidMount() {
@@ -24,13 +37,22 @@ export default class App extends Component {
     SplashScreen.hide();
   }
 
+  showUi = ()=> {
+    let {isEmail} = this.state;
+    if(isEmail) 
+      return <navigationDrawer />
+  
+    else
+      return <Routes/>
+  }
   render() {
     console.disableYellowBox = true; 
     return (
       <Provider store={store}>
         <View style={styles.container}>
-          <MyStatusBar barStyle="light-content" animated={true}/>    
-          <Routes/>
+          <MyStatusBar barStyle="light-content" animated={true}/>  
+          {/* {this.showUi()}   */}
+          <Routes />
         </View>
       </Provider>
     );

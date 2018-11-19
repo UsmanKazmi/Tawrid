@@ -30,8 +30,8 @@ class ActiveOrders extends Component {
                 <View style={styles.mainView}>
                     {   this.state.loading ?
                             <Loader style={styles.loadingAnimation} loading={this.state.loading} 
-                            color={'#000'} size={'small'}  
-                            height={100} width={200} /> 
+                            color={'#000'} size={'large'}  
+                            height={350} width={200} /> 
                             :
                             this.props.data.map((data, index)=> {
                                 return (

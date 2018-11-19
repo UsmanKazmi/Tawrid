@@ -17,7 +17,7 @@ export default class MyProduct extends Component {
     
     UNSAFE_componentWillMount(){
         TawridApi.getMyProduct().then(value => {
-            // console.log('my ', value.data)
+            console.log('my product ', value.data)
             this.setState({
                 response: value.data,
                 loading: false

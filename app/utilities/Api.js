@@ -39,7 +39,6 @@ export const TawridApi = {
     .then(response => {
       storeToken = response.data.token.toString()
       console.log('login Response ', storeToken);
-
       return response;
     })
     .catch(error => { 
@@ -59,7 +58,7 @@ export const TawridApi = {
     })
       .then(res => res.json())
       .then(response => {
-        console.log('Success', response)
+        console.log('Success Get My Product', response)
         return response;
       })
       .catch(err => {
@@ -93,12 +92,12 @@ export const TawridApi = {
     return fetch(url, {
       method: 'GET',
       headers:({
-        'token': storeToken
+        token: storeToken
       })
     })
       .then(res => res.json())
       .then(response => {
-        // console.log('Success', response)
+        console.log('Success1', response)
         return response;
       })
       .catch(err => {
@@ -202,7 +201,8 @@ export const TawridApi = {
       })
       .catch(err => {
         console.log('Error ', err)
-        Alert.alert(Error , 'An unknown error occured in remove from favorite Service. Please contact App support team');
+        Alert.alert(Error , 
+          'An unknown error occured in remove from favorite Service. Please contact App support team');
         return err
       })
   },
@@ -210,8 +210,6 @@ export const TawridApi = {
   async AddtoCart(collection) {
     console.log("Collection in AddtoCart is ", collection)
     var url = 'http://portal.tawrid.store/api/v1/cart/'+collection.productID+'/'+collection.method;
-    console.log("URL IS", url)
-
     return fetch(url, {
       method: 'POST', // or 'PUT'
       body: JSON.stringify(collection), // data can be `string` or {object}!
@@ -225,7 +223,8 @@ export const TawridApi = {
     })
     .catch(error => {
       console.log('Error: ', error);
-      Alert.alert(Error , 'An unknown error occured in remove from AddtoCart Service. Please contact App support team');
+      Alert.alert(Error , 
+        'An unknown error occured in remove from AddtoCart Service. Please contact App support team');
     });
   },
 }

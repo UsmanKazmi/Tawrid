@@ -17,7 +17,7 @@ class Login extends Component {
       console.log('The Value For Storage is: ', valueForStorage)
     }
     catch (error) {
-      alert("Error Saving Token")
+      alert("Error Saving ", keyForStorage)
     }
   }
 
@@ -140,7 +140,8 @@ class Login extends Component {
     console.log('The Token is', token)
   }
   getUserData() {
-    let userData = this.state.response.data.type
+    let userEmail = this.state.response.data.email
+    this._storeData('UserEmail', userEmail)
   }
 
   render() {

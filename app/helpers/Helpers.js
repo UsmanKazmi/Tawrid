@@ -9,7 +9,7 @@ export const _retrieveData = async (key) => {
     try {
         const value = await AsyncStorage.getItem(key);
         if (value !== null) {
-            console.log('Data from storage is',value );
+            console.log('Data from storage is ',value );
             return value
         }
     } 

@@ -853,18 +853,15 @@ const ClientStack = createStackNavigator({
 }
 )
 
-const navigationDrawer = createDrawerNavigator({
-
+export const navigationDrawer = createDrawerNavigator({
     Home: {
         screen: ClientStack
     },
 },
-
     {
         contentComponent: SideMenu,
         drawerWidth: 300
     }
-
 );
 
 
@@ -875,34 +872,21 @@ const AuthenticationStack = createStackNavigator({
     // forgotPassword:ForgotPassword,
 }
 
-
-
 )
 
 const MainStack = createSwitchNavigator({
- 
-
     authenticationStack: AuthenticationStack, //stack for login,register,forgotpassword
-
     navigationDrawer: {
         screen: navigationDrawer
     },
-
-
     //stack for tabs when we logged in
 })
-
-
-
 
 class Routes extends Component {
     render() {
         return (<MainStack />)
     }
 }
-
-
-
 export default Routes;
 
 
