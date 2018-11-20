@@ -30,28 +30,23 @@ import OrderSelected from '../screens/OrderSelected';
 import OrdersDetails from '../screens/OrderDetails';
 import Notification from '../screens/Notification';
 import MyStatementSheet from '../screens/MyStatementSheet';
-import Search from '../components/Search';
-import SearchTags from '../screens/TabSearch';
+import { Search } from '../components/Search';
+
+
 
 //stacks for HomePage Tabs Routing
 const GridView = createStackNavigator({
         tabproduct: {
             screen: TabProducts,
+            navigationOptions: ({ navigation }) => {
+                return {
+
+                }
+            }
         },
         gridview: {
             screen: CardGridView
         },
-        searchTags: {
-            screen: Search
-        },
-        searchTab: {
-            screen: SearchTags
-        }
-    },
-    {
-        navigationOptions: {
-            header: null
-        }
     }
 )
 
@@ -508,12 +503,16 @@ const OrdersActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/statementsactive.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/statementsinactive.png')} size={10} />
             )
+
         }
     },
+
+
 },
     {
         initialRouteName:'ordersTab',
         tabBarOptions: {
+
             showLabel: false,
             activeTintColor: '#fff',
             inactiveTintColor: '#bdb1cc',
@@ -539,7 +538,10 @@ const CartActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/home_active.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/home_inactive.png')} size={10} />
             )
+
         }
+
+
     },
     ordersTab: {
         screen: MyOrdersTab,
@@ -562,6 +564,7 @@ const CartActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/addtocardActive.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/addtocardInActive.png')} size={10} />
             )
+
         }
     },
     MyChatTab: {
@@ -573,6 +576,7 @@ const CartActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/chatactive.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/chatinactive.png')} size={10} />
             )
+
         }
     },
     MyStatementSheet: {
@@ -584,12 +588,16 @@ const CartActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/statementsactive.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/statementsinactive.png')} size={10} />
             )
+
         }
     },
+
+
 },
     {
         initialRouteName:'cartTab',
         tabBarOptions: {
+
             showLabel: false,
             activeTintColor: '#fff',
             inactiveTintColor: '#bdb1cc',
@@ -600,6 +608,7 @@ const CartActiveTabs = createBottomTabNavigator({
                 right: 0,
                 bottom: 0,
             },
+
         }
     }
 );
@@ -807,7 +816,7 @@ const ClientStack = createStackNavigator({
     },
     OrderSelected: {
         screen: OrderSelected
-    },
+    }
 },
 {
     navigationOptions: {
@@ -861,6 +870,8 @@ const styles = StyleSheet.create({
         fontFamily: 'DIN Next LT Arabic',
         fontWeight: 'bold',
         color: Colors.DarkGrey,
+
+
     },
     titleTextView: {
         flex: 1,

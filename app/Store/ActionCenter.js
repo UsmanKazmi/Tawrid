@@ -126,27 +126,6 @@ function totalStatementAct(totalStatement) {
     }
 }
 
-// search
-function searchAct(text){
-    return dispatch => {
-        doPostRequest({
-            url: 'api/v1/search',
-            data: text
-        })
-        .then(success => {
-            console.log('Search ', success)
-            dispatch({
-                type: actionType.search,
-                data: success.data
-            })
-        })
-        .catch(err => {
-            console.log( 'Error in totalStatementAct request',{ err });
-            Alert.alert(Error + 'An unknown error occured. Please contact App support team');
-        });
-    }
-}
-
 // function addToFav(){
     //     console.log('Add To Favourite Service initiated');
     //     return dispatch => {
@@ -173,5 +152,4 @@ function searchAct(text){
         showBalanceAct,
         totalStatementAct,
         storeTokenAct,
-        searchAct,
     }

@@ -4,5 +4,4 @@ export default {
     totalStatement: 'TOTAL_STATEMENT',
     storeToken: 'STORE_TOKEN',
     addToFav:'ADD_TO_FAV',
-    search: 'SEARCH'
 }

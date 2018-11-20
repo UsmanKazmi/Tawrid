@@ -229,21 +229,4 @@ export const TawridApi = {
         'An unknown error occured in remove from AddtoCart Service. Please contact App support team');
     });
   },
-  async searchApi(){
-    var url = 'http://portal.tawrid.store/api/v1/search';
-    return fetch(url, {
-      method: 'POST',
-      headers: ({
-        token: storeToken
-      }),
-      body: JSON.stringify({})
-    }).then(res => res.json())
-    .then(response => {
-      console.log('Search query ', response)
-      return response;
-    })
-    .catch(err => {
-      console.log('Error In Search : ', err)
-    })
-  }
 }

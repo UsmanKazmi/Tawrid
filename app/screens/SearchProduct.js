@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { Colors } from '../helpers/Helpers';
 import Icon from 'react-native-vector-icons/Entypo';
-import { connect } from 'react-redux';
 
-class SearchProduct extends Component {
+export default class SearchProduct extends Component {
     render() {
         return (
             <View style={{flex: 1}}>
@@ -39,13 +38,6 @@ class SearchProduct extends Component {
         )
     }
 }
-function mapStateToProps(state){
-    console.log('Search abc ', state)
-    return {
-        data: state.SearchReducer
-    }
-}
-export default connect(mapStateToProps, null)(SearchProduct)
 
 const styles = StyleSheet.create({
     Header: {
