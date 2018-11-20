@@ -34,12 +34,12 @@ class NewProduct extends Component {
         return (
             <ScrollView >
                 <View style={styles.mainView}>
-                    {this.state.response ? 
-                        <CardNewProduct data={[this.state.response, this.state.img]}/>
-                        :
+                    {this.state.loading ? 
                         <Loader style={styles.loadingAnimation} loading={this.state.loading} 
-                        color={'#000'} size={'small'}  
-                        height={100} width={200} />
+                        color={'#000'} size={'large'}  
+                        height={200} width={200} />
+                        :
+                        <CardNewProduct data={[this.state.response, this.state.img]}/>
                     }
                 </View>
             </ScrollView>

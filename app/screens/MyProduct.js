@@ -2,20 +2,20 @@ import React, { Component } from 'react'
 import { ScrollView, StyleSheet } from 'react-native';
 import { View } from 'react-native';
 import CardMyProduct from '../components/CardMyProduct';
-import { TawridApi } from  '../utilities/Api';
+import { TawridApi } from '../utilities/Api';
 import Loader from '../components/Loader';
 import { _retrieveData, Colors } from '../helpers/Helpers';
 
 export default class MyProduct extends Component {
-    constructor(){
+    constructor() {
         super();
         this.state = {
             response: [],
             loading: true
         }
     }
-    
-    UNSAFE_componentWillMount(){
+
+    UNSAFE_componentWillMount() {
         TawridApi.getMyProduct().then(value => {
             console.log('my product ', value.data)
             this.setState({
@@ -30,23 +30,23 @@ export default class MyProduct extends Component {
             <ScrollView>
                 <View style={styles.mainView}>
                     {
-                        this.state.response ? 
-                            <CardMyProduct data={this.state.response}/>
-                            : 
-                            <Loader style={styles.loadingAnimation} loading={this.state.loading} 
-                            color={'#000'} size={'large'}  
-                            height={100} width={200} />
+                        this.state.loading ?
+                            <Loader style={styles.loadingAnimation} loading={this.state.loading}
+                                color={'#000'} size={'large'}
+                                height={200} width={200} />
+                            :
+                            <CardMyProduct data={this.state.response} />
                     }
                 </View>
             </ScrollView>
         )
     }
 }
- 
+
 const styles = StyleSheet.create({
-    mainView: { 
-        paddingBottom: 30, 
-        backgroundColor:Colors.White 
+    mainView: {
+        paddingBottom: 30,
+        backgroundColor: Colors.White
     }
 })
 

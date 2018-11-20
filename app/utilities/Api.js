@@ -55,7 +55,7 @@ export const TawridApi = {
       headers:({
         token: storeToken
       }),
-      body: JSON.stringify()
+      body: JSON.stringify({is_new: 1})
     })
       .then(res => res.json())
       .then(response => {

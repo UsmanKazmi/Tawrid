@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Colors } from '../helpers/Helpers';
-import { Image, Text, View, StyleSheet, TouchableOpacity, Dimensions, Platform, Share} from 'react-native';
+import { Image, Text, View, StyleSheet, TouchableOpacity, Dimensions, Platform, Share } from 'react-native';
 import Swiper from 'react-native-swiper';
 import Loader from '../components/Loader';
 import { TawridApi } from '../utilities/Api';
@@ -13,7 +13,7 @@ class CardNewProduct extends Component {
     constructor() {
         super();
         this.state = {
-            loading: true
+            loading: false
         }
     }
     componentDidMount() {
@@ -86,15 +86,17 @@ class CardNewProduct extends Component {
     }
 
     addtoFav = (data) => {
+        this.setState({loading: true})
         const productID = data.id
         TawridApi.addToFav(productID).then(value => {
             this.setState({
                 response: value,
+                loading: false
             });
             if (this.state.response) {
                 console.log('addtoFav response from server ', this.state.response)
                 if (this.state.response.status == 'success') {
-                alert(data.name + " is added to favourite")    
+                    alert(data.name + " is added to favourite")
                 } else if (this.state.response.status == 'error') {
                     Alert.alert(this.state.response.message);
                 } else {
@@ -110,22 +112,18 @@ class CardNewProduct extends Component {
         console.log('Tags ', tag)
     }
 
-
     addtoCart = (data) => {
-
-        let collection = {
-            
-        }
+        this.setState({ loading: true })
+        let collection = {}
         collection.productID = data.id;
         collection.method = 'add';
         collection.note = 'Test';
         collection.quantity = '11';
-
         TawridApi.AddtoCart(collection).then(value => {
             console.log('value', value)
             this.setState({
                 response: value,
-
+                loading: false
             });
             if (this.state.response) {
                 console.log('Success:  Response from AddtoCart Method ', this.state.response);
@@ -147,7 +145,6 @@ class CardNewProduct extends Component {
                 });
                 console.log('Error: AddtoCart Method ', error);
             });
-
     }
 
     render() {
@@ -167,76 +164,82 @@ class CardNewProduct extends Component {
                                     />
                                 </View>
                             )
-                        }) :
-                        <Loader style={styles.loadingAnimation} loading={this.state.loading}
-                            color={'#000'} size={'small'}
-                            height={100} width={200} />
+                        }) : null
                     }
                 </Swiper>
-                {this.props.data[0].map((data, index) => {
-                    console.log('data ', data)
-                    return (
-                        <View key={index} style={{ backgroundColor: Colors.LightGreen, marginBottom: 20 }}>
-                            <View style={{ flexDirection: "row" }}>
-                                <Text style={styles.cardTitle}>
-                                    {data.name}
-                                </Text>
-                                <TouchableOpacity style={styles.tagBtn} onPress={() => this.tags(data.tags)}>
-                                    <Image style={styles.tagImage}
-                                        source={require('../../assets/icons/loyalitybadge.png')}
-                                    />
-                                </TouchableOpacity>
-                                <Text style={styles.cardPrice}>
-                                    {data.currency}{data.price}
-                                </Text>
-                            </View>
-                            <Text style={styles.cardSubTitle}>
-                                {data.quantity} {data.unit} in {data.package}
-                            </Text>
-                            <View
-                                style={{
-                                    borderBottomColor: 'white',
-                                    borderBottomWidth: StyleSheet.hairlineWidth,
-                                }}
-                            />
-                            <View style={styles.bottomIcons}>
-                                <TouchableOpacity style={styles.bottomButtons}
-                                    onPress={() => this.addtoCart(data)}>
-                                    <Image style={styles.bottomImage}
-                                        source={require('../../assets/icons/addtocart.png')}
-                                    />
-                                </TouchableOpacity>
-                                <TouchableOpacity style={styles.bottomButtons}
-                                    onPress={() => this.addtoFav(data)}>
-                                    <Image style={styles.bottomImage}
-                                        source={require('../../assets/icons/fav.png')}
-                                    />
-                                </TouchableOpacity>
-                                <TouchableOpacity style={styles.bottomButtons}
-                                    onPress={() => this.openChat(data)}
-                                >
-                                    <Image style={styles.bottomImage}
-                                        source={require('../../assets/icons/comment.png')}
-                                    />
-                                </TouchableOpacity>
-                                <TouchableOpacity style={styles.bottomButtons}
-                                    onPress={() => this.shareData(data)}
-                                >
-                                    <Image style={styles.bottomImage}
-                                        source={require('../../assets/icons/share.png')}
-                                    />
-                                </TouchableOpacity>
-                                <TouchableOpacity style={styles.bottomButtons}
-                                    onPress={() => this.info(data)}
-                                >
-                                    <Image style={styles.bottomImage}
-                                        source={require('../../assets/icons/info.png')}
-                                    />
-                                </TouchableOpacity>
-                            </View>
+                {
+                    this.props.data && this.state.loading ?
+                        <View style={{alignItems: 'center', justifyContent: 'flex-start', marginBottom: 90}}>
+                        <Loader style={[styles.loadingAnimation, {marginBottom: 20}]} loading={this.state.loading}
+                            color={'#ff000'} size={'large'} />
                         </View>
-                    )
-                })}
+                        :
+                        this.props.data[0].map((data, index) => {
+                            console.log('data ', data)
+                            return (
+                                <View key={index} style={{ backgroundColor: Colors.LightGreen, marginBottom: 20 }}>
+                                    <View style={{ flexDirection: "row" }}>
+                                        <Text style={styles.cardTitle}>
+                                            {data.name}
+                                        </Text>
+                                        <TouchableOpacity style={styles.tagBtn} onPress={() => this.tags(data.tags)}>
+                                            <Image style={styles.tagImage}
+                                                source={require('../../assets/icons/loyalitybadge.png')}
+                                            />
+                                        </TouchableOpacity>
+                                        <Text style={styles.cardPrice}>
+                                            {data.currency}{data.price}
+                                        </Text>
+                                    </View>
+                                    <Text style={styles.cardSubTitle}>
+                                        {data.quantity} {data.unit} in {data.package}
+                                    </Text>
+                                    <View
+                                        style={{
+                                            borderBottomColor: 'white',
+                                            borderBottomWidth: StyleSheet.hairlineWidth,
+                                        }}
+                                    />
+                                    <View style={styles.bottomIcons}>
+                                        <TouchableOpacity style={styles.bottomButtons}
+                                            onPress={() => { this.addtoCart(data) }}>
+                                            <Image style={styles.bottomImage}
+                                                    source={require('../../assets/icons/addtocart.png')}
+                                                />
+                                        </TouchableOpacity>
+                                        <TouchableOpacity style={styles.bottomButtons}
+                                            onPress={() => this.addtoFav(data)}>
+                                            <Image style={styles.bottomImage}
+                                                source={require('../../assets/icons/fav.png')}
+                                            />
+                                        </TouchableOpacity>
+                                        <TouchableOpacity style={styles.bottomButtons}
+                                            onPress={() => this.openChat(data)}
+                                        >
+                                            <Image style={styles.bottomImage}
+                                                source={require('../../assets/icons/comment.png')}
+                                            />
+
+                                        </TouchableOpacity>
+                                        <TouchableOpacity style={styles.bottomButtons}
+                                            onPress={() => this.shareData(data)}
+                                        >
+                                            <Image style={styles.bottomImage}
+                                                source={require('../../assets/icons/share.png')}
+                                            />
+                                        </TouchableOpacity>
+                                        <TouchableOpacity style={styles.bottomButtons}
+                                            onPress={() => this.info(data)}
+                                        >
+                                            <Image style={styles.bottomImage}
+                                                source={require('../../assets/icons/info.png')}
+                                            />
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
+                            )
+                        })
+                }
             </View>
         );
     }

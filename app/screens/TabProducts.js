@@ -45,7 +45,7 @@ export default class TabProducts extends Component{
           <View style={styles.container}>
               <StatusBar barStyle="light-content"/>
               <View style={styles.searchBox}>
-                <Search placeholder={'Search Products...'}/>
+                <Search placeholder={'Search Products...'} />
               </View>
               <View style={{flex:1,width:100+'%'}}>
                 <RouteProducts/>
