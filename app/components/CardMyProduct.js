@@ -69,15 +69,16 @@ class CardMyProduct extends Component {
           })
     }
 
-    addtoFav = () => {   
-        TawridApi.addToFav().then(value => {
+    addtoFav = (data) => {   
+        const productID = data.product.data.id
+        TawridApi.addToFav(productID).then(value => {
             this.setState({
               response: value,
             });
             if (this.state.response) {
               console.log('addtoFav response from server ', this.state.response)
               if (this.state.response.status == 'success') {
-                alert("added to favourite")    
+                alert(productID +" is added to favourite")    
               } else if (this.state.response.status == 'error') {
                 Alert.alert(this.state.response.message);
               } else {
@@ -183,7 +184,7 @@ class CardMyProduct extends Component {
                                                 />
                                             </TouchableOpacity>
                                             <TouchableOpacity style={styles.bottomButtons}
-                                            onPress={() => this.addtoFav()}>
+                                            onPress={() => this.addtoFav(data)}>
                                             <Image
                                                     style={{ height: 20, width: 20, }}
                                                     source={require('../../assets/icons/fav.png')}

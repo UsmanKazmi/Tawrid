@@ -30,13 +30,19 @@ import OrderSelected from '../screens/OrderSelected';
 import OrdersDetails from '../screens/OrderDetails';
 import Notification from '../screens/Notification';
 import MyStatementSheet from '../screens/MyStatementSheet';
+import { Search } from '../components/Search';
 
 
 
 //stacks for HomePage Tabs Routing
 const GridView = createStackNavigator({
         tabproduct: {
-            screen: TabProducts
+            screen: TabProducts,
+            navigationOptions: ({ navigation }) => {
+                return {
+
+                }
+            }
         },
         gridview: {
             screen: CardGridView
@@ -44,19 +50,12 @@ const GridView = createStackNavigator({
     }
 )
 
-
-
-
-
-
-
 // -----------------------STACKS FOR PAGES ----------------------//
 
 const MyStoreTabs = createStackNavigator({
     FirstTab: {
         screen: GridView,
         navigationOptions: ({ navigation }) => {
-
             return {
                 headerStyle: {
                     elevation: 0,
@@ -67,18 +66,14 @@ const MyStoreTabs = createStackNavigator({
                         {'My Store'}
                     </Text>
                 </View>,
-
                 headerLeft: <View style={{ flexDirection: 'row' }}>
-
                     <TouchableOpacity
                         onPress={() => navigation.toggleDrawer()}
                         style={styles.filterIcon}>
                         <Image
                             source={require('../../assets/icons/menu.png')}
                             style={{ marginLeft: 10, width: 20, height: 20 }} />
-
                     </TouchableOpacity>
-
                     <TouchableOpacity
                         onPress={() => navigation.navigate('tabproduct')}
                         style={styles.filterIcon}>
@@ -257,23 +252,16 @@ const MyStatementsTab = createStackNavigator({
                         {'My Statements'}
                     </Text>
                 </View>,
-
                 headerLeft: <View style={{ flexDirection: 'row' }}>
-
                     <TouchableOpacity
                         onPress={() => navigation.toggleDrawer()}
                         style={styles.filterIcon}>
                         <Image
                             source={require('../../assets/icons/menu.png')}
                             style={{ marginLeft: 10, width: 20, height: 20 }} />
-
                     </TouchableOpacity>
-
-
                 </View>,
-
                 headerRight: <View style={{ flexDirection: 'row' }}>
-
                     <TouchableOpacity
                         onPress={() => navigation.toggleDrawer()}
                         style={styles.filterIcon}>
@@ -292,15 +280,11 @@ const ProfilePage_withHeader = createStackNavigator({
     FirstTab: {
         screen: Profile,
         navigationOptions: ({ navigation }) => {
-
             return {
-                style:{
-                    
-                },
+                style:{},
                 headerStyle: {
                     elevation: 3,
                     shadowOpacity: 0,
-                    
                 },
                 headerTitle: <View style={styles.titleTextView}>
                     <Text style={styles.titleText}>
@@ -335,13 +319,6 @@ const ProfilePage_withHeader = createStackNavigator({
 })
 
 // -----------------------STACKS FOR PAGES END----------------------//
-
-
-
-
-
-
-
 
 const NotificationStack = createStackNavigator({
     FirstTab: {
@@ -769,7 +746,6 @@ const StatementActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/chatactive.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/chatinactive.png')} size={10} />
             )
-
         }
     },
     MyStatementSheet: {
@@ -781,14 +757,12 @@ const StatementActiveTabs = createBottomTabNavigator({
                     ? <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/statementsactive.png')} size={10} />
                     : <Image resizeMode={'contain'} style={{ width: 25, height: 25 }} source={require('../../assets/icons/statementsinactive.png')} size={10} />
             )
-
         }
     },
 },
     {
         initialRouteName:'MyStatementSheet',
         tabBarOptions: {
-
             showLabel: false,
             activeTintColor: '#fff',
             inactiveTintColor: '#bdb1cc',
@@ -799,12 +773,10 @@ const StatementActiveTabs = createBottomTabNavigator({
                 right: 0,
                 bottom: 0,
             },
-
         }
     }
 );
 // -----------------------STACKS FOR ACTIVE TABS END----------------------//
-
 openDrawer = () => {
     this.navigation.navigate('home');
 }

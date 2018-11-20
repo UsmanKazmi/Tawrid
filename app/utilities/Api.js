@@ -49,12 +49,13 @@ export const TawridApi = {
   // get New Products
   async getNewProduct() {
     console.log('started')
-    var url= "http://portal.tawrid.store/api/v1/product/626/show?include=tags,categories,company,features";
+    var url= "http://portal.tawrid.store/api/v1/product/list?include=tags,categories,company,features";
     return fetch(url, {
-      method: 'GET',
+      method: 'POST',
       headers:({
         token: storeToken
-      })
+      }),
+      body: JSON.stringify()
     })
       .then(res => res.json())
       .then(response => {
@@ -165,8 +166,8 @@ export const TawridApi = {
   },
 
   //Add to favourite Service
-  async addToFav() {
-    var url= "http://portal.tawrid.store/api/v1/favorite/9463/add";
+  async addToFav(productID) {
+    var url= `http://portal.tawrid.store/api/v1/favorite/${productID}/add`;
     return fetch(url,  {
       method: 'GET',
       headers:({

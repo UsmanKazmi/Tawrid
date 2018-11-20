@@ -25,17 +25,17 @@ class CardNewProduct extends Component {
         }
     }
 
-    UNSAFE_componentWillReceiveProps(next) {
-        console.log('abc ', next.data[1])
-        next.data[1].forEach(element => {
-            images.push(element[9394])
-            images.push(element[9395])
-            images.push(element[9396])
-            images.push(element[9397])
-            images.push(element[9398])
-        });
-        next.data.splice(1, 1)
-    }
+    // UNSAFE_componentWillReceiveProps(next) {
+    //     console.log('abc ', next.data[1])
+    //     next.data[1].forEach(element => {
+    //         images.push(element[9394])
+    //         images.push(element[9395])
+    //         images.push(element[9396])
+    //         images.push(element[9397])
+    //         images.push(element[9398])
+    //     });
+    //     next.data.splice(1, 1)
+    // }
     info = (data) => {
         //OPEN Product Detail PAGE
         console.log('DATA FROM STACK', data)
@@ -85,15 +85,16 @@ class CardNewProduct extends Component {
         })
     }
 
-    addtoFav = () => {
-        TawridApi.addToFav().then(value => {
+    addtoFav = (data) => {
+        const productID = data.id
+        TawridApi.addToFav(productID).then(value => {
             this.setState({
                 response: value,
             });
             if (this.state.response) {
                 console.log('addtoFav response from server ', this.state.response)
                 if (this.state.response.status == 'success') {
-                    alert("added to favourite")
+                alert(productID + " is added to favourite")    
                 } else if (this.state.response.status == 'error') {
                     Alert.alert(this.state.response.message);
                 } else {
@@ -171,11 +172,10 @@ class CardNewProduct extends Component {
                             height={100} width={200} />
                     }
                 </Swiper>
-                {this.props.data.map((data, index) => {
+                {this.props.data[0].map((data, index) => {
+                    console.log('data ', data)
                     return (
-                        <View key={index} style={{
-                            backgroundColor: Colors.LightGreen,
-                        }}>
+                        <View key={index} style={{ backgroundColor: Colors.LightGreen, marginBottom: 20 }}>
                             <View style={{ flexDirection: "row" }}>
                                 <Text style={styles.cardTitle}>
                                     {data.name}
@@ -201,21 +201,18 @@ class CardNewProduct extends Component {
                             <View style={styles.bottomIcons}>
                                 <TouchableOpacity style={styles.bottomButtons}
                                     onPress={() => this.addtoCart()}>
-
-
                                     <Image style={styles.bottomImage}
                                         source={require('../../assets/icons/addtocart.png')}
                                     />
                                 </TouchableOpacity>
                                 <TouchableOpacity style={styles.bottomButtons}
-                                    onPress={() => this.addtoFav()}>
+                                    onPress={() => this.addtoFav(data)}>
                                     <Image style={styles.bottomImage}
                                         source={require('../../assets/icons/fav.png')}
                                     />
                                 </TouchableOpacity>
                                 <TouchableOpacity style={styles.bottomButtons}
                                     onPress={() => this.openChat(data)}
-
                                 >
                                     <Image style={styles.bottomImage}
                                         source={require('../../assets/icons/comment.png')}

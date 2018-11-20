@@ -3,11 +3,8 @@ import {Colors} from '../helpers/Helpers';
 import { createMaterialTopTabNavigator,createStackNavigator } from 'react-navigation';
 import NewProduct from '../screens/NewProduct';
 import MyProduct from '../screens/MyProduct';
-import OrdersDetails from '../screens/OrderDetails';
 import OrderSelected from '../screens/OrderSelected';
 import Chat from '../screens/Chat';
-
-
 
 //stacks for HomePage Tabs Routing
 const ProductsTab = createMaterialTopTabNavigator({
@@ -62,7 +59,6 @@ const ProductsStack = createStackNavigator({
         navigationOptions: {
         }
     },
-
 },
 
 {
