@@ -34,7 +34,7 @@ export default class MyProduct extends Component {
                             <CardMyProduct data={this.state.response}/>
                             : 
                             <Loader style={styles.loadingAnimation} loading={this.state.loading} 
-                            color={'#000'} size={'small'}  
+                            color={'#000'} size={'large'}  
                             height={100} width={200} />
                     }
                 </View>

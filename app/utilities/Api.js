@@ -89,12 +89,13 @@ export const TawridApi = {
   
   // get favourite of my product
   async getMyProduct(){
-    var url= "http://portal.tawrid.store/api/v1/favorite/list?include=product";
+    var url= "http://portal.tawrid.store/api/v1/product/list?include=tags,categories,company,features";
     return fetch(url, {
-      method: 'GET',
+      method: 'POST',
       headers:({
         token: storeToken
-      })
+      }),
+      body: JSON.stringify({my_product: 1})
     })
       .then(res => res.json())
       .then(response => {

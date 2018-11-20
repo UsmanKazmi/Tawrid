@@ -94,7 +94,7 @@ class CardNewProduct extends Component {
             if (this.state.response) {
                 console.log('addtoFav response from server ', this.state.response)
                 if (this.state.response.status == 'success') {
-                alert(productID + " is added to favourite")    
+                alert(data.name + " is added to favourite")    
                 } else if (this.state.response.status == 'error') {
                     Alert.alert(this.state.response.message);
                 } else {
@@ -111,11 +111,12 @@ class CardNewProduct extends Component {
     }
 
 
-    addtoCart = () => {
+    addtoCart = (data) => {
 
         let collection = {
+            
         }
-        collection.productID = '626';
+        collection.productID = data.id;
         collection.method = 'add';
         collection.note = 'Test';
         collection.quantity = '11';
@@ -129,7 +130,7 @@ class CardNewProduct extends Component {
             if (this.state.response) {
                 console.log('Success:  Response from AddtoCart Method ', this.state.response);
                 if (this.state.response.status == 'success') {
-                    alert("Product is successfully added to Cart")
+                    alert(data.name + " is successfully added to Cart")
                 } else if (this.state.response.status == 'error') {
                     Alert.alert(this.state.response.message);
                 } else {
@@ -200,7 +201,7 @@ class CardNewProduct extends Component {
                             />
                             <View style={styles.bottomIcons}>
                                 <TouchableOpacity style={styles.bottomButtons}
-                                    onPress={() => this.addtoCart()}>
+                                    onPress={() => this.addtoCart(data)}>
                                     <Image style={styles.bottomImage}
                                         source={require('../../assets/icons/addtocart.png')}
                                     />

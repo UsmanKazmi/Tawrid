@@ -21,117 +21,113 @@ class CardMyProduct extends Component {
     }
     info = (data) => {
         //OPEN Product Detail PAGE
-        console.log('DATA FROM STACK', data.product.data)
-        this.props.navigation.navigate('productDetails', data.product.data)
+        console.log('DATA FROM STACK', data)
+        this.props.navigation.navigate('productDetails', data)
     }
 
     shareData = (data) => {
-        console.log('Share ', data.product.data)
-        
+        console.log('Share ', data)
+
         Share.share({
-            message: data.product.data.description,
-            url: data.product.data.image_primary,
-            title: data.product.data.name
-          }, {
-            // Android only:
-            dialogTitle: data.product.data.name,
-            // iOS only:
-            excludedActivityTypes: [
-              'com.apple.UIKit.activity.PostToTwitter'
-            ]
-          })
+            message: data.description,
+            url: data.image_primary,
+            title: data.name
+        }, {
+                // Android only:
+                dialogTitle: data.name,
+                // iOS only:
+                excludedActivityTypes: [
+                    'com.apple.UIKit.activity.PostToTwitter'
+                ]
+            })
     }
 
-    openChat = (data) =>{
-        console.log(data.product.data)
-        this.props.navigation.navigate('chatScreen', data.product.data)      
-    } 
+    openChat = (data) => {
+        console.log(data)
+        this.props.navigation.navigate('chatScreen', data)
+    }
 
-    removeFromFav = () => {   
+    removeFromFav = () => {
         TawridApi.removeFromFav().then(value => {
             this.setState({
-              response: value,
-              loading: false  
+                response: value,
+                loading: false
             });
             if (this.state.response) {
-              console.log(' removeFromFav response from server ', this.state.response)
-              if (this.state.response.status == 'success') {
-                alert("Removed from favourite")    
-              } else if (this.state.response.status == 'error') {
-                Alert.alert(this.state.response.message);
-              } else {
-                Alert.alert(Error, 'An unknown error occured. Please contact App support team');
-              }
+                console.log(' removeFromFav response from server ', this.state.response)
+                if (this.state.response.status == 'success') {
+                    alert("Removed from favourite")
+                } else if (this.state.response.status == 'error') {
+                    Alert.alert(this.state.response.message);
+                } else {
+                    Alert.alert(Error, 'An unknown error occured. Please contact App support team');
+                }
             } else {
-              Alert.alert(Error, 'Request Terminated. Please check your internet or contact our support.');
+                Alert.alert(Error, 'Request Terminated. Please check your internet or contact our support.');
             }
-    
-          })
+
+        })
     }
 
-    addtoFav = (data) => {   
-        const productID = data.product.data.id
+    addtoFav = (data) => {
+        const productID = data.id
         TawridApi.addToFav(productID).then(value => {
             this.setState({
-              response: value,
+                response: value,
             });
             if (this.state.response) {
-              console.log('addtoFav response from server ', this.state.response)
-              if (this.state.response.status == 'success') {
-                alert(productID +" is added to favourite")    
-              } else if (this.state.response.status == 'error') {
-                Alert.alert(this.state.response.message);
-              } else {
-                Alert.alert(Error, 'An unknown error occured. Please contact App support team');
-              }
+                console.log('addtoFav response from server ', this.state.response)
+                if (this.state.response.status == 'success') {
+                    alert(data.name + " is added to favourite")
+                } else if (this.state.response.status == 'error') {
+                    Alert.alert(this.state.response.message);
+                } else {
+                    Alert.alert(Error, 'An unknown error occured. Please contact App support team');
+                }
             } else {
-              Alert.alert(Error, 'Request Terminated. Please check your internet or contact our support.');
+                Alert.alert(Error, 'Request Terminated. Please check your internet or contact our support.');
             }
-          })
+        })
     }
 
     tags = (tag) => {
         console.log('Tags ', tag)
     }
-
-            
-    addtoCart= () => {
-                
-                let collection = {
-                }
-                collection.productID = '626';
-                collection.method = 'add';
-                collection.note = 'Test';
-                collection.quantity = '11';
-
-                TawridApi.AddtoCart(collection).then(value => {
-                    console.log('value',value)
-                this.setState({
-                    response: value,
-                    
-                }); 
-                if (this.state.response) {
-                    console.log('Success:  Response from AddtoCart Method ',this.state.response);
-                    if (this.state.response.status == 'success') {
-                      alert("Product is successfully added to Cart")    
-                    } else if (this.state.response.status == 'error') {
-                      Alert.alert(this.state.response.message);
-                    } else {
-                      Alert.alert(Error, 'An unknown error occured. Please contact App support team');
-                    }
-                  } else {
-                    Alert.alert(Error, 'Request Terminated. Please check your internet or contact our support.');
-                  }
-
-            })
-            .catch(error =>{
-            this.setState({
-                // loading: false,
-            });
-            console.log('Error: AddtoCart Method ',error);
-            });
-
+    addtoCart = (data) => {
+        let collection = {
         }
+        collection.productID = data.id;
+        collection.method = 'add';
+        collection.note = 'Test';
+        collection.quantity = '11';
+
+        TawridApi.AddtoCart(collection).then(value => {
+            console.log('value', value)
+            this.setState({
+                response: value,
+            });
+            if (this.state.response) {
+                console.log('Success:  Response from AddtoCart Method ', this.state.response);
+                if (this.state.response.status == 'success') {
+                    alert(data.name + " is successfully added to Cart")
+                } else if (this.state.response.status == 'error') {
+                    Alert.alert(this.state.response.message);
+                } else {
+                    Alert.alert(Error, 'An unknown error occured. Please contact App support team');
+                }
+            } else {
+                Alert.alert(Error, 'Request Terminated. Please check your internet or contact our support.');
+            }
+
+        })
+            .catch(error => {
+                this.setState({
+                    // loading: false,
+                });
+                console.log('Error: AddtoCart Method ', error);
+            });
+
+    }
     render() {
         // console.log('My Products: ', this.props.data[0]);
         return (
@@ -139,7 +135,7 @@ class CardMyProduct extends Component {
                 {
                     this.props.data ?
                         this.props.data.map((data, index) => {
-                            console.log('image ', data.product.data.image_primary)
+                            console.log('image ', data.image_primary)
                             return (
                                 <View key={index} style={styles.card}>
                                     <Swiper style={styles.wrapper} showsButtons={false}
@@ -147,7 +143,7 @@ class CardMyProduct extends Component {
                                     >
                                         <View style={styles.slide1} >
                                             <Image style={styles.image}
-                                                source={{ uri: data.product.data.image_primary }}
+                                                source={{ uri: data.image_primary }}
                                             />
                                         </View>
                                     </Swiper>
@@ -156,18 +152,18 @@ class CardMyProduct extends Component {
                                     }}>
                                         <View style={{ flexDirection: "row" }}>
                                             <Text style={styles.cardTitle}>
-                                                {data.product.data.name}
+                                                {data.name}
                                             </Text>
                                             <Image style={styles.tagImage}
                                                 source={require('../../assets/icons/loyalitybadge.png')}
                                             />
                                             <Text style={styles.cardPrice}>
-                                                {data.product.data.currency}{data.product.data.price}
+                                                {data.currency}{data.price}
                                             </Text>
                                         </View>
                                         <Text style={styles.cardSubTitle}>
-                                            {data.product.data.quantity} {data.product.data.unit} in
-                                            {data.product.data.package}
+                                            {data.quantity} {data.unit} in
+                                            {data.package}
                                         </Text>
                                         <View
                                             style={{
@@ -177,21 +173,21 @@ class CardMyProduct extends Component {
                                         />
                                         <View style={{ flexDirection: "row", justifyContent: 'space-evenly' }}>
                                             <TouchableOpacity style={styles.bottomButtons}
-                                            onPress={() => this.addtoCart()}>
-                                            <Image
+                                                onPress={() => this.addtoCart(data)}>
+                                                <Image
                                                     style={{ height: 20, width: 20, }}
                                                     source={require('../../assets/icons/addtocart.png')}
                                                 />
                                             </TouchableOpacity>
                                             <TouchableOpacity style={styles.bottomButtons}
-                                            onPress={() => this.addtoFav(data)}>
-                                            <Image
+                                                onPress={() => this.addtoFav(data)}>
+                                                <Image
                                                     style={{ height: 20, width: 20, }}
                                                     source={require('../../assets/icons/fav.png')}
                                                 />
                                             </TouchableOpacity>
                                             <TouchableOpacity style={styles.bottomButtons}
-                                            onPress={() => this.openChat(data)}
+                                                onPress={() => this.openChat(data)}
                                             >
                                                 <Image
                                                     style={{ height: 20, width: 20, }}
@@ -199,7 +195,7 @@ class CardMyProduct extends Component {
                                                 />
                                             </TouchableOpacity>
                                             <TouchableOpacity style={styles.bottomButtons}
-                                            onPress={() => this.shareData(data)}
+                                                onPress={() => this.shareData(data)}
 
                                             >
                                                 <Image
@@ -208,9 +204,9 @@ class CardMyProduct extends Component {
                                                 />
                                             </TouchableOpacity>
                                             <TouchableOpacity style={styles.bottomButtons}
-                                            onPress={() => this.info(data)}
+                                                onPress={() => this.info(data)}
                                             >
-                                            <Image
+                                                <Image
                                                     style={{ height: 20, width: 20, }}
                                                     source={require('../../assets/icons/info.png')}
                                                 />
@@ -219,10 +215,8 @@ class CardMyProduct extends Component {
                                     </View>
                                 </View>
                             )
-                        }) :
-                        <Loader style={styles.loadingAnimation} loading={this.state.loading} 
-                            color={'#000'} size={'small'}  
-                            height={100} width={200} />
+                        }) : 
+                        null
                 }
             </View>
         );
