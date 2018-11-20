@@ -23,6 +23,11 @@ export default class TabProducts extends Component{
     this.props.navigation.navigate('gridview');
 
   }
+  openSearchPage = () => {
+    alert("searchPage")
+    this.props.navigation.navigate('searchPage');
+
+  }
 
 
     constructor(Props) {
@@ -31,6 +36,7 @@ export default class TabProducts extends Component{
       this.state = {
         search: '',
         index: 0,
+        isPress: false
       
       }
     };
@@ -44,8 +50,42 @@ export default class TabProducts extends Component{
       return (
           <View style={styles.container}>
               <StatusBar barStyle="light-content"/>
-              <View style={styles.searchBox}>
-                <Search placeholder={'Search Products...'} />
+
+
+
+              
+        
+              
+              <View style={styles.searchField}>
+                  <Icon name="ios-search"
+                      style={{ padding: 10 }}
+                      size={25}
+                      color={Colors.DarkGrey}
+                  />
+
+                  <TextInput
+                      editable={this.state.textEdit}
+                      autoCapitalize="none"
+                      maxLength={34}
+                      autoCorrect={false}
+                      returnKeyType="Search"
+                      underlineColorAndroid="transparent"
+                      keyboardAppearance="light"
+                      placeholder={'search'}
+                      placeholderTextColor={Colors.LightGrey}
+                      style={styles.searchBox}
+                      onSubmitEditing={() => {this.openSearchPage()}}
+                      blurOnSubmit={false}
+                      value={this.state.search}
+                      onFocus={this.changeStatus}
+                      onChangeText={(search) => this.setState({ search })}
+                  />
+              </View>
+              <View>
+
+
+
+
               </View>
               <View style={{flex:1,width:100+'%'}}>
                 <RouteProducts/>
@@ -133,6 +173,17 @@ export default class TabProducts extends Component{
     searchBox: {
       marginBottom: 20,
     },
+    searchBox: {
+      width:100 +'%',
+  },
+  searchField: {
+      flexDirection: 'row',
+      height: 44,
+      width: Dimensions.get('window').width - 40,
+      backgroundColor: Colors.LighterGrey,
+      borderRadius: 10,
+      marginHorizontal: 20
+  },
     // searchField: {
     //   flexDirection:'row',
     //   height: 44,

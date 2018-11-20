@@ -31,6 +31,14 @@ import OrdersDetails from '../screens/OrderDetails';
 import Notification from '../screens/Notification';
 import MyStatementSheet from '../screens/MyStatementSheet';
 import { Search } from '../components/Search';
+import SearchOrder from '../screens/SearchOrder';
+import SearchResult from '../screens/SearchResult';
+import SearchTags from '../components/SearchTags';
+import SearchBar from './SearchTabs';
+
+
+
+
 
 
 
@@ -47,7 +55,17 @@ const GridView = createStackNavigator({
         gridview: {
             screen: CardGridView
         },
-    }
+
+        searchPage: {
+            screen: SearchBar
+        },
+     
+    },
+        {
+                navigationOptions:{
+                header:null
+            }
+        }   
 )
 
 // -----------------------STACKS FOR PAGES ----------------------//

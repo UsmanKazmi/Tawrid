@@ -148,36 +148,40 @@ class CardNewProduct extends Component {
     }
 
     render() {
-        console.log('Props ', this.props);
         return (
             <View style={styles.mainView}>
-                <Swiper style={styles.wrapper} showsButtons={false} showsButtons={false} index={2} autoplay
-                    autoplayTimeout={5}
-                    activeDot={<View style={styles.slideView} />}>
-                    {this.props.data ?
-                        images.map((image, index) => {
-                            return (
-                                <View style={styles.slide1} key={index}>
-                                    <Image
-                                        style={styles.image}
-                                        source={{ uri: image }}
-                                    />
-                                </View>
-                            )
-                        }) : null
-                    }
-                </Swiper>
+               
                 {
                     this.props.data && this.state.loading ?
-                        <View style={{alignItems: 'center', justifyContent: 'flex-start', marginBottom: 90}}>
+
+                    
+
+                        
                         <Loader style={[styles.loadingAnimation, {marginBottom: 20}]} loading={this.state.loading}
                             color={'#ff000'} size={'large'} />
-                        </View>
                         :
                         this.props.data[0].map((data, index) => {
                             console.log('data ', data)
                             return (
+                                <View >
+                                <Swiper style={styles.wrapper} showsButtons={false} showsButtons={false} index={2} autoplay
+                                autoplayTimeout={5}
+                                activeDot={<View style={styles.slideView} />}>
+            
+                                            
+                                            <View style={styles.slide1} key={index}>
+                                                <Image
+                                                    style={styles.image}
+                                                    source={require('../../assets/images/noImage.png')}
+
+                                                    resizeMode='cover'
+                                                    />
+                                            </View>
+                                        
+                                
+                            </Swiper>
                                 <View key={index} style={{ backgroundColor: Colors.LightGreen, marginBottom: 20 }}>
+
                                     <View style={{ flexDirection: "row" }}>
                                         <Text style={styles.cardTitle}>
                                             {data.name}
@@ -237,6 +241,7 @@ class CardNewProduct extends Component {
                                         </TouchableOpacity>
                                     </View>
                                 </View>
+                                </View>
                             )
                         })
                 }
@@ -263,8 +268,8 @@ const styles = StyleSheet.create({
     },
     image:
     {
-        width: 100 + '%',
-        height: 100 + '%',
+        width: '100%',
+        height: "100%" ,
     },
     cardTitle: {
         flex: 1,
@@ -296,13 +301,15 @@ const styles = StyleSheet.create({
     },
     wrapper: {
         width: 100 + '%',
-        height: height / 3
+        height: 200,
+        backgroundColor:Colors.Grey
     },
     slide1: {
-        flex: 1,
+        width:'100%',
+        height:'100%',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#9DD6EB',
+        
     },
     slide2: {
         flex: 1,

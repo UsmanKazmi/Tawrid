@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/Entypo';
 export default class SearchProduct extends Component {
     render() {
         return (
-            <View style={{flex: 1}}>
+            <View style={{flex: 1,backgroundColor:Colors.White}}>
                 <ScrollView contentContainerStyle={styles.contentContainer}>
                     <View style={styles.Header}>
                         <Text style={{ fontWeight: 'bold', fontSize: 18, paddingLeft: 20 }}> Products </Text>

@@ -15,7 +15,7 @@ const SearchTabs = TabNavigator({
                  width: 30 //Padding 0 here
             },
     }
-    },
+},
     Products: {
         screen: SearchProduct
     },
@@ -35,22 +35,32 @@ const SearchTabs = TabNavigator({
                 alignItems:'center'
                 },
             indicatorStyle: {
-                backgroundColor: 'transparent',
+                backgroundColor: Colors.White,
                 borderBottomWidth:2,
                 borderBottomColor:Colors.Green,
     
             },
+            backgroundColor: Colors.White,
             activeTintColor: Colors.Green,
             inactiveTintColor: 'grey',
             pressColor: 'white',
             
             style: {
-                backgroundColor: 'tranparent',
+                backgroundColor: Colors.White,
             }
         }
     }
 )
-
+function mapStateToProps(state){
+    return {}
+}
+function mapDispatchToProps(dispatch){
+    return {
+        search: (txt)=> {
+            return dispatch(Action.searchAct(txt))
+        }
+    }   
+}
 export default class SearchBar extends Component {
     render() {
         return(

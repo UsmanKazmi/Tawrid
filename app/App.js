@@ -59,8 +59,8 @@ export default class App extends Component {
 
   }
 }
-const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 23 : 0;
-const APPBAR_HEIGHT = Platform.OS === 'ios' ? 44 : 56;
+const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 44 : 0;
+const APPBAR_HEIGHT = Platform.OS === 'ios' ? 5 : 56;
 
 const styles = StyleSheet.create({
   container: {
