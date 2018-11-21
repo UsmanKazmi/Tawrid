@@ -20,8 +20,11 @@ class NewProduct extends Component {
         TawridApi.getNewProduct().then(value => {
             let abc = []
             let img = []
+            
             img.push(value.data.image_secondary)
             abc.push(value.data)
+
+
             this.setState({
                 response: value.data,
                 img,

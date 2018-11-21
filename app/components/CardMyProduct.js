@@ -43,7 +43,7 @@ class CardMyProduct extends Component {
     }
 
     openChat = (data) => {
-        console.log(data)
+        // console.log(data)
         this.props.navigation.navigate('chatScreen', data)
     }
 
@@ -129,13 +129,13 @@ class CardMyProduct extends Component {
 
     }
     render() {
-        // console.log('My Products: ', this.props.data[0]);
+        console.log('My Products: ', this.props.data[0]);
         return (
             <View style={styles.mainView}>
                 {
                     this.props.data ?
                         this.props.data.map((data, index) => {
-                            console.log('image ', data.image_primary)
+                            // console.log('image ', data.image_primary)
                             return (
                                 <View key={index} style={styles.card}>
                                     <Swiper style={styles.wrapper} showsButtons={false}

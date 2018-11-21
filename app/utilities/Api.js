@@ -49,13 +49,22 @@ export const TawridApi = {
   // get New Products
   async getNewProduct() {
     console.log('started')
+    let collection = {
+    }
+    collection.is_new = 1;
     var url= "http://portal.tawrid.store/api/v1/product/list?include=tags,categories,company,features";
+
+    //Always Send 'Content-Type': 'application/json' in headers other wise the body will not be send
+
     return fetch(url, {
       method: 'POST',
       headers:({
-        token: storeToken
+        token: storeToken,
+        'Content-Type': 'application/json'
+
       }),
-      body: JSON.stringify({is_new: 1})
+
+      body: JSON.stringify(collection)
     })
       .then(res => res.json())
       .then(response => {
