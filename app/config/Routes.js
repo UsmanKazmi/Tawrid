@@ -832,7 +832,7 @@ const ClientStack = createStackNavigator({
     CardNewProduct: {
         screen: CardNewProduct
     },
-    OrderSelected: {
+    OrderSelectedinClientSTack: {
         screen: OrderSelected
     }
 },

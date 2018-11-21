@@ -71,7 +71,7 @@ export default class TabProducts extends Component{
                       returnKeyType="Search"
                       underlineColorAndroid="transparent"
                       keyboardAppearance="light"
-                      placeholder={'search'}
+                      placeholder={'Search'}
                       placeholderTextColor={Colors.LightGrey}
                       style={styles.searchBox}
                       onSubmitEditing={() => {this.openSearchPage()}}

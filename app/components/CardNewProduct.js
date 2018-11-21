@@ -4,16 +4,28 @@ import { Image, Text, View, StyleSheet, TouchableOpacity, Dimensions, Platform, 
 import Swiper from 'react-native-swiper';
 import Loader from '../components/Loader';
 import { TawridApi } from '../utilities/Api';
-import { withNavigation } from 'react-navigation';
+import { withNavigation,NavigationActions,StackActions } from 'react-navigation';
 
 const { height } = Dimensions.get('window')
 
 var images = []
+
+
+
+
+
+    const resetAction = StackActions.reset({
+        index: 0,
+        actions: [NavigationActions.navigate({ routeName: 'chatScreen' })],
+      });
+    
 class CardNewProduct extends Component {
     constructor() {
         super();
         this.state = {
-            loading: true
+            loadingFav: false,
+            loadingAddtoCart: false,
+            loadingShare:false
         }
     }
     componentDidMount() {
@@ -39,10 +51,15 @@ class CardNewProduct extends Component {
     info = (data) => {
         //OPEN Product Detail PAGE
         console.log('DATA FROM STACK', data)
-        this.props.navigation.navigate('productDetails', data)
+        this.props.navigation.navigate('productDetails', data,this.props.navigation)
+
+        
     }
 
     shareData = (data) => {
+        this.setState({
+            loadingShare: true,
+        });
         console.log('Share ', data)
 
         Share.share({
@@ -57,17 +74,28 @@ class CardNewProduct extends Component {
                     'com.apple.UIKit.activity.PostToTwitter'
                 ]
             })
-    }
+
+            this.setState({
+                loadingShare: false,
+            });
+          
+         }
 
     openChat = (data) => {
-        console.log('CHAT')
         this.props.navigation.navigate('chatScreen', data)
+
     }
 
     removeFromFav = () => {
+        this.setState({
+            loading: true,
+        });
+
         TawridApi.removeFromFav().then(value => {
             this.setState({
                 response: value,
+                loading: false,
+
             });
             if (this.state.response) {
                 console.log(' removeFromFav response from server ', this.state.response)
@@ -86,10 +114,16 @@ class CardNewProduct extends Component {
     }
 
     addtoFav = (data) => {
+        this.setState({
+            loadingFav: true,
+        });
+        
         const productID = data.id
         TawridApi.addToFav(productID).then(value => {
             this.setState({
                 response: value,
+                loadingFav: false,
+
             });
             if (this.state.response) {
                 console.log('addtoFav response from server ', this.state.response)
@@ -112,7 +146,9 @@ class CardNewProduct extends Component {
 
 
     addtoCart = (data) => {
-
+        this.setState({
+            loadingAddtoCart: true,
+        });
         let collection = {
             
         }
@@ -125,6 +161,7 @@ class CardNewProduct extends Component {
             console.log('value', value)
             this.setState({
                 response: value,
+                loadingAddtoCart: false,
 
             });
             if (this.state.response) {
@@ -212,18 +249,39 @@ class CardNewProduct extends Component {
                                 }}
                             />
                             <View style={styles.bottomIcons}>
+
+                            {
+                                this.state.loadingAddtoCart ?
+                                    <View style={{alignItems: 'center', justifyContent: 'flex-start',}}>
+                                        <Loader style={[styles.loadingAnimation,]} loading={this.state.loadingAddtoCart}
+                                            color={'#fff'} size={'small'} />
+                                    </View>
+                                    :
+
                                 <TouchableOpacity style={styles.bottomButtons}
                                     onPress={() => this.addtoCart(data)}>
                                     <Image style={styles.bottomImage}
                                         source={require('../../assets/icons/addtocart.png')}
                                     />
                                 </TouchableOpacity>
+                            }
+                                {
+                                this.state.loadingFav ?
+                                    <View style={{alignItems: 'center', justifyContent: 'flex-start',}}>
+                                        <Loader style={[styles.loadingAnimation,]} loading={this.state.loadingFav}
+                                            color={'#fff'} size={'small'} />
+                                    </View>
+                                    :
                                 <TouchableOpacity style={styles.bottomButtons}
                                     onPress={() => this.addtoFav(data)}>
+
                                     <Image style={styles.bottomImage}
                                         source={require('../../assets/icons/fav.png')}
                                     />
+                                    
                                 </TouchableOpacity>
+
+                                }
                                 <TouchableOpacity style={styles.bottomButtons}
                                     onPress={() => this.openChat(data)}
                                 >
@@ -231,6 +289,16 @@ class CardNewProduct extends Component {
                                         source={require('../../assets/icons/comment.png')}
                                     />
                                 </TouchableOpacity>
+
+                                {
+                                    this.state.loadingShare ?
+                                        <View style={{alignItems: 'center', justifyContent: 'flex-start',}}>
+                                            <Loader style={[styles.loadingAnimation,]} loading={this.state.loadingShare}
+                                                color={'#fff'} size={'small'} />
+                                        </View>
+                                        :
+
+
                                 <TouchableOpacity style={styles.bottomButtons}
                                     onPress={() => this.shareData(data)}
                                 >
@@ -238,6 +306,10 @@ class CardNewProduct extends Component {
                                         source={require('../../assets/icons/share.png')}
                                     />
                                 </TouchableOpacity>
+                                }
+
+
+
                                 <TouchableOpacity style={styles.bottomButtons}
                                     onPress={() => this.info(data)}
                                 >

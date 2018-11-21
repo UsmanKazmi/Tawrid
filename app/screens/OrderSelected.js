@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { Search } from '../components/Search';
 import { ImageSlider_OrderSelected } from '../components/ImageSlider_OrderSelected'
 import RouteCardSelected from '../config/RouteCardSelected';
+import { TawridApi } from '../utilities/Api';
 
 
 const cardTitle = {
@@ -23,7 +24,47 @@ export default class OrderSelected extends Component {
             images: []
         }
     }
+    addtoCart = (data) => {
+        this.setState({
+            loadingAddtoCart: true,
+        });
+        let collection = {
+            
+        }
+        collection.productID = data.id;
+        collection.method = 'add';
+        collection.note = 'Test';
+        collection.quantity = '11';
 
+        TawridApi.AddtoCart(collection).then(value => {
+            console.log('value', value)
+            this.setState({
+                response: value,
+                loadingAddtoCart: false,
+
+            });
+            if (this.state.response) {
+                console.log('Success:  Response from AddtoCart Method ', this.state.response);
+                if (this.state.response.status == 'success') {
+                    alert(data.name + " is successfully added to Cart")
+                } else if (this.state.response.status == 'error') {
+                    Alert.alert(this.state.response.message);
+                } else {
+                    Alert.alert(Error, 'An unknown error occured. Please contact App support team');
+                }
+            } else {
+                Alert.alert(Error, 'Request Terminated. Please check your internet or contact our support.');
+            }
+
+        })
+            .catch(error => {
+                this.setState({
+                    // loading: false,
+                });
+                console.log('Error: AddtoCart Method ', error);
+            });
+
+    }
     componentDidMount(){
         console.log('dataFromParams', this.props.navigation.state.params)
         dataFromParams = this.props.navigation.state.params
@@ -109,10 +150,21 @@ export default class OrderSelected extends Component {
                                 </View>
                         )})}
 
+                        {
+                            this.state.loadingAddtoCart ?
+                                <View style={{alignItems: 'center', justifyContent: 'flex-start',}}>
+                                    <Loader style={[styles.loadingAnimation,]} loading={this.state.loadingAddtoCart}
+                                        color={Colors.Yellow} size={'small'} />
+                                </View>
+                                :
+                        <TouchableOpacity 
+                             onPress={() => this.addtoCart(this.props.navigation.state.params)}>               
                             <Image
-                                style={{ height: 18, width: 18 }}
+                                style={{ height: 18, width: 18,marginRight:12 }}
                                 source={require('../../assets/icons/addtocartplus.png')}
                             />
+                            </TouchableOpacity>
+                        }
                         </View>
                     </View>
                     <View style={{

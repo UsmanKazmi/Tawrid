@@ -203,6 +203,36 @@ export default class OrderSelectedData extends Component {
                                  </Text>
                         </View>
 
+                        <View style={{
+                            marginVertical:7,
+                            flexDirection:'row',
+                            width:100 + '%'
+        
+                        }}>                       
+                                <Text style={{
+                                    textAlign:'left',
+                                    flex:1,
+                                    color:Colors.LightGrey,
+                                    fontSize:12
+
+                                }}>
+                                    Minimum order quantity
+              
+                                </Text>
+
+                                <Text style={{
+                                    textAlign:'right',
+                                    color:Colors.DarkGrey,
+                                    fontFamily:'bold',
+                                    fontSize:13
+
+
+                                }}>
+                                {this.props.screenProps.data.min_order_quantity}                
+                      
+                                  </Text>
+                        </View>
+
 
                 
                 </View>

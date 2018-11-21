@@ -12,6 +12,11 @@ const { height } = Dimensions.get('window')
 class CardMyProduct extends Component {
     constructor() {
         super();
+        this.state = {
+            loadingFav: false,
+            loadingAddtoCart: false,
+            loadingShare:false
+        }
     }
 
     handleChange = (info, name) => {
@@ -70,15 +75,21 @@ class CardMyProduct extends Component {
     }
 
     addtoFav = (data) => {
+        this.setState({
+            loadingFav: true,
+        });
+        
         const productID = data.id
         TawridApi.addToFav(productID).then(value => {
             this.setState({
                 response: value,
+                loadingFav: false,
+
             });
             if (this.state.response) {
                 console.log('addtoFav response from server ', this.state.response)
                 if (this.state.response.status == 'success') {
-                    alert(data.name + " is added to favourite")
+                alert(data.name + " is added to favourite")    
                 } else if (this.state.response.status == 'error') {
                     Alert.alert(this.state.response.message);
                 } else {
@@ -93,8 +104,14 @@ class CardMyProduct extends Component {
     tags = (tag) => {
         console.log('Tags ', tag)
     }
+
+
     addtoCart = (data) => {
+        this.setState({
+            loadingAddtoCart: true,
+        });
         let collection = {
+            
         }
         collection.productID = data.id;
         collection.method = 'add';
@@ -105,6 +122,8 @@ class CardMyProduct extends Component {
             console.log('value', value)
             this.setState({
                 response: value,
+                loadingAddtoCart: false,
+
             });
             if (this.state.response) {
                 console.log('Success:  Response from AddtoCart Method ', this.state.response);
@@ -128,12 +147,14 @@ class CardMyProduct extends Component {
             });
 
     }
+
     render() {
-        console.log('My Products: ', this.props.data);
+        console.log('dataa', this.props.data);
         return (
             <View style={styles.mainView}>
               
                 {this.props.data.map((data, index) => {
+                    console.log('data ', data)
                     return (
                         <View key={index} style={{ backgroundColor: Colors.LightGreen, marginBottom: 20 }}>
 
@@ -189,18 +210,39 @@ class CardMyProduct extends Component {
                                 }}
                             />
                             <View style={styles.bottomIcons}>
+
+                            {
+                                this.state.loadingAddtoCart ?
+                                    <View style={{alignItems: 'center', justifyContent: 'flex-start',}}>
+                                        <Loader style={[styles.loadingAnimation,]} loading={this.state.loadingAddtoCart}
+                                            color={'#fff'} size={'small'} />
+                                    </View>
+                                    :
+
                                 <TouchableOpacity style={styles.bottomButtons}
                                     onPress={() => this.addtoCart(data)}>
                                     <Image style={styles.bottomImage}
                                         source={require('../../assets/icons/addtocart.png')}
                                     />
                                 </TouchableOpacity>
+                            }
+                                {
+                                this.state.loadingFav ?
+                                    <View style={{alignItems: 'center', justifyContent: 'flex-start',}}>
+                                        <Loader style={[styles.loadingAnimation,]} loading={this.state.loadingFav}
+                                            color={'#fff'} size={'small'} />
+                                    </View>
+                                    :
                                 <TouchableOpacity style={styles.bottomButtons}
                                     onPress={() => this.addtoFav(data)}>
+
                                     <Image style={styles.bottomImage}
                                         source={require('../../assets/icons/fav.png')}
                                     />
+                                    
                                 </TouchableOpacity>
+
+                                }
                                 <TouchableOpacity style={styles.bottomButtons}
                                     onPress={() => this.openChat(data)}
                                 >
@@ -208,6 +250,16 @@ class CardMyProduct extends Component {
                                         source={require('../../assets/icons/comment.png')}
                                     />
                                 </TouchableOpacity>
+
+                                {
+                                    this.state.loadingShare ?
+                                        <View style={{alignItems: 'center', justifyContent: 'flex-start',}}>
+                                            <Loader style={[styles.loadingAnimation,]} loading={this.state.loadingShare}
+                                                color={'#fff'} size={'small'} />
+                                        </View>
+                                        :
+
+
                                 <TouchableOpacity style={styles.bottomButtons}
                                     onPress={() => this.shareData(data)}
                                 >
@@ -215,6 +267,10 @@ class CardMyProduct extends Component {
                                         source={require('../../assets/icons/share.png')}
                                     />
                                 </TouchableOpacity>
+                                }
+
+
+
                                 <TouchableOpacity style={styles.bottomButtons}
                                     onPress={() => this.info(data)}
                                 >

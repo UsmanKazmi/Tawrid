@@ -131,6 +131,53 @@ export default class OrderSelectedDetails extends Component {
                                 {this.props.screenProps.data.id}
                             </Text>
                         </View>
+                        <View style={{
+                            marginVertical: 7,
+                            flexDirection: 'row',
+                            width: 100 + '%'
+                        }}>
+                            <Text style={{
+                                textAlign: 'left',
+                                flex: 1,
+                                color: Colors.LightGrey,
+                                fontSize: 12
+                            }}>
+                                Barcode
+                            </Text>
+                            <Text style={{
+                                textAlign: 'right',
+                                color: Colors.DarkGrey,
+                                fontFamily: 'bold',
+                                fontSize: 13
+                            }}>
+                                null
+                            </Text>
+                        </View>
+
+                        <View style={{
+                            marginVertical: 7,
+                            flexDirection: 'row',
+                            width: 100 + '%'
+                        }}>
+                            <Text style={{
+                                textAlign: 'left',
+                                flex: 1,
+                                color: Colors.LightGrey,
+                                fontSize: 12
+                            }}>
+                                Price Note
+                            </Text>
+                            <Text style={{
+                                textAlign: 'right',
+                                color: Colors.DarkGrey,
+                                fontFamily: 'bold',
+                                fontSize: 13
+                            }}>
+                                null
+                            </Text>
+                        </View>
+
+
                     </View>
                     : null}
             </View>
