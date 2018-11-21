@@ -29,24 +29,24 @@ export default class OrderSelected extends Component {
         dataFromParams = this.props.navigation.state.params
         // this.setState({images: images.push(dataFromParams.image_secondary)})
         console.log('DATA REACHED ORDER SELECTED ',dataFromParams.name)
-        console.log('Img ', dataFromParams.image_secondary)
+        console.log('Img ', this.props.navigation.state.params)
         // console.log('asddsa', this.state.images)
     }
 
 
     render() {
         return (
-            <View style={{ paddingBottom: 30, backgroundColor: Colors.White }}>
+            <View style={{ paddingBottom: 30, backgroundColor: Colors.White,paddingTop:5 }}>
             {this.props.navigation.state.params ? 
                 <ScrollView >
                     <View style={{
                         flex: 1,
                         borderWidth: StyleSheet.hairlineWidth,
-                        borderColor: Colors.Grey
+                        borderColor: Colors.LighterGrey
                     }}>
                     </View>
                     <View style={{
-                        marginVertical: 5,
+                        paddingVertical: 5,
                         height: screenHeight/2.5,
                     }}>
                         <ImageSlider_OrderSelected 
@@ -92,7 +92,7 @@ export default class OrderSelected extends Component {
                         <Text style={styles.cardSubTitle}> {this.props.navigation.state.params.quantity} {this.props.navigation.state.params.unit} in {this.props.navigation.state.params.package} / {this.props.navigation.state.params.weight} KG
                         </Text>
                         <View style={{ flexDirection: "row" }}>
-                        <Text style={{fontSize: 9, color: Colors.Grey,}}>Tags: </Text>
+                        <Text style={{fontSize: 9, color: Colors.Grey,flex:1}}>Tags: </Text>
                         {
                             this.props.navigation.state.params.tags &&
                             this.props.navigation.state.params.tags.data.map((tag, index)=>{

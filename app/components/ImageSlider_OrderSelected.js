@@ -14,25 +14,23 @@ export class ImageSlider_OrderSelected extends Component {
     }
     componentDidMount(data) {
         let images = []
-        let dataFromParams = []
-        dataFromParams.push(this.props.image)
+        let dataFromParams=this.props.image 
+        console.log('dataFromParamss ', dataFromParams)
+
         dataFromParams.forEach(element => {
-            images.push(element[9394])
-            images.push(element[9395])
-            images.push(element[9396])
-            images.push(element[9397])
-            images.push(element[9398])
+            images.push(element)
+     
         });
         // this.setState({images: images.push(dataFromParams.image_secondary)})
-        console.log('DATA HAS COME into IMAGE SLIDER ', images)
+        console.log('dataFromParamss Image', images)
         this.setState({customWeather: images})
     }
 
     _renderItem(item, index) {
-        console.log('Item ', item.item)
+        console.log('Itemss ', item.item)
         return (
             <View style={styles.slide} key={index}>
-                <Image source={{uri: `${item}`}} style={styles.imageStyle} />
+                <Image source={{uri: `${item.item}`}} style={styles.imageStyle} />
             </View>
         );
     }
@@ -69,7 +67,7 @@ const styles = StyleSheet.create({
         width: 100 + '%',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#9DD6EB',
+        // backgroundColor: '#9DD6EB',
     },
     imageStyle: {
         backgroundColor: "#fff",

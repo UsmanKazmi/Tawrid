@@ -129,95 +129,103 @@ class CardMyProduct extends Component {
 
     }
     render() {
-        console.log('My Products: ', this.props.data[0]);
+        console.log('My Products: ', this.props.data);
         return (
             <View style={styles.mainView}>
-                {
-                    this.props.data ?
-                        this.props.data.map((data, index) => {
-                            // console.log('image ', data.image_primary)
-                            return (
-                                <View key={index} style={styles.card}>
-                                    <Swiper style={styles.wrapper} showsButtons={false}
-                                        activeDot={<View style={styles.slideView} />}
-                                    >
-                                        <View style={styles.slide1} >
-                                            <Image style={styles.image}
-                                                source={{ uri: data.image_primary }}
-                                            />
-                                        </View>
-                                    </Swiper>
-                                    <View style={{
-                                        backgroundColor: Colors.LightGreen,
-                                    }}>
-                                        <View style={{ flexDirection: "row" }}>
-                                            <Text style={styles.cardTitle}>
-                                                {data.name}
-                                            </Text>
-                                            <Image style={styles.tagImage}
-                                                source={require('../../assets/icons/loyalitybadge.png')}
-                                            />
-                                            <Text style={styles.cardPrice}>
-                                                {data.currency}{data.price}
-                                            </Text>
-                                        </View>
-                                        <Text style={styles.cardSubTitle}>
-                                            {data.quantity} {data.unit} in
-                                            {data.package}
-                                        </Text>
-                                        <View
-                                            style={{
-                                                borderBottomColor: 'white',
-                                                borderBottomWidth: StyleSheet.hairlineWidth,
-                                            }}
-                                        />
-                                        <View style={{ flexDirection: "row", justifyContent: 'space-evenly' }}>
-                                            <TouchableOpacity style={styles.bottomButtons}
-                                                onPress={() => this.addtoCart(data)}>
-                                                <Image
-                                                    style={{ height: 20, width: 20, }}
-                                                    source={require('../../assets/icons/addtocart.png')}
-                                                />
-                                            </TouchableOpacity>
-                                            <TouchableOpacity style={styles.bottomButtons}
-                                                onPress={() => this.addtoFav(data)}>
-                                                <Image
-                                                    style={{ height: 20, width: 20, }}
-                                                    source={require('../../assets/icons/fav.png')}
-                                                />
-                                            </TouchableOpacity>
-                                            <TouchableOpacity style={styles.bottomButtons}
-                                                onPress={() => this.openChat(data)}
-                                            >
-                                                <Image
-                                                    style={{ height: 20, width: 20, }}
-                                                    source={require('../../assets/icons/comment.png')}
-                                                />
-                                            </TouchableOpacity>
-                                            <TouchableOpacity style={styles.bottomButtons}
-                                                onPress={() => this.shareData(data)}
+              
+                {this.props.data.map((data, index) => {
+                    return (
+                        <View key={index} style={{ backgroundColor: Colors.LightGreen, marginBottom: 20 }}>
 
-                                            >
-                                                <Image
-                                                    style={{ height: 20, width: 20, }}
-                                                    source={require('../../assets/icons/share.png')}
-                                                />
-                                            </TouchableOpacity>
-                                            <TouchableOpacity style={styles.bottomButtons}
-                                                onPress={() => this.info(data)}
-                                            >
-                                                <Image
-                                                    style={{ height: 20, width: 20, }}
-                                                    source={require('../../assets/icons/info.png')}
-                                                />
-                                            </TouchableOpacity>
-                                        </View>
+
+
+                        <Swiper style={styles.wrapper} showsButtons={false} showsButtons={false} index={2} autoplay
+                        autoplayTimeout={5}
+                        activeDot={<View style={styles.slideView} />}>
+
+
+                            {data.image_secondary.map((image,index2) => {
+                                console.log('image_secondary',image)
+                                    return (
+                                    <View style={styles.slide1} key={index2}>
+                                        <Image
+                                            style={styles.image}
+                                            source={{ uri: image }}
+                                        />
                                     </View>
-                                </View>
-                            )
-                        }) : 
-                        null
-                }
+                                
+                                    )
+                                    })
+                                    } 
+                        
+                    </Swiper>
+
+
+
+
+
+
+
+                            <View style={{ flexDirection: "row" }}>
+                                <Text style={styles.cardTitle}>
+                                    {data.name}
+                                </Text>
+                                <TouchableOpacity style={styles.tagBtn} onPress={() => this.tags(data.tags)}>
+                                    <Image style={styles.tagImage}
+                                        source={require('../../assets/icons/loyalitybadge.png')}
+                                    />
+                                </TouchableOpacity>
+                                <Text style={styles.cardPrice}>
+                                    {data.currency}{data.price}
+                                </Text>
+                            </View>
+                            <Text style={styles.cardSubTitle}>
+                                {data.quantity} {data.unit} in {data.package}
+                            </Text>
+                            <View
+                                style={{
+                                    borderBottomColor: 'white',
+                                    borderBottomWidth: StyleSheet.hairlineWidth,
+                                }}
+                            />
+                            <View style={styles.bottomIcons}>
+                                <TouchableOpacity style={styles.bottomButtons}
+                                    onPress={() => this.addtoCart(data)}>
+                                    <Image style={styles.bottomImage}
+                                        source={require('../../assets/icons/addtocart.png')}
+                                    />
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.bottomButtons}
+                                    onPress={() => this.addtoFav(data)}>
+                                    <Image style={styles.bottomImage}
+                                        source={require('../../assets/icons/fav.png')}
+                                    />
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.bottomButtons}
+                                    onPress={() => this.openChat(data)}
+                                >
+                                    <Image style={styles.bottomImage}
+                                        source={require('../../assets/icons/comment.png')}
+                                    />
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.bottomButtons}
+                                    onPress={() => this.shareData(data)}
+                                >
+                                    <Image style={styles.bottomImage}
+                                        source={require('../../assets/icons/share.png')}
+                                    />
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.bottomButtons}
+                                    onPress={() => this.info(data)}
+                                >
+                                    <Image style={styles.bottomImage}
+                                        source={require('../../assets/icons/info.png')}
+                                    />
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    )
+                })}
             </View>
         );
     }
@@ -229,9 +237,6 @@ const styles = StyleSheet.create({
     mainView: {
         flexDirection: 'column',
         margin: 15
-    },
-    card: {
-        marginBottom: 20
     },
     slideView: {
         backgroundColor: Colors.Yellow,
@@ -308,6 +313,18 @@ const styles = StyleSheet.create({
         width: 20,
         marginHorizontal: 5,
         alignSelf: 'center'
+    },
+    bottomIcons: {
+        flexDirection: "row",
+        justifyContent: 'space-evenly'
+    },
+    bottomImage: {
+        height: 20,
+        width: 20
+    },
+    tagBtn: {
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 });
 

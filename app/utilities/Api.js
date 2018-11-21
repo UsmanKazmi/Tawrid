@@ -102,7 +102,9 @@ export const TawridApi = {
     return fetch(url, {
       method: 'POST',
       headers:({
-        token: storeToken
+        token: storeToken,
+        'Content-Type': 'application/json'
+
       }),
       body: JSON.stringify({my_product: 1})
     })
