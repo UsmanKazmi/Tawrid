@@ -60,12 +60,56 @@ const GridView = createStackNavigator({
             screen: SearchBar
         },
      
-    },
-        {
-                navigationOptions:{
-                header:null
+        orderSelected:{
+            screen:OrderSelected,
+            navigationOptions: ({ navigation, }) => {
+                console.log(' this.props in routes svvv',this.dataFromParams)
+                console.log(' this in routes svvv',this)
+
+            return {
+                headerStyle: {
+                    elevation: 0,
+                    shadowOpacity: 0,
+                },
+                headerTitle: <View style={styles.titleTextView}>
+                    <Text style={styles.titleText}>
+                        {'Product Detail'}
+                    </Text>
+                </View>,
+                headerLeft: <View style={{ flexDirection: 'row' }}>
+                 
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('tabproduct')}
+                        style={styles.filterIcon}>
+                        <Image
+                            source={require('../../assets/icons/backButton.png')}
+                            style={{ marginLeft: 10, width: 20, height: 20 }} />
+
+                    </TouchableOpacity>
+
+            
+                </View>,
+
+                headerRight: <View style={{ flexDirection: 'row' }}>
+                 
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('tabproduct')}
+                    style={styles.filterIcon}>
+                    <Image
+                        source={require('../../assets/icons/backButton.png')}
+                        style={{ marginLeft: 10, width: 20, height: 0 }} />
+
+                </TouchableOpacity>
+
+        
+            </View>,
             }
-        }   
+            }
+        },
+        chatScreen:{
+            screen:Chat,
+        },   
+    }
 )
 
 // -----------------------STACKS FOR PAGES ----------------------//
@@ -809,38 +853,187 @@ openGridView = () => {
 
 const ClientStack = createStackNavigator({
     storeTabs: {
-        screen: HomeActiveTabs
+        screen: HomeActiveTabs,
+        navigationOptions: {
+            header: null
+        }
     },
     Orders: {
-        screen: OrdersActiveTabs
+        screen: OrdersActiveTabs,
+        navigationOptions: {
+            header: null
+        }
     },
     Cart: {
-        screen: CartActiveTabs
+        screen: CartActiveTabs,
+        navigationOptions: {
+            header: null
+        }
     },
     Statement: {
-        screen: StatementActiveTabs
+        screen: StatementActiveTabs,
+        navigationOptions: {
+            header: null
+        }
     },
-    Chat: {
-        screen: ChatActiveTabs
+    chat: {
+        screen: Chat,
+        navigationOptions: ({ navigation, }) => {
+      
+
+        return {
+            headerStyle: {
+                elevation: 0,
+                shadowOpacity: 0,
+            },
+            headerTitle: <View style={styles.titleTextView}>
+                <Text style={styles.titleText}>
+                    {'My Chats'}
+                </Text>
+            </View>,
+            headerLeft: <View style={{ flexDirection: 'row' }}>
+             
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('tabproduct')}
+                    style={styles.filterIcon}>
+                    <Image
+                        source={require('../../assets/icons/backButton.png')}
+                        style={{ marginLeft: 10, width: 20, height: 20 }} />
+
+                </TouchableOpacity>
+
+        
+            </View>,
+
+            headerRight: <View style={{ flexDirection: 'row' }}>
+             
+            <TouchableOpacity
+                onPress={() => navigation.navigate('tabproduct')}
+                style={styles.filterIcon}>
+                <Image
+                    source={require('../../assets/icons/backButton.png')}
+                    style={{ marginLeft: 10, width: 20, height: 0 }} />
+
+            </TouchableOpacity>
+
+    
+        </View>,
+        }
+        }
     },
     Profile: {
-        screen: ProfilePage_withHeader
+        screen: ProfilePage_withHeader,
+        navigationOptions: {
+            header: null
+        }
     },
     notification: {
-        screen: NotificationStack
+        screen: NotificationStack,
+            navigationOptions: {
+                header: null
+            }
     },
     CardNewProduct: {
-        screen: CardNewProduct
+        screen: CardNewProduct,
+        
+            navigationOptions: {
+                header: null
+            }
+        
+        
     },
     OrderSelectedinClientSTack: {
-        screen: OrderSelected
+        screen: OrderSelected,
+        navigationOptions: ({ navigation, }) => {
+      
+
+        return {
+            headerStyle: {
+                elevation: 0,
+                shadowOpacity: 0,
+            },
+            headerTitle: <View style={styles.titleTextView}>
+                <Text style={styles.titleText}>
+                    {'Product Detail'}
+                </Text>
+            </View>,
+            headerLeft: <View style={{ flexDirection: 'row' }}>
+             
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('tabproduct')}
+                    style={styles.filterIcon}>
+                    <Image
+                        source={require('../../assets/icons/backButton.png')}
+                        style={{ marginLeft: 10, width: 20, height: 20 }} />
+
+                </TouchableOpacity>
+
+        
+            </View>,
+
+            headerRight: <View style={{ flexDirection: 'row' }}>
+             
+            <TouchableOpacity
+                onPress={() => navigation.navigate('tabproduct')}
+                style={styles.filterIcon}>
+                <Image
+                    source={require('../../assets/icons/backButton.png')}
+                    style={{ marginLeft: 10, width: 20, height: 0 }} />
+
+            </TouchableOpacity>
+
+    
+        </View>,
+        }
+        }
+    },
+    SearchBar: {
+        screen: SearchBar,
+        navigationOptions: ({ navigation, }) => {
+      
+
+        return {
+            headerStyle: {
+                elevation: 0,
+                shadowOpacity: 0,
+            },
+            headerTitle: <View style={styles.titleTextView}>
+                <Text style={styles.titleText}>
+                    {'Search'} 
+                </Text>
+            </View>,
+            headerLeft: <View style={{ flexDirection: 'row' }}>
+             
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('tabproduct')}
+                    style={styles.filterIcon}>
+                    <Image
+                        source={require('../../assets/icons/backButton.png')}
+                        style={{ marginLeft: 10, width: 20, height: 20 }} />
+
+                </TouchableOpacity>
+
+        
+            </View>,
+
+            headerRight: <View style={{ flexDirection: 'row' }}>
+             
+            <TouchableOpacity
+                onPress={() => navigation.navigate('tabproduct')}
+                style={styles.filterIcon}>
+                <Image
+                    source={require('../../assets/icons/backButton.png')}
+                    style={{ marginLeft: 10, width: 20, height: 0 }} />
+
+            </TouchableOpacity>
+
+    
+        </View>,
+        }
+        }
     }
 },
-{
-    navigationOptions: {
-        header: null
-    }
-}
+
 )
 
 export const navigationDrawer = createDrawerNavigator({

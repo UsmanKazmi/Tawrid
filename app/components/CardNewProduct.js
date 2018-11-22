@@ -16,7 +16,7 @@ var images = []
 
     const resetAction = StackActions.reset({
         index: 0,
-        actions: [NavigationActions.navigate({ routeName: 'chatScreen' })],
+        actions: [NavigationActions.navigate({ routeName: 'gridview' })],
       });
     
 class CardNewProduct extends Component {
@@ -50,8 +50,9 @@ class CardNewProduct extends Component {
     // }
     info = (data) => {
         //OPEN Product Detail PAGE
-        console.log('DATA FROM STACK', data)
-        this.props.navigation.navigate('productDetails', data,this.props.navigation)
+        console.log('this.props.navigation vvv', this.props.navigation)
+        this.props.navigation.navigate('OrderSelectedinClientSTack', data)
+        console.log(' this.props vvv', this.props)
 
         
     }
@@ -82,7 +83,7 @@ class CardNewProduct extends Component {
          }
 
     openChat = (data) => {
-        this.props.navigation.navigate('chatScreen', data)
+        this.props.navigation.navigate('chat', data)
 
     }
 

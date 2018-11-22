@@ -4,9 +4,21 @@ import {Colors} from '../helpers/Helpers';
 import Icon from 'react-native-vector-icons/Ionicons';
 import RouteProducts from '../config/RouteProducts';
 import { Search } from '../components/Search';
+import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
+import MyProduct from './MyProduct';
+import NewProduct from './NewProduct';
+
+const FirstRoute = () => (
+  <View style={[styles.scene, { backgroundColor: Colors.White }]} />
+);
+const SecondRoute = () => (
+  <View style={[styles.scene, { backgroundColor: Colors.White }]} />
+);
+const Width =  {width: Dimensions.get('window').width}
 
 
 export default class TabProducts extends Component{
+  
     
   static navigationOptions = {
     header: null
@@ -25,7 +37,7 @@ export default class TabProducts extends Component{
   }
   openSearchPage = () => {
     alert("searchPage")
-    this.props.navigation.navigate('searchPage');
+    this.props.navigation.navigate('SearchBar');
 
   }
 
@@ -36,11 +48,32 @@ export default class TabProducts extends Component{
       this.state = {
         search: '',
         index: 0,
-        isPress: false
+        isPress: false,
+        routes: [
+          { key: 'first', title: 'New Products' },
+          { key: 'second', title: 'My Products' },
+        ],
       
       }
     };
       
+
+    _renderTabBar = props => {
+  
+      return (
+        <TabBar
+        {...props}
+        scrollEnabled
+        indicatorStyle={styles.indicator}
+        style={styles.tabbar}
+        tabStyle={styles.tab}
+        labelStyle={styles.label}
+      />
+      );
+    }
+
+
+    
     // before view appear
     componentWillMount() {}    
     // when view appears
@@ -55,12 +88,11 @@ export default class TabProducts extends Component{
 
               
         
-              
+            <View style={{backgroundColor:Colors.White}}>
               <View style={styles.searchField}>
                   <Icon name="ios-search"
                       style={{ padding: 10 }}
                       size={25}
-                      color={Colors.DarkGrey}
                   />
 
                   <TextInput
@@ -68,7 +100,7 @@ export default class TabProducts extends Component{
                       autoCapitalize="none"
                       maxLength={34}
                       autoCorrect={false}
-                      returnKeyType="Search"
+                      // returnKeyType="Search"
                       underlineColorAndroid="transparent"
                       keyboardAppearance="light"
                       placeholder={'Search'}
@@ -80,7 +112,8 @@ export default class TabProducts extends Component{
                       onFocus={this.changeStatus}
                       onChangeText={(search) => this.setState({ search })}
                   />
-              </View>
+                  </View>
+                </View>
               <View>
 
 
@@ -88,8 +121,23 @@ export default class TabProducts extends Component{
 
               </View>
               <View style={{flex:1,width:100+'%'}}>
-                <RouteProducts/>
-              </View>
+
+              <TabView
+          
+                  navigationState={this.state}
+                        renderScene={SceneMap({
+                          first: NewProduct,
+                          second: MyProduct,
+                        })}
+                  onIndexChange={index => this.setState({ index })}
+                  renderTabBar={this._renderTabBar}
+                  initialLayout={{ width: Dimensions.get('window').width }}
+                  indicatorStyle={{
+                    backgroundColor:Colors.white
+                  }}
+                  useNativeDriver
+            />
+                          </View>
           </View>
       );
     }
@@ -115,6 +163,9 @@ export default class TabProducts extends Component{
       paddingBottom: 10,
       textAlign: 'center',
       
+    },
+    scene: {
+      flex: 1,
     },
     tabItem: {
       alignItems: 'center',
@@ -179,22 +230,39 @@ export default class TabProducts extends Component{
   searchField: {
       flexDirection: 'row',
       height: 44,
-      width: Dimensions.get('window').width - 40,
       backgroundColor: Colors.LighterGrey,
       borderRadius: 10,
-      marginHorizontal: 20
+      marginHorizontal: 20,
+      paddingHorizontal:30
   },
-    // searchField: {
-    //   flexDirection:'row',
-    //   height: 44,
-    //   width: Dimensions.get('window').width -40,
-    //   paddingLeft: 10,
-    //   paddingRight: 20,
-    //   backgroundColor:Colors.LighterGrey,
-    //   fontFamily: 'DIN Next LT Arabic',
-    //   fontSize: 17,
-    //   color: Colors.DarkGrey,
-    //   borderRadius: 10,
-    // }
+  container: {
+    flex: 1,
+  },
+  tabBar: {
+    flexDirection: 'row',
+  },
+  tabItem: {
+    flex: 1,
+    alignItems: 'center',
+    padding: 16,
+  },
+    container: {
+      flex: 1,
+    },
+    tabbar: {
+      backgroundColor: Colors.White,
+    },
+    tab: {
+      color: Colors.Yellow,
+
+      width: Width.width/2,
+    },
+    indicator: {
+      backgroundColor: Colors.Green,
+    },
+    label: {
+      color: Colors.Grey,
+      fontWeight: '500',
+    },
   });
   
