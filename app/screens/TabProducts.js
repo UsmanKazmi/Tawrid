@@ -31,13 +31,13 @@ export default class TabProducts extends Component{
   }
 
   openGridView = () => {
-    alert("asd")
     this.props.navigation.navigate('gridview');
 
   }
-  openSearchPage = () => {
+  openSearchPage = (data) => {
     alert("searchPage")
-    this.props.navigation.navigate('SearchBar');
+    this.props.navigation.navigate('SearchBar',data);
+    console.log('SearchPage',data)
 
   }
 
@@ -106,7 +106,7 @@ export default class TabProducts extends Component{
                       placeholder={'Search'}
                       placeholderTextColor={Colors.LightGrey}
                       style={styles.searchBox}
-                      onSubmitEditing={() => {this.openSearchPage()}}
+                      onSubmitEditing={() => {this.openSearchPage(this.state.search)}}
                       blurOnSubmit={false}
                       value={this.state.search}
                       onFocus={this.changeStatus}
@@ -233,7 +233,7 @@ export default class TabProducts extends Component{
       backgroundColor: Colors.LighterGrey,
       borderRadius: 10,
       marginHorizontal: 20,
-      paddingHorizontal:30
+      // paddingHorizontal:30
   },
   container: {
     flex: 1,

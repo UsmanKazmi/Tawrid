@@ -8,6 +8,36 @@ export class Api extends Component {
   };
 };
 
+function doGetRequest({url}){
+  return new Promise(resolve => {
+      fetch('http://portal.tawrid.store/'+ url,{
+          method : 'GET',
+          headers: {
+              token: storeToken
+          }
+      })
+      .then(res => res.json())
+      .then(success => {
+          resolve(success);
+          if(success.status=='error'){
+              Alert.alert(Error, success.message);
+          }
+          console.log( 'success from get',{ success });
+      })
+      .catch(err => {
+          console.log( 'Error in Get  Request',{ err });
+          Alert.alert(Error, 'An unknown error occured. Please contact App support team');
+      });
+  })
+}
+
+
+
+
+
+
+
+
 //Get Token From Local Storage
 let TokenFromStorage = ''
 _retrieveData = async () => {
@@ -179,21 +209,19 @@ export const TawridApi = {
 
   //Add to favourite Service
   async addToFav(productID) {
-    var url= `http://portal.tawrid.store/api/v1/favorite/${productID}/add`;
-    return fetch(url,  {
-      method: 'GET',
-      headers:({
-        token: storeToken
-      })
-    })
-      .then(res => res.json())
-      .then(response => {
-          console.log('Add To Favourute Service response: ', response)
-          return response;
+    return dispatch => {
+    doGetRequest({url:'api/v1/favorite/'+productID+'/add'})
+    
+      .then(success => {
+          console.log('Add To Favourute Service response: ', success)
+          dispatch({
+            type: actionType.getOrderData,
+            data: success.data
+        })      
       })
       .catch(err => {
         console.log('Error ', err)
-        Alert.alert(Error, 
+        alert(
           'An unknown error occured in Add To Favourute Service. Please contact App support team');
         return err
       })

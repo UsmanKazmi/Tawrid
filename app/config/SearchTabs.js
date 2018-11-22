@@ -62,6 +62,11 @@ function mapDispatchToProps(dispatch){
     }   
 }
 export default class SearchBar extends Component {
+    componentDidMount(){
+        const searchValue = this.props.navigation.state.params;
+        console.log('searchValue', searchValue)
+
+    }
     render() {
         return(
             <SearchTabs />
