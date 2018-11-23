@@ -9,7 +9,12 @@ import { CardActiveOrders } from '../components/CardActiveOrders';
 import { CardChat } from '../components/CardChat';
 import { ChatBubble } from '../components/ChatBubble';
 
+
+const {width, height} = Dimensions.get('window')
+
 export default class Chat extends Component {
+
+
 
 
   openNavigationDrawer = () => {
@@ -31,16 +36,19 @@ export default class Chat extends Component {
   render() {
     return (
  
-        <View style={{flex:1,paddingBottom:50,backgroundColor:Colors.White}}>
+        <View style={{flex:1,backgroundColor:Colors.White}}>
 
         {this.props.navigation.state.params ? 
+          <View >
 
-              
-               <ScrollView>
+            <View style={{height: height - 150}}> 
+
+               <ScrollView style={{
+                borderColor:Colors.Grey
+              }}>
 
 
               <View style={{
-                    flex:1,
                     borderWidth:StyleSheet.hairlineWidth,
                     borderColor:Colors.Grey
                   }}>
@@ -151,16 +159,15 @@ export default class Chat extends Component {
 
                         
                          
-                  
+                  </View>
 
+
+              </ScrollView>
               </View>
 
 
-              <View style={{
-                marginHorizontal:10,
-                flexDirection:"row",
-                justifyContent:'flex-start'
-            }}>    
+
+              <View style={{ marginHorizontal:10,flexDirection:"row",}}>    
             
             <TextInput 
             underlineColorAndroid="transparent"  
@@ -201,8 +208,7 @@ export default class Chat extends Component {
               
         
 
-              </ScrollView>
-              
+          </View>
            : null }
 
         </View>

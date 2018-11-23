@@ -1,9 +1,15 @@
 import PropTypes from 'prop-types';
 import React, {Component} from 'react';
-import {NavigationActions} from 'react-navigation';
+import {StackActions,NavigationActions} from 'react-navigation';
 import {ScrollView, Text, View, StyleSheet,TouchableOpacity, TouchableHighlight,Image}   from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Colors } from '../helpers/Helpers';
+
+
+const resetAction = StackActions.reset({
+  index: 0,
+  actions: [NavigationActions.navigate({ routeName: 'logoutStack' })],
+});
 
 class SideMenu extends Component {
   navigateToScreen = (route) => () => {
@@ -22,8 +28,8 @@ class SideMenu extends Component {
   }
 
   logout = ()=> {
-    this.props.navigation.navigate('login');
-  }
+    //  this.props.navigation.navigate('logoutStack')  
+    }
 
   openNotification = ()=> {
     this.props.navigation.navigate('notification');
@@ -56,7 +62,7 @@ class SideMenu extends Component {
        
           </View>
 
-             <TouchableHighlight style={styles.buttonRow} underlayColor={Colors.TransparentGreen}
+             {/*<TouchableHighlight style={styles.buttonRow} underlayColor={Colors.TransparentGreen}
                onPress={ this.openStoreTabs}>
                   <View style ={{flexDirection:'row', paddingStart:20}}>    
                           <Image
@@ -92,6 +98,8 @@ class SideMenu extends Component {
                         <Text  style={styles.pageText} >MY CART</Text>
                 </View>
             </TouchableHighlight>
+
+
             <TouchableHighlight style={styles.buttonRow} underlayColor={Colors.TransparentGreen}  
             onPress={() => this.props.navigation.navigate('Statement')}>
               <View style ={{flexDirection:'row', paddingStart:20}}>    
@@ -102,6 +110,8 @@ class SideMenu extends Component {
                 <Text  style={styles.pageText} >MY STATEMENTS</Text>
               </View>
              </TouchableHighlight>
+
+
              <TouchableHighlight style={styles.buttonRow} underlayColor={Colors.TransparentGreen}  
               onPress={() => this.props.navigation.navigate('Chat')}>
                     <View style ={{flexDirection:'row', paddingStart:20}}>    
@@ -112,7 +122,7 @@ class SideMenu extends Component {
                               <Text  style={styles.pageText} >CHATS</Text>
               
                     </View>
-          </TouchableHighlight>
+    </TouchableHighlight>*/}
 
           <TouchableHighlight style={styles.buttonRow} underlayColor={Colors.TransparentGreen}  >
 
@@ -121,7 +131,7 @@ class SideMenu extends Component {
                                   style={{height:20,width:20, }}
                                   source={require('../../assets/icons/menu6.png')}
                               />                              
-                              <Text  style={styles.pageText} >SETTINGS</Text>
+                              <Text  style={styles.pageText}>SETTINGS</Text>
       
                   </View>
              </TouchableHighlight>
@@ -143,8 +153,9 @@ class SideMenu extends Component {
 
         </ScrollView>
 
-        <TouchableHighlight style={styles.buttonRow} underlayColor={Colors.TransparentGreen}  
-        >
+        <TouchableHighlight style={styles.buttonRow} underlayColor={Colors.White}
+        onPress={this.logout}>
+
         <View style ={{flexDirection:'row', paddingStart:20}}>    
 
                 <Image
@@ -217,7 +228,7 @@ const styles = StyleSheet.create ({
             flexDirection:'row',
             flex:1,
             justifyContent:'flex-start',
-            alignItems:'center'
+            alignItems:'flex-end'
         
       },
       pageText:{

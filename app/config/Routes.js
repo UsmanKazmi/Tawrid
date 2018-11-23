@@ -108,7 +108,8 @@ const GridView = createStackNavigator({
         },
         chatScreen:{
             screen:Chat,
-        },   
+        },
+       
     }
 )
 
@@ -157,7 +158,7 @@ const MyStoreTabs = createStackNavigator({
                 headerRight: <View style={{ flexDirection: 'row' }}>
 
                     <TouchableOpacity
-                        onPress={() => navigation.toggleDrawer()}
+                        onPress={() => navigation.navigate('notification')}
                         style={styles.filterIcon}>
                         <Image
                             source={require('../../assets/icons/notification.png')}
@@ -851,6 +852,11 @@ openGridView = () => {
     this.props.navigation.navigate('gridview');
 }
 
+const LogoutStack = createSwitchNavigator({
+    login: Login,
+    // register: Register,
+    // forgotPassword:ForgotPassword,
+})
 const ClientStack = createStackNavigator({
     storeTabs: {
         screen: HomeActiveTabs,
@@ -935,6 +941,15 @@ const ClientStack = createStackNavigator({
     },
     CardNewProduct: {
         screen: CardNewProduct,
+        
+            navigationOptions: {
+                header: null
+            }
+        
+        
+    },
+    logoutStack: {
+        screen: LogoutStack,
         
             navigationOptions: {
                 header: null
@@ -1031,10 +1046,12 @@ const ClientStack = createStackNavigator({
         </View>,
         }
         }
-    }
+    },
+    
 },
 
 )
+
 
 export const navigationDrawer = createDrawerNavigator({
     Home: {

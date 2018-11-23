@@ -66,18 +66,35 @@ export default class OrderSelected extends Component {
 
     }
     componentDidMount(){
-        console.log('dataFromParams', this.props.navigation.state.params)
+        // console.log('dataFromParams', this.props.navigation.state.params)
         dataFromParams = this.props.navigation.state.params
-        // this.setState({images: images.push(dataFromParams.image_secondary)})
-        console.log('DATA REACHED ORDER SELECTED ',dataFromParams.name)
-        console.log('Img ', this.props.navigation.state.params)
-        // console.log('asddsa', this.state.images)
+
+        //if size_information is null this will make it an empty string 
+        if(dataFromParams.size_information==null){
+            dataFromParams.size_information='' 
+            console.log('NOTE: size_information from product detail is Null')
+        }
+        if(dataFromParams.features.data && dataFromParams.features.data.length < 1 ){
+            console.log('NOTE: features.data from product detail is empty')
+            dataFromParams.features.data.push({
+                id:0,
+                name:'No value From Server',
+                value:'No value From Server'
+            })
+        
+
+
+        }
+      
+     
+    
+
     }
 
 
     render() {
         return (
-            <View style={{ paddingBottom: 30, backgroundColor: Colors.White,paddingTop:5 }}>
+            <View style={{  backgroundColor: Colors.White }}>
             {this.props.navigation.state.params ? 
                 <ScrollView >
                     <View style={{

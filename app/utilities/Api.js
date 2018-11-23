@@ -209,23 +209,43 @@ export const TawridApi = {
 
   //Add to favourite Service
   async addToFav(productID) {
-    return dispatch => {
-    doGetRequest({url:'api/v1/favorite/'+productID+'/add'})
-    
-      .then(success => {
-          console.log('Add To Favourute Service response: ', success)
-          dispatch({
-            type: actionType.getOrderData,
-            data: success.data
-        })      
+    // doGetRequest({url:'api/v1/favorite/'+productID+'/add'})    
+    //   .then(success => {
+    //       console.log('Add To Favourute Service response: ', success)
+    //    return success    
+    //   })
+    //   .catch(err => {
+    //     console.log('Error ', err)
+    //     alert(
+    //       'An unknown error occured in Add To Favourute Service. Please contact App support team');
+    //     return err
+    //   })
+
+    var url= `http://portal.tawrid.store/api/v1/favorite/${productID}/add`;
+    return fetch(url,  {
+      method: 'GET',
+      headers:({
+        token: storeToken
+      })
+    })
+      .then(res => res.json())
+      .then(response => {
+          console.log('remove from favourite Service response: ', response)
+          return response;
       })
       .catch(err => {
         console.log('Error ', err)
-        alert(
-          'An unknown error occured in Add To Favourute Service. Please contact App support team');
+        Alert.alert(Error , 
+          'An unknown error occured in remove from favorite Service. Please contact App support team');
         return err
       })
+
+
+
+
+
   },
+
 
   async removeFromFav() {
     var url= "http://portal.tawrid.store/api/v1/favorite/9467/remove";

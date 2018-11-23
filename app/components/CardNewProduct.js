@@ -64,7 +64,7 @@ class CardNewProduct extends Component {
         console.log('Share ', data)
 
         Share.share({
-            message: data.description,
+            message: "Name:  " + data.name +"\n" + "Description:  " +data.description +"\n" + "Link:  " + data.image_primary,
             url: data.image_primary,
             title: data.name
         }, {
@@ -200,8 +200,7 @@ class CardNewProduct extends Component {
 
 
 
-                        <Swiper style={styles.wrapper} showsButtons={false} showsButtons={false} index={2} autoplay
-                        autoplayTimeout={5}
+                        <Swiper style={styles.wrapper} showsButtons={false} 
                         activeDot={<View style={styles.slideView} />}>
 
 

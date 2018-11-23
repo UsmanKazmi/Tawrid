@@ -27,14 +27,17 @@ class CardMyProduct extends Component {
     info = (data) => {
         //OPEN Product Detail PAGE
         console.log('DATA FROM STACK', data)
-        this.props.navigation.navigate('productDetails', data)
+        this.props.navigation.navigate('OrderSelectedinClientSTack', data)
     }
 
     shareData = (data) => {
+        this.setState({
+            loadingShare: true,
+        });
         console.log('Share ', data)
 
         Share.share({
-            message: data.description,
+            message: "Name:  " + data.name +"\n" + "Description:  " +data.description +"\n" + "Link:  " + data.image_primary,
             url: data.image_primary,
             title: data.name
         }, {
@@ -45,11 +48,16 @@ class CardMyProduct extends Component {
                     'com.apple.UIKit.activity.PostToTwitter'
                 ]
             })
-    }
+
+            this.setState({
+                loadingShare: false,
+            });
+          
+         }
 
     openChat = (data) => {
         // console.log(data)
-        this.props.navigation.navigate('chatScreen', data)
+        this.props.navigation.navigate('chat', data)
     }
 
     removeFromFav = () => {
